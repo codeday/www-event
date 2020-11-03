@@ -1,0 +1,21 @@
+query IndexStaticPathsQuery {
+  cms {
+    regions(limit: 1000) {
+      items {
+        webname
+        aliases
+      }
+    }
+  }
+}
+
+query IndexStaticPropsQuery ($webname: String!) {
+  cms {
+    regions(where:{ OR: [{ webname: $webname }, { aliases_contains_all: [$webname] }] }, limit: 1) {
+      items {
+        name
+        webname
+      }
+    }
+  }
+}
