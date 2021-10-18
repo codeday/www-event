@@ -19,6 +19,7 @@ import Divider from "@codeday/topo/Atom/Divider"
 import CovidDetails from '../../components/CovidDetails';
 import RegisterForm from '../../components/RegisterForm';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
+import Scroll from 'react-scroll';
 
 export default function EventHome({ webname, region, images, quotes, event }) {
   // Redirect the user to the canonical URL
@@ -89,7 +90,7 @@ export default function EventHome({ webname, region, images, quotes, event }) {
                   (Early Bird Discount!)
                 </Text>: null
               }
-              <Button variantColor="green" mr={2} >Register Now</Button>
+              <Button variantColor="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
               <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Apply for a scholarship</Button>
             </Text>
           </>: null
