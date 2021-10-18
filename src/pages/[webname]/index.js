@@ -90,7 +90,7 @@ export default function EventHome({ webname, region, images, quotes, event }) {
                 </Text>: null
               }
               <Button variantColor="green" mr={2} >Register Now</Button>
-              <Button variant="outline" _hover={{bg: "#ff686b"}}>Apply for a scholarship</Button>
+              <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Apply for a scholarship</Button>
             </Text>
           </>: null
 
