@@ -1,0 +1,10 @@
+mutation RegisterMutation($eventId: String!, $ticketData: ClearTicketCreateWithoutEventInput!, $guardianData:  ClearPersonCreateInput, $promoCode: String) {
+    clear {
+        registerForEvent(
+            eventWhere: {id: $eventId},
+            guardianData: $guardianData,
+            ticketData: $ticketData,
+            promoCode: $promoCode
+        )
+    }
+}

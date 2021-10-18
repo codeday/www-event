@@ -1,0 +1,11 @@
+fragment IndexHeaderFragment on Query {
+    cms {
+        pressPhotos(where: { tags_contains_all: ["visible-project"] }) {
+            items {
+                photo {
+                    url
+                }
+            }
+        }
+    }
+}

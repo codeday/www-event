@@ -1,0 +1,18 @@
+fragment StudentQuotesFragment on Query {
+    cms {
+        testimonials(where: {program: { webname: "codeday" },type: "Student",}) {
+            items {
+                firstName
+                lastName
+                region {
+                    name
+                }
+                quote
+                experience
+                image {
+                    url(transform: { width: 64, height: 64, resizeStrategy: FILL })
+                }
+            }
+        }
+    }
+}

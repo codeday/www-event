@@ -12,6 +12,8 @@
     "@codeday/topocons": "^1.5.0",
     "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",
+    "@stripe/react-stripe-js": "^1.6.0",
+    "@stripe/stripe-js": "^1.20.2",
     "babel-plugin-inline-import-graphql-ast": "^2.4.1",
     "emotion-theming": "^10.0.27",
     "graphql": "^15.4.0",

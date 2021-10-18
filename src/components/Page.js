@@ -6,7 +6,6 @@ import Header, { SiteLogo, Menu } from '@codeday/topo/Organism/Header';
 import Footer from '@codeday/topo/Organism/Footer';
 import { CodeDay } from '@codeday/topo/Atom/Logo';
 
-// TODO: Set production domain
 const DOMAIN = 'https://event.codeday.org';
 
 export default ({ children, title, darkHeader, slug, region }) => (

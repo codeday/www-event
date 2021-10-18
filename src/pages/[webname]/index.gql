@@ -1,3 +1,6 @@
+#import "../../components/IndexHeader.gql"
+#import "../../components/StudentQuotes.gql"
+
 query IndexStaticPathsQuery {
   cms {
     regions(limit: 1000) {
@@ -9,7 +12,7 @@ query IndexStaticPathsQuery {
   }
 }
 
-query IndexStaticPropsQuery ($webname: String!) {
+query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!) {
   cms {
     regions(where:{ OR: [{ webname: $webname }, { aliases_contains_all: [$webname] }] }, limit: 1) {
       items {
@@ -18,4 +21,27 @@ query IndexStaticPropsQuery ($webname: String!) {
       }
     }
   }
+
+  clear {
+    findFirstEvent(where: {contentfulWebname: {equals: $webname}, endDate: {gte: $endDate}}, orderBy: {startDate: desc}) {
+      id
+      canRegister
+      canEarlyBirdRegister
+      activeTicketPrice
+      displayDate
+      earlyBirdCutoff
+      registrationCutoff
+      eventGroup {
+        name
+      }
+      venue {
+        name
+        address
+        mapLink
+      }
+    }
+  }
+  ...IndexHeaderFragment
+  ...StudentQuotesFragment
 }
+
