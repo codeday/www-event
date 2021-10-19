@@ -1,250 +1,81 @@
+/* eslint-disable react/prop-types */
 import React, { useReducer, useState } from 'react';
-import Box, { Flex } from '@codeday/topo/Atom/Box';
-import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
-import TextInput from '@codeday/topo/Atom/Input/Text';
-import NumInput from '@codeday/topo/Atom/Input/Numeric';
-import Divider from '@codeday/topo/Atom/Divider';
-import { UiError, UiCheck, Ticket } from '@codeday/topocons/Icon';
-import Button from '@codeday/topo/Atom/Button';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-import { print } from 'graphql';
-import { useToasts, apiFetch } from '@codeday/topo/utils';
+import Box, { Grid } from '@codeday/topo/Atom/Box';
+import Text, { Heading } from '@codeday/topo/Atom/Text';
+import { Ticket } from '@codeday/topocons/Icon';
 import DataCollection from '@codeday/topo/Molecule/DataCollection';
-import { RegisterMutation } from './RegisterForm.gql';
-
-const MIN_AGE = 13;
-const MAX_AGE = 25;
-
-// export const api = 'http://localhost:4000';
-// export const apiFetch = (query, variables, headers) => {
-//   const client = new GraphQLClient(api, { headers });
-//   return client.request(query, variables);
-// };
+import PaymentBox from './PaymentBox';
+import PromoBox from './PromoBox';
+import RegistrantBox from './RegistrantBox';
 
 export default function RegisterForm({ event, ...props }) {
-  const { success, error } = useToasts();
-  const stripe = useStripe();
-  const elements = useElements();
-  const [ticketData, setTicketData] = useReducer(
-    (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
-  );
-  const [guardianData, setGuardianData] = useReducer(
-    (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
-  );
+  const [ticketData, setTicketData] = useState();
+  const [guardianData, setGuardianData] = useState();
+  const [isValid, setIsValid] = useState();
   const [promoCode, setPromoCode] = useState();
-  const [promoCodeLoading, setPromoCodeLoading] = useState(false);
   const [finalPrice, setFinalPrice] = useState(event.activeTicketPrice);
-  return (
-    <Box borderWidth={2} rounded={3} borderColor="brand.500" {...props}>
-      <Box p={4} bg="brand.500">
-        <Heading color="white">Register for CodeDay</Heading>
-      </Box>
-      <Box m={2} p={4}>
-        <Text mb={1}>What is your name?</Text>
-        <TextInput
-          d="inline"
-          ml={2}
-          w={["auto", "xs"]}
-          placeholder="First Name"
-          value={ticketData.firstName}
-          onChange={
-            (e) => setTicketData(['firstName', e.target.value])
-          }
-        />
-        <TextInput
-          d="inline"
-          ml={2}
-          w={["auto", "xs"]}
-          placeholder="Last"
-          value={ticketData.lastName}
-          onChange={
-            (e) => setTicketData(['lastName', e.target.value])
-          }
-        />
-        <Text mb={1} mt={2}>How old are you?</Text>
-        <NumInput
-          m={2}
-          w="3xs"
-          min={0}
-          keepWithinRange
-          value={ticketData.age}
-          onChange={
-            (value) => setTicketData(['age', value])
-          }
-        />
-        {ticketData.age < MIN_AGE
-          ? (
-            <Text bold color="red.800">
-              <UiError />&nbsp;Unfortunately, students under {MIN_AGE} are not allowed to attend CodeDay.
-            </Text>
-          ) : null}
-        {ticketData.age > MAX_AGE
-          ? (
-            <Text bold color="red.800">
-              <UiError />&nbsp;Unfortunately, students over {MAX_AGE} are not allowed ato attend CodeDay.
-            </Text>
-          ) : null}
+  const [isComplete, setIsComplete] = useState(false);
 
-        <Text mb={1} mt={2}>
-          How can we contact you?
-          <br />
-          <Text as="span" color="gray.600">(only one of these is required)</Text>
-        </Text>
-        <TextInput
-          d="inline"
-          ml={2}
-          w={["auto", "xs"]}
-          placeholder="Email Address"
-          value={ticketData.email}
-          onChange={
-            (e) => setTicketData(['email', e.target.value])
-          }
-        />
-        <TextInput
-          d="inline"
-          ml={2}
-          w={["auto", "xs"]}
-          placeholder="Phone Number"
-          value={ticketData.phone}
-          onChange={
-            (e) => setTicketData(['phone', e.target.value])
-          }
-        />
-        {ticketData.age < 18
-          ? (
-            <>
-              <Divider />
-              <Text mb={1} mt={2}>
-                What is the name of your parent/guardian?
-              </Text>
-              <TextInput
-                d="inline"
-                ml={2}
-                w={["auto", "xs"]}
-                placeholder="First"
-                value={guardianData.firstName}
-                onChange={
-                  (e) => setGuardianData(['firstName', e.target.value])
-                }
-              />
-              <TextInput
-                d="inline"
-                ml={2}
-                w={["auto", "xs"]}
-                placeholder="Last"
-                value={guardianData.lastName}
-                onChange={
-                  (e) => setGuardianData(['lastName', e.target.value])
-                }
-              />
-              <Text mb={1} mt={2}>
-                How can we reach them?
-              </Text>
-              <TextInput
-                d="inline"
-                ml={2}
-                w={["auto", "xs"]}
-                placeholder="Email Address"
-                value={guardianData.email}
-                onChange={
-                  (e) => setGuardianData(['email', e.target.value])
-                }
-              />
-              <TextInput
-                d="inline"
-                ml={2}
-                w={["auto", "xs"]}
-                placeholder="Phone Number"
-                value={guardianData.phone}
-                onChange={
-                  (e) => setGuardianData(['phone', e.target.value])
-                }
-              />
-            </>
-          ) : null}
-        <Divider />
-        <Text>Do you have a promo code?</Text>
-        <Flex>
-          <TextInput
-            d="inline"
-            w="auto"
-            minWidth={20}
-            ml={2}
-            placeholder="Promo Code"
-            value={promoCode}
-            onChange={
-              (e) => setPromoCode(e.target.value)
-            }
-          />
-          <Button
-            d="inline"
-            ml={2}
-            variantColor="green"
-            isLoading={promoCodeLoading}
-            disabled={promoCodeLoading}
-            onClick={
-              () => {
-                setPromoCodeLoading(true);
-              }
-            }
-          >
-            <UiCheck />
-          </Button>
-        </Flex>
-        <Divider />
-        <Text bold>Payment Details:</Text>
-        <Box d={['', 'inline-block']} m={2} p={4} boxShadow="lg">
-          <Text color="gray.800">
-            1x <Ticket />
-            &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${event.activeTicketPrice}
+  if (isComplete) {
+    return (
+      <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
+        <Box p={4} bg="brand.600">
+          <Heading color="white">Register for CodeDay</Heading>
+        </Box>
+        <Box p={8} textAlign="center">
+          <Text fontSize="3xl" bold>You&apos;re going to CodeDay!</Text>
+          <Text>
+            You&apos;re all set, and we&apos;re excited to meet you in-person. Keep an eye out for a waiver.
           </Text>
-          <Flex w={["auto", "sm"]} bg="gray.50" rounded={1} p={2}>
-            <CardElement />
-          </Flex>
-          <Button
-            rounded={0}
-            w="100%"
-            variantColor="brand"
-            onClick={async () => {
-              let result;
-              if (ticketData.age < 18) {
-                result = await apiFetch(print(RegisterMutation), {
-                  eventId: event.id,
-                  ticketData,
-                  guardianData,
-                  promoCode,
-                });
-              } else {
-                result = await apiFetch(print(RegisterMutation), {
-                  eventId: event.id,
-                  ticketData,
-                  promoCode,
-                });
-              }
-              if (result.errors) {
-                error(result.errors[0]);
-              }
-              const intentSecret = result.clear.registerForEvent;
-              const intent = await stripe.retrievePaymentIntent(intentSecret);
-              if (intent.paymentIntent.amount !== finalPrice * 100) {
-                error('Ticket price mismatch. Please refresh and try again');
-              } else {
-                const { error: stripeError } = await stripe.confirmCardPayment(intentSecret, {
-                  payment_method: {
-                    card: elements.getElement(CardElement),
-                  },
-                });
-                if (stripeError) error(stripeError);
-                else success('Payment completed!');
-              }
-            }}
-          >
-            Pay Now (${finalPrice})
-          </Button>
-          <Text color="gray.800" fontSize="xs" textAlign="center">
-            Secured by <Link href="https://stripe.com">Stripe</Link>
+          <Text>
+            No need to print a ticket, we&apos;ll check you in by name at the door.
           </Text>
         </Box>
+      </Box>
+    );
+  }
+
+  return (
+    <Box borderWidth={{ base: 0, md: 2 }} rounded={3} borderColor="brand.600" {...props}>
+      <Box p={4} bg="brand.600">
+        <Heading color="white">Register for CodeDay</Heading>
+      </Box>
+      <Grid templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={4} p={{ base: 0, md: 8 }}>
+        {/* Registration */}
+        <Box mb={{ base: 8, lg: 0 }}>
+          <RegistrantBox
+            event={event}
+            onChange={(ticket, guardian, valid) => {
+              setTicketData(ticket);
+              setGuardianData(guardian);
+              setIsValid(valid);
+            }}
+          />
+        </Box>
+
+        {/* Payment */}
+        <Box>
+          <Heading as="h4" fontSize="lg" mb={2}>Payment</Heading>
+          <Box mb={8}>
+            <Text>
+              1x <Ticket />
+              &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${event.activeTicketPrice}
+            </Text>
+            <PromoBox onChange={(c, p) => { setPromoCode(c); setFinalPrice(p); }} />
+          </Box>
+          <PaymentBox
+            event={event}
+            ticketData={ticketData}
+            guardianData={guardianData}
+            promoCode={promoCode}
+            finalPrice={finalPrice}
+            isValid={isValid}
+            onComplete={() => setIsComplete(true)}
+            mb={4}
+          />
+        </Box>
+      </Grid>
+      <Box p={8} pt={0}>
         <DataCollection message="pii" />
       </Box>
     </Box>
