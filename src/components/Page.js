@@ -1,15 +1,20 @@
 import { DefaultSeo } from 'next-seo';
+import Head from 'next/head';
 import Box from '@codeday/topo/Atom/Box';
 import Text from '@codeday/topo/Atom/Text';
 import Button from '@codeday/topo/Atom/Button';
 import Header, { SiteLogo, Menu } from '@codeday/topo/Organism/Header';
+import Main from '@codeday/topo/Organism/Main';
 import Footer from '@codeday/topo/Organism/Footer';
 import { CodeDay } from '@codeday/topo/Atom/Logo';
 
 const DOMAIN = 'https://event.codeday.org';
 
 export default ({ children, title, darkHeader, slug, region }) => (
-  <>
+  <Box overflow="hidden">
+    <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </Head>
     <DefaultSeo
       title={[title, region?.name, `CodeDay`].filter((s) => s).join(' ~ ')}
       description="CodeDay is a 24-hour event where students get together to build apps and games and have a lot of fun."
@@ -54,8 +59,10 @@ export default ({ children, title, darkHeader, slug, region }) => (
           <Button as="a" href="https://virtual.codeday.org" variantColor="green">Virtual CodeDay</Button>
         </Menu>
       </Header>
-      {children}
+      <Main>
+        {children}
+      </Main>
       <Footer />
     </Box>
-  </>
+  </Box>
 );
