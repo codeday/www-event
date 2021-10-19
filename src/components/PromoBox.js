@@ -58,8 +58,20 @@ export default function PromoBox({ onChange, ...rest }) {
             try {
               // TODO
               throw new Error('Sorry, that promo code is invalid.');
+              const promoDetails = {
+                displayDiscountName: '',
+                displayDiscountAmount: '',
+                valid: false,
+                effectivePrice: 10.00,
+              }; // TODO
+              toast({
+                status: 'success',
+                title: 'Promo Code Applied',
+                description: `${promoDetails.displayDiscountName || promoCode} was applied, your new price is`
+                            + ` ${promoDetails.displayDiscountAmount}`,
+              });
               setShow(false);
-              onChange(promoCode);
+              onChange(promoCode, effectivePrice);
             } catch (ex) {
               toast({
                 status: 'error',
