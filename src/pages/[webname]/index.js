@@ -96,13 +96,16 @@ export default function EventHome({ webname, region, images, quotes, event }) {
 
           }
         </IndexHeader>
-        <Content maxWidth="containers.xl">
-          <Explainer />
-          <br/>
+        <Content maxWidth="containers.xl" mb={12}>
+          <Explainer mb={12} />
           <StudentQuotes quotes={quotes}/>
-          <br/>
-          <CovidDetails />
-          <br/>
+        </Content>
+        <Box backgroundColor="gray.100" p={4} mb={12}>
+          <Content maxWidth="containers.xl">
+            <CovidDetails />
+          </Content>
+        </Box>
+        <Content maxWidth="containers.xl">
           <Box id="register" /> {/* used for register button */}
           {event.canRegister? <RegisterForm event={event} />:
             <EventMailingListSubscribe event={event}>
