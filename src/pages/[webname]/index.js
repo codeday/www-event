@@ -26,7 +26,6 @@ export default function EventHome({ webname, region, images, quotes, event }) {
   const router = useRouter();
   useEffect(() => {
     if (typeof window === 'undefined' || !region) return;
-    console.log(region.webname, webname);
     if (webname !== region.webname) {
       router.replace(`/${region.webname}`, `/${region.webname}`, { shallow: true });
     }

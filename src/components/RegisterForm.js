@@ -1,5 +1,5 @@
 import React, { useReducer, useState } from 'react';
-import Box from '@codeday/topo/Atom/Box';
+import Box, { Flex } from '@codeday/topo/Atom/Box';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import TextInput from '@codeday/topo/Atom/Input/Text';
 import NumInput from '@codeday/topo/Atom/Input/Numeric';
@@ -9,8 +9,8 @@ import Button from '@codeday/topo/Atom/Button';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
 import { useToasts, apiFetch } from '@codeday/topo/utils';
-import { RegisterMutation } from './RegisterForm.gql';
 import DataCollection from '@codeday/topo/Molecule/DataCollection';
+import { RegisterMutation } from './RegisterForm.gql';
 
 const MIN_AGE = 13;
 const MAX_AGE = 25;
@@ -43,8 +43,8 @@ export default function RegisterForm({ event, ...props }) {
         <Text mb={1}>What is your name?</Text>
         <TextInput
           d="inline"
-          m={2}
-          w="xs"
+          ml={2}
+          w={["auto", "xs"]}
           placeholder="First Name"
           value={ticketData.firstName}
           onChange={
@@ -53,7 +53,8 @@ export default function RegisterForm({ event, ...props }) {
         />
         <TextInput
           d="inline"
-          w="xs"
+          ml={2}
+          w={["auto", "xs"]}
           placeholder="Last"
           value={ticketData.lastName}
           onChange={
@@ -91,8 +92,8 @@ export default function RegisterForm({ event, ...props }) {
         </Text>
         <TextInput
           d="inline"
-          w="xs"
-          m={2}
+          ml={2}
+          w={["auto", "xs"]}
           placeholder="Email Address"
           value={ticketData.email}
           onChange={
@@ -101,7 +102,8 @@ export default function RegisterForm({ event, ...props }) {
         />
         <TextInput
           d="inline"
-          w="xs"
+          ml={2}
+          w={["auto", "xs"]}
           placeholder="Phone Number"
           value={ticketData.phone}
           onChange={
@@ -117,8 +119,8 @@ export default function RegisterForm({ event, ...props }) {
               </Text>
               <TextInput
                 d="inline"
-                w="xs"
-                m={2}
+                ml={2}
+                w={["auto", "xs"]}
                 placeholder="First"
                 value={guardianData.firstName}
                 onChange={
@@ -127,8 +129,8 @@ export default function RegisterForm({ event, ...props }) {
               />
               <TextInput
                 d="inline"
-                w="xs"
-                m={2}
+                ml={2}
+                w={["auto", "xs"]}
                 placeholder="Last"
                 value={guardianData.lastName}
                 onChange={
@@ -140,8 +142,8 @@ export default function RegisterForm({ event, ...props }) {
               </Text>
               <TextInput
                 d="inline"
-                w="xs"
-                m={2}
+                ml={2}
+                w={["auto", "xs"]}
                 placeholder="Email Address"
                 value={guardianData.email}
                 onChange={
@@ -150,8 +152,8 @@ export default function RegisterForm({ event, ...props }) {
               />
               <TextInput
                 d="inline"
-                w="xs"
-                m={2}
+                ml={2}
+                w={["auto", "xs"]}
                 placeholder="Phone Number"
                 value={guardianData.phone}
                 onChange={
@@ -162,40 +164,43 @@ export default function RegisterForm({ event, ...props }) {
           ) : null}
         <Divider />
         <Text>Do you have a promo code?</Text>
-        <TextInput
-          d="inline"
-          w="xs"
-          m={2}
-          placeholder="Promo Code"
-          value={promoCode}
-          onChange={
-            (e) => setPromoCode(e.target.value)
-          }
-        />
-        <Button
-          d="inline"
-          m={2}
-          variantColor="green"
-          isLoading={promoCodeLoading}
-          disabled={promoCodeLoading}
-          onClick={
-            () => {
-              setPromoCodeLoading(true);
+        <Flex>
+          <TextInput
+            d="inline"
+            w="auto"
+            minWidth={20}
+            ml={2}
+            placeholder="Promo Code"
+            value={promoCode}
+            onChange={
+              (e) => setPromoCode(e.target.value)
             }
-          }
-        >
-          <UiCheck />
-        </Button>
+          />
+          <Button
+            d="inline"
+            ml={2}
+            variantColor="green"
+            isLoading={promoCodeLoading}
+            disabled={promoCodeLoading}
+            onClick={
+              () => {
+                setPromoCodeLoading(true);
+              }
+            }
+          >
+            <UiCheck />
+          </Button>
+        </Flex>
         <Divider />
         <Text bold>Payment Details:</Text>
-        <Box d="inline-block" m={2} p={4} boxShadow="lg">
+        <Box d={['', 'inline-block']} m={2} p={4} boxShadow="lg">
           <Text color="gray.800">
             1x <Ticket />
-            &nbsp;CodeDay Ticket {event.canEarlyBirdRegister? <>(Early Bird)</>:null} - ${event.activeTicketPrice}
+            &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${event.activeTicketPrice}
           </Text>
-          <Box w="md" bg="gray.50" rounded={1} p={2}>
+          <Flex w={["auto", "sm"]} bg="gray.50" rounded={1} p={2}>
             <CardElement />
-          </Box>
+          </Flex>
           <Button
             rounded={0}
             w="100%"
