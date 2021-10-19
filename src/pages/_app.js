@@ -8,7 +8,7 @@ const { publicRuntimeConfig } = getConfig();
 const stripePromise = loadStripe(publicRuntimeConfig.stripeKey);
 
 export default ({ Component, pageProps }) => (
-  <Theme brandColor="red">
+  <Theme brandColor="red" withChat>
     <Elements stripe={stripePromise}>
       <Component {...pageProps} />
     </Elements>
