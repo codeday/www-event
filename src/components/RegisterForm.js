@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
-import React, { useReducer, useState } from 'react';
+import React, { useState } from 'react';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
-import Text, { Heading } from '@codeday/topo/Atom/Text';
+import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
+import List, { Item as ListItem } from '@codeday/topo/Atom/List';
 import { Ticket } from '@codeday/topocons/Icon';
 import DataCollection from '@codeday/topo/Molecule/DataCollection';
 import PaymentBox from './PaymentBox';
@@ -51,13 +52,16 @@ export default function RegisterForm({ event, ...props }) {
               setIsValid(valid);
             }}
           />
+          <Box pt={4} pb={4}>
+            <DataCollection message="pii" />
+          </Box>
         </Box>
 
         {/* Payment */}
         <Box>
           <Heading as="h4" fontSize="lg" mb={2}>Payment</Heading>
-          <Box mb={8}>
-            <Text>
+          <Box mb={4}>
+            <Text mb={1}>
               1x <Ticket />
               &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${event.activeTicketPrice}
             </Text>
@@ -73,11 +77,21 @@ export default function RegisterForm({ event, ...props }) {
             onComplete={() => setIsComplete(true)}
             mb={4}
           />
+          <Box color="current.textLight">
+            <Heading as="h4" fontSize="sm" fontWeight="bold" mb={1}>Terms</Heading>
+            <List styleType="disc" fontSize="sm" listStylePosition="outside" pl={4}>
+              <ListItem>
+                You must comply with the{' '}
+                <Link href="https://www.codeday.org/conduct" target="_blank">Code of Conduct</Link>{' '}
+                &amp; COVID safety rules (including vaccine and mask requirements).
+              </ListItem>
+              <ListItem>You will need to sign a waiver.</ListItem>
+              <ListItem>We may photograph or record you.</ListItem>
+              <ListItem>Refunds are available until 24 hours prior.</ListItem>
+            </List>
+          </Box>
         </Box>
       </Grid>
-      <Box p={8} pt={0}>
-        <DataCollection message="pii" />
-      </Box>
     </Box>
   );
 }
