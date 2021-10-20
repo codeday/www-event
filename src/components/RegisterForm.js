@@ -63,9 +63,9 @@ export default function RegisterForm({ event, ...props }) {
           <Box mb={4}>
             <Text mb={1}>
               1x <Ticket />
-              &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${event.activeTicketPrice}
+              &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${finalPrice}
             </Text>
-            <PromoBox onChange={(c, p) => { setPromoCode(c); setFinalPrice(p); }} />
+            <PromoBox event={event} onChange={(c, p) => { setPromoCode(c); setFinalPrice(p); }} />
           </Box>
           <PaymentBox
             event={event}

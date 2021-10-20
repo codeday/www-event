@@ -7,8 +7,9 @@ import Button from '@codeday/topo/Atom/Button';
 import { print } from 'graphql';
 import { apiFetch } from '@codeday/topo/utils';
 import { useToast } from '@chakra-ui/core';
+import { CheckPromoCode } from './PromoBox.gql';
 
-export default function PromoBox({ onChange, ...rest }) {
+export default function PromoBox({ event, onChange, ...rest }) {
   const [promoCode, setPromoCode] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(false);
@@ -56,22 +57,16 @@ export default function PromoBox({ onChange, ...rest }) {
 
             setIsLoading(true);
             try {
-              // TODO
-              throw new Error('Sorry, that promo code is invalid.');
-              const promoDetails = {
-                displayDiscountName: '',
-                displayDiscountAmount: '',
-                valid: false,
-                effectivePrice: 10.00,
-              }; // TODO
+              const result = await apiFetch(print(CheckPromoCode), { id: event.id, code: promoCode });
+              const promoDetails = result?.clear?.findFirstEvent?.checkPromoCode;
+              if (!promoDetails?.valid) throw new Error('Promo code not found.');
               toast({
                 status: 'success',
-                title: 'Promo Code Applied',
-                description: `${promoDetails.displayDiscountName || promoCode} was applied, your new price is`
-                            + ` ${promoDetails.displayDiscountAmount}`,
+                title: `${promoDetails.displayDiscountName} Applied`,
+                description: `${promoDetails.displayDiscountAmount} off!`,
               });
               setShow(false);
-              onChange(promoCode, effectivePrice);
+              onChange(promoCode, promoDetails.effectivePrice);
             } catch (ex) {
               toast({
                 status: 'error',
