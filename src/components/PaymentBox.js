@@ -17,6 +17,7 @@ export default function PaymentBox({
   const elements = useElements();
   const toast = useToast();
   const [isStripeReady, setIsStripeReady] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const ready = (finalPrice === 0 || isStripeReady) && isValid;
   const expectedPrice = finalPrice * ticketsData.length;
 
@@ -32,7 +33,9 @@ export default function PaymentBox({
         w="100%"
         variantColor={ready ? 'brand' : 'gray'}
         disabled={!ready}
+        isLoading={isLoading}
         onClick={async () => {
+          setIsLoading(true);
           try {
             const result = await apiFetch(print(RegisterMutation), {
               eventId: event.id,
@@ -76,6 +79,7 @@ export default function PaymentBox({
                 : ex.toString(),
             });
           }
+          setIsLoading(false);
         }}
       >
         {ready ? `Pay Now ($${expectedPrice.toFixed(2)})` : '(fill all required fields)'}
