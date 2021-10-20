@@ -12,7 +12,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { success, error } = useToasts();
   return (
-    <Box w="md" ml="auto" mr="auto" {...props}>
+    <Box w={["auto", "md"]} ml="auto" mr="auto" {...props}>
       {children}
       <Grid templateColumns="1fr min-content">
         <TextInput
