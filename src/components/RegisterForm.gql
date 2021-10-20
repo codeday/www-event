@@ -1,10 +1,24 @@
-mutation RegisterMutation($eventId: String!, $ticketData: ClearTicketCreateWithoutEventInput!, $guardianData:  ClearPersonCreateInput, $promoCode: String) {
+mutation RegisterMutation($eventId: String!, $ticketsData: [ClearTicketCreateWithoutEventInput!]!, $guardianData:  ClearPersonCreateInput, $promoCode: String) {
     clear {
         registerForEvent(
             eventWhere: {id: $eventId},
             guardianData: $guardianData,
-            ticketData: $ticketData,
+            ticketsData: $ticketsData,
             promoCode: $promoCode
         )
     }
 }
+
+mutation FinalizePaymentMutation($paymentIntentId: String!) {
+  clear {
+    finalizePayment(paymentIntentId: $paymentIntentId)
+  }
+}
+
+mutation WithdrawFailedPaymentMutation($paymentIntentId: String!) {
+  clear {
+    withdrawFailedPayment(paymentIntentId: $paymentIntentId)
+  }
+}
+
+

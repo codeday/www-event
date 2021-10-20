@@ -31,6 +31,9 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!) {
       displayDate
       earlyBirdCutoff
       registrationCutoff
+      minAge
+      maxAge
+      majorityAge
       eventGroup {
         name
       }

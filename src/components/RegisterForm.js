@@ -1,21 +1,41 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import List, { Item as ListItem } from '@codeday/topo/Atom/List';
+import Button from '@codeday/topo/Atom/Button';
 import { Ticket } from '@codeday/topocons/Icon';
 import DataCollection from '@codeday/topo/Molecule/DataCollection';
 import PaymentBox from './PaymentBox';
 import PromoBox from './PromoBox';
 import RegistrantBox from './RegistrantBox';
+import GuardianBox from './GuardianBox';
 
 export default function RegisterForm({ event, ...props }) {
-  const [ticketData, setTicketData] = useState();
+  const [tickets, updateTickets] = useReducer((prev, {
+    action, i, isValid, ticketData,
+  }) => {
+    if (action === 'add') return [...prev, { isValid: false, ticketData: {} }];
+    if (action === 'remove') return prev.slice(0, Math.max(1, prev.length - 1));
+    const ret = [...prev];
+    ret[i] = {
+      isValid,
+      ticketData,
+    };
+    return ret;
+  }, [{ isValid: false, ticketData: {} }]);
   const [guardianData, setGuardianData] = useState();
-  const [isValid, setIsValid] = useState();
+  const [guardianValid, setGuardianValid] = useState(false);
   const [promoCode, setPromoCode] = useState();
-  const [finalPrice, setFinalPrice] = useState(event.activeTicketPrice);
+  const [promoPrice, setPromoPrice] = useState();
   const [isComplete, setIsComplete] = useState(false);
+  const [maxTickets, setMaxTickets] = useState();
+
+  const calcMaxTickets = Math.min(10, maxTickets || 10);
+  const finalPrice = promoPrice !== null && typeof promoPrice !== 'undefined' ? promoPrice : event.activeTicketPrice;
+  const hasMinors = tickets
+    .filter((ticket) => ticket.ticketData.age && ticket.ticketData.age < event.majorityAge)
+    .length > 0;
 
   if (isComplete) {
     return (
@@ -44,15 +64,37 @@ export default function RegisterForm({ event, ...props }) {
       <Grid templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={4} p={{ base: 0, md: 8 }}>
         {/* Registration */}
         <Box mb={{ base: 8, lg: 0 }}>
-          <RegistrantBox
-            event={event}
-            onChange={(ticket, guardian, valid) => {
-              setTicketData(ticket);
-              setGuardianData(guardian);
-              setIsValid(valid);
-            }}
-          />
-          <Box pt={4} pb={4}>
+          {tickets.map((_, i) => (
+            <RegistrantBox
+              // eslint-disable-next-line react/no-array-index-key
+              key={i}
+              event={event}
+              mb={4}
+              onChange={(ticketData, isValid) => {
+                updateTickets({
+                  i,
+                  ticketData,
+                  isValid,
+                });
+              }}
+            />
+          ))}
+          <Box mb={4}>
+            {tickets.length > 1 && (
+              <Button onClick={() => updateTickets({ action: 'remove' })}>-</Button>
+            )}
+            {tickets.length < calcMaxTickets && (
+              <Button mr={2} onClick={() => updateTickets({ action: 'add' })}>+</Button>
+            )}
+          </Box>
+          {hasMinors && (
+            <GuardianBox
+              mb={4}
+              event={event}
+              onChange={(guardian, valid) => { setGuardianData(guardian); setGuardianValid(valid); }}
+            />
+          )}
+          <Box pb={4}>
             <DataCollection message="pii" />
           </Box>
         </Box>
@@ -62,18 +104,23 @@ export default function RegisterForm({ event, ...props }) {
           <Heading as="h4" fontSize="lg" mb={2}>Payment</Heading>
           <Box mb={4}>
             <Text mb={1}>
-              1x <Ticket />
-              &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null} - ${finalPrice}
+              {tickets.length}x <Ticket />
+              &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null}
+              {' - '}${finalPrice * tickets.length}
             </Text>
-            <PromoBox event={event} onChange={(c, p) => { setPromoCode(c); setFinalPrice(p); }} />
+            <PromoBox event={event} onChange={(c, p, u) => { setPromoCode(c); setPromoPrice(p); setMaxTickets(u); }} />
           </Box>
           <PaymentBox
             event={event}
-            ticketData={ticketData}
-            guardianData={guardianData}
+            ticketsData={tickets.map((ticket) => ticket.ticketData)}
+            guardianData={hasMinors ? guardianData : null}
             promoCode={promoCode}
             finalPrice={finalPrice}
-            isValid={isValid}
+            isValid={
+              (!hasMinors || guardianValid)
+              && tickets.length <= calcMaxTickets
+              && tickets.map((ticket) => ticket.isValid).reduce((a, b) => a && b, true)
+            }
             onComplete={() => setIsComplete(true)}
             mb={4}
           />
