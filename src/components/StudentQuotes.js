@@ -27,6 +27,7 @@ export default function StudentQuotes({ quotes, ...props }) {
         <Box position="relative" height={SIZE} ml={-4}>
           {quotes.map((quote, j) => (
             <Grid
+              key={j}
               position="absolute"
               top={0}
               templateColumns="1px 100%"

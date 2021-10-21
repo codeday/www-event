@@ -89,9 +89,9 @@ export default function EventHome({ webname, region, images, quotes, event }) {
                   (Early Bird Discount!)
                 </Text>: null
               }
-              <Button variantColor="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
-              <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Apply for a scholarship</Button>
             </Text>
+            <Button variantColor="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
+            <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Apply for a scholarship</Button>
           </>: null
 
           }

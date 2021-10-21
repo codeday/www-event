@@ -2,9 +2,12 @@ import React from 'react';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Content from '@codeday/topo/Molecule/Content';
 import Text, { Heading } from '@codeday/topo/Atom/Text';
+import Divider from '@codeday/topo/Atom/Divider';
 import { useSlideshow } from '../providers/slideshow';
 
-export default function IndexHeader({ heading, subHeading, images, children, ...props }) {
+export default function IndexHeader({
+  heading, subHeading, images, children, ...props
+}) {
   const i = useSlideshow(images.length, 5000);
   return (
     <Box position="relative" {...props}>
@@ -15,6 +18,7 @@ export default function IndexHeader({ heading, subHeading, images, children, ...
         <Content>
           <Box
             color="white"
+            mt={12}
           >
             <Heading
               as="h2"
@@ -32,22 +36,27 @@ export default function IndexHeader({ heading, subHeading, images, children, ...
             >
               { subHeading || null }
             </Heading>
-            <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} mt={20} alignItems="center" gap={16}>
-              <Heading fontSize="xl" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)">
-                CodeDay is a worldwide event where student programmers, artists, musicians, actors, and everyone else can
-                get together and build apps & games for 24 hours. Students of all skill levels are welcome — we have workshops
-                and mentors who can help if you're new!
-              </Heading>
-              <Heading fontSize="xl" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)">
+            <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} mt={12} alignItems="center" gap={16}>
+              <Box>
+                <Text fontSize="2xl" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)">
+                  The most beginner-friendly event for building amazing games and apps!
+                </Text>
+
+                <Text fontSize="lg" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)" mb={0}>
+                  CodeDay is a worldwide event where student artists, programmers, musicians, actors, and writers get
+                  together to build apps and games.<br /><br />NO CODING EXPERIENCE NECESSARY!
+                </Text>
+              </Box>
+              <Box fontSize="xl" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)">
                 {children}
-              </Heading>
+              </Box>
             </Grid>
           </Box>
         </Content>
       </Box>
       <Box
         zIndex={55}
-        opacity={0.5}
+        opacity={0.6}
         position="absolute"
         top={0}
         left={0}
