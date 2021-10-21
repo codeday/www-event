@@ -82,7 +82,9 @@ export default function PaymentBox({
           setIsLoading(false);
         }}
       >
-        {ready ? `Pay Now ($${expectedPrice.toFixed(2)})` : '(fill all required fields)'}
+        {ready
+          ? (expectedPrice === 0 ? 'Complete Free Registration' : `Pay Now ($${expectedPrice.toFixed(2)})`)
+          : '(fill all required fields)'}
       </Button>
     </Box>
   );
