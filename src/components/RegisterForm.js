@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import List, { Item as ListItem } from '@codeday/topo/Atom/List';
@@ -10,6 +10,9 @@ import PaymentBox from './PaymentBox';
 import PromoBox from './PromoBox';
 import RegistrantBox from './RegistrantBox';
 import GuardianBox from './GuardianBox';
+import { apiFetch } from '@codeday/topo/utils';
+import { print } from 'graphql';
+import { RefreshRemainingQuery } from './RegisterForm.gql'
 
 export default function RegisterForm({ event, ...props }) {
   const [tickets, updateTickets] = useReducer((prev, {
@@ -30,8 +33,22 @@ export default function RegisterForm({ event, ...props }) {
   const [promoPrice, setPromoPrice] = useState();
   const [isComplete, setIsComplete] = useState(false);
   const [maxTickets, setMaxTickets] = useState();
+  const [remainingTickets, setRemainingTickets] = useState(event.remainingTickets);
 
-  const calcMaxTickets = Math.min(10, maxTickets || 10);
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    const refreshRemaining = async () => {
+      const remainingRes = await apiFetch(print(RefreshRemainingQuery), { eventId: event.id });
+      if (typeof remainingRes?.clear?.event?.remainingTickets !== 'undefined') {
+        setRemainingTickets(remainingRes.clear.event.remainingTickets);
+      }
+    }
+    const interval = setInterval(refreshRemaining, 30000);
+    refreshRemaining();
+    return () => clearInterval(interval);
+  }, [typeof window]);
+
+  const calcMaxTickets = Math.min(10, maxTickets || 10, remainingTickets || 10);
   const finalPrice = promoPrice !== null && typeof promoPrice !== 'undefined' ? promoPrice : event.activeTicketPrice;
   const hasMinors = tickets
     .filter((ticket) => ticket.ticketData.age && ticket.ticketData.age < event.majorityAge)
@@ -56,14 +73,44 @@ export default function RegisterForm({ event, ...props }) {
     );
   }
 
+  if (remainingTickets <= 0) {
+    return (
+      <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
+        <Box p={4} bg="brand.600">
+          <Heading color="white">Register for CodeDay</Heading>
+        </Box>
+        <Box p={8} textAlign="center">
+          <Text fontSize="3xl" bold>Sorry, we&apos;re sold out!</Text>
+          <Text>
+            We are at absolute maximum capacity, and cannot make exceptions. No tickets will be available at the door.
+          </Text>
+        </Box>
+      </Box>
+    );
+  }
+
   return (
-    <Box borderWidth={{ base: 0, md: 2 }} rounded={3} borderColor="brand.600" {...props}>
-      <Box p={4} bg="brand.600">
-        <Heading color="white">Register for CodeDay</Heading>
+    <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
+      <Box p={4} bg="brand.600" color="white">
+        <Heading>Register for CodeDay</Heading>
+        {remainingTickets <= 10 && (
+          <Text mb={0}>
+            Only {remainingTickets} ticket{remainingTickets !== 1 ? 's' : ''} left!
+          </Text>
+        )}
       </Box>
       <Grid templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={4} p={{ base: 0, md: 8 }}>
         {/* Registration */}
         <Box mb={{ base: 8, lg: 0 }}>
+          {tickets.length > calcMaxTickets && (
+            <Box bg="red.50" borderColor="red.500" color="red.800" borderWidth={1} p={4} mb={4} m={{ base: 4, md: 0 }}>
+              <Text mb={0}>
+                Sorry, only {calcMaxTickets} ticket{calcMaxTickets !== 1 ? 's are' : ' is'} available{
+                  maxTickets !== null && typeof maxTickets !== 'undefined' ? ' at this price' : ''
+                }. Please remove {tickets.length - calcMaxTickets} to continue.
+              </Text>
+            </Box>
+          )}
           {tickets.map((_, i) => (
             <RegistrantBox
               // eslint-disable-next-line react/no-array-index-key
@@ -79,12 +126,12 @@ export default function RegisterForm({ event, ...props }) {
               }}
             />
           ))}
-          <Box mb={4}>
+          <Box mb={4} textAlign="center">
             {tickets.length > 1 && (
-              <Button onClick={() => updateTickets({ action: 'remove' })}>-</Button>
+              <Button mr={2} onClick={() => updateTickets({ action: 'remove' })}>Remove Ticket</Button>
             )}
             {tickets.length < calcMaxTickets && (
-              <Button mr={2} onClick={() => updateTickets({ action: 'add' })}>+</Button>
+              <Button onClick={() => updateTickets({ action: 'add' })}>Add Ticket</Button>
             )}
           </Box>
           {hasMinors && (
@@ -94,13 +141,13 @@ export default function RegisterForm({ event, ...props }) {
               onChange={(guardian, valid) => { setGuardianData(guardian); setGuardianValid(valid); }}
             />
           )}
-          <Box pb={4}>
+          <Box p={{ base: 4, md: 0 }} pb={4}>
             <DataCollection message="pii" />
           </Box>
         </Box>
 
         {/* Payment */}
-        <Box>
+        <Box p={{ base: 4, md: 0 }}>
           <Heading as="h4" fontSize="lg" mb={2}>Payment</Heading>
           <Box mb={4}>
             <Text mb={1}>

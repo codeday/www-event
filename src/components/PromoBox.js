@@ -61,6 +61,9 @@ export default function PromoBox({ event, onChange, ...rest }) {
               const result = await apiFetch(print(CheckPromoCode), { id: event.id, code: promoCode });
               const promoDetails = result?.clear?.findFirstEvent?.checkPromoCode;
               if (!promoDetails?.valid) throw new Error('Promo code not found.');
+              if (promoDetails.remainingUses === null && promoDetails.remainingUses <= 0) {
+                throw new Error('Promo code has been fully used.');
+              }
               toast({
                 status: 'success',
                 title: `${promoDetails.displayDiscountName} Applied`,

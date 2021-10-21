@@ -1,3 +1,11 @@
+query RefreshRemainingQuery($eventId: String!) {
+  clear {
+    event(where: { id: $eventId }){
+      remainingTickets
+    }
+  }
+}
+
 mutation RegisterMutation($eventId: String!, $ticketsData: [ClearTicketCreateWithoutEventInput!]!, $guardianData:  ClearPersonCreateInput, $promoCode: String) {
     clear {
         registerForEvent(
