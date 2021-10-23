@@ -47,7 +47,7 @@ export default function PaymentBox({
             if (expectedPrice > 0) {
               const intentSecret = result.clear.registerForEvent;
               const intent = await stripe.retrievePaymentIntent(intentSecret);
-              if (intent.paymentIntent.amount !== expectedPrice * 100) {
+              if (Math.abs(intent.paymentIntent.amount - expectedPrice * 100) >= 1) {
                 throw new Error(
                   `The total changed since the page was loaded (this usually means a discount expired), and you were`
                     + ` NOT charged. The new total is ${intent.paymentIntent.amount / 100}. Please refresh the page.`,
