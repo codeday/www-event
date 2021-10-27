@@ -1,0 +1,13 @@
+fragment GlobalSponsors on CmsQuery {
+  globalSponsors (order: sys_firstPublishedAt_ASC) {
+    items{
+      link
+      name
+      type
+      logo{
+        url(transform:{height: 60})
+        small: url(transform:{height: 20})
+      }
+    }
+  }
+}

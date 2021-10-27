@@ -1,5 +1,7 @@
 #import "../../components/IndexHeader.gql"
 #import "../../components/StudentQuotes.gql"
+#import "../../components/ThemeNotifier.gql"
+#import "../../components/Sponsors.gql"
 
 query IndexStaticPathsQuery {
   cms {
@@ -12,12 +14,26 @@ query IndexStaticPathsQuery {
   }
 }
 
-query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!) {
+query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEndDate: CmsDateTime!) {
   cms {
+    ...GlobalSponsors
     regions(where:{ OR: [{ webname: $webname }, { aliases_contains_all: [$webname] }] }, limit: 1) {
       items {
         name
         webname
+        timezone
+      }
+    }
+    events(
+      limit: 1,
+      order: startsAt_ASC,
+      where: {
+        program: { webname: "codeday" }
+        endsAt_gte: $cmsEndDate,
+      }
+    ) {
+      items {
+        ...ThemeNotifier
       }
     }
   }
@@ -42,6 +58,14 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!) {
         name
         address
         mapLink
+      }
+      schedule( where: { finalized: { equals: true }, internal: { equals: false } }) {
+        id
+        name
+        start
+        displayTime
+        description
+        link
       }
     }
   }
