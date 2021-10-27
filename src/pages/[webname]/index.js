@@ -10,18 +10,18 @@ import Box from "@codeday/topo/Atom/Box"
 import Page from '../../components/Page';
 import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import DataCollection from "@codeday/topo/Molecule/DataCollection"
-import { DefaultSeo } from 'next-seo';
 import IndexHeader from '../../components/IndexHeader';
 import Explainer from '../../components/Explainer';
-import {PaymentDiscount} from "@codeday/topocons/Icon"
 import StudentQuotes from '../../components/StudentQuotes';
-import Divider from "@codeday/topo/Atom/Divider"
 import CovidDetails from '../../components/CovidDetails';
 import RegisterForm from '../../components/RegisterForm';
+import ThemeNotifier from '../../components/ThemeNotifier';
+import Schedule from '../../components/Schedule';
+import Sponsors from '../../components/Sponsors';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
 import Scroll from 'react-scroll';
 
-export default function EventHome({ webname, region, images, quotes, event }) {
+export default function EventHome({ webname, region, images, quotes, event, cmsEvent, globalSponsors }) {
   // Redirect the user to the canonical URL
   const router = useRouter();
   useEffect(() => {
@@ -91,21 +91,27 @@ export default function EventHome({ webname, region, images, quotes, event }) {
               }
             </Text>
             <Button variantColor="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
-            <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Apply for a scholarship</Button>
+            <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Can&apos;t afford?</Button>
           </>: null
 
           }
         </IndexHeader>
         <Content maxWidth="containers.xl" mb={12}>
           <Explainer mb={12} />
+        </Content>
+        <Content maxWidth="containers.xl" mb={12}>
           <StudentQuotes quotes={quotes}/>
         </Content>
+        <Sponsors globalSponsors={globalSponsors} />
         <Box backgroundColor="gray.100" p={4} mb={12}>
           <Content maxWidth="containers.xl">
             <CovidDetails />
           </Content>
         </Box>
         <Content maxWidth="containers.xl">
+          <ThemeNotifier event={cmsEvent} mb={12} />
+        </Content>
+        <Content maxWidth="containers.xl" mb={12}>
           <Box id="register" /> {/* used for register button */}
           {event.canRegister? <RegisterForm event={event} />:
             <EventMailingListSubscribe event={event}>
@@ -113,6 +119,9 @@ export default function EventHome({ webname, region, images, quotes, event }) {
               <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
             </EventMailingListSubscribe>
           }
+        </Content>
+        <Content maxWidth="containers.lg">
+          <Schedule event={event} timezone={region.timezone} mb={12} />
         </Content>
       </Page>
   )
@@ -130,14 +139,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { webname } }) {
-  const result = await apiFetch(print(IndexStaticPropsQuery), { webname, endDate: (new Date(new Date().getTime())).toISOString()});
+  const result = await apiFetch(print(IndexStaticPropsQuery), {
+    webname,
+    endDate: (new Date(new Date().getTime())).toISOString(),
+    cmsEndDate: (new Date(new Date().getTime())).toISOString(),
+  });
   return {
     props: {
       webname,
       region: result?.cms?.regions?.items[0] || null,
       images: result?.cms?.pressPhotos?.items || [],
       event: result?.clear?.findFirstEvent || null,
-      quotes: result?.cms?.testimonials?.items || []
+      quotes: result?.cms?.testimonials?.items || [],
+      cmsEvent: result?.cms?.events?.items[0] || null,
+      globalSponsors: result?.cms?.globalSponsors.items || null,
     },
     revalidate: 900,
   }

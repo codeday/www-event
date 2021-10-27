@@ -1,0 +1,8 @@
+fragment ThemeNotifier on CmsEvent {
+  theme
+  themeBackgrounds {
+    items {
+      url(transform: { width: 1400, height: 400, quality: 90, resizeStrategy: FILL })
+    }
+  }
+}
