@@ -102,7 +102,7 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
         <Content maxWidth="containers.xl" mb={12}>
           <StudentQuotes quotes={quotes}/>
         </Content>
-        <Sponsors globalSponsors={globalSponsors} />
+        <Sponsors globalSponsors={globalSponsors} localSponsors={event.sponsors}/>
         <Box backgroundColor="gray.100" p={4} mb={12}>
           <Content maxWidth="containers.xl">
             <CovidDetails />
