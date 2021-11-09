@@ -1,0 +1,17 @@
+query GetTicketDetailsQuery ($ticketId: String!) {
+    clear {
+        ticket(where: {id: $ticketId}) {
+            id
+            age
+            firstName
+            lastName
+            guardian {
+                email
+            }
+            event {
+                name
+                majorityAge
+            }
+        }
+    }
+}
