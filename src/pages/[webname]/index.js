@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { print } from 'graphql';
+import { DateTime } from 'luxon';
 import Text, { Link, Heading } from '@codeday/topo/Atom/Text';
 import Button from "@codeday/topo/Atom/Button"
 import MailingListSubscribe from '@codeday/topo/Organism/MailingListSubscribe';
@@ -141,8 +142,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { webname } }) {
   const result = await apiFetch(print(IndexStaticPropsQuery), {
     webname,
-    endDate: (new Date(new Date().getTime())).toISOString(),
-    cmsEndDate: (new Date(new Date().getTime())).toISOString(),
+    endDate: DateTime.now().minus({ days: 1 }),
+    cmsEndDate: DateTime.now().minus({ days: 1 }),
   });
   return {
     props: {
