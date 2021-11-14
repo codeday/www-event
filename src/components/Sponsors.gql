@@ -11,3 +11,12 @@ fragment GlobalSponsors on CmsQuery {
     }
   }
 }
+
+fragment LocalSponsorsFragment on ClearEvent {
+  sponsors {
+    name
+    description
+    link
+    logoImageUri
+  }
+}

@@ -5,7 +5,7 @@ import Content from '@codeday/topo/Molecule/Content';
 import Image from '@codeday/topo/Atom/Image';
 import { Link, Heading } from '@codeday/topo/Atom/Text';
 
-export default function Sponsors({ globalSponsors }) {
+export default function Sponsors({ globalSponsors, localSponsors }) {
   if (!globalSponsors) return <></>;
 
   return (
@@ -20,8 +20,20 @@ export default function Sponsors({ globalSponsors }) {
             <Link key={sponsor.name} href={sponsor.link}>
               <Image
                 d="inline-block"
+                height={60}
                 src={sponsor.logo.url}
                 pr={i + 1 === globalSponsors.length ? 0 : 8}
+              />
+            </Link>
+          ))}
+        {localSponsors
+          .map((sponsor, i) => (
+            <Link key={sponsor.name} to={sponsor.link}>
+              <Image
+                d="inline-block"
+                height={60}
+                src={sponsor.logoImageUri}
+                pr={i + 1 === localSponsors.length ? 0 : 8}
               />
             </Link>
           ))}
@@ -39,6 +51,6 @@ export default function Sponsors({ globalSponsors }) {
             </Link>
           ))}
       </Box>
-    </Content>
+   </Content>
   );
 }

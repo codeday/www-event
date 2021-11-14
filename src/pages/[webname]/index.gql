@@ -67,6 +67,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         description
         link
       }
+      ...LocalSponsorsFragment
     }
   }
   ...IndexHeaderFragment
