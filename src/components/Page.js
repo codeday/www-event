@@ -56,6 +56,7 @@ export default ({ children, title, darkHeader, slug, region }) => (
           ) : <></>}
         </SiteLogo>
         <Menu>
+          <Button as="a" href="https://www.codeday.org/help/codeday" variant="ghost" target="_blank">FAQ</Button>
           <Button as="a" href="https://www.codeday.org/edu/codeday" variant="ghost" target="_blank">Schools</Button>
           <Button as="a" href="https://www.codeday.org/volunteer" variant="ghost" target="_blank">Volunteer</Button>
           <Button as="a" href="https://virtual.codeday.org" variant="ghost" target="_blank">Virtual CodeDay</Button>
