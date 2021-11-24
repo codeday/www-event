@@ -100,18 +100,22 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
         <Content maxWidth="containers.xl" mb={12}>
           <Explainer mb={12} />
         </Content>
+        <a name="quote" />
         <Content maxWidth="containers.xl" mb={12}>
           <StudentQuotes quotes={quotes}/>
         </Content>
         <Sponsors globalSponsors={globalSponsors} localSponsors={event.sponsors}/>
+        <a name="covid" />
         <Box backgroundColor="gray.100" p={4} mb={12}>
           <Content maxWidth="containers.xl">
             <CovidDetails />
           </Content>
         </Box>
+        <a name="theme" />
         <Content maxWidth="containers.xl">
           <ThemeNotifier event={cmsEvent} mb={12} />
         </Content>
+        <a name="register" />
         <Content maxWidth="containers.xl" mb={12}>
           <Box id="register" /> {/* used for register button */}
           {event.canRegister? <RegisterForm event={event} />:
