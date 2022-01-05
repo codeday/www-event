@@ -9,7 +9,7 @@
   },
   "dependencies": {
     "@chakra-ui/core": "^0.8.0",
-    "@codeday/topo": "^3.28.0",
+    "@codeday/topo": "^4.6.0",
     "@codeday/topocons": "^1.5.0",
     "@emotion/core": "^10.1.1",
     "@emotion/styled": "^10.0.27",

@@ -8,6 +8,7 @@ import MailingListSubscribe from '@codeday/topo/Organism/MailingListSubscribe';
 import Content from '@codeday/topo/Molecule/Content';
 import { apiFetch } from '@codeday/topo/utils'
 import Box from "@codeday/topo/Atom/Box"
+import { useColorMode } from '@codeday/topo/Theme';
 import Page from '../../components/Page';
 import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import DataCollection from "@codeday/topo/Molecule/DataCollection"
@@ -25,6 +26,7 @@ import Scroll from 'react-scroll';
 export default function EventHome({ webname, region, images, quotes, event, cmsEvent, globalSponsors }) {
   // Redirect the user to the canonical URL
   const router = useRouter();
+  const { colorMode } = useColorMode();
   useEffect(() => {
     if (typeof window === 'undefined' || !region) return;
     if (webname !== region.webname) {
@@ -47,7 +49,7 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
     return (
       <Page darkHeader slug={`/${webname}`} region={region}>
         <IndexHeader mt={-40} pt={32} pb={16} mb={16} heading={`CodeDay ${region.name}`} images={images} />
-        <Content maxWidth="containers.xl">
+        <Content maxWidth="container.xl">
           <Explainer />
           <br/>
           <StudentQuotes quotes={quotes}/>
@@ -55,7 +57,7 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
           <Box textAlign="center">
           <Heading >😢 We don't have a CodeDay {region.name} planned for this season...</Heading>
             <Heading as="h2" fontSize="3xl">But you can still <Link href="https://virtual.codeday.org">participate virtually!</Link></Heading>
-            <Button as="a" size="lg" m={2} variantColor="purple" href="https://virtual.codeday.org">Register for Virtual CodeDay</Button>
+            <Button as="a" size="lg" m={2} colorScheme="purple" href="https://virtual.codeday.org">Register for Virtual CodeDay</Button>
           </Box>
           <Box m={4} textAlign="center">
             <Text>Be notified about the next CodeDay {region.name}:</Text>
@@ -91,41 +93,41 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
                 </Text>: null
               }
             </Text>
-            <Button variantColor="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
+            <Button colorScheme="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
             <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Can&apos;t afford?</Button>
           </>: null
 
           }
         </IndexHeader>
-        <Content maxWidth="containers.xl" mb={12}>
+        <Content maxWidth="container.xl" mb={12}>
           <Explainer mb={12} />
         </Content>
         <a name="quote" />
-        <Content maxWidth="containers.xl" mb={12}>
+        <Content maxWidth="container.xl" mb={12}>
           <StudentQuotes quotes={quotes}/>
         </Content>
         <Sponsors globalSponsors={globalSponsors} localSponsors={event.sponsors}/>
         <a name="covid" />
-        <Box backgroundColor="gray.100" p={4} mb={12}>
-          <Content maxWidth="containers.xl">
+        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
+          <Content maxWidth="container.xl">
             <CovidDetails />
           </Content>
         </Box>
         <a name="theme" />
-        <Content maxWidth="containers.xl">
+        <Content maxWidth="container.xl">
           <ThemeNotifier event={cmsEvent} mb={12} />
         </Content>
         <a name="register" />
-        <Content maxWidth="containers.xl" mb={12}>
+        <Content maxWidth="container.xl" mb={12}>
           <Box id="register" /> {/* used for register button */}
-          {event.canRegister? <RegisterForm event={event} />:
+          {event.canRegister ? <RegisterForm event={event} />:
             <EventMailingListSubscribe event={event}>
               <Text bold textAlign="center">CodeDay {region.name} is not currently accepting registrations</Text>
               <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
             </EventMailingListSubscribe>
           }
         </Content>
-        <Content maxWidth="containers.lg">
+        <Content maxWidth="container.lg">
           <Schedule event={event} timezone={region.timezone} mb={12} />
         </Content>
       </Page>

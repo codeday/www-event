@@ -1,16 +1,18 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useReducer, useEffect } from 'react';
+import CognitoForm from '@codeday/topo/Molecule/CognitoForm';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import List, { Item as ListItem } from '@codeday/topo/Atom/List';
 import Button from '@codeday/topo/Atom/Button';
 import { Ticket } from '@codeday/topocons/Icon';
 import DataCollection from '@codeday/topo/Molecule/DataCollection';
+import { useColorMode, useCurrentColor } from '@codeday/topo/Theme';
 import PaymentBox from './PaymentBox';
 import PromoBox from './PromoBox';
 import RegistrantBox from './RegistrantBox';
 import GuardianBox from './GuardianBox';
-import { apiFetch } from '@codeday/topo/utils';
+import { apiFetch, useTheme } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { RefreshRemainingQuery } from './RegisterForm.gql'
 
@@ -27,6 +29,10 @@ export default function RegisterForm({ event, ...props }) {
     };
     return ret;
   }, [{ isValid: false, ticketData: {} }]);
+
+  const { colorMode } = useColorMode();
+  const gray = useTheme().colors.gray[300];
+  const black = useTheme().colors.black;
   const [guardianData, setGuardianData] = useState();
   const [guardianValid, setGuardianValid] = useState(false);
   const [promoCode, setPromoCode] = useState();
@@ -61,13 +67,50 @@ export default function RegisterForm({ event, ...props }) {
           <Heading color="white">Register for CodeDay</Heading>
         </Box>
         <Box p={8} textAlign="center">
-          <Text fontSize="3xl" bold>You&apos;re going to CodeDay!</Text>
+          <Text fontSize="3xl" bold>You&apos;re going to CodeDay! Now customize your experience.</Text>
           <Text>
-            You&apos;re all set, and we&apos;re excited to meet you in-person. Keep an eye out for a waiver.
+            No need to print a ticket, we'll check you in by name. Please complete the following information:
           </Text>
-          <Text>
-            No need to print a ticket, we&apos;ll check you in by name at the door.
-          </Text>
+          <CognitoForm
+            formId="104"
+            prefill={{
+              EventGroupId: event.eventGroup.id,
+              EventId: event.id,
+              Region: event.contentfulWebname,
+              TicketCount: tickets.length,
+              PromoCode: promoCode ? promoCode.toUpperCase() : undefined,
+              Tickets: tickets.map((ticket) => ({
+                Name: {
+                  First: ticket.ticketData.firstName,
+                  Last: ticket.ticketData.lastName,
+                },
+                Phone: ticket.ticketData.phone,
+                Email: ticket.ticketData.email,
+              })),
+            }}
+            css={`
+              .c-repeating-section-add, .c-action-col, .c-repeating-section-title { display: none !important }
+              .cognito .c-forms-form .c-repeating-section-group > div:not(.c-table-row):nth-child(2n+1),
+              .c-repeating-section-group > div:not(.c-table-row):nth-child(2n+1) {
+                background-color: transparent !important;
+                border-width: 1px;
+                border-color: ${gray};
+                border-style: solid;
+                padding-top: 2em;
+              }
+              .cognito .c-repeating-section-item { margin-left: 0 !important; }
+              .cognito span { ${colorMode !== 'light' ? 'color: #fff;' : ''} }
+              .c-name .c-label { display: none; }
+              .c-name .c-content {
+                width: calc(100% + 17px);
+                background-color: ${gray};
+                color: ${black};
+                font-size: 2em;
+                padding: 0.5em;
+                margin: -9px;
+              }
+            `}
+          />
         </Box>
       </Box>
     );

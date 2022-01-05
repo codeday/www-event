@@ -20,7 +20,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
             <Link key={sponsor.name} href={sponsor.link}>
               <Image
                 d="inline-block"
-                height={60}
+                height={20}
                 src={sponsor.logo.url}
                 pr={i + 1 === globalSponsors.length ? 0 : 8}
               />

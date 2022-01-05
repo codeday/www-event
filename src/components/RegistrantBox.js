@@ -6,9 +6,13 @@ import { DateTime } from 'luxon';
 import Box, { Flex, Grid } from '@codeday/topo/Atom/Box';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import TextInput from '@codeday/topo/Atom/Input/Text';
-import NumInput from '@codeday/topo/Atom/Input/Numeric';
 import Divider from '@codeday/topo/Atom/Divider';
 import { UiError } from '@codeday/topocons/Icon';
+import {   NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper } from '@chakra-ui/react';
 
 export default function RegistrantBox({ event, onChange, ...rest }) {
   const [ticketData, setTicketData] = useReducer(
@@ -85,16 +89,21 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
         <Text fontSize="sm" fontWeight="bold" mb={0}>
           {ticketData.firstName ? `${ticketData.firstName}'s` : 'Participant'} Age
         </Text>
-
-        <NumInput
+        <NumberInput
           w="3xs"
           min={0}
           keepWithinRange
           value={ticketData.age}
           onChange={
-            (value) => setTicketData(['age', value])
+            (value) => setTicketData(['age', value ? Number.parseInt(value) : null])
           }
-        />
+        >
+          <NumberInputField />
+          <NumberInputStepper>
+            <NumberIncrementStepper />
+            <NumberDecrementStepper />
+          </NumberInputStepper>
+        </NumberInput>
 
         {ticketData.age < event.minAge || ticketData.age > event.maxAge
           ? (

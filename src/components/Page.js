@@ -32,10 +32,10 @@ export default ({ children, title, darkHeader, slug, region }) => (
       }}
     />
     <Box position="relative">
-      <Header darkBackground={darkHeader} gradAmount={darkHeader && 'lg'} underscore position="relative" zIndex={1000}>
+      <Header darkBackground={darkHeader} gradAmount={darkHeader && 'lg'} color={darkHeader && "white"} underscore position="relative" zIndex={1000}>
         <SiteLogo>
           <a href="https://www.codeday.org/">
-            <CodeDay withText />
+            <CodeDay textColor="white" withText />
           </a>
           {region ? (
             <a href={`/${region.webname}`}>
@@ -45,7 +45,7 @@ export default ({ children, title, darkHeader, slug, region }) => (
                 letterSpacing="-2px"
                 fontFamily="heading"
                 position="relative"
-                top={1}
+                top={-1}
                 ml={1}
                 textDecoration="underline"
                 bold
