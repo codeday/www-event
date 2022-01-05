@@ -6,7 +6,7 @@ import { UiCheck } from '@codeday/topocons/Icon';
 import Button from '@codeday/topo/Atom/Button';
 import { print } from 'graphql';
 import { apiFetch } from '@codeday/topo/utils';
-import { useToast } from '@chakra-ui/core';
+import { useToast } from '@chakra-ui/react';
 import { CheckPromoCode } from './PromoBox.gql';
 
 export default function PromoBox({ event, onChange, ...rest }) {
@@ -47,7 +47,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
         <Button
           d="inline"
           ml={2}
-          variantColor="green"
+          colorScheme="green"
           isLoading={isLoading}
           onClick={async () => {
             if (!promoCode) {

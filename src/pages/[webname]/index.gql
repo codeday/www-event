@@ -51,7 +51,9 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       maxAge
       majorityAge
       remainingTickets
+      contentfulWebname
       eventGroup {
+        id
         name
       }
       venue {

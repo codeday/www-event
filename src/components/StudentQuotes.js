@@ -37,7 +37,7 @@ export default function StudentQuotes({ quotes, ...props }) {
             >
               <Box borderRightWidth={2} borderRightColor="purple.300" height={SIZE} />
               <Box pl={8}>
-                <Text italic>{quote.quote}</Text>
+                <Text textStyle="italic">{quote.quote}</Text>
                 <Text mb={0} bold>
                   {quote.image && (
                     <Image src={quote.image.url} d="inline-block" mr={4} alt="" rounded="full" height={8} />

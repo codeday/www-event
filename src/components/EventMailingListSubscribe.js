@@ -25,7 +25,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
         />
         <Button
           isLoading={isSubmitting}
-          variantColor="green"
+          colorScheme="green"
           onClick={async () => {
             setIsSubmitting(true);
             try {

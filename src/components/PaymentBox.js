@@ -7,7 +7,7 @@ import Button from '@codeday/topo/Atom/Button';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
 import { apiFetch } from '@codeday/topo/utils';
-import { useToast } from '@chakra-ui/core';
+import { useToast } from '@chakra-ui/react';
 import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutation } from './RegisterForm.gql';
 
 export default function PaymentBox({
@@ -31,7 +31,7 @@ export default function PaymentBox({
       <Button
         rounded={0}
         w="100%"
-        variantColor={ready ? 'brand' : 'gray'}
+        colorScheme={ready ? 'green' : 'gray'}
         disabled={!ready}
         isLoading={isLoading}
         onClick={async () => {
