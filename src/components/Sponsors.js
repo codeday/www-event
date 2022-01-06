@@ -15,10 +15,12 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
       </Heading>
       <Box mb={8}>
         {globalSponsors
-          .filter((sponsor) => sponsor.type === 'major')
+          .filter((sponsor) => sponsor.type === "major" && sponsor.logo?.url)
           .map((sponsor, i) => (
             <Link key={sponsor.name} href={sponsor.link}>
               <Image
+                bg="white"
+                padding={1}
                 d="inline-block"
                 height={20}
                 src={sponsor.logo.url}
@@ -27,9 +29,12 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
             </Link>
           ))}
         {localSponsors
+          .filter((sponsor) => sponsor.logo?.url)
           .map((sponsor, i) => (
             <Link key={sponsor.name} to={sponsor.link}>
               <Image
+                bg="white"
+                padding={1}
                 d="inline-block"
                 height={60}
                 src={sponsor.logoImageUri}
@@ -40,10 +45,12 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
       </Box>
       <Box>
         {globalSponsors
-          .filter((sponsor) => sponsor.type === 'minor')
+          .filter((sponsor) => sponsor.type === "minor" && sponsor.logo?.url)
           .map((sponsor, i) => (
             <Link key={sponsor.name} to={sponsor.link}>
               <Image
+                bg="white"
+                padding={1}
                 d="inline-block"
                 src={sponsor.logo.small}
                 pr={i + 1 === globalSponsors.length ? 0 : 8}
@@ -51,6 +58,6 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
             </Link>
           ))}
       </Box>
-   </Content>
+    </Content>
   );
 }
