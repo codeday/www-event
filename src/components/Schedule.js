@@ -3,6 +3,7 @@ import React from 'react';
 import Box, { Grid } from '@codeday/topo/Atom/Box';
 import Text, { Heading, Link } from '@codeday/topo/Atom/Text';
 import { DateTime } from 'luxon';
+import { useColorModeValue } from '@codeday/topo/Theme';
 
 export default function Schedule({ event, timezone, ...props }) {
   if (!event.schedule || event.schedule.length === 0) return <></>;
@@ -27,7 +28,7 @@ export default function Schedule({ event, timezone, ...props }) {
             <Heading as="h4" fontSize="xl" mb={4}>{dayName}</Heading>
             {days[dayName].map((e) => (
               <Box key={e.id} mb={4} borderWidth={2}>
-                <Box bg="gray.200" p={1} mb={0} fontSize="sm">
+                <Box bg={useColorModeValue("gray.200", "gray.850")} p={1} mb={0} fontSize="sm">
                   {e.link ? (
                     <Link d="inline-block" fontWeight="bold" fontSize="lg" href={e.link} target="_blank">
                       {e.name}
