@@ -17,7 +17,7 @@ export default ({ children, title, darkHeader, slug, region }) => (
     </Head>
     <DefaultSeo
       title={[title, region?.name, `CodeDay`].filter((s) => s).join(' ~ ')}
-      description="CodeDay is a 24-hour event where students get together to build apps and games and have a lot of fun."
+      description="CodeDay is an IRL event where students get together to build apps and games and have a lot of fun."
       canonical={`${DOMAIN}${slug}`}
       openGraph={{
         type: 'website',
