@@ -12,6 +12,7 @@ import { useColorMode } from '@codeday/topo/Theme';
 import Page from '../../components/Page';
 import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import DataCollection from "@codeday/topo/Molecule/DataCollection"
+import CognitoForm from '@codeday/topo/Molecule/CognitoForm';
 import IndexHeader from '../../components/IndexHeader';
 import Explainer from '../../components/Explainer';
 import StudentQuotes from '../../components/StudentQuotes';
@@ -78,7 +79,7 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
           pb={16}
           mb={16}
           heading={`CodeDay ${region.name}`}
-          subHeading={`${event.displayDate}, noon-noon`}
+          subHeading={event.customDisplayDate || `${event.displayDate}, noon-noon`}
           images={images}
         >
           {event.venue? <>
@@ -86,15 +87,17 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
           <Link fontSize="md" href={event.venue.mapLink}>{event.venue.address}</Link></>:null}
           {event.canRegister? <>
             <Text mt={8}>
-              Ticket Price: ${event.activeTicketPrice}&nbsp;
-              {event.canEarlyBirdRegister?
+              {event.activeTicketPrice === 0 ? 'Free!' : `Ticket Price: $${event.activeTicketPrice}`}&nbsp;
+              {event.canEarlyBirdRegister && event.activeTicketPrice > 0?
                 <Text mb={4} display="inline-block" color="#ff686b"> {/* For whatever reason color="brand" didn't work here? */}
                   (Early Bird Discount!)
                 </Text>: null
               }
             </Text>
             <Button colorScheme="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', {duration: 500, smooth: true, offset:-50})}>Register Now</Button>
-            <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Can&apos;t afford?</Button>
+            {event.activeTicketPrice > 0 && (
+              <Button variant="outline" as="a" href="/scholarship" hover={{bg: "#ff686b"}}>Can&apos;t afford?</Button>
+            )}
           </>: null
 
           }
@@ -106,27 +109,38 @@ export default function EventHome({ webname, region, images, quotes, event, cmsE
         <Content maxWidth="container.xl" mb={12}>
           <StudentQuotes quotes={quotes}/>
         </Content>
-        <Sponsors globalSponsors={globalSponsors} localSponsors={event.sponsors}/>
-        <a name="covid" />
-        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
-          <Content maxWidth="container.xl">
-            <CovidDetails />
-          </Content>
-        </Box>
+        <Sponsors globalSponsors={event.customHideSponsors ? [] : globalSponsors} localSponsors={event.sponsors}/>
+        {!event.customHideCovid && (
+          <>
+            <a name="covid" />
+            <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
+              <Content maxWidth="container.xl">
+                <CovidDetails />
+              </Content>
+            </Box>
+          </>
+        )}
         <a name="theme" />
         <Content maxWidth="container.xl">
           <ThemeNotifier event={cmsEvent} mb={12} />
         </Content>
         <a name="register" />
-        <Content maxWidth="container.xl" mb={12}>
-          <Box id="register" /> {/* used for register button */}
-          {event.canRegister ? <RegisterForm event={event} />:
-            <EventMailingListSubscribe event={event}>
-              <Text bold textAlign="center">CodeDay {region.name} is not currently accepting registrations</Text>
-              <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
-            </EventMailingListSubscribe>
-          }
-        </Content>
+        { event.customForm ? (
+          <Content maxWidth="container.lg">
+            <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
+            <CognitoForm formId={event.customForm} fallback={true} />
+          </Content>
+        ) : (
+          <Content maxWidth="container.xl" mb={12}>
+            <Box id="register" /> {/* used for register button */}
+            {event.canRegister ? <RegisterForm event={event} />: (
+              <EventMailingListSubscribe event={event}>
+                <Text bold textAlign="center">CodeDay {region.name} is not currently accepting registrations</Text>
+                <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
+              </EventMailingListSubscribe>
+            )}
+          </Content>
+        )}
         <Content maxWidth="container.lg">
           <Schedule event={event} timezone={region.timezone} mb={12} />
         </Content>
