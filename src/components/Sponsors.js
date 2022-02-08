@@ -16,7 +16,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
       <Box mb={8}>
         {localSponsors
           .filter((sponsor) => sponsor.logoImageUri)
-          .map((sponsor, i) => (
+          .map((sponsor) => (
             <Link key={sponsor.name} to={sponsor.link}>
               <Image
                 bg="white"
@@ -31,7 +31,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
           ))}
         {globalSponsors
           .filter((sponsor) => sponsor.type === 'major' && sponsor.logo?.url)
-          .map((sponsor, i) => (
+          .map((sponsor) => (
             <Link key={sponsor.name} href={sponsor.link}>
               <Image
                 bg="white"
@@ -48,7 +48,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
       <Box>
         {globalSponsors
           .filter((sponsor) => sponsor.type === 'minor' && sponsor.logo?.url)
-          .map((sponsor, i) => (
+          .map((sponsor) => (
             <Link key={sponsor.name} to={sponsor.link}>
               <Image
                 bg="white"
