@@ -36,7 +36,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
           <TextInput
             w="100%"
             placeholder="First (Given) Name"
-            value={ticketData.firstName}
+            value={ticketData.firstName || ''}
             onChange={
               (e) => setTicketData(['firstName', e.target.value])
             }
@@ -44,7 +44,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
           <TextInput
             w="100%"
             placeholder="Last (Family) Name"
-            value={ticketData.lastName}
+            value={ticketData.lastName || ''}
             onChange={
               (e) => setTicketData(['lastName', e.target.value])
             }
@@ -62,7 +62,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             <TextInput
               w="100%"
               placeholder="Email Address"
-              value={ticketData.email}
+              value={ticketData.email || ''}
               onChange={
                 (e) => setTicketData(['email', e.target.value])
               }
@@ -90,8 +90,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             <Text fontSize="xs" color={phoneError ? 'red.700' : undefined}>
               {phoneError
                 ? `Not a valid ${event.region.countryNameShortAdjective || 'US'} mobile phone number.`
-                : (ticketData?.phone && `Your full international number: ${ticketData.phone}`)
-              }
+                : (ticketData?.phone && `Your full international number: ${ticketData.phone}`)}
             </Text>
           </Box>
         </Grid>

@@ -86,8 +86,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
             <Text fontSize="xs" color={phoneError ? 'red.700' : undefined}>
               {phoneError
                 ? `Not a valid ${event.region.countryNameShortAdjective || 'US'} mobile phone number.`
-                : (guardianData?.phone && `Your full international number: ${guardianData.phone}`)
-              }
+                : (guardianData?.phone && `Your full international number: ${guardianData.phone}`)}
             </Text>
           </Box>
         </Grid>

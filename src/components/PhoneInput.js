@@ -11,12 +11,12 @@ export default function PhoneBox({ onChange, region, ...props }) {
       value={entered || ''}
       borderColor={(entered && !isValid) ? 'red.800' : undefined}
       onChange={(e) => {
-        const { phoneNumber, isValid } = normalizePhone(e.target.value, region);
+        const { phoneNumber, isValid: _isValid } = normalizePhone(e.target.value, region);
         setEntered(e.target.value);
-        setIsValid(isValid);
-        onChange(phoneNumber, !e.target.value || isValid);
+        setIsValid(_isValid);
+        onChange(phoneNumber, !e.target.value || _isValid);
       }}
       {...props}
     />
-  )
+  );
 }
