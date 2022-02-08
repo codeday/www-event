@@ -11,7 +11,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
   return (
     <Content paddingBottom={8} textAlign="center">
       <Heading as="h3" color="current.textLight" fontSize="2xl" pb={4}>
-        With support from...
+        With Support From:
       </Heading>
       <Box mb={8}>
         {localSponsors

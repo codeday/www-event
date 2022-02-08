@@ -73,6 +73,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       customDisplayDate: getMetadata(key: "date.display")
       customHideSponsors: getMetadata(key: "sponsors.hide-global")
       customHideCovid: getMetadata(key: "covid.hide")
+      customLegal: getMetadata(key: "legal")
       ...LocalSponsorsFragment
     }
   }

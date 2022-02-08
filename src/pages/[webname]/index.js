@@ -130,9 +130,11 @@ export default function EventHome({
       </Content>
       <a name="register" />
       { event.customForm ? (
-        <Content maxWidth="container.lg">
-          <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
-          <CognitoForm formId={event.customForm} fallback />
+        <Content maxWidth="container.md">
+          <Box borderWidth={1} p={8}>
+            <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
+            <CognitoForm formId={event.customForm} fallback />
+          </Box>
         </Content>
       ) : (
         <Content maxWidth="container.xl" mb={12}>
@@ -145,9 +147,14 @@ export default function EventHome({
           )}
         </Content>
       )}
-      <Content maxWidth="container.lg">
+      <Content maxWidth="container.lg" mb={12}>
         <Schedule event={event} timezone={region.timezone} mb={12} />
       </Content>
+      {event.customLegal && (
+        <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
+          <Text>{event.customLegal}</Text>
+        </Content>
+      )}
     </Page>
   );
 }
