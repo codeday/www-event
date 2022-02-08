@@ -52,6 +52,12 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       majorityAge
       remainingTickets
       contentfulWebname
+      region {
+        iso3166Alpha2Code
+        iso3166Alpha3Code
+        e164CountryCode
+        countryNameShortAdjective
+      }
       eventGroup {
         id
         name

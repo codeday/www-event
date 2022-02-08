@@ -1,11 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, {
-  useEffect, useReducer, useRef,
+  useEffect, useReducer, useRef, useState,
 } from 'react';
 import {
   Grid, Box, NumberInput, TextInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Text,
 } from '@codeday/topo/Atom';
 import { UiError } from '@codeday/topocons/Icon';
+import PhoneInput from './PhoneInput';
 
 export default function RegistrantBox({ event, onChange, ...rest }) {
   const [ticketData, setTicketData] = useReducer(
@@ -21,6 +22,8 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
     if (initialRender.current) initialRender.current = false;
     else onChange(ticketData, isValid);
   }, [ticketData]);
+
+  const [phoneError, setPhoneError] = useState(false);
 
   return (
     <Box borderWidth={1} {...rest}>
@@ -51,7 +54,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
         <Grid
           mb={4}
           templateColumns={{ base: '1fr', md: 'minmax(0, 100%) 1fr minmax(0, 100%)' }}
-          alignItems="center"
+          alignItems="start"
           gap={4}
         >
           <Box>
@@ -65,17 +68,31 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
               }
             />
           </Box>
-          <Box color="current.textLight" fontSize="sm" textAlign="center">&mdash;&nbsp;OR&nbsp;&mdash;</Box>
+          <Box
+            color="current.textLight"
+            fontSize="sm"
+            textAlign="center"
+            alignSelf="center"
+          >
+            &mdash;&nbsp;OR&nbsp;&mdash;
+          </Box>
           <Box>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>Phone Number</Text>
-            <TextInput
+            <Text fontSize="sm" fontWeight="bold" mb={0}>Mobile Phone Number</Text>
+            <PhoneInput
               w="100%"
               placeholder="Phone Number"
-              value={ticketData?.phone?.replace(/[^0-9]/g, '')}
-              onChange={
-                (e) => setTicketData(['phone', e.target.value])
-              }
+              region={event.region || {}}
+              onChange={(phoneNumber, valid) => {
+                setTicketData(['phone', phoneNumber]);
+                setPhoneError(!valid);
+              }}
             />
+            <Text fontSize="xs" color={phoneError ? 'red.700' : undefined}>
+              {phoneError
+                ? `Not a valid ${event.region.countryNameShortAdjective || 'US'} mobile phone number.`
+                : (ticketData?.phone && `Your full international number: ${ticketData.phone}`)
+              }
+            </Text>
           </Box>
         </Grid>
 

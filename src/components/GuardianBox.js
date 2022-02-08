@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
 import React, {
-  useEffect, useReducer, useRef,
+  useEffect, useReducer, useRef, useState,
 } from 'react';
 import {
   Grid, Box, TextInput, Text,
 } from '@codeday/topo/Atom';
+import PhoneInput from './PhoneInput';
 
-export default function GuardianBox({ /* event, */ onChange, ...rest }) {
+export default function GuardianBox({ event, onChange, ...rest }) {
   const [guardianData, setGuardianData] = useReducer(
     (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
   );
@@ -23,6 +24,8 @@ export default function GuardianBox({ /* event, */ onChange, ...rest }) {
     else onChange(guardianData, isValid);
   }, [guardianData]);
 
+  const [phoneError, setPhoneError] = useState(false);
+
   return (
     <Box borderWidth={1} {...rest}>
       <Box bg="gray.300" p={2} color="black" fontWeight="bold" fontSize="lg">
@@ -35,7 +38,7 @@ export default function GuardianBox({ /* event, */ onChange, ...rest }) {
           <TextInput
             w="100%"
             placeholder="First (Given) Name"
-            value={guardianData.firstName}
+            value={guardianData.firstName || ''}
             onChange={
               (e) => setGuardianData(['firstName', e.target.value])
             }
@@ -43,7 +46,7 @@ export default function GuardianBox({ /* event, */ onChange, ...rest }) {
           <TextInput
             w="100%"
             placeholder="Last (Family) Name"
-            value={guardianData.lastName}
+            value={guardianData.lastName || ''}
             onChange={
               (e) => setGuardianData(['lastName', e.target.value])
             }
@@ -60,7 +63,7 @@ export default function GuardianBox({ /* event, */ onChange, ...rest }) {
             <TextInput
               w="100%"
               placeholder="Email Address"
-              value={guardianData.email}
+              value={guardianData.email || ''}
               onChange={
                 (e) => setGuardianData(['email', e.target.value])
               }
@@ -70,15 +73,22 @@ export default function GuardianBox({ /* event, */ onChange, ...rest }) {
           <Box color="current.textLight" fontSize="sm" textAlign="center">&mdash;&nbsp;OR&nbsp;&mdash;</Box>
 
           <Box>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>Phone Number</Text>
-            <TextInput
+            <Text fontSize="sm" fontWeight="bold" mb={0}>Mobile Phone Number</Text>
+            <PhoneInput
               w="100%"
               placeholder="Phone Number"
-              value={guardianData?.phone?.replace(/[^0-9]/g, '')}
-              onChange={
-                (e) => setGuardianData(['phone', e.target.value])
-              }
+              region={event.region || {}}
+              onChange={(phoneNumber, valid) => {
+                setGuardianData(['phone', phoneNumber]);
+                setPhoneError(!valid);
+              }}
             />
+            <Text fontSize="xs" color={phoneError ? 'red.700' : undefined}>
+              {phoneError
+                ? `Not a valid ${event.region.countryNameShortAdjective || 'US'} mobile phone number.`
+                : (guardianData?.phone && `Your full international number: ${guardianData.phone}`)
+              }
+            </Text>
           </Box>
         </Grid>
       </Box>
