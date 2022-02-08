@@ -10,7 +10,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
 
   return (
     <Content paddingBottom={8} textAlign="center">
-      <Heading as="h3" color="current.textLight" fontSize="2xl" pb={4}>
+      <Heading as="h3" color="current.textLight" fontSize="2xl" pb={8}>
         With Support From:
       </Heading>
       <Box mb={8}>
@@ -22,11 +22,10 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
                 bg="white"
                 padding={1}
                 d="inline-block"
-                height={32}
-                ml={2}
-                mr={2}
+                maxHeight={48}
+                maxWidth={64}
+                p={8}
                 src={sponsor.logoImageUri}
-                pr={i + 1 === localSponsors.length ? 0 : 8}
               />
             </Link>
           ))}
@@ -38,11 +37,10 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
                 bg="white"
                 padding={1}
                 d="inline-block"
-                height={32}
-                ml={2}
-                mr={2}
+                maxHeight={48}
+                maxWidth={64}
+                p={8}
                 src={sponsor.logo.url}
-                pr={i + 1 === globalSponsors.length ? 0 : 8}
               />
             </Link>
           ))}
@@ -57,7 +55,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
                 padding={1}
                 d="inline-block"
                 src={sponsor.logo.small}
-                pr={i + 1 === globalSponsors.length ? 0 : 8}
+                p={4}
               />
             </Link>
           ))}
