@@ -28,7 +28,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
                 maxHeight={48}
                 maxWidth={64}
                 p={8}
-                src={colorMode === 'light'? sponsor.logoImageUri : sponsor.darkLogoImageUri || sponsor.logoImageUri}
+                src={colorMode === 'light' ? sponsor.logoImageUri : sponsor.darkLogoImageUri || sponsor.logoImageUri}
               />
             </Link>
           ))}
