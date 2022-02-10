@@ -4,8 +4,11 @@ import {
   Box, Image, Heading, Link,
 } from '@codeday/topo/Atom';
 import { Content } from '@codeday/topo/Molecule';
+import { useColorMode } from '@codeday/topo/Theme';
 
 export default function Sponsors({ globalSponsors, localSponsors }) {
+  const { colorMode } = useColorMode();
+
   if (!globalSponsors) return <></>;
 
   return (
@@ -25,7 +28,7 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
                 maxHeight={48}
                 maxWidth={64}
                 p={8}
-                src={sponsor.logoImageUri}
+                src={colorMode === 'light'? sponsor.logoImageUri : sponsor.darkLogoImageUri || sponsor.logoImageUri}
               />
             </Link>
           ))}

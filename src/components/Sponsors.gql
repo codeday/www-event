@@ -18,5 +18,6 @@ fragment LocalSponsorsFragment on ClearEvent {
     description
     link
     logoImageUri
+    darkLogoImageUri
   }
 }
