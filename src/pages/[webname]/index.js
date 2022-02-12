@@ -72,13 +72,13 @@ export default function EventHome({
     );
   }
   return (
-    <Page darkHeader slug={`/${region.webname}`} region={region}>
+    <Page darkHeader slug={`/${region.webname}`} region={region} event={event}>
       <IndexHeader
         mt={-40}
         pt={32}
         pb={16}
         mb={16}
-        heading={`CodeDay ${region.name}`}
+        heading={`CodeDay ${event?.name || region.name}`}
         subHeading={event.customDisplayDate || `${event.displayDate}, noon-noon`}
         images={images}
       >
@@ -94,7 +94,7 @@ export default function EventHome({
               {event.activeTicketPrice === 0 ? 'Free!' : `Ticket Price: $${event.activeTicketPrice}`}&nbsp;
               {event.canEarlyBirdRegister && event.activeTicketPrice > 0
                 ? (
-                  <Text mb={4} display="inline-block" color="#ff686b"> {/* For whatever reason color="brand" didn't work here? */}
+                  <Text mb={4} display="inline-block" color="red.600" fontSize="xs" position="relative" top="-0.2em">
                     (Early Bird Discount!)
                   </Text>
                 ) : null}
@@ -114,16 +114,6 @@ export default function EventHome({
         <StudentQuotes quotes={quotes} />
       </Content>
       <Sponsors globalSponsors={event.customHideSponsors ? [] : globalSponsors} localSponsors={event.sponsors} />
-      {!event.customHideCovid && (
-      <>
-        <a name="covid" />
-        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
-          <Content maxWidth="container.xl">
-            <CovidDetails />
-          </Content>
-        </Box>
-      </>
-      )}
       <a name="theme" />
       <Content maxWidth="container.xl">
         <ThemeNotifier event={cmsEvent} mb={12} />
@@ -141,11 +131,21 @@ export default function EventHome({
           <Box id="register" /> {/* used for register button */}
           {event.canRegister ? <RegisterForm event={event} /> : (
             <EventMailingListSubscribe event={event}>
-              <Text bold textAlign="center">CodeDay {region.name} is not currently accepting registrations</Text>
+              <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
               <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
             </EventMailingListSubscribe>
           )}
         </Content>
+      )}
+      {!event.customHideCovid && (
+      <>
+        <a name="covid" />
+        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
+          <Content maxWidth="container.xl">
+            <CovidDetails />
+          </Content>
+        </Box>
+      </>
       )}
       <Content maxWidth="container.lg" mb={12}>
         <Schedule event={event} timezone={region.timezone} mb={12} />

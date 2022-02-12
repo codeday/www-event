@@ -4,7 +4,11 @@ fragment GlobalSponsors on CmsQuery {
       link
       name
       type
-      logo{
+      logo {
+        url(transform:{height: 60})
+        small: url(transform:{height: 20})
+      }
+      darkLogo {
         url(transform:{height: 60})
         small: url(transform:{height: 20})
       }

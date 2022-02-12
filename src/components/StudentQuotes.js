@@ -6,7 +6,7 @@ import { useSlideshow } from '../providers/slideshow';
 const SIZE = 40;
 
 function Highlight({ children }) {
-  return <Text as="span" bold color="brand.700">{children}</Text>;
+  return <Text as="span" bold color="red.700">{children}</Text>;
 }
 
 export default function StudentQuotes({ quotes, ...props }) {
@@ -34,7 +34,7 @@ export default function StudentQuotes({ quotes, ...props }) {
               opacity={i === j ? 1 : 0}
               transition="all 0.5s ease-in-out"
             >
-              <Box borderRightWidth={2} borderRightColor="purple.300" height={SIZE} />
+              <Box borderRightWidth={2} borderRightColor="red.300" height={SIZE} />
               <Box pl={8}>
                 <Text textStyle="italic">{quote.quote}</Text>
                 <Text mb={0} bold>

@@ -14,15 +14,15 @@ export default function CovidDetails({ ...props }) {
   return (
     <Box {...props}>
       <Heading>
-        COVID-19 Safety Precautions
+        Special Event Restrictions
       </Heading>
-      <Text>
-        We are adhering to <Highlight>the same or better safety measures as most schools</Highlight> to keep you safe.
+      <Text mb={6}>
+        We have special procedures for this event to keep everyone safe.
       </Text>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr 1fr' }} alignItems="center" gap={16}>
         <Box bg={bg} rounded="md" p={4} h="100%">
           <Image src="twemoji/mask.svg" width={24} alt="Face Mask" display="block" ml="auto" mr="auto" mb={5} />
-          <Text bold>
+          <Text mb={2} bold>
             We&apos;ll provide you with a <Highlight>high-flow N95 mask</Highlight> which you must wear{' '}
             <Highlight>at all times.</Highlight>
           </Text>
@@ -30,18 +30,14 @@ export default function CovidDetails({ ...props }) {
         </Box>
         <Box bg={bg} rounded="md" p={4} h="100%">
           <Image src="twemoji/vaccine.svg" width={24} alt="Vaccine" display="block" ml="auto" mr="auto" mb={5} />
-          <Text bold>
+          <Text mb={2} bold>
             Documentation of full COVID-19 vaccination is <Highlight>required</Highlight> to attend in-person.
-          </Text>
-          <Text>
-            If you aren&apos;t able to get vaccinated, you can still{' '}
-            <Link href="https://virtual.codeday.org/">attend online!</Link>
           </Text>
           <Button as="a" href="https://vaccines.gov/" size="sm">Get Vaccinated</Button>
         </Box>
         <Box bg={bg} rounded="md" p={4} h="100%">
           <Image src="twemoji/sick.svg" width={24} alt="Sick" display="block" ml="auto" mr="auto" mb={5} />
-          <Text bold>We&apos;re checking for symptoms of COVID-19 at check-in.</Text>
+          <Text mb={2} bold>We&apos;re checking for symptoms of COVID-19 at check-in.</Text>
           <Text>
             If you are running a fever or have other symptoms of COVID-19, you&apos;ll need to participate virtually
             for safety.

@@ -41,6 +41,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
   clear {
     findFirstEvent(where: {contentfulWebname: {equals: $webname}, endDate: {gte: $endDate}}, orderBy: {startDate: desc}) {
       id
+      name
       canRegister
       canEarlyBirdRegister
       activeTicketPrice
