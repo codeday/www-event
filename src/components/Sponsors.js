@@ -17,29 +17,28 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
           .filter((sponsor) => sponsor.type !== 'minor')]
           .map((sponsor) => (
             <SponsorLogo
-              p={1}
+              key={sponsors.name}
               d="inline-block"
               maxHeight={40}
               maxWidth={56}
               p={8}
               sponsor={sponsor}
             />
-          ))
-        }
+        ))}
       </Box>
       <Box>
         {globalSponsors
           .filter((sponsor) => sponsor.type === 'minor')
           .map((sponsor) => (
             <SponsorLogo
+              key={sponsors.name}
               p={4}
               maxHeight={16}
               maxWidth={40}
               d="inline-block"
               sponsor={sponsor}
             />
-          ))
-        }
+        ))}
       </Box>
     </Content>
   );

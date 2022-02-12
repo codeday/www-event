@@ -26,8 +26,9 @@ export default function SponsorLogo({ sponsor, ...props }) {
       <Image
         bg={getColorBackground(logoImage, darkLogoImage, colorMode)}
         src={colorMode === 'light' ? logoImage : (darkLogoImage || logoImage)}
+        alt={sponsor.name}
         {...props}
       />
     </Link>
-  )
+  );
 }
