@@ -53,7 +53,7 @@ export default function RegisterForm({ event, ...props }) {
   }, [typeof window]);
 
   const calcMaxTickets = Math.min(10, maxTickets || 10, remainingTickets || 10);
-  const finalPrice = promoPrice !== null && typeof promoPrice !== 'undefined' ? promoPrice : event.activeTicketPrice + 10;
+  const finalPrice = promoPrice !== null && typeof promoPrice !== 'undefined' ? promoPrice : event.activeTicketPrice;
   const hasMinors = tickets
     .filter((ticket) => ticket.ticketData.age && ticket.ticketData.age < event.majorityAge)
     .length > 0;

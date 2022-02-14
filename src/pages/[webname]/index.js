@@ -129,7 +129,7 @@ export default function EventHome({
       ) : (
         <Content maxWidth="container.xl" mb={12}>
           <Box id="register" /> {/* used for register button */}
-          {event.canRegister || true ? <RegisterForm event={event} /> : (
+          {event.canRegister ? <RegisterForm event={event} /> : (
             <EventMailingListSubscribe event={event}>
               <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
               <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
