@@ -2,6 +2,7 @@ module.exports = {
   publicRuntimeConfig: {
     // eslint-disable-next-line node/no-process-env
     stripeKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    razorpayKey: process.env.RAZORPAY_KEY_ID,
   },
   serverRuntimeConfig: {
     clear_gql: {

@@ -6,26 +6,33 @@ query RefreshRemainingQuery($eventId: String!) {
   }
 }
 
-mutation RegisterMutation($eventId: String!, $ticketsData: [ClearTicketCreateWithoutEventInput!]!, $guardianData:  ClearPersonCreateInput, $promoCode: String) {
+mutation RegisterMutation(
+  $eventId: String!,
+  $ticketsData: [ClearTicketCreateWithoutEventInput!]!,
+  $guardianData:  ClearPersonCreateInput,
+  $promoCode: String,
+  $paymentProvider: ClearPaymentProvider,
+) {
     clear {
         registerForEvent(
             eventWhere: {id: $eventId},
             guardianData: $guardianData,
             ticketsData: $ticketsData,
-            promoCode: $promoCode
+            promoCode: $promoCode,
+            paymentProvider: $paymentProvider,
         )
     }
 }
 
-mutation FinalizePaymentMutation($paymentIntentId: String!) {
+mutation FinalizePaymentMutation($paymentIntentId: String!, $paymentProvider: ClearPaymentProvider) {
   clear {
-    finalizePayment(paymentIntentId: $paymentIntentId)
+    finalizePayment(paymentIntentId: $paymentIntentId, paymentProvider: $paymentProvider)
   }
 }
 
-mutation WithdrawFailedPaymentMutation($paymentIntentId: String!) {
+mutation WithdrawFailedPaymentMutation($paymentIntentId: String!, $paymentProvider: ClearPaymentProvider) {
   clear {
-    withdrawFailedPayment(paymentIntentId: $paymentIntentId)
+    withdrawFailedPayment(paymentIntentId: $paymentIntentId, paymentProvider: $paymentProvider)
   }
 }
 

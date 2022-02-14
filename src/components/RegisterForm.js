@@ -53,7 +53,7 @@ export default function RegisterForm({ event, ...props }) {
   }, [typeof window]);
 
   const calcMaxTickets = Math.min(10, maxTickets || 10, remainingTickets || 10);
-  const finalPrice = promoPrice !== null && typeof promoPrice !== 'undefined' ? promoPrice : event.activeTicketPrice;
+  const finalPrice = promoPrice !== null && typeof promoPrice !== 'undefined' ? promoPrice : event.activeTicketPrice + 10;
   const hasMinors = tickets
     .filter((ticket) => ticket.ticketData.age && ticket.ticketData.age < event.majorityAge)
     .length > 0;
@@ -194,7 +194,7 @@ export default function RegisterForm({ event, ...props }) {
             <Text mb={1}>
               {tickets.length}x <Ticket />
               &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null}
-              {' - '}${finalPrice * tickets.length}
+              {' - '}{event.region.currencySymbol || '$'}{finalPrice * tickets.length}
             </Text>
             <PromoBox event={event} onChange={(c, p, u) => { setPromoCode(c); setPromoPrice(p); setMaxTickets(u); }} />
           </Box>
@@ -215,6 +215,7 @@ export default function RegisterForm({ event, ...props }) {
           <Box color="current.textLight">
             <Heading as="h4" fontSize="sm" fontWeight="bold" mb={1}>Terms</Heading>
             <List styleType="disc" fontSize="sm" listStylePosition="outside" pl={4}>
+              <ListItem>Prices are in {event.region.currency || 'USD'}.</ListItem>
               <ListItem>
                 You must comply with the{' '}
                 <Link href="https://www.codeday.org/conduct" target="_blank">Code of Conduct</Link>{' '}
@@ -222,7 +223,7 @@ export default function RegisterForm({ event, ...props }) {
               </ListItem>
               <ListItem>You will need to sign a waiver.</ListItem>
               <ListItem>We may photograph or record you.</ListItem>
-              <ListItem>Refunds are available until 24 hours prior.</ListItem>
+              <ListItem>Refunds are available until 48 hours before the start.</ListItem>
             </List>
           </Box>
         </Box>
