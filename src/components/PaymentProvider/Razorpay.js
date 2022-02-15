@@ -80,6 +80,13 @@ export default function RazorpayPaymentBox({
                 title: 'Error',
                 description: res.description,
               });
+            rzpay.on('ondismiss', async (res) => {
+              await apiFetch(print(WithdrawFailedPaymentMutation), {
+                paymentIntentId: intentId,
+                paymentProvider: 'razorpay',
+              });
+              setIsLoading(false);
+            });
               setIsLoading(false);
             });
             rzpay.open();
