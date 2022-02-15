@@ -58,6 +58,9 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         iso3166Alpha3Code
         e164CountryCode
         countryNameShortAdjective
+        currency
+        currencySymbol
+        paymentProvider
       }
       eventGroup {
         id
