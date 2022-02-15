@@ -11,7 +11,7 @@ mutation RegisterMutation(
   $ticketsData: [ClearTicketCreateWithoutEventInput!]!,
   $guardianData:  ClearPersonCreateInput,
   $promoCode: String,
-  $paymentProvider: ClearPaymentProvider,
+  $paymentProvider: ClearPaymentProvider!,
 ) {
     clear {
         registerForEvent(

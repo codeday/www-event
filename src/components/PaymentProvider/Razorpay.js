@@ -30,7 +30,7 @@ export default function RazorpayPaymentBox({
           setIsLoading(true);
           let result;
           try {
-            await apiFetch(print(RegisterMutation), {
+            result = await apiFetch(print(RegisterMutation), {
               eventId: event.id,
               ticketsData,
               guardianData: guardianData || undefined,
