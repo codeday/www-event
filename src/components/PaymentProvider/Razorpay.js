@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import useRazorpay from "react-razorpay";
+import useRazorpay from 'react-razorpay';
 import { Box, Button } from '@codeday/topo/Atom';
 import { apiFetch } from '@codeday/topo/utils';
 import { print } from 'graphql';
@@ -80,13 +80,13 @@ export default function RazorpayPaymentBox({
                 title: 'Error',
                 description: res.description,
               });
-            rzpay.on('ondismiss', async (res) => {
+              setIsLoading(false);
+            });
+            rzpay.on('ondismiss', async () => {
               await apiFetch(print(WithdrawFailedPaymentMutation), {
                 paymentIntentId: intentId,
                 paymentProvider: 'razorpay',
               });
-              setIsLoading(false);
-            });
               setIsLoading(false);
             });
             rzpay.open();
