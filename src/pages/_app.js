@@ -10,6 +10,12 @@ const stripePromise = loadStripe(publicRuntimeConfig.stripeKey);
 const App = ({ Component, pageProps }) => (
   <ThemeProvider brandColor="red" withChat>
     <Elements stripe={stripePromise}>
+      <style>{`
+        * {
+        font-family: Helvetica !important
+      }
+      `}
+      </style>
       <Component {...pageProps} />
     </Elements>
   </ThemeProvider>
