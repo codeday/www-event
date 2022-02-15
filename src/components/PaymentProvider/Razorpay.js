@@ -69,6 +69,16 @@ export default function RazorpayPaymentBox({
                 setIsLoading(false);
                 onComplete();
               },
+              modal: {
+                escape: false,
+                async ondismiss() {
+                  await apiFetch(print(WithdrawFailedPaymentMutation), {
+                    paymentIntentId: intentId,
+                    paymentProvider: 'razorpay',
+                  });
+                  setIsLoading(false);
+                },
+              }
             });
             rzpay.on('payment.failed', async (res) => {
               await apiFetch(print(WithdrawFailedPaymentMutation), {
@@ -79,13 +89,6 @@ export default function RazorpayPaymentBox({
                 status: 'error',
                 title: 'Error',
                 description: res.description,
-              });
-              setIsLoading(false);
-            });
-            rzpay.on('ondismiss', async () => {
-              await apiFetch(print(WithdrawFailedPaymentMutation), {
-                paymentIntentId: intentId,
-                paymentProvider: 'razorpay',
               });
               setIsLoading(false);
             });

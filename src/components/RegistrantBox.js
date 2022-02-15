@@ -102,7 +102,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
           w="3xs"
           min={0}
           keepWithinRange
-          value={ticketData.age}
+          value={ticketData.age || ''}
           onChange={
             (value) => setTicketData(['age', value ? Number.parseInt(value) : null])
           }
