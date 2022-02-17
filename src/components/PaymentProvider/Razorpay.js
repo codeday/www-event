@@ -78,7 +78,7 @@ export default function RazorpayPaymentBox({
                   });
                   setIsLoading(false);
                 },
-              }
+              },
             });
             rzpay.on('payment.failed', async (res) => {
               await apiFetch(print(WithdrawFailedPaymentMutation), {
