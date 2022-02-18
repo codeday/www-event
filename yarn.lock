@@ -702,10 +702,10 @@
     eslint-plugin-react-hooks "^2.3.0"
     eslint-plugin-sonarjs "^0.5.0"
 
-"@codeday/topo@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/@codeday/topo/-/topo-6.0.1.tgz#35047008808d2cd089853eb0d38e2b8126453b86"
-  integrity sha512-yuzO71/jaYjBZt7fVe41N45RznTYyoLqaFXxpyY74+5KjlynEgwPzzhWGNfq3oDc5b/kKaQ1q08TxIZflxHubw==
+"@codeday/topo@^6.0.5":
+  version "6.0.5"
+  resolved "https://registry.yarnpkg.com/@codeday/topo/-/topo-6.0.5.tgz#92e5fbc6dd0c4a2747fc9f9095c9f12fb688288c"
+  integrity sha512-8+pAam7q+l9YdS41wSpZEonfYEz2uW6IyyI4oN3kkXlOzzufZKMvwoeyUUQGxu0+syowBK73Xfb4L3Di/8acGA==
   dependencies:
     "@accessible/use-id" "^1.1.2"
     "@chakra-ui/cli" "^1.6.0"
@@ -719,6 +719,7 @@
     framer-motion "^4"
     graphql "^16.0.1"
     graphql-request "^3.6.1"
+    lodash.get "^4.4.2"
     react "^17.0.2"
     react-dom "^17.0.2"
     react-load-script "^0.0.6"
@@ -2873,6 +2874,11 @@ locate-path@^2.0.0:
   dependencies:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
+
+lodash.get@^4.4.2:
+  version "4.4.2"
+  resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+  integrity sha1-LRd/ZS+jHpObRDjVNBSZ36OCXpk=
 
 lodash.includes@^4.3.0:
   version "4.3.0"

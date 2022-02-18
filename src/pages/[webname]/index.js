@@ -123,7 +123,7 @@ export default function EventHome({
         <Content maxWidth="container.md">
           <Box borderWidth={1} p={8}>
             <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
-            <CognitoForm formId={event.customForm} fallback />
+            <CognitoForm formId={event.customForm} />
           </Box>
         </Content>
       ) : (
