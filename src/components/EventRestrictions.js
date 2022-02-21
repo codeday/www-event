@@ -4,24 +4,23 @@ import {
 } from '@codeday/topo/Atom';
 import { useColorMode } from '@codeday/topo/Theme';
 import ReactHtmlParser from 'react-html-parser';
-import { marked } from "marked";
+import { marked } from 'marked';
 
 function Highlight({ children }) {
-    return <Text as="span" bold color="brand.700">{children}</Text>;
+  return <Text as="span" bold color="brand.700">{children}</Text>;
 }
 
 function transform(node) {
-    if(node.type === "tag" && node.name === "strong") {
-        return <Highlight>{node.children[0].data}</Highlight>
+  if (node.type === 'tag' && node.name === 'strong') {
+    return <Highlight>{node.children[0].data}</Highlight>;
+  }
+  if (node.type === 'tag' && node.name === 'a' && node.attribs.href) {
+    if (node.children[0].data.startsWith('btn ')) {
+      return <Button as="a" href={node.attribs.href}>{node.children[0].data.slice(3)}</Button>;
     }
-    if(node.type === "tag" && node.name === "a" && node.attribs.href) {
-        if(node.children[0].data.startsWith('btn ')) {
-            return <Button as="a" href={node.attribs.href}>{node.children[0].data.slice(3)}</Button>
-        }
-        return <Link to={node.attribs.href}>{node.children[0].data}</Link>
-    }
+    return <Link to={node.attribs.href}>{node.children[0].data}</Link>;
+  }
 }
-
 
 const DEFAULT_RESTRICTIONS = [
   {
@@ -39,7 +38,7 @@ const DEFAULT_RESTRICTIONS = [
     title: `We're checking for symptoms of COVID-19 at check-in.`,
     details: `If you are running a fever or have other symptoms of COVID-19, you'll need to participate virtually for safety.`,
   },
-]
+];
 
 export default function EventRestrictions({ event, ...props }) {
   const { colorMode } = useColorMode();
@@ -60,10 +59,10 @@ export default function EventRestrictions({ event, ...props }) {
           <Box key={restriction.iconUri} bg={bg} rounded="md" p={4} h="100%">
             <Image src={restriction.iconUri} width={24} alt="" display="block" ml="auto" mr="auto" mb={5} />
             <Text mb={2} fontWeight="bold">
-              {ReactHtmlParser(marked.parse(restriction.title || ''), {transform})}
+              {ReactHtmlParser(marked.parse(restriction.title || ''), { transform })}
             </Text>
             <Text>
-              {ReactHtmlParser(marked.parse(restriction.details || ''), {transform})}
+              {ReactHtmlParser(marked.parse(restriction.details || ''), { transform })}
             </Text>
           </Box>
         ))}
