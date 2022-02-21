@@ -79,7 +79,7 @@ export default function EventHome({
         pb={16}
         mb={16}
         heading={`CodeDay ${event?.name || region.name}`}
-        subHeading={event.customDisplayDate || `${event.displayDate}, noon-noon`}
+        subHeading={event.customDisplayDate || `${event.displayDate}, ${event.displayTime}`}
         images={images}
       >
         {event.venue ? (
