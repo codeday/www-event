@@ -49,51 +49,55 @@ export default function RazorpayPaymentBox({
             return;
           }
 
-          if (expectedPrice > 0) {
-            const intentId = result.clear.registerForEvent;
-            const rzpay = new Razorpay({
-              key: publicRuntimeConfig.razorpayKey,
-              amount: Math.round(expectedPrice * 100),
-              currency: 'INR',
-              name: 'CodeDay',
-              description: 'CodeDay registration',
-              order_id: intentId,
-              theme: {
-                color: '#ff686b',
-              },
-              async handler() {
-                await apiFetch(print(FinalizePaymentMutation), {
+          if (expectedPrice <= 0) {
+            setIsLoading(false);
+            onComplete();
+            return;
+          }
+
+          const intentId = result.clear.registerForEvent;
+          const rzpay = new Razorpay({
+            key: publicRuntimeConfig.razorpayKey,
+            amount: Math.round(expectedPrice * 100),
+            currency: 'INR',
+            name: 'CodeDay',
+            description: 'CodeDay registration',
+            order_id: intentId,
+            theme: {
+              color: '#ff686b',
+            },
+            async handler() {
+              await apiFetch(print(FinalizePaymentMutation), {
+                paymentIntentId: intentId,
+                paymentProvider: 'razorpay',
+              });
+              setIsLoading(false);
+              onComplete();
+            },
+            modal: {
+              escape: false,
+              async ondismiss() {
+                await apiFetch(print(WithdrawFailedPaymentMutation), {
                   paymentIntentId: intentId,
                   paymentProvider: 'razorpay',
                 });
                 setIsLoading(false);
-                onComplete();
               },
-              modal: {
-                escape: false,
-                async ondismiss() {
-                  await apiFetch(print(WithdrawFailedPaymentMutation), {
-                    paymentIntentId: intentId,
-                    paymentProvider: 'razorpay',
-                  });
-                  setIsLoading(false);
-                },
-              },
+            },
+          });
+          rzpay.on('payment.failed', async (res) => {
+            await apiFetch(print(WithdrawFailedPaymentMutation), {
+              paymentIntentId: intentId,
+              paymentProvider: 'razorpay',
             });
-            rzpay.on('payment.failed', async (res) => {
-              await apiFetch(print(WithdrawFailedPaymentMutation), {
-                paymentIntentId: intentId,
-                paymentProvider: 'razorpay',
-              });
-              toast({
-                status: 'error',
-                title: 'Error',
-                description: res.description,
-              });
-              setIsLoading(false);
+            toast({
+              status: 'error',
+              title: 'Error',
+              description: res.description,
             });
-            rzpay.open();
-          }
+            setIsLoading(false);
+          });
+          rzpay.open();
         }}
       >
         {isValid
