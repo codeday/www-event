@@ -1,0 +1,7 @@
+fragment EventRestrictionsFragment on ClearEvent {
+  eventRestrictions {
+    iconUri
+    title
+    details
+  }
+}

@@ -2,6 +2,7 @@
 #import "../../components/StudentQuotes.gql"
 #import "../../components/ThemeNotifier.gql"
 #import "../../components/Sponsors.gql"
+#import "../../components/EventRestrictions.gql"
 
 query IndexStaticPathsQuery {
   cms {
@@ -85,6 +86,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       customHideCovid: getMetadata(key: "covid.hide")
       customLegal: getMetadata(key: "legal")
       ...LocalSponsorsFragment
+      ...EventRestrictionsFragment
     }
   }
   ...IndexHeaderFragment

@@ -15,7 +15,7 @@ import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import IndexHeader from '../../components/IndexHeader';
 import Explainer from '../../components/Explainer';
 import StudentQuotes from '../../components/StudentQuotes';
-import CovidDetails from '../../components/CovidDetails';
+import EventRestrictions from '../../components/EventRestrictions';
 import RegisterForm from '../../components/RegisterForm';
 import ThemeNotifier from '../../components/ThemeNotifier';
 import Schedule from '../../components/Schedule';
@@ -118,6 +118,16 @@ export default function EventHome({
       <Content maxWidth="container.xl">
         <ThemeNotifier event={cmsEvent} mb={12} />
       </Content>
+      {!event.customHideCovid && (
+      <>
+        <a name="covid" />
+        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
+          <Content maxWidth="container.xl">
+            <EventRestrictions event={event} />
+          </Content>
+        </Box>
+      </>
+      )}
       <a name="register" />
       { event.customForm ? (
         <Content maxWidth="container.md">
@@ -136,16 +146,6 @@ export default function EventHome({
             </EventMailingListSubscribe>
           )}
         </Content>
-      )}
-      {!event.customHideCovid && (
-      <>
-        <a name="covid" />
-        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
-          <Content maxWidth="container.xl">
-            <CovidDetails />
-          </Content>
-        </Box>
-      </>
       )}
       <Content maxWidth="container.lg" mb={12}>
         <Schedule event={event} timezone={region.timezone} mb={12} />
