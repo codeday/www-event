@@ -17,7 +17,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
   useEffect(() => {
     const isValid = Boolean(ticketData?.firstName && ticketData?.lastName
       && (ticketData?.email || ticketData?.phone)
-      && ticketData?.age && ticketData.age > event.minAge && ticketData.age < event.maxAge);
+      && ticketData?.age && ticketData.age >= event.minAge && ticketData.age <= event.maxAge);
 
     if (initialRender.current) initialRender.current = false;
     else onChange(ticketData, isValid);
