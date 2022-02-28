@@ -111,14 +111,12 @@ export default function EventHome({
         ) : null}
       </IndexHeader>
       {event.noticeBox && (
-        <Box bg="red.900" color="red.50">
-          <Content maxWidth="container.lg" pt={12} pb={12} fontSize="lg">
-            <Grid templateColumns="1fr 100%" gap={8}>
-              <Box><Box fontSize="4xl" mt={-2}><AnnouncementIcon /></Box></Box>
-              <Box>{ReactHtmlParser(marked.parse(event.noticeBox))}</Box>
-            </Grid>
-          </Content>
-        </Box>
+        <Content maxWidth="container.lg" p={12} fontSize="lg" color="red.50" bg="red.900" rounded="md">
+          <Grid templateColumns="1fr minmax(0, 100%)" gap={8}>
+            <Box><Box fontSize="4xl" mt={-2}><AnnouncementIcon /></Box></Box>
+            <Box>{ReactHtmlParser(marked.parse(event.noticeBox))}</Box>
+          </Grid>
+        </Content>
       )}
       <Content maxWidth="container.xl" mb={12}>
         <Explainer mb={12} />
