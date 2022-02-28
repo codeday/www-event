@@ -6,7 +6,7 @@ import { Content } from '@codeday/topo/Molecule';
 import { useSlideshow } from '../providers/slideshow';
 
 export default function IndexHeader({
-  heading, subHeading, images, children, ...props
+  notice, heading, subHeading, images, children, ...props
 }) {
   const i = useSlideshow(images.length, 5000);
   return (
@@ -20,6 +20,19 @@ export default function IndexHeader({
             color="white"
             mt={12}
           >
+            {notice && (
+              <Text
+                color="red.50"
+                bg="red.900"
+                p={2}
+                mb={2}
+                d="inline-block"
+                rounded="md"
+                fontWeight="bold"
+              >
+                {notice}
+              </Text>
+            )}
             <Heading
               as="h2"
               fontSize="5xl"

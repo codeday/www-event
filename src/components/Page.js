@@ -33,7 +33,30 @@ const Page = ({
       }}
     />
     <Box position="relative">
-      <Header darkBackground={darkHeader} gradAmount={darkHeader && 'lg'} color={darkHeader && 'white'} underscore position="relative" zIndex={1000}>
+      {event.noticeTop && (
+        <Box
+          textAlign="center"
+          fontWeight="bold"
+          bg="red.900"
+          color="red.50"
+          w="100%"
+          pb={2}
+          pt={2}
+          zIndex={10000}
+          pos="absolute"
+        >
+          {event.noticeTop}
+        </Box>
+      )}
+      <Header
+        darkBackground={darkHeader}
+        gradAmount={darkHeader && 'lg'}
+        color={darkHeader && 'white'}
+        underscore
+        position="relative"
+        zIndex={1000}
+        pt={event.noticeTop ? 8 : undefined}
+      >
         <SiteLogo>
           <a href="https://www.codeday.org/">
             <CodeDay color={darkHeader && 'white'} withText />

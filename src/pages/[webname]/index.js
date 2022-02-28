@@ -3,13 +3,16 @@ import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import {
-  Box, Button, Heading, Link, Text,
+  Box, Button, Heading, Link, Text, Grid,
 } from '@codeday/topo/Atom';
+import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
 import { Content, DataCollection, CognitoForm } from '@codeday/topo/Molecule';
 import { MailingListSubscribe } from '@codeday/topo/Organism';
 import { useColorMode } from '@codeday/topo/Theme';
 import { apiFetch } from '@codeday/topo/utils';
 import Scroll from 'react-scroll';
+import { marked } from 'marked';
+import ReactHtmlParser from 'react-html-parser';
 import Page from '../../components/Page';
 import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import IndexHeader from '../../components/IndexHeader';
@@ -78,6 +81,7 @@ export default function EventHome({
         pt={32}
         pb={16}
         mb={16}
+        notice={event.noticeHero}
         heading={`CodeDay ${event?.name || region.name}`}
         subHeading={event.customDisplayDate || `${event.displayDate}, ${event.displayTime}`}
         images={images}
@@ -106,6 +110,16 @@ export default function EventHome({
           </>
         ) : null}
       </IndexHeader>
+      {event.noticeBox && (
+        <Box bg="red.900" color="red.50">
+          <Content maxWidth="container.lg" pt={12} pb={12} fontSize="lg">
+            <Grid templateColumns="1fr 100%" gap={8}>
+              <Box><Box fontSize="4xl" mt={-2}><AnnouncementIcon /></Box></Box>
+              <Box>{ReactHtmlParser(marked.parse(event.noticeBox))}</Box>
+            </Grid>
+          </Content>
+        </Box>
+      )}
       <Content maxWidth="container.xl" mb={12}>
         <Explainer mb={12} />
       </Content>
@@ -129,24 +143,22 @@ export default function EventHome({
       </>
       )}
       <a name="register" />
-      { event.customForm ? (
-        <Content maxWidth="container.md">
-          <Box borderWidth={1} p={8}>
-            <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
-            <CognitoForm formId={event.customForm} />
-          </Box>
-        </Content>
-      ) : (
-        <Content maxWidth="container.xl" mb={12}>
-          <Box id="register" /> {/* used for register button */}
-          {event.canRegister ? <RegisterForm event={event} /> : (
-            <EventMailingListSubscribe event={event}>
-              <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
-              <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
-            </EventMailingListSubscribe>
-          )}
-        </Content>
-      )}
+      <Content maxWidth="container.xl" mb={12}>
+        <Box id="register" /> {/* used for register button */}
+        {event.canRegister ? (
+          event.customForm ? (
+            <Content borderWidth={1} p={8} maxWidth="container.lg">
+              <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
+              <CognitoForm formId={event.customForm} />
+            </Content>
+          ) : <RegisterForm event={event} />
+        ) : (
+          <EventMailingListSubscribe event={event}>
+            <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
+            <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
+          </EventMailingListSubscribe>
+        )}
+      </Content>
       <Content maxWidth="container.lg" mb={12}>
         <Schedule event={event} timezone={region.timezone} mb={12} />
       </Content>
