@@ -33,7 +33,7 @@ const Page = ({
       }}
     />
     <Box position="relative">
-      {event.noticeTop && (
+      {event?.noticeTop && (
         <Box
           textAlign="center"
           fontWeight="bold"
@@ -55,7 +55,7 @@ const Page = ({
         underscore
         position="relative"
         zIndex={1000}
-        pt={event.noticeTop ? 8 : undefined}
+        pt={event?.noticeTop ? 8 : undefined}
       >
         <SiteLogo>
           <a href="https://www.codeday.org/">
