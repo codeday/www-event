@@ -2,7 +2,7 @@ import React from 'react';
 import { sign, verify } from 'jsonwebtoken';
 import { Box } from '@codeday/topo/Atom';
 import { CognitoForm, Content } from '@codeday/topo/Molecule';
-import { apiFetch } from '@codeday/topo/utils';
+import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import getConfig from 'next/config';
 import { print } from 'graphql';
 import Page from '../../components/Page';
@@ -11,7 +11,9 @@ import ErrorPage from '../../components/ErrorPage';
 
 const { serverRuntimeConfig } = getConfig();
 export default function WaiverPage({ token, ticket, error }) {
+  const analytics = useAnalytics();
   if (error) return <ErrorPage details={error} />;
+  analytics.goal('JFLLMQQ0', 0)
   return (
     <Page>
       <Content>
@@ -31,6 +33,7 @@ export default function WaiverPage({ token, ticket, error }) {
           <Box p={8}>
             <CognitoForm
               formId={5}
+              onSubmit={() => {analytics.goal('EYPXBAT0', 0)}}
               prefill={{
                 JWT: token,
                 Minor: (ticket.age >= ticket.event.majorityAge ? 'no' : 'yes'),

@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import useRazorpay from 'react-razorpay';
 import { Box, Button } from '@codeday/topo/Atom';
-import { apiFetch } from '@codeday/topo/utils';
+import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { useToast } from '@chakra-ui/react';
 import getConfig from 'next/config';
@@ -15,6 +15,7 @@ export default function RazorpayPaymentBox({
 }) {
   const Razorpay = useRazorpay();
   const toast = useToast();
+  const analytics = useAnalytics();
   const [isLoading, setIsLoading] = useState(false);
   const expectedPrice = finalPrice * ticketsData.length;
 
@@ -28,6 +29,7 @@ export default function RazorpayPaymentBox({
         isLoading={isLoading}
         onClick={async () => {
           setIsLoading(true);
+          analytics.goal('T5G5AK5S', 0)
           let result;
           try {
             result = await apiFetch(print(RegisterMutation), {
