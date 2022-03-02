@@ -8,7 +8,7 @@ const { publicRuntimeConfig } = getConfig();
 const stripePromise = loadStripe(publicRuntimeConfig.stripeKey);
 
 const App = ({ Component, pageProps }) => (
-  <ThemeProvider brandColor="red" withChat>
+  <ThemeProvider brandColor="red" analyticsId="AZKCYNER" withChat>
     <Elements stripe={stripePromise}>
       <Component {...pageProps} />
     </Elements>
