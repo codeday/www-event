@@ -34,7 +34,7 @@ export default function StripePaymentBox({
         isLoading={isLoading}
         onClick={async () => {
           setIsLoading(true);
-          analytics.goal('T5G5AK5S', 0)
+          analytics.goal('T5G5AK5S', 0);
           try {
             const result = await apiFetch(print(RegisterMutation), {
               eventId: event.id,

@@ -13,7 +13,7 @@ const { serverRuntimeConfig } = getConfig();
 export default function WaiverPage({ token, ticket, error }) {
   const analytics = useAnalytics();
   if (error) return <ErrorPage details={error} />;
-  analytics.goal('JFLLMQQ0', 0)
+  analytics.goal('JFLLMQQ0', 0);
   return (
     <Page>
       <Content>
@@ -33,7 +33,7 @@ export default function WaiverPage({ token, ticket, error }) {
           <Box p={8}>
             <CognitoForm
               formId={5}
-              onSubmit={() => {analytics.goal('EYPXBAT0', 0)}}
+              onSubmit={() => { analytics.goal('EYPXBAT0', 0); }}
               prefill={{
                 JWT: token,
                 Minor: (ticket.age >= ticket.event.majorityAge ? 'no' : 'yes'),

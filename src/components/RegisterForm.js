@@ -61,7 +61,7 @@ export default function RegisterForm({ event, ...props }) {
     .length > 0;
 
   if (isComplete) {
-    analytics.goal('7XJLEFKY', 0)
+    analytics.goal('7XJLEFKY', 0);
     return (
       <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
         <Box p={4} bg="brand.600">
@@ -74,7 +74,7 @@ export default function RegisterForm({ event, ...props }) {
           </Text>
           <CognitoForm
             formId="104"
-            onSubmit={() => {analytics.goal('8YRYGGMT', 0)}}
+            onSubmit={() => { analytics.goal('8YRYGGMT', 0); }}
             prefill={{
               EventGroupId: event.eventGroup.id,
               EventId: event.id,
@@ -163,9 +163,9 @@ export default function RegisterForm({ event, ...props }) {
               event={event}
               mb={4}
               onChange={(ticketData, isValid) => {
-                if(!isStarted) {
-                  analytics.goal('WJ8DFCV7', 0)
-                  setIsStarted(true)
+                if (!isStarted) {
+                  analytics.goal('WJ8DFCV7', 0);
+                  setIsStarted(true);
                 }
                 updateTickets({
                   i,
@@ -218,8 +218,8 @@ export default function RegisterForm({ event, ...props }) {
               && tickets.map((ticket) => ticket.isValid).reduce((a, b) => a && b, true)
             }
             onComplete={() => {
-              setIsComplete(true)
-              analytics.goal('8FI259EA', 0)
+              setIsComplete(true);
+              analytics.goal('8FI259EA', 0);
             }}
             mb={4}
           />

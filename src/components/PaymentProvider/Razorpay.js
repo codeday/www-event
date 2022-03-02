@@ -29,7 +29,7 @@ export default function RazorpayPaymentBox({
         isLoading={isLoading}
         onClick={async () => {
           setIsLoading(true);
-          analytics.goal('T5G5AK5S', 0)
+          analytics.goal('T5G5AK5S', 0);
           let result;
           try {
             result = await apiFetch(print(RegisterMutation), {
