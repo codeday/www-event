@@ -34,7 +34,7 @@ export default function EventHome({
   useEffect(() => {
     if (typeof window === 'undefined' || !region) return;
     if (webname !== region.webname) {
-      router.replace(`/${region.webname}`, `/${region.webname}`, { shallow: true });
+      router.replace(`/${region.webname}`);
     }
   }, [typeof window, webname, region]);
 
