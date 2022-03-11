@@ -23,8 +23,13 @@ export default function Schedule({ event, timezone, ...props }) {
 
   return (
     <Box {...props}>
-      <Heading textAlign="center" as="h3" fontSize="3xl" fontWeight="bold" mb={4}>Schedule</Heading>
-      <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={8}>
+      <Heading as="h3" fontSize="3xl" fontWeight="bold" mb={4}>Schedule</Heading>
+      <Grid
+        maxWidth={Object.keys(days).length > 1 ? 'container.lg' : 'container.sm'}
+        margin="auto"
+        templateColumns={{ base: '1fr', md: `repeat(${Object.keys(days).length}, 1fr)` }}
+        gap={8}
+      >
         {Object.keys(days).map((dayName) => (
           <Box key={dayName}>
             <Heading as="h4" fontSize="xl" mb={4}>{dayName}</Heading>

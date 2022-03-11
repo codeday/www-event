@@ -1,0 +1,6 @@
+fragment Faq on CmsFaq {
+  title
+  answer {
+    json
+  }
+}

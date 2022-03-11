@@ -23,10 +23,11 @@ import RegisterForm from '../../components/RegisterForm';
 import ThemeNotifier from '../../components/ThemeNotifier';
 import Schedule from '../../components/Schedule';
 import Sponsors from '../../components/Sponsors';
+import Faq from '../../components/Faq';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
 
 export default function EventHome({
-  webname, region, images, quotes, event, cmsEvent, globalSponsors,
+  webname, region, images, quotes, event, cmsEvent, globalSponsors, faqs,
 }) {
   // Redirect the user to the canonical URL
   const router = useRouter();
@@ -157,8 +158,22 @@ export default function EventHome({
           </EventMailingListSubscribe>
         )}
       </Content>
-      <Content maxWidth="container.lg" mb={12}>
+      <Content maxWidth="container.xl" mb={12}>
         <Schedule event={event} timezone={region.timezone} mb={12} />
+      </Content>
+      <Content maxWidth="container.xl" mb={12}>
+        <Heading as="h4" fontSize="4xl">FAQs</Heading>
+        <Text mb={8}>
+          Have more questions? You can{' '}
+          <Link href="https://www.codeday.org/help/codeday" target="_blank">read more FAQs here</Link>{' '}
+          or email us at <Link href="mailto:team@codeday.org">team@codeday.org</Link>.
+        </Text>
+        <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={8}>
+          {faqs.map((faq) => <Faq key={faq.sys.id} faq={faq} />)}
+        </Grid>
+        <Box textAlign="center" mt={8}>
+          <Button as="a" href="https://www.codeday.org/help/codeday" target="_blank">All FAQs</Button>
+        </Box>
       </Content>
       {event.customLegal && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
@@ -195,6 +210,7 @@ export async function getStaticProps({ params: { webname } }) {
       quotes: result?.cms?.testimonials?.items || [],
       cmsEvent: result?.cms?.events?.items[0] || null,
       globalSponsors: result?.cms?.globalSponsors.items || null,
+      faqs: result?.cms?.faqs?.items || [],
     },
     revalidate: 900,
   };

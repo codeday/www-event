@@ -3,6 +3,7 @@
 #import "../../components/ThemeNotifier.gql"
 #import "../../components/Sponsors.gql"
 #import "../../components/EventRestrictions.gql"
+#import "../../components/Faq.gql"
 
 query IndexStaticPathsQuery {
   cms {
@@ -18,6 +19,13 @@ query IndexStaticPathsQuery {
 query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEndDate: CmsDateTime!) {
   cms {
     ...GlobalSponsors
+    faqs (where: { program: { webname: "codeday" }, audience_contains_all: ["Student"], featured: true }) {
+      items {
+        sys { id }
+        ...Faq
+      }
+    }
+
     regions(where:{ OR: [{ webname: $webname }, { aliases_contains_all: [$webname] }] }, limit: 1) {
       items {
         name
