@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
 import { Box, Button } from '@codeday/topo/Atom';
-import { apiFetch } from '@codeday/topo/utils';
+import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
 import { useToast } from '@chakra-ui/react';
@@ -13,6 +13,7 @@ export default function StripePaymentBox({
   const stripe = useStripe();
   const elements = useElements();
   const toast = useToast();
+  const analytics = useAnalytics();
   const [isStripeReady, setIsStripeReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const ready = (finalPrice === 0 || isStripeReady) && isValid;
@@ -33,6 +34,7 @@ export default function StripePaymentBox({
         isLoading={isLoading}
         onClick={async () => {
           setIsLoading(true);
+          analytics.goal('T5G5AK5S', 0);
           try {
             const result = await apiFetch(print(RegisterMutation), {
               eventId: event.id,
