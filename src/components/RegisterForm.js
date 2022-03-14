@@ -80,7 +80,7 @@ export default function RegisterForm({ event, ...props }) {
               EventId: event.id,
               Region: event.contentfulWebname,
               TicketCount: tickets.length,
-              PromoCode: promoCode ? promoCode.toUpperCase() : undefined,
+              PromoCode: promoCode ? promoCode.toUpperCase().trim() : undefined,
               Tickets: tickets.map((ticket) => ({
                 Name: {
                   First: ticket.ticketData.firstName,
