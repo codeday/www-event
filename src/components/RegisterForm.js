@@ -65,7 +65,7 @@ export default function RegisterForm({ event, ...props }) {
     return (
       <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
         <Box p={4} bg="brand.600">
-          <Heading color="white">Register for CodeDay</Heading>
+          <Heading>Register for CodeDay</Heading>
         </Box>
         <Box p={8} textAlign="center">
           <Text fontSize="3xl" bold>You&apos;re going to CodeDay! Now customize your experience.</Text>
@@ -122,7 +122,7 @@ export default function RegisterForm({ event, ...props }) {
     return (
       <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
         <Box p={4} bg="brand.600">
-          <Heading color="white">Register for CodeDay</Heading>
+          <Heading>Register for CodeDay</Heading>
         </Box>
         <Box p={8} textAlign="center">
           <Text fontSize="3xl" bold>Sorry, we&apos;re sold out!</Text>
@@ -136,7 +136,7 @@ export default function RegisterForm({ event, ...props }) {
 
   return (
     <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
-      <Box p={4} bg="brand.600" color="white">
+      <Box p={4} bg="brand.600">
         <Heading>Register for CodeDay</Heading>
         {remainingTickets <= 10 && (
           <Text mb={0}>
