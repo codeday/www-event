@@ -60,9 +60,7 @@ export default function EventHome({
           <StudentQuotes quotes={quotes} />
           <br />
           <Box textAlign="center">
-            <Heading>😢 We don&apos;t have a CodeDay {region.name} planned for this season...</Heading>
-            <Heading as="h2" fontSize="3xl">But you can still <Link href="https://virtual.codeday.org">participate virtually!</Link></Heading>
-            <Button as="a" size="lg" m={2} colorScheme="purple" href="https://virtual.codeday.org">Register for Virtual CodeDay</Button>
+            <Heading>😢 We don&apos;t have an upcoming CodeDay planned in {region.name} right now.</Heading>
           </Box>
           <Box m={4} textAlign="center">
             <Text>Be notified about the next CodeDay {region.name}:</Text>
