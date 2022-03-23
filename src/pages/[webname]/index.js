@@ -65,7 +65,7 @@ export default function EventHome({
           <Box m={4} textAlign="center">
             <Text>Be notified about the next CodeDay {region.name}:</Text>
             <Box w="md" d="inline-block">
-              <MailingListSubscribe emailList="oe1GazGggJqSDv0892QivA1g" />
+              <MailingListSubscribe emailList="00a7c4d8-aadf-11ec-9258-0241b9615763" fields={{ field_3: webname }} />
               <DataCollection message="pii" />
             </Box>
           </Box>
