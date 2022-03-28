@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import {
-  Box, Button, Heading, Link, Text, Grid, List, ListItem
+  Box, Button, Heading, Link, Text, Grid,
 } from '@codeday/topo/Atom';
 import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
 import { Content, DataCollection, CognitoForm } from '@codeday/topo/Molecule';
@@ -116,44 +116,42 @@ export default function EventHome({
       <a name="register" />
       <Content maxWidth="container.xl" mb={12}>
         <Box id="register" /> {/* used for register button */}
-          <Box
-            borderWidth={2}
-            borderColor={colorMode === 'light' ? 'red.600' : 'red.900'}
-            borderRadius="sm"
-            p={0}
-          >
-            <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'}>
-              <Heading fontSize="2xl" color="white">Register for CodeDay</Heading>
-            </Box>
-            <Box p={8}>
-              {event?.canRegister ? (
-                event.customForm ? (
-                    <CognitoForm formId={event.customForm} />
-                ) : <RegisterForm event={event} />
+        <Box
+          borderWidth={2}
+          borderColor={colorMode === 'light' ? 'red.600' : 'red.900'}
+          borderRadius="sm"
+          p={0}
+        >
+          <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'}>
+            <Heading fontSize="2xl" color="white">Register for CodeDay</Heading>
+          </Box>
+          <Box p={8}>
+            {event?.canRegister ? (
+              event.customForm ? <CognitoForm formId={event.customForm} /> : <RegisterForm event={event} />
+            ) : (
+              event ? (
+                <EventMailingListSubscribe event={event}>
+                  <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
+                  <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
+                </EventMailingListSubscribe>
               ) : (
-                event ? (
-                  <EventMailingListSubscribe event={event}>
-                    <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
-                    <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
-                  </EventMailingListSubscribe>
-                ) : (
-                  <>
-                    <Box textAlign="center" mt={4}>
-                      <Text fontSize="lg" bold>😢 We don&apos;t have an upcoming CodeDay planned in {region.name} right now.</Text>
-                      <Text>Be notified about the next CodeDay {region.name}:</Text>
-                      <Box mt={4} w="md" d="inline-block">
-                        <MailingListSubscribe
-                          mb={4}
-                          emailList="00a7c4d8-aadf-11ec-9258-0241b9615763"
-                          fields={{ field_3: webname }}
-                        />
-                        <DataCollection message="pii" />
-                      </Box>
+                <>
+                  <Box textAlign="center" mt={4}>
+                    <Text fontSize="lg" bold>😢 We don&apos;t have an upcoming CodeDay planned in {region.name} right now.</Text>
+                    <Text>Be notified about the next CodeDay {region.name}:</Text>
+                    <Box mt={4} w="md" d="inline-block">
+                      <MailingListSubscribe
+                        mb={4}
+                        emailList="00a7c4d8-aadf-11ec-9258-0241b9615763"
+                        fields={{ field_3: webname }}
+                      />
+                      <DataCollection message="pii" />
                     </Box>
-                  </>
-                )
-              )}
-              {event && <EventRestrictions event={event} />}
+                  </Box>
+                </>
+              )
+            )}
+            {event && <EventRestrictions event={event} />}
           </Box>
         </Box>
       </Content>

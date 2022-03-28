@@ -1,18 +1,19 @@
 import { create } from 'random-seed';
 import { Box, Text } from '@codeday/topo/Atom';
+import { useColorMode } from '@codeday/topo/Theme';
 import BlobImage from './BlobImage';
 import { useSlideshow } from '../slideshow';
-import { useColorMode } from '@codeday/topo/Theme';
 
 export function shuffle(randomSeed, array) {
   const rng = create(randomSeed);
   const arrayCopy = JSON.parse(JSON.stringify(array));
 
-  var currentIndex = arrayCopy.length, temporaryValue, randomIndex;
+  let currentIndex = arrayCopy.length;
+  let temporaryValue;
+  let randomIndex;
 
   // While there remain elements to shuffle...
-  while (0 !== currentIndex) {
-
+  while (currentIndex !== 0) {
     // Pick a remaining element...
     randomIndex = rng.intBetween(0, currentIndex);
     currentIndex -= 1;
@@ -27,7 +28,7 @@ export function shuffle(randomSeed, array) {
 }
 
 export default function PastProjects({ projects: projectsOrig, random }) {
-  const projects = shuffle(random, projectsOrig.filter((p) => p?.media[0]?.image)).slice(0,10);
+  const projects = shuffle(random, projectsOrig.filter((p) => p?.media[0]?.image)).slice(0, 10);
   const i = useSlideshow(projects.length, 5000);
   const { colorMode } = useColorMode();
 
@@ -39,6 +40,7 @@ export default function PastProjects({ projects: projectsOrig, random }) {
     >
       {projects.map((p, j) => (
         <Box
+          key={p.id}
           position={j === 0 ? undefined : 'absolute'}
           top={0}
           right={0}
@@ -54,11 +56,11 @@ export default function PastProjects({ projects: projectsOrig, random }) {
           bg={colorMode === 'light' ? 'white' : 'gray.1100'}
         >
           <Text textAlign="center" color="current.textLight" bold fontSize="lg" mb={-1}>
-            We'll help you make something like...
+            We&apos;ll help you make something like...
           </Text>
           <BlobImage
             src={p.media.sort((a, b) => (2 * ((b.type === 'IMAGE') - (a.type === 'IMAGE'))) - 1)[0].image}
-            height={{ base: 64, md: 64}}
+            height={64}
             maxWidth={{ base: 'lg', md: 'unset' }}
             margin="0 auto"
           />
@@ -67,5 +69,5 @@ export default function PastProjects({ projects: projectsOrig, random }) {
         </Box>
       ))}
     </Box>
-  )
+  );
 }

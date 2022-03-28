@@ -26,7 +26,6 @@ const DEFAULT_RESTRICTIONS = [];
 
 export default function EventRestrictions({ event, ...props }) {
   const { colorMode } = useColorMode();
-  const bg = colorMode === 'light' ? 'gray.50' : 'black';
   const restrictions = event.eventRestrictions || DEFAULT_RESTRICTIONS;
   if (restrictions.length === 0) return <></>;
 

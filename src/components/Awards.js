@@ -1,12 +1,8 @@
-import AwardDetails from "./AwardDetails";
 import { useColorMode } from '@codeday/topo/Theme';
-import { Box, Grid, List, ListItem, Heading, Text } from '@codeday/topo/Atom';
-
-const numberWords = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
-function getNumberWord(number) {
-  if (number >= numberWords.length) return number;
-  return numberWords[number];
-}
+import {
+  Box, Grid, List, ListItem, Heading, Text,
+} from '@codeday/topo/Atom';
+import AwardDetails from './AwardDetails';
 
 export default function Awards({ awards, ...props }) {
   const { colorMode } = useColorMode();
@@ -22,14 +18,14 @@ export default function Awards({ awards, ...props }) {
     >
       <Box>
         <Heading as="h4" fontSize="2xl" mb={4}>
-          Win an award, even if you're new!
+          Win an award, even if you&apos;re new!
         </Heading>
         <Heading as="h5" fontSize="xl" mb={4} fontWeight={400}>Our judging criteria:</Heading>
         <List styleType="disc" pl={4}>
           <ListItem mb={4}>
             <Text fontWeight="bold" fontSize="lg">Difficulty (for you)</Text>
             <Text>
-              CodeDay isn't about showing off. Push yourself to try something new!
+              CodeDay isn&apos;t about showing off. Push yourself to try something new!
             </Text>
           </ListItem>
           <ListItem>
