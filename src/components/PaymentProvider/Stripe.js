@@ -3,10 +3,9 @@ import React, { useState } from 'react';
 import { Box, Button } from '@codeday/topo/Atom';
 import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { useColorMode } from '@codeday/topo/Theme';
-import { useToken } from '@chakra-ui/react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
-import { useToast } from '@chakra-ui/react';
+import { useToast, useToken } from '@chakra-ui/react';
 import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutation } from '../RegisterForm.gql';
 
 export default function StripePaymentBox({
@@ -35,11 +34,11 @@ export default function StripePaymentBox({
                   fontFamily: 'Sofia Pro,Helvetica,Arial,sans-serif',
                   fontSize: '16px',
                   color: colorMode === 'light' ? black : white,
-                  "::placeholder": {
+                  '::placeholder': {
                     color: colorMode === 'light' ? gray600 : gray800,
-                  }
-                }
-              }
+                  },
+                },
+              },
             }}
           />
         </Box>
