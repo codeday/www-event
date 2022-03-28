@@ -1,0 +1,9 @@
+fragment AwardDetails on CmsAward {
+  id
+  name
+  description
+  suggestedModifiers
+  icon {
+    url(transform:{width:120, height:120, resizeStrategy:FIT})
+  }
+}

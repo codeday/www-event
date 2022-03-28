@@ -63,10 +63,7 @@ export default function RegisterForm({ event, ...props }) {
   if (isComplete) {
     analytics.goal('7XJLEFKY', 0);
     return (
-      <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
-        <Box p={4} bg="brand.600">
-          <Heading>Register for CodeDay</Heading>
-        </Box>
+      <Box {...props}>
         <Box p={8} textAlign="center">
           <Text fontSize="3xl" bold>You&apos;re going to CodeDay! Now customize your experience.</Text>
           <Text>
@@ -120,10 +117,7 @@ export default function RegisterForm({ event, ...props }) {
 
   if (remainingTickets <= 0) {
     return (
-      <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
-        <Box p={4} bg="brand.600">
-          <Heading>Register for CodeDay</Heading>
-        </Box>
+      <Box {...props}>
         <Box p={8} textAlign="center">
           <Text fontSize="3xl" bold>Sorry, we&apos;re sold out!</Text>
           <Text>
@@ -135,16 +129,13 @@ export default function RegisterForm({ event, ...props }) {
   }
 
   return (
-    <Box borderWidth={2} rounded={3} borderColor="brand.600" {...props}>
-      <Box p={4} bg="brand.600">
-        <Heading>Register for CodeDay</Heading>
-        {remainingTickets <= 10 && (
-          <Text mb={0}>
-            Only {remainingTickets} ticket{remainingTickets !== 1 ? 's' : ''} left!
-          </Text>
-        )}
-      </Box>
-      <Grid templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={4} p={{ base: 0, md: 8 }}>
+    <Box {...props}>
+      {remainingTickets <= 20 && (
+        <Text fontWeight="bold" fontSize="lg" color="red.600">
+          Only {remainingTickets} ticket{remainingTickets !== 1 ? 's' : ''} left!
+        </Text>
+      )}
+      <Grid mt={4} templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={4}>
         {/* Registration */}
         <Box mb={{ base: 8, lg: 0 }}>
           {tickets.length > calcMaxTickets && (
@@ -228,13 +219,13 @@ export default function RegisterForm({ event, ...props }) {
             <List styleType="disc" fontSize="sm" listStylePosition="outside" pl={4}>
               <ListItem>Prices are in {event.region.currency || 'USD'}.</ListItem>
               <ListItem>
-                You must comply with the{' '}
+                You must follow the{' '}
                 <Link href="https://www.codeday.org/conduct" target="_blank">Code of Conduct</Link>{' '}
-                &amp; COVID safety rules (including vaccine and mask requirements).
+                &amp; safety rules.
               </ListItem>
               <ListItem>You will need to sign a waiver.</ListItem>
               <ListItem>We may photograph or record you.</ListItem>
-              <ListItem>Refunds are available until 48 hours before the start.</ListItem>
+              <ListItem>Refunds are available until 48 hours before kickoff.</ListItem>
             </List>
           </Box>
         </Box>

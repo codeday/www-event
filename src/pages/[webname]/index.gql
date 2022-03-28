@@ -4,6 +4,8 @@
 #import "../../components/Sponsors.gql"
 #import "../../components/EventRestrictions.gql"
 #import "../../components/Faq.gql"
+#import "../../components/AwardDetails.gql"
+#import "../../components/PastProjects.gql"
 
 query IndexStaticPathsQuery {
   cms {
@@ -17,12 +19,20 @@ query IndexStaticPathsQuery {
 }
 
 query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEndDate: CmsDateTime!) {
+  ...PastProjects
+
   cms {
     ...GlobalSponsors
     faqs (where: { program: { webname: "codeday" }, audience_contains_all: ["Student"], featured: true }) {
       items {
         sys { id }
         ...Faq
+      }
+    }
+
+    awards (where: { featured: true }, order: [ranking_ASC]) {
+      items {
+        ...AwardDetails
       }
     }
 

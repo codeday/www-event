@@ -1,0 +1,15 @@
+fragment PastProjects on Query {
+  showcase {
+    projects (where: { program: "virtual", featured: true }, take: 40) {
+      id
+      name
+      eventGroup {
+        title
+      }
+      media(topics:[TEAM,DEMO,PRESENTATION]) {
+        image(width: 512, height: 512)
+        type
+      }
+    }
+  }
+}

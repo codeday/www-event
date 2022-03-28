@@ -6,9 +6,9 @@ import {
 const steps = [
   'Come up with ideas.',
   'Find a team.',
-  'Start building it! (Beginner workshops - no experience needed!)',
-  'Get help from mentors as needed.',
-  'Join fun activities and competitions... with prizes!',
+  'Start building it! (No experience needed!)',
+  'We\'ll help you as you need it.',
+  'Join fun activities... with prizes!',
   'Show off what you made.',
 ];
 

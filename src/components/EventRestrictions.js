@@ -22,23 +22,7 @@ function transform(node) {
   }
 }
 
-const DEFAULT_RESTRICTIONS = [
-  {
-    iconUri: 'twemoji/mask.svg',
-    title: `We'll provide you with a high-flow N95 mask which you must wear at all times.`,
-    details: `To minimize transmission risks, we're not allowing regular cloth masks.`,
-  },
-  {
-    iconUri: 'twemoji/vaccine.svg',
-    title: `Documentation of a full COVID-19 vaccination is required to attend in-person.`,
-    details: `[btn Get Vaccinated](https://vaccines.gov)`,
-  },
-  {
-    iconUri: 'twemoji/sick.svg',
-    title: `We're checking for symptoms of COVID-19 at check-in.`,
-    details: `If you are running a fever or have other symptoms of COVID-19, you'll need to participate virtually for safety.`,
-  },
-];
+const DEFAULT_RESTRICTIONS = [];
 
 export default function EventRestrictions({ event, ...props }) {
   const { colorMode } = useColorMode();
@@ -47,23 +31,28 @@ export default function EventRestrictions({ event, ...props }) {
   if (restrictions.length === 0) return <></>;
 
   return (
-    <Box {...props}>
-      <Heading>
-        Special Event Restrictions
+    <Box borderTopWidth={2} pt={6} mt={6} borderColor={colorMode === 'light' ? 'red.600' : 'red.900'} {...props}>
+      <Heading fontSize="xl" mb={6}>
+        Event safety rules:
       </Heading>
-      <Text mb={6}>
-        We have special procedures for this event to keep everyone safe.
-      </Text>
-      <Grid templateColumns={{ base: '1fr', md: `repeat(${Math.max(restrictions.length, 3)}, 1fr)` }} alignItems="center" gap={16}>
+      <Grid
+        templateColumns={{ base: '1fr', md: `repeat(${Math.max(restrictions.length, 3)}, 1fr)` }}
+        alignItems="center"
+        gap={8}
+      >
         {restrictions.map((restriction) => (
-          <Box key={restriction.iconUri} bg={bg} rounded="md" p={4} h="100%">
-            <Image src={restriction.iconUri} width={24} alt="" display="block" ml="auto" mr="auto" mb={5} />
-            <Text mb={2} fontWeight="bold">
-              {ReactHtmlParser(marked.parse(restriction.title || ''), { transform })}
-            </Text>
-            <Text>
-              {ReactHtmlParser(marked.parse(restriction.details || ''), { transform })}
-            </Text>
+          <Box key={restriction.iconUri} h="100%">
+            <Grid templateColumns="minmax(0, max-content) 1fr" gap={4}>
+              <Image src={restriction.iconUri} width={12} alt="" />
+              <Box>
+                <Box fontWeight="bold" mb={2}>
+                  {ReactHtmlParser(marked.parse(restriction.title || ''), { transform })}
+                </Box>
+                <Box>
+                  {ReactHtmlParser(marked.parse(restriction.details || ''), { transform })}
+                </Box>
+              </Box>
+            </Grid>
           </Box>
         ))}
       </Grid>

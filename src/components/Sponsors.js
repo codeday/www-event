@@ -9,7 +9,7 @@ import SponsorLogo from './SponsorLogo';
 export default function Sponsors({ globalSponsors, localSponsors }) {
   return (
     <Content paddingBottom={8} textAlign="center">
-      <Heading as="h3" color="current.textLight" fontSize="xl" pb={4}>
+      <Heading as="h3" color="current.textLight" fontSize="xl" pb={2}>
         With Support From:
       </Heading>
       <Box>
@@ -18,15 +18,13 @@ export default function Sponsors({ globalSponsors, localSponsors }) {
           .map((sponsor) => (
             <SponsorLogo
               key={sponsor.name}
+              p={4}
+              maxHeight={24}
+              maxWidth={40}
               d="inline-block"
-              maxHeight={40}
-              maxWidth={56}
-              p={8}
               sponsor={sponsor}
             />
           ))}
-      </Box>
-      <Box>
         {globalSponsors
           .filter((sponsor) => sponsor.type === 'minor')
           .map((sponsor) => (

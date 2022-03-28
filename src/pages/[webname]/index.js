@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import {
-  Box, Button, Heading, Link, Text, Grid,
+  Box, Button, Heading, Link, Text, Grid, List, ListItem
 } from '@codeday/topo/Atom';
 import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
 import { Content, DataCollection, CognitoForm } from '@codeday/topo/Molecule';
@@ -24,10 +24,12 @@ import ThemeNotifier from '../../components/ThemeNotifier';
 import Schedule from '../../components/Schedule';
 import Sponsors from '../../components/Sponsors';
 import Faq from '../../components/Faq';
+import Awards from '../../components/Awards';
+import PastProjects from '../../components/PastProjects';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
 
 export default function EventHome({
-  webname, region, images, quotes, event, cmsEvent, globalSponsors, faqs,
+  webname, region, images, quotes, event, cmsEvent, globalSponsors, faqs, awards, projects, random,
 }) {
   // Redirect the user to the canonical URL
   const router = useRouter();
@@ -50,66 +52,47 @@ export default function EventHome({
     );
   }
 
-  if (!event) {
-    return (
-      <Page darkHeader slug={`/${webname}`} region={region}>
-        <IndexHeader mt={-40} pt={32} pb={16} mb={16} heading={`CodeDay ${region.name}`} images={images} />
-        <Content maxWidth="container.xl">
-          <Explainer />
-          <br />
-          <StudentQuotes quotes={quotes} />
-          <br />
-          <Box textAlign="center">
-            <Heading>😢 We don&apos;t have an upcoming CodeDay planned in {region.name} right now.</Heading>
-          </Box>
-          <Box m={4} textAlign="center">
-            <Text>Be notified about the next CodeDay {region.name}:</Text>
-            <Box w="md" d="inline-block">
-              <MailingListSubscribe emailList="00a7c4d8-aadf-11ec-9258-0241b9615763" fields={{ field_3: webname }} />
-              <DataCollection message="pii" />
-            </Box>
-          </Box>
-        </Content>
-      </Page>
-    );
-  }
   return (
     <Page darkHeader slug={`/${region.webname}`} region={region} event={event}>
-      <IndexHeader
-        mt={-40}
-        pt={32}
-        pb={16}
-        mb={16}
-        notice={event.noticeHero}
-        heading={`CodeDay ${event?.name || region.name}`}
-        subHeading={event.customDisplayDate || `${event.displayDate}, ${event.displayTime}`}
-        images={images}
-      >
-        {event.venue ? (
-          <>
-            Hosted @ {event.venue.name} <br />
-            <Link fontSize="md" href={event.venue.mapLink}>{event.venue.address}</Link>
-          </>
-        ) : null}
-        {event.canRegister ? (
-          <>
-            <Text mt={8}>
-              {event.activeTicketPrice === 0 ? 'Free!' : `Ticket Price: ${event?.region?.currencySymbol || '$'}${event.activeTicketPrice}`}&nbsp;
-              {event.canEarlyBirdRegister && event.activeTicketPrice > 0
-                ? (
-                  <Text mb={4} display="inline-block" color="red.600" fontSize="xs" position="relative" top="-0.2em">
-                    (Early Bird Discount!)
-                  </Text>
-                ) : null}
-            </Text>
-            <Button colorScheme="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', { duration: 500, smooth: true, offset: -50 })}>Register Now</Button>
-            {event.activeTicketPrice > 0 && (
-              <Button variant="outline" as="a" href="/scholarship" hover={{ bg: '#ff686b' }}>Can&apos;t afford?</Button>
-            )}
-          </>
-        ) : null}
-      </IndexHeader>
-      {event.noticeBox && (
+      {event ? (
+        <IndexHeader
+          mt={-40}
+          pt={32}
+          pb={16}
+          mb={16}
+          notice={event.noticeHero}
+          heading={`CodeDay ${event?.name || region.name}`}
+          subHeading={event.customDisplayDate || `${event.displayDate}, ${event.displayTime}`}
+          images={images}
+        >
+          {event.venue ? (
+            <>
+              Hosted @ {event.venue.name} <br />
+              <Link fontSize="md" href={event.venue.mapLink}>{event.venue.address}</Link>
+            </>
+          ) : null}
+          {event.canRegister ? (
+            <>
+              <Text mt={8}>
+                {event.activeTicketPrice === 0 ? 'Free!' : `Ticket Price: ${event?.region?.currencySymbol || '$'}${event.activeTicketPrice}`}&nbsp;
+                {event.canEarlyBirdRegister && event.activeTicketPrice > 0
+                  ? (
+                    <Text mb={4} display="inline-block" color="red.600" fontSize="xs" position="relative" top="-0.2em">
+                      (Early Bird Discount!)
+                    </Text>
+                  ) : null}
+              </Text>
+              <Button colorScheme="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', { duration: 500, smooth: true, offset: -50 })}>Register Now</Button>
+              {event.activeTicketPrice > 0 && (
+                <Button variant="outline" as="a" href="/scholarship" hover={{ bg: '#ff686b' }}>Can&apos;t afford?</Button>
+              )}
+            </>
+          ) : null}
+        </IndexHeader>
+      ) : (
+        <IndexHeader mt={-40} pt={32} pb={16} mb={16} heading={`CodeDay ${region.name}`} images={images} />
+      )}
+      {event?.noticeBox && (
         <Content maxWidth="container.lg" p={12} fontSize="lg" color="red.50" bg="red.900" rounded="md">
           <Grid templateColumns="1fr minmax(0, 100%)" gap={8}>
             <Box><Box fontSize="4xl" mt={-2}><AnnouncementIcon /></Box></Box>
@@ -118,47 +101,72 @@ export default function EventHome({
         </Content>
       )}
       <Content maxWidth="container.xl" mb={12}>
-        <Explainer mb={12} />
+        <Explainer />
       </Content>
-      <a name="quote" />
-      <Content maxWidth="container.xl" mb={12}>
-        <StudentQuotes quotes={quotes} />
+      <Content maxW="container.xl" mb={12}>
+        <Grid templateColumns={{ base: '1fr', md: '4fr 7fr' }} gap={6} alignItems="center">
+          <PastProjects projects={projects} random={random} />
+          <Awards awards={awards} />
+        </Grid>
       </Content>
-      <Sponsors globalSponsors={event.customHideSponsors ? [] : globalSponsors} localSponsors={event.sponsors} />
       <a name="theme" />
       <Content maxWidth="container.xl">
         <ThemeNotifier event={cmsEvent} mb={12} />
       </Content>
-      {!event.customHideCovid && (
-      <>
-        <a name="covid" />
-        <Box backgroundColor={colorMode === 'light' ? 'gray.100' : 'gray.900'} p={4} mb={12}>
-          <Content maxWidth="container.xl">
-            <EventRestrictions event={event} />
-          </Content>
-        </Box>
-      </>
-      )}
       <a name="register" />
       <Content maxWidth="container.xl" mb={12}>
         <Box id="register" /> {/* used for register button */}
-        {event.canRegister ? (
-          event.customForm ? (
-            <Content borderWidth={1} p={8} maxWidth="container.lg">
-              <Heading as="h3" fontSize="4xl" textAlign="center">Register</Heading>
-              <CognitoForm formId={event.customForm} />
-            </Content>
-          ) : <RegisterForm event={event} />
-        ) : (
-          <EventMailingListSubscribe event={event}>
-            <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
-            <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
-          </EventMailingListSubscribe>
-        )}
+          <Box
+            borderWidth={2}
+            borderColor={colorMode === 'light' ? 'red.600' : 'red.900'}
+            borderRadius="sm"
+            p={0}
+          >
+            <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'}>
+              <Heading fontSize="2xl" color="white">Register for CodeDay</Heading>
+            </Box>
+            <Box p={8}>
+              {event?.canRegister ? (
+                event.customForm ? (
+                    <CognitoForm formId={event.customForm} />
+                ) : <RegisterForm event={event} />
+              ) : (
+                event ? (
+                  <EventMailingListSubscribe event={event}>
+                    <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
+                    <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
+                  </EventMailingListSubscribe>
+                ) : (
+                  <>
+                    <Box textAlign="center" mt={4}>
+                      <Text fontSize="lg" bold>😢 We don&apos;t have an upcoming CodeDay planned in {region.name} right now.</Text>
+                      <Text>Be notified about the next CodeDay {region.name}:</Text>
+                      <Box mt={4} w="md" d="inline-block">
+                        <MailingListSubscribe
+                          mb={4}
+                          emailList="00a7c4d8-aadf-11ec-9258-0241b9615763"
+                          fields={{ field_3: webname }}
+                        />
+                        <DataCollection message="pii" />
+                      </Box>
+                    </Box>
+                  </>
+                )
+              )}
+              {event && <EventRestrictions event={event} />}
+          </Box>
+        </Box>
       </Content>
+      {event && (
+        <Content maxWidth="container.xl" mb={12}>
+          <Schedule event={event} timezone={region.timezone} mb={12} />
+        </Content>
+      )}
+      <a name="quote" />
       <Content maxWidth="container.xl" mb={12}>
-        <Schedule event={event} timezone={region.timezone} mb={12} />
+        <StudentQuotes quotes={quotes} />
       </Content>
+      <Sponsors globalSponsors={event?.customHideSponsors ? [] : globalSponsors} localSponsors={event?.sponsors || []} />
       <Content maxWidth="container.xl" mb={12}>
         <Heading as="h4" fontSize="4xl">FAQs</Heading>
         <Text mb={8}>
@@ -173,7 +181,7 @@ export default function EventHome({
           <Button as="a" href="https://www.codeday.org/help/codeday" target="_blank">All FAQs</Button>
         </Box>
       </Content>
-      {event.customLegal && (
+      {event?.customLegal && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
           <Text>{event.customLegal}</Text>
         </Content>
@@ -209,6 +217,9 @@ export async function getStaticProps({ params: { webname } }) {
       cmsEvent: result?.cms?.events?.items[0] || null,
       globalSponsors: result?.cms?.globalSponsors.items || null,
       faqs: result?.cms?.faqs?.items || [],
+      awards: result?.cms?.awards?.items || [],
+      projects: result?.showcase?.projects || [],
+      random: Math.random(),
     },
     revalidate: 900,
   };
