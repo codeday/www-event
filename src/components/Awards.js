@@ -10,7 +10,7 @@ function getNumberWord(number) {
 
 export default function Awards({ awards, ...props }) {
   const { colorMode } = useColorMode();
-  const bg = colorMode === 'light' ? 'gray.50' : 'gray.900';
+  const bg = colorMode === 'light' ? 'gray.100' : 'gray.900';
   return (
     <Grid
       bg={bg}
