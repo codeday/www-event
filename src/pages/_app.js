@@ -9,7 +9,7 @@ const stripePromise = loadStripe(publicRuntimeConfig.stripeKey);
 
 const App = ({ Component, pageProps }) => (
   <ThemeProvider brandColor="red" analyticsId="AZKCYNER" withChat>
-    <Elements stripe={stripePromise}>
+    <Elements stripe={stripePromise} options={{ fonts: [{ cssSrc: 'https://f1.codeday.org/topo/fonts/all.css' }] }}>
       <Component {...pageProps} />
     </Elements>
   </ThemeProvider>

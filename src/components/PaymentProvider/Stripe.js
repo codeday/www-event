@@ -2,6 +2,8 @@
 import React, { useState } from 'react';
 import { Box, Button } from '@codeday/topo/Atom';
 import { apiFetch, useAnalytics } from '@codeday/topo/utils';
+import { useColorMode } from '@codeday/topo/Theme';
+import { useToken } from '@chakra-ui/react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
 import { useToast } from '@chakra-ui/react';
@@ -10,6 +12,8 @@ import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutatio
 export default function StripePaymentBox({
   event, ticketsData, guardianData, promoCode, finalPrice, isValid, onComplete, ...rest
 }) {
+  const [gray600, gray800, black, white] = useToken('colors', ['gray.600', 'gray.800', 'black', 'white']);
+  const { colorMode } = useColorMode();
   const stripe = useStripe();
   const elements = useElements();
   const toast = useToast();
@@ -23,7 +27,21 @@ export default function StripePaymentBox({
     <Box shadow="md" rounded="sm" borderWidth={1} p={4} {...rest}>
       {finalPrice > 0 && (
         <Box mb={8}>
-          <CardElement onChange={(e) => setIsStripeReady(e.complete)} />
+          <CardElement
+            onChange={(e) => setIsStripeReady(e.complete)}
+            options={{
+              style: {
+                base: {
+                  fontFamily: 'Sofia Pro,Helvetica,Arial,sans-serif',
+                  fontSize: '16px',
+                  color: colorMode === 'light' ? black : white,
+                  "::placeholder": {
+                    color: colorMode === 'light' ? gray600 : gray800,
+                  }
+                }
+              }
+            }}
+          />
         </Box>
       )}
       <Button

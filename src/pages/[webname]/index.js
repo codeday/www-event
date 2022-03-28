@@ -100,21 +100,21 @@ export default function EventHome({
           </Grid>
         </Content>
       )}
-      <Content maxWidth="container.xl" mb={12}>
+      <Content maxWidth="container.xl" mb={24}>
         <Explainer />
       </Content>
-      <Content maxW="container.xl" mb={12}>
+      <Content maxW="container.xl" mb={24}>
         <Grid templateColumns={{ base: '1fr', md: '4fr 7fr' }} gap={6} alignItems="center">
-          <PastProjects projects={projects} random={random} />
+          <Box pr={8}><PastProjects projects={projects} random={random} /></Box>
           <Awards awards={awards} />
         </Grid>
       </Content>
       <a name="theme" />
       <Content maxWidth="container.xl">
-        <ThemeNotifier event={cmsEvent} mb={12} />
+        <ThemeNotifier event={cmsEvent} mb={16} />
       </Content>
       <a name="register" />
-      <Content maxWidth="container.xl" mb={12}>
+      <Content maxWidth="container.xl" mb={16}>
         <Box id="register" /> {/* used for register button */}
         <Box
           borderWidth={2}
@@ -155,16 +155,19 @@ export default function EventHome({
           </Box>
         </Box>
       </Content>
+      <Sponsors
+        globalSponsors={event?.customHideSponsors ? [] : globalSponsors}
+        localSponsors={event?.sponsors || []}
+      />
       {event && (
-        <Content maxWidth="container.xl" mb={12}>
+        <Content maxWidth="container.xl" mb={16}>
           <Schedule event={event} timezone={region.timezone} mb={12} />
         </Content>
       )}
       <a name="quote" />
-      <Content maxWidth="container.xl" mb={12}>
+      <Content maxWidth="container.xl" mb={16}>
         <StudentQuotes quotes={quotes} />
       </Content>
-      <Sponsors globalSponsors={event?.customHideSponsors ? [] : globalSponsors} localSponsors={event?.sponsors || []} />
       <Content maxWidth="container.xl" mb={12}>
         <Heading as="h4" fontSize="4xl">FAQs</Heading>
         <Text mb={8}>
