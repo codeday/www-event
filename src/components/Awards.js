@@ -8,40 +8,43 @@ export default function Awards({ awards, ...props }) {
   const { colorMode } = useColorMode();
   const bg = colorMode === 'light' ? 'gray.100' : 'gray.900';
   return (
-    <Grid
+    <Box
       bg={bg}
       borderRadius="sm"
       p={6}
-      templateColumns={{ base: '1fr', md: '4fr 5fr' }}
-      gap={8}
       {...props}
     >
-      <Box>
-        <Heading as="h4" fontSize="2xl" mb={4}>
-          Win an award, even if you&apos;re new!
-        </Heading>
-        <Heading as="h5" fontSize="xl" mb={4} fontWeight={400}>Our judging criteria:</Heading>
-        <List styleType="disc" pl={4}>
-          <ListItem mb={4}>
-            <Text fontWeight="bold" fontSize="lg">Difficulty (for you)</Text>
-            <Text>
-              CodeDay isn&apos;t about showing off. Push yourself to try something new!
-            </Text>
-          </ListItem>
-          <ListItem>
-            <Text fontWeight="bold" fontSize="lg">Creativity</Text>
-            <Text>
-              Work with other attendees to build a fun project with original art, design, music,
-              voice acting, or story.
-            </Text>
-          </ListItem>
-        </List>
-      </Box>
-      <Box>
-        <Grid templateColumns={{ base: 'repeat(3, 1fr)', md: 'repeat(4, 1fr)' }} gap={4}>
-          {awards.map((award) => <AwardDetails key={award.id} award={award} />)}
-        </Grid>
-      </Box>
-    </Grid>
+      <Heading as="h4" fontSize="2xl" mb={4}>
+        Win an award, even if you&apos;re new!
+      </Heading>
+      <Grid
+        templateColumns={{ base: '1fr', md: '4fr 5fr' }}
+        gap={8}
+      >
+        <Box>
+          <Heading as="h5" fontSize="xl" mb={4} fontWeight={400}>Our judging criteria:</Heading>
+          <List styleType="disc" pl={4}>
+            <ListItem mb={4}>
+              <Text fontWeight="bold" fontSize="lg">Difficulty (for you)</Text>
+              <Text>
+                CodeDay isn&apos;t about showing off. Push yourself to try something new!
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text fontWeight="bold" fontSize="lg">Creativity</Text>
+              <Text>
+                Work with other attendees to build a fun project with original art, design, music,
+                voice acting, or story.
+              </Text>
+            </ListItem>
+          </List>
+        </Box>
+        <Box>
+          <Grid templateColumns="repeat(3, 1fr)" gap={4} rowGap={{ base: 4, lg: 8 }}>
+            {awards.map((award) => <AwardDetails key={award.id} award={award} />)}
+          </Grid>
+        </Box>
+      </Grid>
+    </Box>
   );
 }

@@ -104,8 +104,8 @@ export default function EventHome({
         <Explainer />
       </Content>
       <Content maxW="container.xl" mb={24}>
-        <Grid templateColumns={{ base: '1fr', md: '4fr 7fr' }} gap={6} alignItems="center">
-          <Box pr={8}><PastProjects projects={projects} random={random} /></Box>
+        <Grid templateColumns={{ base: '1fr', lg: '4fr 7fr' }} gap={6} alignItems="center">
+          <Box pr={8} pb={{ base: 8, lg: null }}><PastProjects projects={projects} random={random} /></Box>
           <Awards awards={awards} />
         </Grid>
       </Content>
@@ -125,7 +125,7 @@ export default function EventHome({
           <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'}>
             <Heading fontSize="2xl" color="white">Register for CodeDay</Heading>
           </Box>
-          <Box p={8}>
+          <Box p={{ base: 4, lg: 8 }}>
             {event?.canRegister ? (
               event.customForm ? <CognitoForm formId={event.customForm} /> : <RegisterForm event={event} />
             ) : (
