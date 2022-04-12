@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Flex, Box, Button, TextInput,
+  Flex, Box, Button, TextInput, Text,
 } from '@codeday/topo/Atom';
 import { apiFetch } from '@codeday/topo/utils';
 import { UiCheck } from '@codeday/topocons/Icon';
@@ -11,33 +11,37 @@ import { CheckPromoCode } from './PromoBox.gql';
 export default function PromoBox({ event, onChange, ...rest }) {
   const [promoCode, setPromoCode] = useState();
   const [isLoading, setIsLoading] = useState(false);
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(event.requiresPromoCode);
   const toast = useToast();
+
+  const promoAppliedString = event.requiresPromoCode ? `Access Code: ${promoCode}` : `Promo: ${promoCode}`;
+  const promoAskString = event.requiresPromoCode ? `Access code required.` : `Have a promo code?`;
 
   if (!show) {
     return (
       <Box
-        color="current.textLight"
+        color={(event.requiresPromoCode && !promoCode) ? 'red.600' : 'current.textLight'}
         textDecoration="underline"
         fontSize="sm"
         cursor="pointer"
         onClick={() => setShow(true)}
         {...rest}
       >
-        {promoCode ? `Promo: ${promoCode}` : 'Have a promo code?'}
+        {promoCode ? promoAppliedString : promoAskString}
       </Box>
     );
   }
 
   return (
     <Box {...rest}>
+      {event.requiresPromoCode && (<Text mt={4} mb={2} ml={1} fontSize="sm" fontWeight="bold">Access Code</Text>)}
       <Flex>
         <TextInput
           d="inline"
           w="100%"
           minWidth={20}
           ml={2}
-          placeholder="Promo Code"
+          placeholder={event.requiresPromoCode ? 'Access Code' : 'Promo Code'}
           value={promoCode}
           onChange={
             (e) => setPromoCode(e.target.value)
@@ -48,6 +52,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
           ml={2}
           colorScheme="green"
           isLoading={isLoading}
+          disabled={event.requiresPromoCode && !promoCode}
           onClick={async () => {
             if (!promoCode) {
               onChange(undefined, undefined, undefined);

@@ -130,6 +130,11 @@ export default function RegisterForm({ event, ...props }) {
 
   return (
     <Box {...props}>
+      {event.requiresPromoCode && (
+        <Text fontWeight="bold" fontSize="lg" color="red.600">
+          This CodeDay isn't open to the public. If you've been invited, enter your Access Code to register.
+        </Text>
+      )}
       {remainingTickets <= 20 && (
         <Text fontWeight="bold" fontSize="lg" color="red.600">
           Only {remainingTickets} ticket{remainingTickets !== 1 ? 's' : ''} left!
@@ -207,6 +212,7 @@ export default function RegisterForm({ event, ...props }) {
               (!hasMinors || guardianValid)
               && tickets.length <= calcMaxTickets
               && tickets.map((ticket) => ticket.isValid).reduce((a, b) => a && b, true)
+              && (!event.requiresPromoCode || promoCode)
             }
             onComplete={() => {
               setIsComplete(true);

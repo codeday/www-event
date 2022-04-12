@@ -73,6 +73,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       majorityAge
       remainingTickets
       contentfulWebname
+      requiresPromoCode
       region {
         iso3166Alpha2Code
         iso3166Alpha3Code
