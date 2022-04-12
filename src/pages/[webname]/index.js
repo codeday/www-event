@@ -158,6 +158,7 @@ export default function EventHome({
       <Sponsors
         globalSponsors={event?.customHideSponsors ? [] : globalSponsors}
         localSponsors={event?.sponsors || []}
+        large={event?.customHideSponsors}
       />
       {event && (
         <Content maxWidth="container.xl" mb={16}>
