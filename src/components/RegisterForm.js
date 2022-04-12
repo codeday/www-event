@@ -132,7 +132,7 @@ export default function RegisterForm({ event, ...props }) {
     <Box {...props}>
       {event.requiresPromoCode && (
         <Text fontWeight="bold" fontSize="lg" color="red.600">
-          This CodeDay isn't open to the public. If you've been invited, enter your Access Code to register.
+          This CodeDay isn&apos;t open to the public. If you&apos;ve been invited, enter your Access Code to register.
         </Text>
       )}
       {remainingTickets <= 20 && (
