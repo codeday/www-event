@@ -101,6 +101,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         link
       }
       customForm: getMetadata(key: "registration.custom-form")
+      customRegCollectOrg: getMetadata(key: "registration.collect-org")
       customDisplayDate: getMetadata(key: "date.display")
       customHideSponsors: getMetadata(key: "sponsors.hide-global")
       customHideCovid: getMetadata(key: "covid.hide")

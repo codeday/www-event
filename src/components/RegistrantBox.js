@@ -17,7 +17,8 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
   useEffect(() => {
     const isValid = Boolean(ticketData?.firstName && ticketData?.lastName
       && (ticketData?.email || ticketData?.phone)
-      && ticketData?.age && ticketData.age >= event.minAge && ticketData.age <= event.maxAge);
+      && ticketData?.age && ticketData.age >= event.minAge && ticketData.age <= event.maxAge)
+      && (!event.customRegCollectOrg || ticketData?.metadata?.organization);
 
     if (initialRender.current) initialRender.current = false;
     else onChange(ticketData, isValid);
@@ -94,6 +95,20 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             </Text>
           </Box>
         </Grid>
+
+        {event.customRegCollectOrg && (
+          <Box pb={4}>
+            <Text fontSize="sm" fontWeight="bold" mb={0}>What school or club are you registering with?</Text>
+            <TextInput
+              w="100%"
+              placeholder="School/Club"
+              value={ticketData?.metadata?.organization || ''}
+              onChange={
+                (e) => setTicketData(['metadata', { organization: e.target.value }])
+              }
+            />
+          </Box>
+        )}
 
         <Text fontSize="sm" fontWeight="bold" mb={0}>
           {ticketData.firstName ? `${ticketData.firstName}'s` : 'Participant'} Age
