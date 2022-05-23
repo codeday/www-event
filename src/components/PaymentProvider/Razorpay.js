@@ -11,7 +11,7 @@ import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutatio
 const { publicRuntimeConfig } = getConfig();
 
 export default function RazorpayPaymentBox({
-  event, ticketsData, guardianData, promoCode, finalPrice, isValid, onComplete, ...rest
+  event, ticketsData, guardianData, promoCode, finalPrice, isValid, onComplete, currency, ...rest
 }) {
   const Razorpay = useRazorpay();
   const toast = useToast();
@@ -61,7 +61,7 @@ export default function RazorpayPaymentBox({
           const rzpay = new Razorpay({
             key: publicRuntimeConfig.razorpayKey,
             amount: Math.round(expectedPrice * 100),
-            currency: 'INR',
+            currency: currency.toUpperCase(),
             name: 'CodeDay',
             description: 'CodeDay registration',
             order_id: intentId,

@@ -106,7 +106,7 @@ export default function StripePaymentBox({
         }}
       >
         {ready
-          ? (expectedPrice === 0 ? 'Complete Free Registration' : `Pay Now ($${expectedPrice.toFixed(2)})`)
+          ? (expectedPrice === 0 ? 'Complete Free Registration' : `Pay Now (${event.region.currencySymbol || '$'}${expectedPrice.toFixed(2)})`)
           : '(fill all required fields)'}
       </Button>
     </Box>
