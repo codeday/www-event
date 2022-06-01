@@ -186,6 +186,6 @@ export async function getStaticProps({ params: { webname } }) {
       cmsEvent: result?.cms?.events?.items[0] || null,
       globalSponsors: result?.cms?.globalSponsors.items || null,
     },
-    revalidate: 10,
+    revalidate: 60,
   };
 }
