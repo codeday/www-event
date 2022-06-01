@@ -1,5 +1,11 @@
 import { useState } from 'react';
-import { TextInput, RadioGroup, Radio, Box, Text } from '@codeday/topo/Atom';
+import {
+  TextInput,
+  RadioGroup,
+  Radio,
+  Box,
+  Text,
+} from '@codeday/topo/Atom';
 import { normalizePhone } from '../../utils';
 
 export default function PhoneBox({ onChange, region, ...props }) {
@@ -29,15 +35,19 @@ export default function PhoneBox({ onChange, region, ...props }) {
             : (entered && `Your full international number: ${normalized}`)}
         </Text>
       )}
-        {(region.messagingServices || ['sms']).includes('whatsApp') && (
-          <RadioGroup defaultValue="phone" mt={1} onChange={e => {
+      {(region.messagingServices || ['sms']).includes('whatsApp') && (
+        <RadioGroup
+          defaultValue="phone"
+          mt={1}
+          onChange={(e) => {
             setIsWhatsApp(e === 'whatsApp');
-            onChange(normalized, isValid, e === "whatsApp");
-          }}>
-            <Radio value="phone" mr={4}>SMS</Radio>
-            <Radio value="whatsApp">WhatsApp</Radio>
-          </RadioGroup>
-        )}
-      </Box>
+            onChange(normalized, isValid, e === 'whatsApp');
+          }}
+        >
+          <Radio value="phone" mr={4}>SMS</Radio>
+          <Radio value="whatsApp">WhatsApp</Radio>
+        </RadioGroup>
+      )}
+    </Box>
   );
 }

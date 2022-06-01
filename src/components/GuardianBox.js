@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, {
-  useEffect, useReducer, useRef, useState,
+  useEffect, useReducer, useRef,
 } from 'react';
 import {
   Grid, Box, TextInput, Text,
@@ -23,8 +23,6 @@ export default function GuardianBox({ event, onChange, ...rest }) {
     if (initialRender.current) initialRender.current = false;
     else onChange(guardianData, isValid);
   }, [guardianData]);
-
-  const [phoneError, setPhoneError] = useState(false);
 
   return (
     <Box borderWidth={1} {...rest}>
@@ -85,10 +83,9 @@ export default function GuardianBox({ event, onChange, ...rest }) {
               w="100%"
               placeholder="Phone Number"
               region={event.region || {}}
-              onChange={(phoneNumber, valid, isWhatsApp) => {
+              onChange={(phoneNumber, _, isWhatsApp) => {
                 setGuardianData([isWhatsApp ? 'whatsApp' : 'phone', phoneNumber]);
                 setGuardianData([!isWhatsApp ? 'whatsApp' : 'phone', null]);
-                setPhoneError(!valid);
               }}
             />
           </Box>

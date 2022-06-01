@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, {
-  useEffect, useReducer, useRef, useState,
+  useEffect, useReducer, useRef,
 } from 'react';
 import {
   Grid, Box, NumberInput, TextInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Text,
@@ -23,8 +23,6 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
     if (initialRender.current) initialRender.current = false;
     else onChange(ticketData, isValid);
   }, [ticketData]);
-
-  const [phoneError, setPhoneError] = useState(false);
 
   return (
     <Box borderWidth={1} {...rest}>
@@ -83,10 +81,9 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
               w="100%"
               placeholder="Phone Number"
               region={event.region || {}}
-              onChange={(phoneNumber, valid, isWhatsApp) => {
+              onChange={(phoneNumber, _, isWhatsApp) => {
                 setTicketData([isWhatsApp ? 'whatsApp' : 'phone', phoneNumber]);
                 setTicketData([!isWhatsApp ? 'whatsApp' : 'phone', null]);
-                setPhoneError(!valid);
               }}
             />
           </Box>
