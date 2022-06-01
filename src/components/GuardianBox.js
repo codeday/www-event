@@ -17,7 +17,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
     const isValid = Boolean(
       guardianData?.firstName
       && guardianData?.lastName
-      && (guardianData?.email || guardianData?.phone),
+      && (guardianData?.email || guardianData?.phone || guardianData?.whatsApp),
     );
 
     if (initialRender.current) initialRender.current = false;
@@ -55,7 +55,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
         <Grid
           mb={4}
           templateColumns={{ base: '1fr', md: 'minmax(0, 100%) 1fr minmax(0, 100%)' }}
-          alignItems="center"
+          alignItems="start"
           gap={4}
         >
           <Box>
@@ -70,7 +70,14 @@ export default function GuardianBox({ event, onChange, ...rest }) {
             />
           </Box>
 
-          <Box color="current.textLight" fontSize="sm" textAlign="center">&mdash;&nbsp;OR&nbsp;&mdash;</Box>
+          <Box
+            color="current.textLight"
+            fontSize="sm"
+            textAlign="center"
+            mt={8}
+          >
+            &mdash;&nbsp;OR&nbsp;&mdash;
+          </Box>
 
           <Box>
             <Text fontSize="sm" fontWeight="bold" mb={0}>Mobile Phone Number</Text>
@@ -78,16 +85,12 @@ export default function GuardianBox({ event, onChange, ...rest }) {
               w="100%"
               placeholder="Phone Number"
               region={event.region || {}}
-              onChange={(phoneNumber, valid) => {
-                setGuardianData(['phone', phoneNumber]);
+              onChange={(phoneNumber, valid, isWhatsApp) => {
+                setGuardianData([isWhatsApp ? 'whatsApp' : 'phone', phoneNumber]);
+                setGuardianData([!isWhatsApp ? 'whatsApp' : 'phone', null]);
                 setPhoneError(!valid);
               }}
             />
-            <Text fontSize="xs" color={phoneError ? 'red.700' : undefined}>
-              {phoneError
-                ? `Not a valid ${event.region.countryNameShortAdjective || 'US'} mobile phone number.`
-                : (guardianData?.phone && `Your full international number: ${guardianData.phone}`)}
-            </Text>
           </Box>
         </Grid>
       </Box>

@@ -16,7 +16,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
   const initialRender = useRef(true);
   useEffect(() => {
     const isValid = Boolean(ticketData?.firstName && ticketData?.lastName
-      && (ticketData?.email || ticketData?.phone)
+      && (ticketData?.email || ticketData?.phone || ticketData?.whatsApp)
       && ticketData?.age && ticketData.age >= event.minAge && ticketData.age <= event.maxAge)
       && (!event.customRegCollectOrg || ticketData?.metadata?.organization);
 
@@ -73,7 +73,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             color="current.textLight"
             fontSize="sm"
             textAlign="center"
-            alignSelf="center"
+            mt={8}
           >
             &mdash;&nbsp;OR&nbsp;&mdash;
           </Box>
@@ -83,16 +83,12 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
               w="100%"
               placeholder="Phone Number"
               region={event.region || {}}
-              onChange={(phoneNumber, valid) => {
-                setTicketData(['phone', phoneNumber]);
+              onChange={(phoneNumber, valid, isWhatsApp) => {
+                setTicketData([isWhatsApp ? 'whatsApp' : 'phone', phoneNumber]);
+                setTicketData([!isWhatsApp ? 'whatsApp' : 'phone', null]);
                 setPhoneError(!valid);
               }}
             />
-            <Text fontSize="xs" color={phoneError ? 'red.700' : undefined}>
-              {phoneError
-                ? `Not a valid ${event.region.countryNameShortAdjective || 'US'} mobile phone number.`
-                : (ticketData?.phone && `Your full international number: ${ticketData.phone}`)}
-            </Text>
           </Box>
         </Grid>
 
