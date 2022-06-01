@@ -223,6 +223,6 @@ export async function getStaticProps({ params: { webname } }) {
       projects: result?.showcase?.projects || [],
       random: Math.random(),
     },
-    revalidate: 900,
+    revalidate: 60,
   };
 }
