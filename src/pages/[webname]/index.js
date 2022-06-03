@@ -68,7 +68,7 @@ export default function EventHome({
           {event.venue ? (
             <>
               Hosted @ {event.venue.name} <br />
-              <Link fontSize="md" href={event.venue.mapLink}>{event.venue.address}</Link>
+              <Link fontSize="md" href={event.venue.mapLink}>{event.venue.addressInline}</Link>
             </>
           ) : null}
           {event.canRegister ? (

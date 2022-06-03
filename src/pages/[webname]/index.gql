@@ -91,6 +91,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       venue {
         name
         address
+	addressInline
         mapLink
       }
       schedule( where: { finalized: { equals: true }, internal: { equals: false } }) {
