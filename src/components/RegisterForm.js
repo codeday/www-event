@@ -4,7 +4,6 @@ import {
   Grid, Box, Button, List, ListItem, Heading, Link, Text,
 } from '@codeday/topo/Atom';
 import { CognitoForm, DataCollection } from '@codeday/topo/Molecule';
-import { useColorMode } from '@codeday/topo/Theme';
 import { useTheme, apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { Ticket } from '@codeday/topocons/Icon';
 import { print } from 'graphql';
@@ -30,7 +29,6 @@ export default function RegisterForm({ event, ...props }) {
   }, [{ isValid: false, ticketData: {} }]);
 
   const analytics = useAnalytics();
-  const { colorMode } = useColorMode();
   const gray = useTheme().colors.gray[300];
   const { black } = useTheme().colors;
   const [guardianData, setGuardianData] = useState();
@@ -61,7 +59,6 @@ export default function RegisterForm({ event, ...props }) {
   const hasMinors = tickets
     .filter((ticket) => ticket.ticketData.age && ticket.ticketData.age < event.majorityAge)
     .length > 0;
-
 
   if (isComplete) {
     analytics.goal('7XJLEFKY', 0);
