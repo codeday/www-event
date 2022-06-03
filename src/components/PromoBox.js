@@ -55,7 +55,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
           disabled={event.requiresPromoCode && !promoCode}
           onClick={async () => {
             if (!promoCode) {
-              onChange(undefined, undefined, undefined);
+              onChange(undefined, undefined, undefined, undefined);
               setShow(false);
               return;
             }
@@ -74,7 +74,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
                 description: `${promoDetails.displayDiscountAmount} off!`,
               });
               setShow(false);
-              onChange(promoCode, promoDetails.effectivePrice, promoDetails.remainingUses);
+              onChange(promoCode, promoDetails.effectivePrice, promoDetails.remainingUses, promoDetails.metadata);
             } catch (ex) {
               toast({
                 status: 'error',

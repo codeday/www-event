@@ -13,6 +13,7 @@ import PromoBox from './PromoBox';
 import RegistrantBox from './RegistrantBox';
 import GuardianBox from './GuardianBox';
 import { RefreshRemainingQuery } from './RegisterForm.gql';
+import { camelCaseObject } from '../../utils';
 
 export default function RegisterForm({ event, ...props }) {
   const [tickets, updateTickets] = useReducer((prev, {
@@ -36,6 +37,7 @@ export default function RegisterForm({ event, ...props }) {
   const [guardianValid, setGuardianValid] = useState(false);
   const [promoCode, setPromoCode] = useState();
   const [promoPrice, setPromoPrice] = useState();
+  const [promoMetadata, setPromoMetadata] = useState();
   const [isStarted, setIsStarted] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [maxTickets, setMaxTickets] = useState();
@@ -60,6 +62,7 @@ export default function RegisterForm({ event, ...props }) {
     .filter((ticket) => ticket.ticketData.age && ticket.ticketData.age < event.majorityAge)
     .length > 0;
 
+
   if (isComplete) {
     analytics.goal('7XJLEFKY', 0);
     return (
@@ -78,6 +81,7 @@ export default function RegisterForm({ event, ...props }) {
               Region: event.contentfulWebname,
               TicketCount: tickets.length,
               PromoCode: promoCode ? promoCode.toUpperCase().trim() : undefined,
+              PromoMetadata: camelCaseObject(promoMetadata),
               Tickets: tickets.map((ticket) => ({
                 Name: {
                   First: ticket.ticketData.firstName,
@@ -88,25 +92,21 @@ export default function RegisterForm({ event, ...props }) {
               })),
             }}
             css={`
-              .c-repeating-section-add, .c-action-col, .c-repeating-section-title { display: none !important }
-              .cognito .c-forms-form .c-repeating-section-group > div:not(.c-table-row):nth-child(2n+1),
-              .c-repeating-section-group > div:not(.c-table-row):nth-child(2n+1) {
-                background-color: transparent !important;
-                border-width: 1px;
-                border-color: ${gray};
-                border-style: solid;
-                padding-top: 2em;
+              .cog-repeating-section__add-button, .cog-repeating-section__remove-button,
+              .cog-repeating-section .cog-section__heading {
+                display: none !important;
               }
-              .cognito .c-repeating-section-item { margin-left: 0 !important; }
-              .cognito span { ${colorMode !== 'light' ? 'color: #fff;' : ''} }
-              .c-name .c-label { display: none; }
-              .c-name .c-content {
-                width: calc(100% + 17px);
-                background-color: ${gray};
-                color: ${black};
-                font-size: 2em;
-                padding: 0.5em;
-                margin: -9px;
+              .cog-repeating-section .cog-row,
+              .cog-repeating-section .cog-repeating-section__section,
+              .cog-repeating-section .cog-section__inner { margin-left: 0 !important; padding-left: 0 !important; }
+              .cog-name .cog-label { display: none !important; }
+              .cog-name .cog-input.is-read-only {
+                width: calc(100% + 17px) !important;
+                background-color: ${gray} !important;
+                color: ${black} !important;
+                font-size: 2em !important;
+                padding: 0.5em !important;
+                margin: -9px !important;
               }
             `}
           />
@@ -200,7 +200,10 @@ export default function RegisterForm({ event, ...props }) {
               &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null}
               {' - '}{event.region.currencySymbol || '$'}{finalPrice * tickets.length}
             </Text>
-            <PromoBox event={event} onChange={(c, p, u) => { setPromoCode(c); setPromoPrice(p); setMaxTickets(u); }} />
+            <PromoBox
+              event={event}
+              onChange={(c, p, u, m) => { setPromoCode(c); setPromoPrice(p); setMaxTickets(u); setPromoMetadata(m); }}
+            />
           </Box>
           <PaymentBox
             event={event}
