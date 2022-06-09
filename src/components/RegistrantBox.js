@@ -131,7 +131,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
                 who are {ticketData.age > event.maxAge ? `over ${event.maxAge}` : `under ${event.minAge}`}.
               </Text>
             </Box>
-          ) : (ticketData.age < 15 ? (
+          ) : (event.overnightMinAge && ticketData.age < event.overnightMinAge ? (
             <Box bg="red.50" borderColor="red.500" color="red.800" borderWidth={1} mt={4} p={4}>
               <Text bold><UiError /> Younger students cannot stay overnight.</Text>
               <Text mb={0}>

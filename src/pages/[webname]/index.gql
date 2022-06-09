@@ -71,6 +71,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       minAge
       maxAge
       majorityAge
+      overnightMinAge
       remainingTickets
       contentfulWebname
       requiresPromoCode
