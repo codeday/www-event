@@ -135,7 +135,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             <Box bg="red.50" borderColor="red.500" color="red.800" borderWidth={1} mt={4} p={4}>
               <Text bold><UiError /> Younger students cannot stay overnight.</Text>
               <Text mb={0}>
-                Your age indicates you may be in middle school. Middle school students need to be picked
+                Students under the age of {event.overnightMinAge} need to be picked
                 up between 8-10pm and can return after 7am the next day.
               </Text>
             </Box>
