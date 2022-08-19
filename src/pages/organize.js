@@ -18,7 +18,7 @@ export default function Organize({ query, random }) {
   const clearfix = { __css: { clear: 'both' } };
 
   return (
-    <Page darkHeader={false}>
+    <Page title="Organize" darkHeader={false}>
       <Content mb={6} mt={-12}>
         <GithubAuthors repository="www-event" path="src/pages/organize.js" />
       </Content>
