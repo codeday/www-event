@@ -52,18 +52,18 @@ export default function Organize({ query, random }) {
         </Grid>
       </Content>
 
-      <Content mt={12} maxW="container.sm" textAlign="center">
+      <Content mt={24} maxW="container.sm" textAlign="center">
         <Button size="lg" w="100%" colorScheme="green" as="a" href="#form">Sign up to organize!</Button>
         <Text color="current.textLight" mt={2}>No experience needed! You'll have our support every step of the way.</Text>
       </Content>
 
       <Box {...clearfix} />
-      <Content mt={12} fontSize="lg">
+      <Content mt={24} fontSize="lg">
         <Heading textAlign="center" mb={6}>
           Spotlight <Highlight>creativity</Highlight> to reach people who would never usually go to a coding event.
         </Heading>
         <Box float="left" w={80} pr={8} pb={{ base: 8, lg: null }}>
-          <PastProjects title="Past CodeDay Projects include..." projects={query.showcase.projects} random={random} />
+          <PastProjects projects={query.showcase.projects} random={random} />
         </Box>
         <Text mb={2}>
           There are lots of great classes, clubs, hackathons, and other events for people who know want to code. Only
