@@ -105,7 +105,9 @@ export default function EventHome({
       </Content>
       <Content maxW="container.xl" mb={24}>
         <Grid templateColumns={{ base: '1fr', lg: '4fr 7fr' }} gap={6} alignItems="center">
-          <Box pr={8} pb={{ base: 8, lg: null }}><PastProjects projects={projects} random={random} /></Box>
+          <Box pr={8} pb={{ base: 8, lg: null }}>
+            <PastProjects projects={projects} random={random} title="We'll help you make something like..." />
+          </Box>
           <Awards awards={awards} />
         </Grid>
       </Content>

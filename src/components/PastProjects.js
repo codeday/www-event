@@ -27,7 +27,7 @@ export function shuffle(randomSeed, array) {
   return arrayCopy;
 }
 
-export default function PastProjects({ projects: projectsOrig, random, ...props }) {
+export default function PastProjects({ projects: projectsOrig, random, title, ...props }) {
   const projects = shuffle(random, projectsOrig.filter((p) => p?.media[0]?.image)).slice(0, 10);
   const i = useSlideshow(projects.length, 5000);
   const { colorMode } = useColorMode();
@@ -57,7 +57,7 @@ export default function PastProjects({ projects: projectsOrig, random, ...props 
           bg={colorMode === 'light' ? 'white' : 'gray.1100'}
         >
           <Text textAlign="center" color="current.textLight" bold fontSize="lg" mb={-1}>
-            We&apos;ll help you make something like...
+            {title}
           </Text>
           <BlobImage
             src={p.media.sort((a, b) => (2 * ((b.type === 'IMAGE') - (a.type === 'IMAGE'))) - 1)[0].image}
