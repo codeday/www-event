@@ -1,5 +1,5 @@
 import React from 'react';
-import { CognitoForm, Content } from '@codeday/topo/Molecule';
+import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { useAnalytics } from '@codeday/topo/utils';
 import Page from '../components/Page';
 

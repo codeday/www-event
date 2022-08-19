@@ -27,7 +27,9 @@ export function shuffle(randomSeed, array) {
   return arrayCopy;
 }
 
-export default function PastProjects({ projects: projectsOrig, random, title, ...props }) {
+export default function PastProjects({
+  projects: projectsOrig, random, title, ...props
+}) {
   const projects = shuffle(random, projectsOrig.filter((p) => p?.media[0]?.image)).slice(0, 10);
   const i = useSlideshow(projects.length, 5000);
   const { colorMode } = useColorMode();
