@@ -1,0 +1,10 @@
+fragment OrganizerTestimonial on BlogPost {
+  slug
+  excerpt
+  author {
+    picture
+    name
+    pronoun
+    title
+  }
+}

@@ -1,0 +1,8 @@
+fragment PullQuote on CmsTestimonial {
+  quote
+  firstName
+  lastName
+  program { name }
+  type
+  title
+}

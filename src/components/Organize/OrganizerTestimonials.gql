@@ -1,0 +1,12 @@
+#import "./OrganizerTestimonial.gql"
+
+fragment OrganizerTestimonials on Query {
+  blog {
+    posts(where: {tag:"codeday-organizer-testimonial"}, first: 5) {
+      nodes {
+        id
+        ...OrganizerTestimonial
+      }
+    }
+  }
+}
