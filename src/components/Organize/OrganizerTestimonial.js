@@ -1,4 +1,6 @@
-import { Box, Grid, Text, Image } from '@codeday/topo/Atom';
+import {
+  Box, Grid, Text, Image,
+} from '@codeday/topo/Atom';
 
 export default function OrganizerTestimonial({ post, ...props }) {
   return (
@@ -25,5 +27,5 @@ export default function OrganizerTestimonial({ post, ...props }) {
         </Box>
       </Grid>
     </Box>
-  )
+  );
 }

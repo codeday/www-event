@@ -1,12 +1,14 @@
-import { Box, Grid, Button, Heading, Text, List, ListItem, Image } from '@codeday/topo/Atom';
+import {
+  Box, Grid, Button, Heading, Text, List, ListItem, Image,
+} from '@codeday/topo/Atom';
 import { CognitoForm, Content } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
+import { useColorMode } from '@chakra-ui/react';
 import { OrganizePageQuery } from './organize.gql';
 import OrganizerTestimonials from '../components/Organize/OrganizerTestimonials';
 import PullQuote from '../components/Organize/PullQuote';
 import Highlight from '../components/Organize/Highlight';
 import Page from '../components/Page';
-import { useColorMode } from '@chakra-ui/react';
 import PastProjects from '../components/PastProjects';
 
 export default function Organize({ query, random }) {

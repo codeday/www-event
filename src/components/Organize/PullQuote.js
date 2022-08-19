@@ -5,8 +5,12 @@ export default function PullQuote({ testimonial, float, ...props }) {
 
   const floatProps = float === 'left'
     ? {
-      mr: { base: 'none', lg: 4 }, pr: { base: 'none', lg: 4 }, borderRightWidth: { base: 0, lg: 2 },
-      ml: { base: 4, lg: 'none' }, pl: { base: 4, lg: 'none' }, borderLeftWidth: { base: 2, lg: 0 },
+      mr: { base: 'none', lg: 4 },
+      pr: { base: 'none', lg: 4 },
+      borderRightWidth: { base: 0, lg: 2 },
+      ml: { base: 4, lg: 'none' },
+      pl: { base: 4, lg: 'none' },
+      borderLeftWidth: { base: 2, lg: 0 },
       textAlign: { base: 'left', lg: 'right' },
     } : { ml: 4, pl: 4, borderLeftWidth: 2 };
 
@@ -18,7 +22,7 @@ export default function PullQuote({ testimonial, float, ...props }) {
     <Box
       color="current.textLight"
       borderColor="current.textLight"
-      maxW={{ base: 'none', lg: 80}}
+      maxW={{ base: 'none', lg: 80 }}
       float={{ base: 'none', lg: float }}
       mb={{ base: 8, lg: 'none' }}
       {...floatProps}

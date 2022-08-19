@@ -13,5 +13,6 @@ module.exports = {
     "sonarjs/cognitive-complexity": "off",
     "no-nested-ternary": "off",
     "react-hooks/exhaustive-deps": "off",
+    "react/no-unescaped-entities": "off",
   }
 };
