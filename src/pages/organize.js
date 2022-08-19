@@ -63,7 +63,7 @@ export default function Organize({ query, random }) {
           Spotlight <Highlight>creativity</Highlight> to reach people who would never usually go to a coding event.
         </Heading>
         <Box float="left" w={80} pr={8} pb={{ base: 8, lg: null }}>
-          <PastProjects projects={query.showcase.projects} random={random} />
+          <PastProjects title="Past CodeDay Projects include..." projects={query.showcase.projects} random={random} />
         </Box>
         <Text mb={2}>
           There are lots of great classes, clubs, hackathons, and other events for people who know want to code. Only
