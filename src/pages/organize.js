@@ -1,7 +1,7 @@
 import {
   Box, Grid, Button, Heading, Text, List, ListItem, Image,
 } from '@codeday/topo/Atom';
-import { CognitoForm, Content } from '@codeday/topo/Molecule';
+import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
 import { useColorMode } from '@chakra-ui/react';
 import { OrganizePageQuery } from './organize.gql';
@@ -19,7 +19,10 @@ export default function Organize({ query, random }) {
 
   return (
     <Page darkHeader={false}>
-      <Content mb={12} mt={-12}>
+      <Content mb={6} mt={-12}>
+        <GithubAuthors repository="www-event" path="src/pages/organize.js" />
+      </Content>
+      <Content mb={12}>
         <Text p={4} bgColor={bgLight} fontSize="lg" rounded="sm">
           <Text fontWeight="bold" d="inline">CODEDAY PERKS THIS SEASON: </Text>
           Support your community with $2,000+ in free laptops to give away to low-income students, and free Uber rides
