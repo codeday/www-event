@@ -12,10 +12,9 @@ export default function OrganizerTestimonial({ post, ...props }) {
       {...props}
     >
       <Grid templateColumns="auto 1fr" gap={4} alignItems="flex-start">
-        <Image maxW={32} src={post.author.picture} alt="" rounded="sm" />
+          <Image maxW={32} src={post.author.picture} alt="" rounded="sm" />
         <Box>
           <Text
-            borderLeftWidth={2}
             pl={4}
             mb={4}
             dangerouslySetInnerHTML={{ __html: post.excerpt }}
