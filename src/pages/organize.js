@@ -1,5 +1,5 @@
 import {
-  Box, Grid, Button, Heading, Text, List, ListItem, Image,
+  Box, Grid, Button, Heading, Text, List, ListItem, Image, Link
 } from '@codeday/topo/Atom';
 import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
@@ -88,7 +88,7 @@ export default function Organize({ query, random }) {
       <Box {...clearfix} />
       <Content mt={24} p={6} rounded="sm" textAlign="center" maxW="container.lg" bgColor={bgLight}>
         <Heading fontSize="3xl">Why organize CodeDay?</Heading>
-        <Text mb={6} fontSize="sm">(Click to read more.)</Text>
+        <Text mb={6} fontSize="sm">(Click to read more or <Link href="https://blog.codeday.org/tag/codeday-organizer-testimonial"> view all testimonials</Link>)</Text>
         <OrganizerTestimonials query={query} random={random} />
       </Content>
 
