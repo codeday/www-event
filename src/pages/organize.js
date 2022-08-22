@@ -1,5 +1,5 @@
 import {
-  Box, Grid, Button, Heading, Text, List, ListItem, Image, Link
+  Box, Grid, Button, Heading, Text, List, ListItem, Image, Link,
 } from '@codeday/topo/Atom';
 import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
