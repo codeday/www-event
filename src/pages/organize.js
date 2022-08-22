@@ -62,7 +62,12 @@ export default function Organize({ query, random }) {
         <Heading textAlign="center" mb={6}>
           Spotlight <Highlight>creativity</Highlight> to reach people who would never usually go to a coding event.
         </Heading>
-        <Box float="left" w={80} pr={8} pb={{ base: 8, lg: null }}>
+        <Box
+          float={{ base: 'none', lg: 'left' }}
+          w={{ base: '100%', md: 80 }}
+          pr={{ base: 0, lg: 8 }}
+          pb={{ base: 8, lg: null }}
+        >
           <PastProjects projects={query.showcase.projects} random={random} />
         </Box>
         <Text mb={2}>
@@ -98,7 +103,7 @@ export default function Organize({ query, random }) {
           we've perfected the most effective model for promoting and supporting diverse students! As an organizer,
           you'll get:
         </Text>
-        <List mb={4} styleType="disc">
+        <List mb={4} ml={4} styleType="disc">
           <ListItem>Guide + weekly coaching based on 10+ years of experiments.</ListItem>
           <ListItem>Laptops to give to low-income students. TO KEEP!</ListItem>
           <ListItem>Free Uber rides for low-income students to/from CodeDay.</ListItem>
