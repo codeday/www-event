@@ -1,7 +1,7 @@
 import {
   Box, Grid, Button, Heading, Text, List, ListItem, Image,
 } from '@codeday/topo/Atom';
-import { CognitoForm, Content } from '@codeday/topo/Molecule';
+import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
 import { useColorMode } from '@chakra-ui/react';
 import { OrganizePageQuery } from './organize.gql';
@@ -18,8 +18,11 @@ export default function Organize({ query, random }) {
   const clearfix = { __css: { clear: 'both' } };
 
   return (
-    <Page darkHeader={false}>
-      <Content mb={12} mt={-12}>
+    <Page title="Organize" darkHeader={false}>
+      <Content mb={6} mt={-12}>
+        <GithubAuthors repository="www-event" path="src/pages/organize.js" />
+      </Content>
+      <Content mb={12}>
         <Text p={4} bgColor={bgLight} fontSize="lg" rounded="sm">
           <Text fontWeight="bold" d="inline">CODEDAY PERKS THIS SEASON: </Text>
           Support your community with $2,000+ in free laptops to give away to low-income students, and free Uber rides
@@ -49,18 +52,23 @@ export default function Organize({ query, random }) {
         </Grid>
       </Content>
 
-      <Content mt={12} maxW="container.sm" textAlign="center">
+      <Content mt={24} maxW="container.sm" textAlign="center">
         <Button size="lg" w="100%" colorScheme="green" as="a" href="#form">Sign up to organize!</Button>
         <Text color="current.textLight" mt={2}>No experience needed! You'll have our support every step of the way.</Text>
       </Content>
 
       <Box {...clearfix} />
-      <Content mt={12} fontSize="lg">
+      <Content mt={24} fontSize="lg">
         <Heading textAlign="center" mb={6}>
           Spotlight <Highlight>creativity</Highlight> to reach people who would never usually go to a coding event.
         </Heading>
-        <Box float="left" w={80} pr={8} pb={{ base: 8, lg: null }}>
-          <PastProjects title="Past CodeDay Projects include..." projects={query.showcase.projects} random={random} />
+        <Box
+          float={{ base: 'none', lg: 'left' }}
+          w={{ base: '100%', md: 80 }}
+          pr={{ base: 0, lg: 8 }}
+          pb={{ base: 8, lg: null }}
+        >
+          <PastProjects projects={query.showcase.projects} random={random} />
         </Box>
         <Text mb={2}>
           There are lots of great classes, clubs, hackathons, and other events for people who know want to code. Only
@@ -95,7 +103,7 @@ export default function Organize({ query, random }) {
           we've perfected the most effective model for promoting and supporting diverse students! As an organizer,
           you'll get:
         </Text>
-        <List mb={4} styleType="disc">
+        <List mb={4} ml={4} styleType="disc">
           <ListItem>Guide + weekly coaching based on 10+ years of experiments.</ListItem>
           <ListItem>Laptops to give to low-income students. TO KEEP!</ListItem>
           <ListItem>Free Uber rides for low-income students to/from CodeDay.</ListItem>
