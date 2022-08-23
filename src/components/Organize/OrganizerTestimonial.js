@@ -15,7 +15,6 @@ export default function OrganizerTestimonial({ post, ...props }) {
         <Image maxW={32} src={post.author.picture} alt="" rounded="sm" />
         <Box>
           <Text
-            borderLeftWidth={2}
             pl={4}
             mb={4}
             dangerouslySetInnerHTML={{ __html: post.excerpt }}
