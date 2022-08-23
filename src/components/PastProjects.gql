@@ -1,6 +1,6 @@
 fragment PastProjects on Query {
   showcase {
-    projects (where: { program: "virtual", featured: true, type: GAME, media: IMAGES }, take: 40) {
+    projects (where: { program: "codeday", featured: true, type: GAME, media: IMAGES }, take: 40) {
       id
       name
       eventGroup {
