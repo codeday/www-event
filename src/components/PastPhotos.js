@@ -1,6 +1,6 @@
 import { create } from 'random-seed';
 import {
-  Box, Grid, Image, Text
+  Box, Grid, Image, Text,
 } from '@codeday/topo/Atom';
 
 export function shuffle(randomSeed, array) {
