@@ -1,8 +1,7 @@
 import { create } from 'random-seed';
-import { Box, Grid, Image, Text } from '@codeday/topo/Atom';
-import { useColorMode } from '@codeday/topo/Theme';
-import BlobImage from './BlobImage';
-import { useSlideshow } from '../slideshow';
+import {
+  Box, Grid, Image, Text
+} from '@codeday/topo/Atom';
 
 export function shuffle(randomSeed, array) {
   const rng = create(randomSeed);
@@ -34,7 +33,7 @@ export default function PastPhotos({
 
   return (
     <Grid
-      templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)', lg: 'repeat(6, 1fr)'}}
+      templateColumns={{ base: 'repeat(2, 1fr)', md: 'repeat(4, 1fr)', lg: 'repeat(6, 1fr)' }}
       gap={8}
       {...props}
     >
