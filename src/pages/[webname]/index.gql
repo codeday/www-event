@@ -6,6 +6,7 @@
 #import "../../components/Faq.gql"
 #import "../../components/AwardDetails.gql"
 #import "../../components/PastProjects.gql"
+#import "../../components/PastPhotos.gql"
 
 query IndexStaticPathsQuery {
   cms {
@@ -41,6 +42,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         name
         webname
         timezone
+        ...PastPhotos
       }
     }
     events(

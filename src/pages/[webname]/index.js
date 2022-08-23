@@ -27,6 +27,7 @@ import Faq from '../../components/Faq';
 import Awards from '../../components/Awards';
 import PastProjects from '../../components/PastProjects';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
+import PastPhotos from '../../components/PastPhotos';
 
 export default function EventHome({
   webname, region, images, quotes, event, cmsEvent, globalSponsors, faqs, awards, projects, random,
@@ -185,6 +186,12 @@ export default function EventHome({
           <Button as="a" href="https://www.codeday.org/help/codeday" target="_blank">All FAQs</Button>
         </Box>
       </Content>
+      {region.pastPhotos?.length > 0 && (
+        <Content maxWidth="container.xl" mt={16}>
+          <Heading as="h4" fontSize="4xl" mb={6}>Past Event Photos</Heading>
+          <PastPhotos photos={region.pastPhotos} random={random} />
+        </Content>
+      )}
       {event?.customLegal && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
           <Text>{event.customLegal}</Text>

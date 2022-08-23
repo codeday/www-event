@@ -1,0 +1,7 @@
+fragment PastPhotos on CmsRegion {
+  pastPhotos (where: { program: "codeday" }, take: 24) {
+    id
+    urlMedium
+    thanks
+  }
+}
