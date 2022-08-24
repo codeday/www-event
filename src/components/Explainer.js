@@ -15,7 +15,10 @@ const steps = [
 export default function Explainer({ ...props }) {
   return (
     <Box {...props}>
-      <Text textAlign="center" mb={12} fontSize="xl" bold color="current.textLight">Here&apos;s how it works:</Text>
+      <Text textAlign="center" mb={0} fontSize="xl" bold color="current.textLight">Here&apos;s how CodeDay works:</Text>
+      <Text textAlign="center" mb={12} fontSize="md" bold color="current.textLight">
+        (You don't need to be a coder to have fun. Artists, musicians, writers, and actors are especially welcome!)
+      </Text>
       <Grid templateColumns={{ base: 'repeat(3, 1fr)', md: 'repeat(6, 1fr)' }} gap={8} alignItems="top">
         {steps.map((text, i) => (
           <Box key={text}>

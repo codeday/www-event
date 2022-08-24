@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import {
-  Box, Button, Heading, Link, Text, Grid,
+  Box, Button, Heading, Link, Text, Grid, Divider,
 } from '@codeday/topo/Atom';
 import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
 import { Content, DataCollection, CognitoForm } from '@codeday/topo/Molecule';
@@ -127,6 +127,7 @@ export default function EventHome({
         >
           <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'}>
             <Heading fontSize="2xl" color="white">Register for CodeDay</Heading>
+            <Text fontWeight="bold">No coding interest or experience needed!</Text>
           </Box>
           <Box p={{ base: 4, lg: 8 }}>
             {event?.canRegister ? (
@@ -135,18 +136,23 @@ export default function EventHome({
               event ? (
                 <EventMailingListSubscribe event={event}>
                   <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
-                  <Text textAlign="center">Enter your email to be notified when registrations go live!</Text>
+                  <Text mb={4} textAlign="center">Enter your email to be notified when registrations go live!</Text>
                 </EventMailingListSubscribe>
               ) : (
                 <>
                   <Box textAlign="center" mt={4}>
-                    <Text fontSize="lg" bold>😢 We don&apos;t have an upcoming CodeDay planned in {region.name} right now.</Text>
-                    <Text>Be notified about the next CodeDay {region.name}:</Text>
+                    <Text mb={1} fontSize="lg" bold>😢 We don&apos;t have an upcoming CodeDay planned in {region.name}. (But you can change that!)</Text>
+                    <Text mb={8}>CodeDays are organized by local volunteers. If you want to help bring CodeDay back to {region.name}, click below:</Text>
+                    <Button as="a" href="/organize" colorScheme="green">Learn More About Organizing &amp; Sign Up</Button>
+                    <Text mt={1} color="current.textLight">No experience required. You can be as young as 15.</Text>
+                    <Divider mt={8} mb={8} />
+                    <Text color="current.textLight">Not ready to volunteer? Enter your email to be notified if we re-launch CodeDay {region.name}:</Text>
                     <Box mt={4} w="md" d="inline-block">
                       <MailingListSubscribe
                         mb={4}
                         emailList="00a7c4d8-aadf-11ec-9258-0241b9615763"
                         fields={{ field_3: webname }}
+                        colorScheme="gray"
                       />
                       <DataCollection message="pii" />
                     </Box>
@@ -188,8 +194,17 @@ export default function EventHome({
       </Content>
       {region.pastPhotos?.length > 0 && (
         <Content maxWidth="container.xl" mt={16}>
-          <Heading as="h4" fontSize="4xl" mb={6}>Past Event Photos</Heading>
-          <PastPhotos photos={region.pastPhotos} random={random} />
+          <Heading as="h4" fontSize="4xl" mb={6}>Previously At CodeDay { region.name }</Heading>
+          <PastPhotos photos={region.pastPhotos} featuredPhotos={region.featuredPhotos} random={random} />
+          <Box textAlign="center" mt={8}>
+            <Button
+              as="a"
+              href={`https://showcase.codeday.org/projects/all/region=${region.webname}`}
+              target="_blank"
+            >
+              More Past Photos &amp; Projects
+            </Button>
+          </Box>
         </Content>
       )}
       {event?.customLegal && (

@@ -14,7 +14,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
   return (
     <Box w={['auto', 'md']} ml="auto" mr="auto" {...props}>
       {children}
-      <Grid templateColumns="1fr min-content">
+      <Grid mb={4} templateColumns="1fr min-content">
         <TextInput
           value={email}
           onChange={(e) => setEmail(e.target.value)}

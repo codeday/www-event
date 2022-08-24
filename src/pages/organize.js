@@ -120,8 +120,7 @@ export default function Organize({ query, random }) {
         <Box borderColor="red.600" borderWidth={3} rounded="sm">
           <Box color="white" bg="red.600" p={2} pl={4} pr={4}>
             <Heading fontSize="2xl">Organize a CodeDay</Heading><a name="form" />
-            <Text>(This isn't a final commitment, it's ok if you change your mind.)</Text>
-            <Text>Requirements: In at least high school and able to commit 3-5hr/wk. No experience needed, we'll help you.</Text>
+            <Text>Requirements: at least 15 years old, and able to commit 3-5hr/wk. NO EXPERIENCE NEEDED.</Text>
           </Box>
           <Box p={4}>
             <CognitoForm

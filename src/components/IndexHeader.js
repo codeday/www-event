@@ -51,7 +51,7 @@ export default function IndexHeader({
             </Heading>
             <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} mt={12} alignItems="center" gap={16}>
               <Box>
-                <Text fontSize="2xl" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)">
+                <Text fontSize="2xl" fontWeight="bold" mb={4} textShadow="0 0 5px rgba(0,0,0,0.7)">
                   The most beginner-friendly event for building amazing games and apps!
                 </Text>
 

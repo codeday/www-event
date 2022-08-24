@@ -1,5 +1,10 @@
 fragment PastPhotos on CmsRegion {
-  pastPhotos (where: { program: "codeday" }, take: 24) {
+  featuredPhotos: pastPhotos (where: { program: "codeday", featured: true }, take: 27, orderBy: RANDOM) {
+    id
+    urlMedium
+    thanks
+  }
+  pastPhotos (where: { program: "codeday" }, take: 54, orderBy: RANDOM) {
     id
     urlMedium
     thanks

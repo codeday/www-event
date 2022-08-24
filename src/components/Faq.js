@@ -6,7 +6,7 @@ export default function Faq({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Box borderWidth={1} gridColumn={isOpen ? 'span 3' : undefined}>
+    <Box borderWidth={1} gridColumn={{ base: 'span 1', lg: isOpen ? 'span 3' : undefined }}>
       <Heading
         as="h4"
         fontSize="lg"
