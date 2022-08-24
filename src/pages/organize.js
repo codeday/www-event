@@ -86,7 +86,7 @@ export default function Organize({ query, random }) {
       </Content>
 
       <Box {...clearfix} />
-      <Content mt={24} p={6} rounded="sm" textAlign="center" maxW="container.lg" bgColor={bgLight}>
+      <Content mt={24} p={6} rounded="sm" textAlign="center" maxW="container.md" bgColor={bgLight}>
         <Heading fontSize="3xl">Why organize CodeDay?</Heading>
         <Text mb={6} fontSize="sm">(Click to read more or <Link href="https://blog.codeday.org/tag/codeday-organizer-testimonial"> view all testimonials</Link>)</Text>
         <OrganizerTestimonials query={query} random={random} />
