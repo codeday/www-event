@@ -127,8 +127,8 @@ export default function EventHome({
           borderRadius="sm"
           p={0}
         >
-          <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'}>
-            <Heading fontSize="2xl" color="white">Register for CodeDay</Heading>
+          <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'} color="white">
+            <Heading fontSize="2xl">Register for CodeDay</Heading>
             <Text fontWeight="bold">No coding interest or experience needed!</Text>
           </Box>
           <Box p={{ base: 4, lg: 8 }}>

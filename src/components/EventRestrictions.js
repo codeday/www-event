@@ -31,9 +31,6 @@ export default function EventRestrictions({ event, ...props }) {
 
   return (
     <Box borderTopWidth={2} pt={6} mt={6} borderColor={colorMode === 'light' ? 'red.600' : 'red.900'} {...props}>
-      <Heading fontSize="xl" mb={6}>
-        Event safety rules:
-      </Heading>
       <Grid
         templateColumns={{ base: '1fr', md: `repeat(${Math.max(restrictions.length, 3)}, 1fr)` }}
         alignItems="center"

@@ -227,9 +227,9 @@ export default function RegisterForm({ event, ...props }) {
               <ListItem>
                 You must follow the{' '}
                 <Link href="https://www.codeday.org/conduct" target="_blank">Code of Conduct</Link>{' '}
-                &amp; safety rules.
+                &amp; <Link href="/rules" target="_blank">event rules</Link>.
               </ListItem>
-              <ListItem>You will need to sign a waiver.</ListItem>
+              <ListItem>You will need to sign a waiver &amp; a media release.</ListItem>
               <ListItem>We may photograph or record you.</ListItem>
               <ListItem>Refunds are available until 48 hours before kickoff.</ListItem>
             </List>
