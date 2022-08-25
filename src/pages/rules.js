@@ -1,7 +1,6 @@
 import React from 'react';
 import { Heading, Link, Text } from '@codeday/topo/Atom';
-import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
-import { useAnalytics } from '@codeday/topo/utils';
+import { Content, GithubAuthors } from '@codeday/topo/Molecule';
 import Page from '../components/Page';
 
 export default function Rules() {
@@ -79,8 +78,8 @@ export default function Rules() {
           guardian authorizes their exit by phone or writing (sending the student with a written note is sufficient).
         </Text>
         <Text mb={2}>
-          Unless permission to leave is given, <em>a parent or guardian must be available to pick up all minors
-          throughout the event.</em>
+          Unless permission to leave is given, a parent or guardian must be available to pick up all minors at any
+          point during the event.
         </Text>
 
         <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER5. Event Behavior.</Heading>
@@ -109,8 +108,9 @@ export default function Rules() {
           judges are discussing awards.
         </Text>
         <Text mb={2}>
-          In order to be eligible for the <em>Best in Class</em> and <em>Best in Show</em> awards <strong>(but NOT
-          required for <em>Special Prizes</em>),</strong> projects must comply with the following rules:
+          In order to be eligible for the <em>Best in Class</em> and <em>Best in Show</em> awards{' '}
+          <strong>(but NOT required for <em>Special Prizes</em>),</strong> projects must comply with the following
+          rules:
         </Text>
         <Text mb={2} ml={6}>
           a. A team must comprise 1-6 people who are registered CodeDay attendees. (However, attendees can be registered
@@ -136,7 +136,6 @@ export default function Rules() {
           e. Except as provided above, all work on the project must occur by the team, between the end of the kickoff
           and the beginning of the presentations. (Commissioning paid work is forbidden.)
         </Text>
-
 
         <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER6. Event staff have final say.</Heading>
         <Text mb={2}>

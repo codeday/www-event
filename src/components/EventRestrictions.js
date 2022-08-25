@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Grid, Box, Button, Image, Heading, Text, Link,
+  Grid, Box, Button, Image, Text, Link,
 } from '@codeday/topo/Atom';
 import { useColorMode } from '@codeday/topo/Theme';
 import ReactHtmlParser from 'react-html-parser';
