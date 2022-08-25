@@ -19,7 +19,7 @@ export default function Organize({ query, random }) {
 
   return (
     <Page title="Organize" darkHeader={false}>
-      <Content mb={6} mt={-12}>
+      <Content mb={4} mt={-12}>
         <GithubAuthors repository="www-event" path="src/pages/organize.js" />
       </Content>
       <Content mb={12}>

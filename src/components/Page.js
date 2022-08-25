@@ -89,7 +89,7 @@ const Page = ({
       <Main>
         {children}
       </Main>
-      <Footer />
+      <Footer mt={12} repository="www-event" />
     </Box>
   </Box>
 );

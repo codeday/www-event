@@ -6,7 +6,7 @@ import {
   Box, Button, Heading, Link, Text, Grid, Divider,
 } from '@codeday/topo/Atom';
 import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
-import { Content, DataCollection, CognitoForm } from '@codeday/topo/Molecule';
+import { Content, DataCollection, CognitoForm, GithubAuthors } from '@codeday/topo/Molecule';
 import { MailingListSubscribe } from '@codeday/topo/Organism';
 import { useColorMode } from '@codeday/topo/Theme';
 import { apiFetch } from '@codeday/topo/utils';
@@ -207,6 +207,7 @@ export default function EventHome({
           </Box>
         </Content>
       )}
+
       {event?.customLegal && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
           <Text>{event.customLegal}</Text>

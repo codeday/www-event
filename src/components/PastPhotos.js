@@ -1,33 +1,9 @@
-import { create } from 'random-seed';
 import {
   Box, Grid, Image, Text,
 } from '@codeday/topo/Atom';
 
-export function shuffle(randomSeed, array) {
-  const rng = create(randomSeed);
-  const arrayCopy = JSON.parse(JSON.stringify(array));
-
-  let currentIndex = arrayCopy.length;
-  let temporaryValue;
-  let randomIndex;
-
-  // While there remain elements to shuffle...
-  while (currentIndex !== 0) {
-    // Pick a remaining element...
-    randomIndex = rng.intBetween(0, currentIndex);
-    currentIndex -= 1;
-
-    // And swap it with the current element.
-    temporaryValue = arrayCopy[currentIndex];
-    arrayCopy[currentIndex] = arrayCopy[randomIndex];
-    arrayCopy[randomIndex] = temporaryValue;
-  }
-
-  return arrayCopy;
-}
-
 export default function PastPhotos({
-  photos: photosOrig, featuredPhotos: featuredOrig, random, ...props
+  photos: photosOrig, featuredPhotos: featuredOrig, ...props
 }) {
   // We want to show featured photos first, then all photos, up to a max of 3 large + 24 small. Showcase doesn't
   // allow us to ask for non-featured photos, so we first need to get _more_ photos and then remove any which are
@@ -38,7 +14,7 @@ export default function PastPhotos({
   const allPhotos = [...featuredOrig, ...dedupPhotosOrig].filter((p) => p?.urlMedium);
 
   // Featured photos come up first in the list, so we'll pick those first
-  const featuredPhotos = allPhotos.slice(0,3);
+  const featuredPhotos = allPhotos.slice(0, 3);
   const photos = allPhotos.slice(3, 27);
 
   return (
