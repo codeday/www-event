@@ -102,7 +102,7 @@ export default function Rules() {
           well as any behavior which impairs the ability of others to participate in the event.
         </Text>
 
-        <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER5. Awards.</Heading>
+        <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER6. Awards.</Heading>
         <Text mb={2}>
           Awards will be decided either by judges or by the event staff. No attendee is allowed into the area where
           judges are discussing awards.
@@ -137,7 +137,7 @@ export default function Rules() {
           and the beginning of the presentations. (Commissioning paid work is forbidden.)
         </Text>
 
-        <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER6. Event staff have final say.</Heading>
+        <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER7. Event staff have final say.</Heading>
         <Text mb={2}>
           The organizers will interpret all event rules and the Code of Conduct in understanding of the spirit.
           Organizers have the authority to disqualify you from any awards, remove you from the event, and have you
@@ -145,7 +145,7 @@ export default function Rules() {
           call a parent to pick you up.
         </Text>
 
-        <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER7. Bans.</Heading>
+        <Heading mt={6} mb={2} as="h3" fontSize="2xl">CDER8. Bans.</Heading>
         <Text mb={2}>
           If you register for an event once you have been banned, you will not be allowed entry, and your ticket will
           not be refunded.

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import { apiFetch } from '@codeday/topo/utils';
@@ -11,7 +10,7 @@ export default function EventHome({ event, webname }) {
     if (typeof window === 'undefined') return;
     window.location = event?.venue?.mapLink || `/${webname}`;
   }, [typeof window, event]);
-  return <Page></Page>;
+  return <Page />;
 }
 
 export async function getStaticPaths() {
