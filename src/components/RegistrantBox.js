@@ -16,7 +16,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
   const initialRender = useRef(true);
   useEffect(() => {
     const isValid = Boolean(ticketData?.firstName && ticketData?.lastName
-      && (ticketData?.email || ticketData?.phone || ticketData?.whatsApp)
+      && (ticketData?.email && (ticketData?.phone || ticketData?.whatsApp))
       && ticketData?.age && ticketData.age >= event.minAge && ticketData.age <= event.maxAge)
       && (!event.customRegCollectOrg || ticketData?.metadata?.organization);
 
@@ -67,14 +67,14 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
               }
             />
           </Box>
-          <Box
+           <Box
             color="current.textLight"
             fontSize="sm"
             textAlign="center"
             mt={8}
-          >
-            &mdash;&nbsp;OR&nbsp;&mdash;
-          </Box>
+           >
+            {/*&mdash;&nbsp;OR&nbsp;&mdash; */}
+           </Box>
           <Box>
             <Text fontSize="sm" fontWeight="bold" mb={0}>Mobile Phone Number</Text>
             <PhoneInput
