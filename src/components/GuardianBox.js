@@ -17,7 +17,8 @@ export default function GuardianBox({ event, onChange, ...rest }) {
     const isValid = Boolean(
       guardianData?.firstName
       && guardianData?.lastName
-      && (guardianData?.email || guardianData?.phone || guardianData?.whatsApp),
+      && guardianData?.email
+      && (guardianData?.phone || guardianData?.whatsApp),
     );
 
     if (initialRender.current) initialRender.current = false;
@@ -74,7 +75,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
             textAlign="center"
             mt={8}
           >
-            &mdash;&nbsp;OR&nbsp;&mdash;
+            &mdash;&nbsp;&amp;&nbsp;&mdash;
           </Box>
 
           <Box>

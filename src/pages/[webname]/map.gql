@@ -1,0 +1,20 @@
+query MapStaticPathsQuery {
+  cms {
+    regions(limit: 1000) {
+      items {
+        webname
+        aliases
+      }
+    }
+  }
+}
+
+query MapStaticPropsQuery ($webname: String! $endDate: ClearDateTime!) {
+  clear {
+    findFirstEvent(where: {contentfulWebname: {equals: $webname}, endDate: {gte: $endDate}}, orderBy: {startDate: desc}) {
+      venue {
+        mapLink
+      }
+    }
+  }
+}
