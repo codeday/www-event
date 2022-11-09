@@ -1,8 +1,7 @@
 import React from 'react';
-import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
-import { useAnalytics } from '@codeday/topo/utils';
-import Page from '../components/Page';
 import { Text, Link } from '@codeday/topo/Atom';
+import { Content } from '@codeday/topo/Molecule';
+import Page from '../components/Page';
 
 export default function Scholarship() {
   return (
