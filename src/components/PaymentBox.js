@@ -2,11 +2,11 @@
 import { PaymentProvider } from './PaymentProvider';
 
 export default function PaymentBox({
-  event, ...props
+  event, isRequestScholarship, ...props
 }) {
   return (
     <PaymentProvider
-      paymentProvider={event?.region?.paymentProvider || 'stripe'}
+      paymentProvider={isRequestScholarship ? 'scholarship' : (event?.region?.paymentProvider || 'stripe')}
       currency={event?.region?.currency || 'usd'}
       event={event}
       {...props}

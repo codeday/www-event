@@ -37,6 +37,8 @@ export default function RegisterForm({ event, ...props }) {
   const [promoPrice, setPromoPrice] = useState();
   const [promoMetadata, setPromoMetadata] = useState();
   const [isStarted, setIsStarted] = useState(false);
+  const [isRequestScholarship, setRequestScholarship] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [maxTickets, setMaxTickets] = useState();
   const [remainingTickets, setRemainingTickets] = useState(event.remainingTickets);
@@ -65,10 +67,21 @@ export default function RegisterForm({ event, ...props }) {
     return (
       <Box {...props}>
         <Box p={8} textAlign="center">
-          <Text fontSize="3xl" bold>You&apos;re going to CodeDay! Now customize your experience.</Text>
-          <Text>
-            No need to print a ticket, we&apos;ll check you in by name. Please complete the following information:
-          </Text>
+          {isPending ? (
+            <>
+              <Text fontSize="3xl" bold>We&apos;re reviewing your registration.</Text>
+              <Text>
+                We&apos;ll contact you with your final ticket. In the meantime, please complete the following information:
+              </Text>
+            </>
+          ) : (
+            <>
+              <Text fontSize="3xl" bold>You&apos;re going to CodeDay! Now customize your experience.</Text>
+              <Text>
+                No need to print a ticket, we&apos;ll check you in by name. Please complete the following information:
+              </Text>
+            </>
+          )}
           <CognitoForm
             formId="104"
             onSubmit={() => { analytics.goal('8YRYGGMT', 0); }}
@@ -197,13 +210,29 @@ export default function RegisterForm({ event, ...props }) {
               &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null}
               {' - '}{event.region.currencySymbol || '$'}{finalPrice * tickets.length}
             </Text>
-            <PromoBox
-              event={event}
-              onChange={(c, p, u, m) => { setPromoCode(c); setPromoPrice(p); setMaxTickets(u); setPromoMetadata(m); }}
-            />
+            {isRequestScholarship ? (
+              <Link fontSize="sm" color="current.textLight" onClick={() => setRequestScholarship(false)}>&laquo; Cancel scholarship request</Link>
+            ) : (
+              <>
+                <PromoBox
+                  event={event}
+                  onChange={(c, p, u, m) => { setPromoCode(c); setPromoPrice(p); setMaxTickets(u); setPromoMetadata(m); }}
+                />
+                {finalPrice > 0 && (
+                  <Link
+                    fontSize="sm"
+                    color="current.textLight"
+                    onClick={() => setRequestScholarship(true)}
+                  >
+                    Can't afford it? Request a scholarship &raquo;
+                  </Link>
+                )}
+              </>
+            )}
           </Box>
           <PaymentBox
             event={event}
+            isRequestScholarship={isRequestScholarship}
             ticketsData={tickets.map((ticket) => ticket.ticketData)}
             guardianData={hasMinors ? guardianData : null}
             promoCode={promoCode}
@@ -214,7 +243,8 @@ export default function RegisterForm({ event, ...props }) {
               && tickets.map((ticket) => ticket.isValid).reduce((a, b) => a && b, true)
               && (!event.requiresPromoCode || promoCode)
             }
-            onComplete={() => {
+            onComplete={(pending) => {
+              setIsPending(pending);
               setIsComplete(true);
               analytics.goal('8FI259EA', 0);
             }}
