@@ -30,7 +30,7 @@ export default function Team({ team, ...props }) {
                   <Image src={e.account?.picture || e.avatarUrl} alt="" rounded="sm" h={12} w={12} />
                   <Box>
                     <Text>{e.account?.name || `${e.firstName} ${e.lastName}`}</Text>
-                    {e.account?.pronouns && <Text fontSize="sm">{e.account.pronouns}</Text>}
+                    {e.account?.pronoun && <Text fontSize="sm">{e.account.pronoun}</Text>}
                   </Box>
                 </Grid>
               ))}
