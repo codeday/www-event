@@ -1,0 +1,19 @@
+mutation ApplyForWorkshopMutation(
+  $eventId: String!,
+  $firstName: String!,
+  $lastName: String!,
+  $email: String!,
+  $bio: String!,
+  $description: String!,
+) {
+    clear {
+        applyForWorkshop(
+            eventWhere: {id: $eventId},
+            firstName: $firstName,
+            lastName: $lastName,
+            email: $email,
+            bio: $bio,
+            description: $description,
+        )
+    }
+}

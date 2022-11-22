@@ -1,0 +1,26 @@
+fragment PublicPersonFragment on ClearPublicPerson {
+  firstName
+  lastName
+  account {
+    name
+    pronoun
+    picture
+  }
+  avatarUrl
+}
+
+fragment TeamFragment on ClearEvent {
+  team {
+    staff {
+      ...PublicPersonFragment
+    }
+
+    mentors {
+      ...PublicPersonFragment
+    }
+
+    judges {
+      ...PublicPersonFragment
+    }
+  }
+}

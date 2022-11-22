@@ -5,6 +5,7 @@ import {
 } from '@codeday/topo/Atom';
 import { useColorModeValue } from '@codeday/topo/Theme';
 import { DateTime } from 'luxon';
+import ApplyForWorkshop from './ApplyForWorkshop';
 
 export default function Schedule({ event, timezone, ...props }) {
   const bg = useColorModeValue('gray.200', 'gray.850');
@@ -23,7 +24,8 @@ export default function Schedule({ event, timezone, ...props }) {
 
   return (
     <Box {...props}>
-      <Heading as="h3" fontSize="3xl" fontWeight="bold" mb={4}>Schedule</Heading>
+      <Heading as="h3" fontSize="3xl" fontWeight="bold">Schedule</Heading>
+      <ApplyForWorkshop event={event} mb={4} />
       <Grid
         maxWidth={Object.keys(days).length > 1 ? 'container.lg' : 'container.sm'}
         margin="auto"

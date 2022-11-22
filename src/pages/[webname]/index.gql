@@ -7,6 +7,7 @@
 #import "../../components/AwardDetails.gql"
 #import "../../components/PastProjects.gql"
 #import "../../components/PastPhotos.gql"
+#import "../../components/Team.gql"
 
 query IndexStaticPathsQuery {
   cms {
@@ -117,6 +118,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       noticeBox: getMetadata(key: "notice.box")
       ...LocalSponsorsFragment
       ...EventRestrictionsFragment
+      ...TeamFragment
     }
   }
   ...IndexHeaderFragment

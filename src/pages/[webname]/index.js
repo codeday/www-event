@@ -27,6 +27,7 @@ import Schedule from '../../components/Schedule';
 import Sponsors from '../../components/Sponsors';
 import Faq from '../../components/Faq';
 import Awards from '../../components/Awards';
+import Team from '../../components/Team';
 import PastProjects from '../../components/PastProjects';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
 import PastPhotos from '../../components/PastPhotos';
@@ -180,6 +181,7 @@ export default function EventHome({
       <Content maxWidth="container.xl" mb={16}>
         <StudentQuotes quotes={quotes} />
       </Content>
+
       <Content maxWidth="container.xl" mb={12}>
         <Heading as="h4" fontSize="4xl">FAQs</Heading>
         <Text mb={8}>
@@ -194,8 +196,9 @@ export default function EventHome({
           <Button as="a" href="https://www.codeday.org/help/codeday" target="_blank">All FAQs</Button>
         </Box>
       </Content>
+
       {region.pastPhotos?.length > 0 && (
-        <Content maxWidth="container.xl" mt={16}>
+        <Content maxWidth="container.xl" mb={16}>
           <Heading as="h4" fontSize="4xl" mb={6}>Previously At CodeDay { region.name }</Heading>
           <PastPhotos photos={region.pastPhotos} featuredPhotos={region.featuredPhotos} random={random} />
           <Box textAlign="center" mt={8}>
@@ -209,6 +212,10 @@ export default function EventHome({
           </Box>
         </Content>
       )}
+
+      <Content maxWidth="container.xl" mb={16}>
+        <Team team={event?.team} />
+      </Content>
 
       {event?.customLegal && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>

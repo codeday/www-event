@@ -14,5 +14,6 @@ module.exports = {
     "no-nested-ternary": "off",
     "react-hooks/exhaustive-deps": "off",
     "react/no-unescaped-entities": "off",
+    "jsx-a11y/control-has-associated-label": "off",
   }
 };
