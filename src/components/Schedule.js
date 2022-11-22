@@ -9,8 +9,7 @@ import ApplyForWorkshop from './ApplyForWorkshop';
 
 export default function Schedule({ event, timezone, ...props }) {
   const bg = useColorModeValue('gray.200', 'gray.850');
-  if (!event.schedule || event.schedule.length === 0) return <></>;
-  const days = event.schedule
+  const days = (event.schedule || [])
     .map((e) => ({
       ...e,
       start: DateTime.fromISO(e.start).setZone(timezone),
@@ -21,6 +20,14 @@ export default function Schedule({ event, timezone, ...props }) {
     }))
     .sort((a, b) => { if (a.start < b.start) return -1; return 1; })
     .reduce((accum, e) => ({ ...accum, [e.day]: [...(accum[e.day] || []), e] }), []);
+
+  if (!event.schedule || event.schedule.length === 0) return (
+    <Box {...props}>
+      <Heading as="h3" fontSize="3xl" fontWeight="bold">Schedule</Heading>
+      <ApplyForWorkshop event={event} mb={4} />
+      <Text mt={8} pb={8} fontSize="2xl" textAlign="center" color="current.textLight">The schedule hasn't been announced yet. Check back later.</Text>
+    </Box>
+  );
 
   return (
     <Box {...props}>
