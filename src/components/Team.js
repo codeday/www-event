@@ -7,7 +7,7 @@ import {
 } from '@codeday/topo/Atom';
 
 export default function Team({ team, ...props }) {
-  const teamWithHeadings = Object.entries(team)
+  const teamWithHeadings = Object.entries(team || {})
     .map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value])
     .filter(([, value]) => !!value && value.length > 0);
 
