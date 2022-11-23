@@ -19,7 +19,7 @@ export default function Workshop({ event, webname }) {
   }
 
   return (
-    <Page slug={`/${webname}`}>
+    <Page slug={`/${webname}`} event={event} title="Submit Workshop">
       <Content>
         <Heading as="h2" fontSize="3xl" textAlign="center">CodeDay {event.name} Workshop Submission</Heading>
         <ApplyForWorkshop alwaysOpen event={event} />

@@ -16,7 +16,7 @@ export default function Team({
     Object.entries(team || {})
       .map(([key, items]) => [
         key,
-        items.map((i) => ({
+        items.filter(Boolean).map((i) => ({
           name: i.account?.name || `${i.firstName} ${i.lastName}`,
           picture: i.account?.picture || i.avatarUrl,
           pronoun: i.account?.pronoun,

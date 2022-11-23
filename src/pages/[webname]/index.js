@@ -213,9 +213,7 @@ export default function EventHome({
         </Content>
       )}
 
-      <Content maxWidth="container.xl" mb={16}>
-        <Team team={event?.team} globalTeam={globalTeam} random={random} />
-      </Content>
+      {event && <Team mb={16} team={event?.team} globalTeam={globalTeam} random={random} />}
 
       {event?.customLegal && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
