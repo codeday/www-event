@@ -123,5 +123,6 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
   }
   ...IndexHeaderFragment
   ...StudentQuotesFragment
+  ...GlobalTeamFragment
 }
 

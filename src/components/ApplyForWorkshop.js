@@ -16,10 +16,10 @@ import { apiFetch, useToasts } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { ApplyForWorkshopMutation } from './ApplyForWorkshop.gql';
 
-export default function ApplyForWorkshop({ event, ...props }) {
+export default function ApplyForWorkshop({ event, alwaysOpen, ...props }) {
   const { success, error } = useToasts();
   const { colorMode } = useColorMode();
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(!!alwaysOpen);
   const [firstName, setFirstName] = useState();
   const [lastName, setLastName] = useState();
   const [email, setEmail] = useState();

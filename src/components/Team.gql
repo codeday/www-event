@@ -9,6 +9,12 @@ fragment PublicPersonFragment on ClearPublicPerson {
   avatarUrl
 }
 
+fragment AccountPersonFragment on AccountUser {
+  name
+  picture
+  pronoun
+}
+
 fragment TeamFragment on ClearEvent {
   team {
     staff {
@@ -21,6 +27,18 @@ fragment TeamFragment on ClearEvent {
 
     judges {
       ...PublicPersonFragment
+    }
+  }
+}
+
+fragment GlobalTeamFragment on Query {
+  globalTeam: account {
+    employees: roleUsers (roleId: "rol_llN0357VXrEoIxoj") {
+      ...AccountPersonFragment
+    }
+
+    otherTeam: roleUsers (roleId: "rol_6t902YZpsOynmWDt") {
+      ...AccountPersonFragment
     }
   }
 }

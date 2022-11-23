@@ -5,32 +5,57 @@ import {
   Heading,
   Image,
 } from '@codeday/topo/Atom';
+import { Content } from '@codeday/topo/Molecule';
+import { indexOfMax } from '../../utils';
+import { shuffle } from './PastProjects';
 
-export default function Team({ team, ...props }) {
-  const teamWithHeadings = Object.entries(team || {})
-    .map(([key, value]) => [key[0].toUpperCase() + key.slice(1), value])
-    .filter(([, value]) => !!value && value.length > 0);
+export default function Team({
+  random, team, globalTeam, ...props
+}) {
+  const { staff, judges, mentors } = Object.fromEntries(
+    Object.entries(team || {})
+      .map(([key, items]) => [
+        key,
+        items.map((i) => ({
+          name: i.account?.name || `${i.firstName} ${i.lastName}`,
+          picture: i.account?.picture || i.avatarUrl,
+          pronoun: i.account?.pronoun,
+        })),
+      ]),
+  );
 
-  if (teamWithHeadings.length === 0) return <></>;
+  const columns = [
+    { w: 1, title: 'Global Staff', items: [...globalTeam.employees, ...globalTeam.otherTeam] },
+    { w: 1, title: 'Event Staff', items: staff },
+    { w: 1, title: 'Judges', items: judges },
+    { w: 1, title: 'Mentors', items: mentors },
+  ]
+    .filter((c) => c.items && c.items.length > 0)
+    .slice(0, 3);
+
+  if (columns.length === 0) return <></>;
+  if (columns.length < 3) {
+    columns[indexOfMax(columns.map((c) => c.items.length))].w = 2;
+  }
 
   return (
-    <Box {...props}>
+    <Content maxWidth={columns.length > 1 ? 'container.xl' : 'container.sm'} {...props}>
+      <Heading as="h3" fontSize="4xl" fontWeight="bold" mb={4}>Our Team</Heading>
       <Grid
-        maxWidth={teamWithHeadings.length > 2 ? 'container.xl' : 'container.sm'}
         margin="auto"
-        templateColumns={{ base: '1fr', md: `repeat(${teamWithHeadings.length}, 1fr)` }}
+        templateColumns={{ base: '1fr', md: `repeat(${columns.length}, 1fr)`, lg: columns.map((c) => `${c.w}fr`).join(' ') }}
         gap={8}
       >
-        {teamWithHeadings.map(([title, entries]) => (
+        {columns.map(({ title, items, w }) => (
           <Box key={title}>
-            <Heading as="h4" fontSize="3xl" fontWeight="bold" mb={4}>{title}</Heading>
-            <Grid templateColumns={{ base: '1fr', md: (teamWithHeadings.length === 1 ? 'repeat(2, 1fr)' : '1fr') }} gap={4}>
-              {entries.map((e) => (
-                <Grid key={e.avatarUrl} templateColumns="max-content 1fr" gap={4}>
-                  <Image src={e.account?.picture || e.avatarUrl} alt="" rounded="sm" h={12} w={12} />
+            <Heading as="h4" fontSize="xl" fontWeight="bold" mb={4}>{title}</Heading>
+            <Grid templateColumns={{ base: '1fr', lg: `repeat(${w}, 1fr)` }} gap={2}>
+              {shuffle(random, items).map((e) => (
+                <Grid key={e.picture} templateColumns="max-content 1fr" gap={2}>
+                  <Image src={e.picture} alt="" rounded="sm" h={10} w={10} />
                   <Box>
-                    <Text>{e.account?.name || `${e.firstName} ${e.lastName}`}</Text>
-                    {e.account?.pronoun && <Text fontSize="sm">{e.account.pronoun}</Text>}
+                    <Text>{e.name}</Text>
+                    {e.pronoun && <Text fontSize="sm" color="current.textLight">{e.pronoun}</Text>}
                   </Box>
                 </Grid>
               ))}
@@ -38,6 +63,6 @@ export default function Team({ team, ...props }) {
           </Box>
         ))}
       </Grid>
-    </Box>
+    </Content>
   );
 }

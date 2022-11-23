@@ -33,7 +33,7 @@ import EventMailingListSubscribe from '../../components/EventMailingListSubscrib
 import PastPhotos from '../../components/PastPhotos';
 
 export default function EventHome({
-  webname, region, images, quotes, event, cmsEvent, globalSponsors, faqs, awards, projects, random,
+  webname, region, images, quotes, event, cmsEvent, globalSponsors, globalTeam, faqs, awards, projects, random,
 }) {
   // Redirect the user to the canonical URL
   const router = useRouter();
@@ -214,7 +214,7 @@ export default function EventHome({
       )}
 
       <Content maxWidth="container.xl" mb={16}>
-        <Team team={event?.team} />
+        <Team team={event?.team} globalTeam={globalTeam} random={random} />
       </Content>
 
       {event?.customLegal && (
@@ -255,6 +255,7 @@ export async function getStaticProps({ params: { webname } }) {
       faqs: result?.cms?.faqs?.items || [],
       awards: result?.cms?.awards?.items || [],
       projects: result?.showcase?.projects || [],
+      globalTeam: result?.globalTeam,
       random: Math.random(),
     },
     revalidate: 60,
