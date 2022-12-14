@@ -1,4 +1,5 @@
 import React from 'react';
+import { appWithTranslation } from 'next-i18next';
 import { ThemeProvider } from '@codeday/topo/Theme';
 import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
@@ -14,4 +15,4 @@ const App = ({ Component, pageProps }) => (
     </Elements>
   </ThemeProvider>
 );
-export default App;
+export default appWithTranslation(App);

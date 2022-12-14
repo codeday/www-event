@@ -1,8 +1,12 @@
+const { i18n } = require('./next-i18next.config');
+
 module.exports = {
+  i18n,
   swcMinify: true,
   publicRuntimeConfig: {
     // eslint-disable-next-line node/no-process-env
     stripeKey: process.env.STRIPE_PUBLISHABLE_KEY,
+    // eslint-disable-next-line node/no-process-env
     razorpayKey: process.env.RAZORPAY_KEY_ID,
   },
   serverRuntimeConfig: {

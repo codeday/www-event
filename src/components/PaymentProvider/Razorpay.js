@@ -6,6 +6,7 @@ import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { useToast } from '@chakra-ui/react';
 import getConfig from 'next/config';
+import { useTranslation } from 'next-i18next';
 import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutation } from '../RegisterForm.gql';
 
 const { publicRuntimeConfig } = getConfig();
@@ -17,6 +18,7 @@ export default function RazorpayPaymentBox({
   const toast = useToast();
   const analytics = useAnalytics();
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation('Payment');
   const expectedPrice = finalPrice * ticketsData.length;
 
   return (
@@ -103,8 +105,8 @@ export default function RazorpayPaymentBox({
         }}
       >
         {isValid
-          ? (expectedPrice === 0 ? 'Complete Free Registration' : `Pay Now (${event.region?.currencySymbol}${expectedPrice})`)
-          : '(fill all required fields)'}
+          ? (expectedPrice === 0 ? t('confirm.free') : t('confirm.pay', { currencySymbol: event.region?.currencySymbol, price: expectedPrice }))
+          : t('common:fill-required')}
       </Button>
     </Box>
   );

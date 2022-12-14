@@ -1,0 +1,57 @@
+{
+  "why-organize": "Why organize CodeDay?",
+  "read-testimonials": "(Click to read more or <click>view all testimonials</click>)",
+  "perks": {
+    "heading": "CODEDAY PERKS THIS SEASON:",
+    "body": "Support your community with $2,000+ in free laptops to give away to low-income students, and free Uber rides for attendees from low-income areas."
+  },
+
+  "community": {
+    "heading": "Teach your community to code <highlight>without feeling like school.</highlight>",
+    "why": [
+      "When you organize a CodeDay, you'll help hundreds of students in your community learn to code.",
+      "Despite being an educational event, all it takes is one look around to see something you rarely see in a classroom: every single student is smiling, engaged, and excited to be learning."
+    ]
+  },
+
+  "creativity": {
+    "heading": "Spotlight <highlight>Creativity</highlight> to reach people who would never usually go to a coding event",
+    "why": {
+      "1": [
+        "There are lots of great classes, clubs, hackathons, and other events for people who know want to code.",
+        "Only CodeDay is focused on people who don't like coding, don't want to learn, and don't go to coding events."
+      ],
+      "2": [
+        "As an organizer, you'll draw on our 10+ years of experience to run an event which attracts students who are only interested in art, music, voice acting, writing, and other creative pursuits.",
+        "And then you'll show them how fun and creative coding really is!"
+      ],
+      "3": "Each time you organize a CodeDay event, you'll help create dozens or even hundreds of totally new programmers - people who would never have learned to code if not for you."
+    }
+  },
+
+  "intersectional": {
+    "heading": "An <highlight>intersectional event</highlight> which brings people together no matter their background.",
+    "why": {
+      "1": [
+        "68% of CodeDay attendees are from a group traditionally underrepresented in tech. This isn't by accident, we've perfected the most effective model for promoting and supporting diverse students!",
+        "As an organizer, you'll get:"
+      ],
+      "2": [
+        "Guide + weekly coaching based on 10+ years of experiments.",
+        "Laptops to give to low-income students. TO KEEP!",
+        "Free Uber rides for low-income students to/from CodeDay."
+      ],
+      "3": [
+        "Many events provide these opportunities by limiting participants to a certain group, but CodeDay takes a different approach;",
+        "we prefer to foster positive relationships between attendees no matter their background, grounded in a shared excitement for the creative things we can build with technology."
+      ]
+    }
+  },
+
+  "form": {
+    "header": "Organize a CodeDay",
+    "submit-button": "Sign up to organize!",
+    "requirements": "Requirements: at least 15 years old, and able to commit 3-5hr/wk. NO EXPERIENCE NEEDED.",
+    "no-experience-required": "No experience needed! You'll have our support every step of the way."
+  }
+}

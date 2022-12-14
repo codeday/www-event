@@ -1,0 +1,14 @@
+{
+  "details": "You can request a scholarship directly from the page of any event which is accepting registrations. Just click \"Can't afford it?\" above the payment box.",
+  "extra-info": "Need a laptop or help with transportation? <click>Contact us!</click>",
+  "confirm-button": "Request {{currencySymbol}}{{price}} ticket scholarship",
+  "reason": {
+    "question":  "Why do you need a scholarship?",
+    "FAMILY_CANT_AFFORD": "My family can't afford it.",
+    "CANT_AFFORD": "I can't personally afford it, and I'm not financially supported by my family.",
+    "FAMILY_UNSURE": "I can't personally afford it, and I haven't asked my family.",
+    "DONT_BELIEVE_PAY": "I don't like the idea of paying for events like this.",
+    "OTHER": "Other",
+    "other-prompt": "Please elaborate below:"
+  }
+}

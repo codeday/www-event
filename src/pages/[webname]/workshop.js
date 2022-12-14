@@ -3,16 +3,19 @@ import { Content } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import ApplyForWorkshop from '../../components/ApplyForWorkshop';
 import Page from '../../components/Page';
 import { WorkshopStaticPathsQuery, WorkshopStaticPropsQuery } from './workshop.gql';
 
 export default function Workshop({ event, webname }) {
+  const { t } = useTranslation();
   if (!event) {
     return (
       <Page slug={`/${webname}`}>
         <Content>
-          <Heading as="h2" fontSize="5xl" textAlign="center">Sorry, we couldn&apos;t find that CodeDay.</Heading>
+          <Heading as="h2" fontSize="5xl" textAlign="center">{t('no-event')}</Heading>
         </Content>
       </Page>
     );
@@ -21,7 +24,7 @@ export default function Workshop({ event, webname }) {
   return (
     <Page slug={`/${webname}`} event={event} title="Submit Workshop">
       <Content>
-        <Heading as="h2" fontSize="3xl" textAlign="center">CodeDay {event.name} Workshop Submission</Heading>
+        <Heading as="h2" fontSize="3xl" textAlign="center">{t('workshop-submission', { region: event.name })}</Heading>
         <ApplyForWorkshop alwaysOpen event={event} />
       </Content>
     </Page>
@@ -39,13 +42,14 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { webname } }) {
+export async function getStaticProps({ params: { webname }, locale }) {
   const result = await apiFetch(print(WorkshopStaticPropsQuery), {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
   });
   return {
     props: {
+      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       event: result?.clear?.findFirstEvent || null,
     },
     revalidate: 60,

@@ -1,0 +1,26 @@
+{
+  "could-not-find-event": "Sorry, we couldn't find that CodeDay.",
+  "free": "Free!",
+  "ticket-price": "Ticket Price:",
+  "register-now": "Register Now",
+  "past-projects-header": "We'll help you make something like...",
+  "register-header": "Register for CodeDay",
+  "register-subheader": "No coding interest or experience needed!",
+  "hosted-at": "Hosted @ {{venue}}",
+  "early-bird": "(Early Bird Discount!)",
+  "scholarship-button": "Can't afford?",
+  "registrations-closed": "CodeDay {{region}} is not currently accepting registrations",
+  "registrations-closed-cta": "Enter your email to be notified when registrations go live!",
+  "no-event-header": "😢 We don't have an upcoming CodeDay planned in {{region}}. (But you can change that!)",
+  "no-event-subheader": "CodeDays are organized by local volunteers. If you want to help bring CodeDay back to {{region}}, click below:",
+  "organize-button": "Learn More About Organizing & Sign Up",
+  "organize-experience": "No experience required. You can be as young as 15.",
+  "no-event-subscribe": "Not ready to volunteer? Enter your email to be notified if we re-launch CodeDay {{region}}:",
+  "photos-header": "Previously at CodeDay {{region}}",
+  "photos-button": "More Past Photos & Projects",
+  "faq": {
+    "title": "FAQs",
+    "button": "All FAQs",
+    "body": "<0>Have more questions? You can <2>read more FAQs here</2> or email us at <5>team@codeday.org</5>.</0>"
+  }
+}
