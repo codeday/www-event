@@ -24,6 +24,7 @@ function transform(node) {
 
 const DEFAULT_RESTRICTIONS = [];
 
+// FIXME: Support internationalization
 export default function EventRestrictions({ event, ...props }) {
   const { colorMode } = useColorMode();
   const restrictions = event.eventRestrictions || DEFAULT_RESTRICTIONS;

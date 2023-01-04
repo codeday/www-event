@@ -1,10 +1,11 @@
 import React from 'react';
 import { Box, Text } from '@codeday/topo/Atom';
 import { Slides } from '@codeday/topo/Molecule';
+import { useTranslation } from 'next-i18next';
 
 export default function ThemeNotifier({ event, ...props }) {
+  const { t } = useTranslation();
   const { theme, themeBackgrounds } = event || {};
-
   if (!themeBackgrounds || themeBackgrounds?.items?.length === 0) return <></>;
 
   return (
@@ -42,24 +43,16 @@ export default function ThemeNotifier({ event, ...props }) {
       >
         {theme ? (
           <>
-            <Text textAlign="center" mt={{ base: 4, md: 0 }} fontSize="2xl" bold>
-              The theme is...
-            </Text>
-            <Text textAlign="center" fontSize={{ base: '5xl', md: '6xl' }} lineHeight={1} fontFamily="accent" bold>
-              &ldquo;{theme}&rdquo;
-            </Text>
-            <Text textAlign="center" fontSize="lg" mt={8} bold>
-              (But it&apos;s optional!)
-            </Text>
+            <Text textAlign="center" mt={{ base: 4, md: 0 }} fontSize="2xl" bold>{t('theme.heading')}</Text>
+            <Text textAlign="center" fontSize={{ base: '5xl', md: '6xl' }} lineHeight={1} fontFamily="accent" bold>{t('theme.body', { theme })}</Text>
+            <Text textAlign="center" fontSize="lg" mt={8} bold>{t('theme.optional')}</Text>
           </>
         ) : (
           <>
             <Text textAlign="center" fontSize={{ base: '5xl', md: '6xl' }} mt={{ base: 0, md: 8 }} lineHeight={1} fontFamily="accent" bold>
-              Theme will be revealed soon.
+              {t('theme.no-theme')}
             </Text>
-            <Text textAlign="center" fontSize="2xl" mt={8} bold>
-              Send your guesses to @codeday_org on Instagram for a chance to win a prize.
-            </Text>
+            <Text textAlign="center" fontSize="2xl" mt={8} bold>{t('theme.guess-cta')}</Text>
           </>
         )}
       </Box>

@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import { Trans, useTranslation } from 'next-i18next';
 import React, { useState, useReducer, useEffect } from 'react';
 import {
   Grid, Box, Button, List, ListItem, Heading, Link, Text,
@@ -42,6 +43,7 @@ export default function RegisterForm({ event, ...props }) {
   const [isComplete, setIsComplete] = useState(false);
   const [maxTickets, setMaxTickets] = useState();
   const [remainingTickets, setRemainingTickets] = useState(event.remainingTickets);
+  const { t } = useTranslation('Register');
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
@@ -69,19 +71,16 @@ export default function RegisterForm({ event, ...props }) {
         <Box p={8} textAlign="center">
           {isPending ? (
             <>
-              <Text fontSize="3xl" bold>We&apos;re reviewing your registration.</Text>
-              <Text>
-                We&apos;ll contact you with your final ticket. In the meantime, please complete the following information:
-              </Text>
+              <Text fontSize="3xl" bold>{t('pending.heading')}</Text>
+              <Text>{t('pending.body')}</Text>
             </>
           ) : (
             <>
-              <Text fontSize="3xl" bold>You&apos;re going to CodeDay! Now customize your experience.</Text>
-              <Text>
-                No need to print a ticket, we&apos;ll check you in by name. Please complete the following information:
-              </Text>
+              <Text fontSize="3xl" bold>{t('confirmed.heading')}</Text>
+              <Text>{t('confirmed.body')}</Text>
             </>
           )}
+          {/* FIXME: Support localization */}
           <CognitoForm
             formId="104"
             onSubmit={() => { analytics.goal('8YRYGGMT', 0); }}
@@ -129,10 +128,8 @@ export default function RegisterForm({ event, ...props }) {
     return (
       <Box {...props}>
         <Box p={8} textAlign="center">
-          <Text fontSize="3xl" bold>Sorry, we&apos;re sold out!</Text>
-          <Text>
-            We are at absolute maximum capacity, and cannot make exceptions. No tickets will be available at the door.
-          </Text>
+          <Text fontSize="3xl" bold>{t('sold-out.heading')}</Text>
+          <Text>{t('sold-out.body')}</Text>
         </Box>
       </Box>
     );
@@ -141,14 +138,10 @@ export default function RegisterForm({ event, ...props }) {
   return (
     <Box {...props}>
       {event.requiresPromoCode && (
-        <Text fontWeight="bold" fontSize="lg" color="red.600">
-          This CodeDay isn&apos;t open to the public. If you&apos;ve been invited, enter your Access Code to register.
-        </Text>
+        <Text fontWeight="bold" fontSize="lg" color="red.600">{t('requires-promo-code')}</Text>
       )}
       {remainingTickets <= 20 && (
-        <Text fontWeight="bold" fontSize="lg" color="red.600">
-          Only {remainingTickets} ticket{remainingTickets !== 1 ? 's' : ''} left!
-        </Text>
+        <Text fontWeight="bold" fontSize="lg" color="red.600">{t('remaining-tickets', { count: remainingTickets })}</Text>
       )}
       <Grid mt={4} templateColumns={{ base: '1fr', lg: '2fr 1fr' }} gap={4}>
         {/* Registration */}
@@ -156,9 +149,11 @@ export default function RegisterForm({ event, ...props }) {
           {tickets.length > calcMaxTickets && (
             <Box bg="red.50" borderColor="red.500" color="red.800" borderWidth={1} p={4} mb={4} m={{ base: 4, md: 0 }}>
               <Text mb={0}>
-                Sorry, only {calcMaxTickets} ticket{calcMaxTickets !== 1 ? 's are' : ' is'} available{
-                  maxTickets !== null && typeof maxTickets !== 'undefined' ? ' at this price' : ''
-                }. Please remove {tickets.length - calcMaxTickets} to continue.
+                {t('too-many-tickets', {
+                  count: calcMaxTickets,
+                  numTicketsToRemove: tickets.length - calcMaxTickets,
+                  context: maxTickets !== null && typeof maxTickets !== 'undefined' ? 'more-than-available' : undefined,
+                })}
               </Text>
             </Box>
           )}
@@ -183,10 +178,10 @@ export default function RegisterForm({ event, ...props }) {
           ))}
           <Box mb={4} textAlign="center">
             {tickets.length > 1 && (
-              <Button mr={2} onClick={() => updateTickets({ action: 'remove' })}>Remove Ticket</Button>
+              <Button mr={2} onClick={() => updateTickets({ action: 'remove' })}>{t('remove-ticket')}</Button>
             )}
-            {tickets.length < calcMaxTickets && (
-              <Button onClick={() => updateTickets({ action: 'add' })}>Add Ticket</Button>
+            {tickets.length < calcMaxTickets + 5 && (
+              <Button onClick={() => updateTickets({ action: 'add' })}>{t('add-ticket')}</Button>
             )}
           </Box>
           {hasMinors && (
@@ -203,15 +198,23 @@ export default function RegisterForm({ event, ...props }) {
 
         {/* Payment */}
         <Box p={{ base: 4, md: 0 }}>
-          <Heading as="h4" fontSize="lg" mb={2}>Payment</Heading>
+          <Heading as="h4" fontSize="lg" mb={2}>{t('payment.header')}</Heading>
           <Box mb={4}>
             <Text mb={1}>
-              {tickets.length}x <Ticket />
-              &nbsp;CodeDay Ticket {event.canEarlyBirdRegister ? <>(Early Bird)</> : null}
-              {' - '}{event.region.currencySymbol || '$'}{finalPrice * tickets.length}
+              <Trans
+                ns="Register"
+                i18nKey="payment.ticket-summary"
+                components={{ ticketIcon: <Ticket /> }}
+                count={tickets.length}
+                values={{
+                  currencySymbol: event.region.currencySymbol || '$',
+                  price: finalPrice * tickets.length,
+                }}
+                context={event.canEarlyBirdRegister ? 'early-bird' : undefined}
+              />
             </Text>
             {isRequestScholarship ? (
-              <Link fontSize="sm" color="current.textLight" onClick={() => setRequestScholarship(false)}>&laquo; Cancel scholarship request</Link>
+              <Link fontSize="sm" color="current.textLight" onClick={() => setRequestScholarship(false)}>{t('payment.cancel-scholarship')}</Link>
             ) : (
               <>
                 <PromoBox
@@ -224,7 +227,7 @@ export default function RegisterForm({ event, ...props }) {
                     color="current.textLight"
                     onClick={() => setRequestScholarship(true)}
                   >
-                    Can't afford it? Request a scholarship &raquo;
+                    {t('payment.request-scholarship')}
                   </Link>
                 )}
               </>
@@ -251,17 +254,20 @@ export default function RegisterForm({ event, ...props }) {
             mb={4}
           />
           <Box color="current.textLight">
-            <Heading as="h4" fontSize="sm" fontWeight="bold" mb={1}>Terms</Heading>
+            <Heading as="h4" fontSize="sm" fontWeight="bold" mb={1}>{t('terms.header')}</Heading>
             <List styleType="disc" fontSize="sm" listStylePosition="outside" pl={4}>
-              <ListItem>Prices are in {event.region.currency || 'USD'}.</ListItem>
-              <ListItem>
-                You must follow the{' '}
-                <Link href="https://www.codeday.org/conduct" target="_blank">Code of Conduct</Link>{' '}
-                &amp; <Link href="/rules" target="_blank">event rules</Link>.
-              </ListItem>
-              <ListItem>You will need to sign a waiver &amp; a media release.</ListItem>
-              <ListItem>We may photograph or record you.</ListItem>
-              <ListItem>Refunds are available until 48 hours before kickoff.</ListItem>
+              <Trans
+                ns="Register"
+                i18nKey="terms.body"
+                components={{
+                  listItem: <ListItem />,
+                  conductLink: <Link href="https://www.codeday.org/conduct" target="_blank" />,
+                  rulesLink: <Link href="/rules" target="_blank" />,
+                }}
+                values={{
+                  currency: event.region.currency || 'USD',
+                }}
+              />
             </List>
           </Box>
         </Box>

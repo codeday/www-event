@@ -20,7 +20,7 @@ export default function StripePaymentBox({
   const analytics = useAnalytics();
   const [isStripeReady, setIsStripeReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const { t } = useTranslation('Payment');
+  const { t } = useTranslation();
   const ready = (finalPrice === 0 || isStripeReady) && isValid;
   const expectedPrice = finalPrice * ticketsData.length;
 
@@ -68,7 +68,7 @@ export default function StripePaymentBox({
               const intent = await stripe.retrievePaymentIntent(intentSecret);
               if (Math.abs(intent.paymentIntent.amount - expectedPrice * 100) >= 1) {
                 throw new Error(
-                  t('error.total-changed', {
+                  t('payment.error.total-changed', {
                     currencySymbol: event.region.currencySymbol || '$',
                     price: intent.paymentIntent.amount / 100,
                   }),
@@ -110,8 +110,10 @@ export default function StripePaymentBox({
         }}
       >
         {ready
-          ? (expectedPrice === 0 ? t('confirm.free') : t('confirm.pay', { currencySymbol: event.region.currencySymbol || '$', price: expectedPrice.toFixed(2) }))
-          : t('common:fill-required')}
+          ? (expectedPrice === 0 ? t('payment.confirm.free') : t('payment.confirm.pay', {
+            currencySymbol: event.region.currencySymbol || '$', price: expectedPrice.toFixed(2),
+          }))
+          : t('fill-required')}
       </Button>
     </Box>
   );

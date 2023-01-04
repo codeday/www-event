@@ -1,5 +1,4 @@
 {
-  "could-not-find-event": "Sorry, we couldn't find that CodeDay.",
   "free": "Free!",
   "ticket-price": "Ticket Price:",
   "register-now": "Register Now",
@@ -22,5 +21,10 @@
     "title": "FAQs",
     "button": "All FAQs",
     "body": "<0>Have more questions? You can <2>read more FAQs here</2> or email us at <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "The most beginner-friendly event for building amazing games and apps!",
+    "long": "CodeDay is a worldwide event where student artists, programmers, musicians, actors, and writers get together to build apps and games.",
+    "no-experience-required": "NO CODING EXPERIENCE NECESSARY!"
   }
 }

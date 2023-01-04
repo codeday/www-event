@@ -15,16 +15,16 @@ export default function Workshop({ event, webname }) {
     return (
       <Page slug={`/${webname}`}>
         <Content>
-          <Heading as="h2" fontSize="5xl" textAlign="center">{t('no-event')}</Heading>
+          <Heading as="h2" fontSize="5xl" textAlign="center">{t('error.message.no-event')}</Heading>
         </Content>
       </Page>
     );
   }
 
   return (
-    <Page slug={`/${webname}`} event={event} title="Submit Workshop">
+    <Page slug={`/${webname}`} event={event} title={t('workshop-apply.title', { region: event.name })}>
       <Content>
-        <Heading as="h2" fontSize="3xl" textAlign="center">{t('workshop-submission', { region: event.name })}</Heading>
+        <Heading as="h2" fontSize="3xl" textAlign="center">{t('workshop-apply.title', { region: event.name })}</Heading>
         <ApplyForWorkshop alwaysOpen event={event} />
       </Content>
     </Page>

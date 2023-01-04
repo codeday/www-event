@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Box, Heading } from '@codeday/topo/Atom';
 import ContentfulRichText from './ContentfulRichText';
 
+// FIXME: support internationalization
 export default function Faq({ faq }) {
   const [isOpen, setIsOpen] = useState(false);
 

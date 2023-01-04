@@ -3,12 +3,14 @@ import {
   Grid, Box, Heading, Text,
 } from '@codeday/topo/Atom';
 import { Content } from '@codeday/topo/Molecule';
+import { useTranslation } from 'next-i18next';
 import { useSlideshow } from '../providers/slideshow';
 
 export default function IndexHeader({
   notice, heading, subHeading, images, children, ...props
 }) {
   const i = useSlideshow(images.length, 5000);
+  const { t } = useTranslation('EventHome');
   return (
     <Box position="relative" {...props}>
       <Box
@@ -51,14 +53,10 @@ export default function IndexHeader({
             </Heading>
             <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} mt={12} alignItems="center" gap={16}>
               <Box>
-                <Text fontSize="2xl" fontWeight="bold" mb={4} textShadow="0 0 5px rgba(0,0,0,0.7)">
-                  The most beginner-friendly event for building amazing games and apps!
-                </Text>
-
-                <Text fontSize="lg" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)" mb={0}>
-                  CodeDay is a worldwide event where student artists, programmers, musicians, actors, and writers get
-                  together to build apps and games.<br /><br />NO CODING EXPERIENCE NECESSARY!
-                </Text>
+                <Text fontSize="2xl" fontWeight="bold" mb={4} textShadow="0 0 5px rgba(0,0,0,0.7)">{t('hero.short')}</Text>
+                <Text fontSize="lg" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)" mb={0}>{t('hero.long')}</Text>
+                <br />
+                <Text fontSize="xl" fontWeight="bold" textDecoration="underline" textShadow="0 0 5px rgba(0,0,0,0.7)" mb={0}>{t('hero.no-experience-required')}</Text>
               </Box>
               <Box fontSize="xl" fontWeight="bold" textShadow="0 0 5px rgba(0,0,0,0.7)">
                 {children}

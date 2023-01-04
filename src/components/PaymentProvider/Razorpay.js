@@ -18,7 +18,7 @@ export default function RazorpayPaymentBox({
   const toast = useToast();
   const analytics = useAnalytics();
   const [isLoading, setIsLoading] = useState(false);
-  const { t } = useTranslation('Payment');
+  const { t } = useTranslation();
   const expectedPrice = finalPrice * ticketsData.length;
 
   return (
@@ -105,8 +105,8 @@ export default function RazorpayPaymentBox({
         }}
       >
         {isValid
-          ? (expectedPrice === 0 ? t('confirm.free') : t('confirm.pay', { currencySymbol: event.region?.currencySymbol, price: expectedPrice }))
-          : t('common:fill-required')}
+          ? (expectedPrice === 0 ? t('payment.confirm.free') : t('payment.confirm.pay', { currencySymbol: event.region?.currencySymbol, price: expectedPrice }))
+          : t('fill-required')}
       </Button>
     </Box>
   );

@@ -2,10 +2,12 @@ import { useColorMode } from '@codeday/topo/Theme';
 import {
   Box, Grid, List, ListItem, Heading, Text,
 } from '@codeday/topo/Atom';
+import { useTranslation } from 'next-i18next';
 import AwardDetails from './AwardDetails';
 
 export default function Awards({ awards, ...props }) {
   const { colorMode } = useColorMode();
+  const { t } = useTranslation();
   const bg = colorMode === 'light' ? 'gray.100' : 'gray.900';
   return (
     <Box
@@ -14,28 +16,21 @@ export default function Awards({ awards, ...props }) {
       p={6}
       {...props}
     >
-      <Heading as="h4" fontSize="2xl" mb={4}>
-        Win an award, even if you&apos;re new!
-      </Heading>
+      <Heading as="h4" fontSize="2xl" mb={4}>{t('awards.heading')}</Heading>
       <Grid
         templateColumns={{ base: '1fr', md: '4fr 5fr' }}
         gap={8}
       >
         <Box>
-          <Heading as="h5" fontSize="xl" mb={4} fontWeight={400}>Our judging criteria:</Heading>
+          <Heading as="h5" fontSize="xl" mb={4} fontWeight={400}>{t('awards.criteria.heading')}</Heading>
           <List styleType="disc" pl={4}>
             <ListItem mb={4}>
-              <Text fontWeight="bold" fontSize="lg">Difficulty (for you)</Text>
-              <Text>
-                CodeDay isn&apos;t about showing off. Push yourself to try something new!
-              </Text>
+              <Text fontWeight="bold" fontSize="lg">{t('awards.criteria.difficulty.heading')}</Text>
+              <Text>{t('awards.criteria.difficulty.body')}</Text>
             </ListItem>
             <ListItem>
-              <Text fontWeight="bold" fontSize="lg">Creativity</Text>
-              <Text>
-                Work with other attendees to build a fun project with original art, design, music,
-                voice acting, or story.
-              </Text>
+              <Text fontWeight="bold" fontSize="lg">{t('awards.criteria.creativity.heading')}</Text>
+              <Text>{t('awards.criteria.creativity.body')}</Text>
             </ListItem>
           </List>
         </Box>

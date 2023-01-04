@@ -53,7 +53,7 @@ export default function EventHome({
     return (
       <Page slug={`/${webname}`}>
         <Content>
-          <Heading as="h2" fontSize="5xl" textAlign="center">{t('common:no-event')}</Heading>
+          <Heading as="h2" fontSize="5xl" textAlign="center">{t('common:error.message.no-event')}</Heading>
         </Content>
       </Page>
     );
@@ -248,7 +248,7 @@ export async function getStaticProps({ params: { webname, locale } }) {
   });
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['EventHome', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en', ['EventHome', 'Register', 'common'])),
       webname,
       region: result?.cms?.regions?.items[0] || null,
       images: result?.cms?.pressPhotos?.items || [],

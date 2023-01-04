@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import {
   Flex, Box, Button, TextInput, Text,
 } from '@codeday/topo/Atom';
-import { apiFetch } from '@codeday/topo/utils';
+import { apiFetch, useToasts } from '@codeday/topo/utils';
 import { UiCheck } from '@codeday/topocons/Icon';
 import { print } from 'graphql';
-import { useToast } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import { CheckPromoCode } from './PromoBox.gql';
 
 export default function PromoBox({ event, onChange, ...rest }) {
   const [promoCode, setPromoCode] = useState();
   const [isLoading, setIsLoading] = useState(false);
   const [show, setShow] = useState(event.requiresPromoCode);
-  const toast = useToast();
+  const { error, success } = useToasts();
+  const { t } = useTranslation('Register');
 
-  const promoAppliedString = event.requiresPromoCode ? `Access Code: ${promoCode}` : `Promo: ${promoCode}`;
-  const promoAskString = event.requiresPromoCode ? `Access code required.` : `Have a promo code?`;
+  const promoAppliedString = event.requiresPromoCode ? t('promo-applied.access-code', { promoCode }) : t('promo-applied.promo-code', { promoCode });
+  const promoAskString = event.requiresPromoCode ? t('promo-ask.access-code') : t('promo-ask.promo-code');
 
   if (!show) {
     return (
@@ -34,14 +35,14 @@ export default function PromoBox({ event, onChange, ...rest }) {
 
   return (
     <Box {...rest}>
-      {event.requiresPromoCode && (<Text mt={4} mb={2} ml={1} fontSize="sm" fontWeight="bold">Access Code</Text>)}
+      {event.requiresPromoCode && (<Text mt={4} mb={2} ml={1} fontSize="sm" fontWeight="bold">{t('access-code')}</Text>)}
       <Flex>
         <TextInput
           d="inline"
           w="100%"
           minWidth={20}
           ml={2}
-          placeholder={event.requiresPromoCode ? 'Access Code' : 'Promo Code'}
+          placeholder={event.requiresPromoCode ? t('access-code') : t('promo-code')}
           value={promoCode}
           onChange={
             (e) => setPromoCode(e.target.value)
@@ -64,23 +65,13 @@ export default function PromoBox({ event, onChange, ...rest }) {
             try {
               const result = await apiFetch(print(CheckPromoCode), { id: event.id, code: promoCode });
               const promoDetails = result?.clear?.findFirstEvent?.checkPromoCode;
-              if (!promoDetails?.valid) throw new Error('Promo code not found.');
-              if (promoDetails.remainingUses !== null && promoDetails.remainingUses <= 0) {
-                throw new Error('Promo code has been fully used.');
-              }
-              toast({
-                status: 'success',
-                title: `${promoDetails.displayDiscountName} Applied`,
-                description: `${promoDetails.displayDiscountAmount} off!`,
-              });
+              if (!promoDetails?.valid) throw new Error(t('common:error.message.no-promo'));
+              if (promoDetails.remainingUses !== null && promoDetails.remainingUses <= 0) throw new Error(t('common:error.message.promo-fully-used'));
+              success(t('common:success.message.promo-applied', { promoName: promoDetails.displayDiscountName, discountAmount: promoDetails.displayDiscountAmount }));
               setShow(false);
               onChange(promoCode, promoDetails.effectivePrice, promoDetails.remainingUses, promoDetails.metadata);
             } catch (ex) {
-              toast({
-                status: 'error',
-                title: 'Error',
-                description: ex.toString(),
-              });
+              error(ex.toString());
               setPromoCode('');
             }
             setIsLoading(false);

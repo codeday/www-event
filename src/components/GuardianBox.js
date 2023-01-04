@@ -5,14 +5,15 @@ import React, {
 import {
   Grid, Box, TextInput, Text,
 } from '@codeday/topo/Atom';
+import { useTranslation } from 'next-i18next';
 import PhoneInput from './PhoneInput';
 
 export default function GuardianBox({ event, onChange, ...rest }) {
   const [guardianData, setGuardianData] = useReducer(
     (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
   );
-
   const initialRender = useRef(true);
+  const { t } = useTranslation('Register');
   useEffect(() => {
     const isValid = Boolean(
       guardianData?.firstName
@@ -28,15 +29,15 @@ export default function GuardianBox({ event, onChange, ...rest }) {
   return (
     <Box borderWidth={1} {...rest}>
       <Box bg="gray.300" p={2} color="black" fontWeight="bold" fontSize="lg">
-        Parent/Guardian Info
-        <Text fontSize="sm" mb={0}>Required when any participant is a minor.</Text>
+        {t('guardian.heading')}
+        <Text fontSize="sm" mb={0}>{t('guardian.subheading')}</Text>
       </Box>
       <Box p={2}>
-        <Text fontSize="sm" fontWeight="bold" mb={0}>Name</Text>
+        <Text fontSize="sm" fontWeight="bold" mb={0}>{t('common:name')}</Text>
         <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={4} mb={4}>
           <TextInput
             w="100%"
-            placeholder="First (Given) Name"
+            placeholder={t('common:first-name')}
             value={guardianData.firstName || ''}
             onChange={
               (e) => setGuardianData(['firstName', e.target.value])
@@ -44,7 +45,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
           />
           <TextInput
             w="100%"
-            placeholder="Last (Family) Name"
+            placeholder={t('common:last-name')}
             value={guardianData.lastName || ''}
             onChange={
               (e) => setGuardianData(['lastName', e.target.value])
@@ -58,10 +59,10 @@ export default function GuardianBox({ event, onChange, ...rest }) {
           gap={4}
         >
           <Box>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>Email</Text>
+            <Text fontSize="sm" fontWeight="bold" mb={0}>{t('common:email')}</Text>
             <TextInput
               w="100%"
-              placeholder="Email Address"
+              placeholder={t('common:email-long')}
               value={guardianData.email || ''}
               onChange={
                 (e) => setGuardianData(['email', e.target.value])
@@ -75,14 +76,14 @@ export default function GuardianBox({ event, onChange, ...rest }) {
             textAlign="center"
             mt={8}
           >
-            &mdash;&nbsp;&amp;&nbsp;&mdash;
+            {t('common:divider-and')}
           </Box>
 
           <Box>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>Mobile Phone Number</Text>
+            <Text fontSize="sm" fontWeight="bold" mb={0}>{t('common:phone-long')}</Text>
             <PhoneInput
               w="100%"
-              placeholder="Phone Number"
+              placeholder={t('common:phone')}
               region={event.region || {}}
               onChange={(phoneNumber, _, isWhatsApp) => {
                 setGuardianData([isWhatsApp ? 'whatsApp' : 'phone', phoneNumber]);

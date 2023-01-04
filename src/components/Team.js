@@ -42,7 +42,7 @@ export default function Team({
 
   return (
     <Content maxWidth={columns.length > 1 ? 'container.xl' : 'container.sm'} {...props}>
-      <Heading as="h3" fontSize="4xl" fontWeight="bold" mb={4}>{t('team-heading')}</Heading>
+      <Heading as="h3" fontSize="4xl" fontWeight="bold" mb={4}>{t('team.heading')}</Heading>
       <Grid
         margin="auto"
         templateColumns={{ base: '1fr', md: `repeat(${columns.length}, 1fr)`, lg: columns.map((c) => `${c.w}fr`).join(' ') }}
