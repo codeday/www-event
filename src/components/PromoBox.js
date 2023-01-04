@@ -67,7 +67,12 @@ export default function PromoBox({ event, onChange, ...rest }) {
               const promoDetails = result?.clear?.findFirstEvent?.checkPromoCode;
               if (!promoDetails?.valid) throw new Error(t('common:error.message.no-promo'));
               if (promoDetails.remainingUses !== null && promoDetails.remainingUses <= 0) throw new Error(t('common:error.message.promo-fully-used'));
-              success(t('common:success.message.promo-applied', { promoName: promoDetails.displayDiscountName, discountAmount: promoDetails.displayDiscountAmount }));
+              success(t('common:success.message.promo-applied', {
+                context: promoDetails.type,
+                promoName: promoDetails.displayDiscountName,
+                discountAmount: promoDetails.discountAmount,
+                currency: event.region.currency || 'USD',
+              }));
               setShow(false);
               onChange(promoCode, promoDetails.effectivePrice, promoDetails.remainingUses, promoDetails.metadata);
             } catch (ex) {

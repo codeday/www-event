@@ -16,7 +16,8 @@
   "success": {
     "message": {
       "default": "Confirmed!",
-      "promo-applied": "{{promoName}} Applied - {{discountAmount}} off!"
+      "promo-applied_PERCENT": "{{promoName}} Applied - {{discountAmount}}% off!",
+      "promo-applied_SUBTRACT": "{{promoName}} Applied - {{discountAmount, currency}} off!"
     }
   },
   "error": {
