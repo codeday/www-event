@@ -55,7 +55,7 @@ export default function ApplyForWorkshop({ event, alwaysOpen, ...props }) {
         <TextInput value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t('workshop-apply.form.email')} />
       </Box>
       <Box mb={4}>
-        <FormLabel mb={0}>{t('workshop-apply.form.role')}</FormLabel>
+        <FormLabel mb={0}>{t('workshop-apply.form.role.label')}</FormLabel>
         <Select onChange={(e) => setBio(e.target.value)}>
           <option />
           <option>{t('workshop-apply.form.role.attendee')}</option>
