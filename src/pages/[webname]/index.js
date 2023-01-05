@@ -81,7 +81,7 @@ export default function EventHome({
           {event.canRegister ? (
             <>
               <Text mt={8}>
-                {event.activeTicketPrice === 0 ? t('free') : `${t('ticket-price')} ${event?.region?.currencySymbol || '$'}${event.activeTicketPrice.toFixed(2)}`}&nbsp;
+                {event.activeTicketPrice === 0 ? t('free') : t('ticket-price', { price: event.activeTicketPrice, currency: event.region?.currency || 'USD' })}
                 {event.canEarlyBirdRegister && event.activeTicketPrice > 0
                   ? (
                     <Text mb={4} display="inline-block" color="red.600" fontSize="xs" position="relative" top="-0.2em">

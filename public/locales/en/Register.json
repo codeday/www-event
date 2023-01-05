@@ -28,8 +28,8 @@
   },
   "payment": {
     "header": "Payment",
-    "ticket-summary": "{{count}} x <ticketIcon /> CodeDay Ticket - {{currencySymbol}}{{price}}",
-    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDay Ticket (Early Bird) - {{currencySymbol}}{{price}}",
+    "ticket-summary": "{{count}} x <ticketIcon /> CodeDay Ticket - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDay Ticket (Early Bird) - {{price, currency}}",
     "request-scholarship": "Can't afford it? Request a scholarship »",
     "cancel-scholarship": "« Cancel scholarship request"
   },

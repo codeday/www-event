@@ -207,7 +207,7 @@ export default function RegisterForm({ event, ...props }) {
                 components={{ ticketIcon: <Ticket /> }}
                 count={tickets.length}
                 values={{
-                  currencySymbol: event.region.currencySymbol || '$',
+                  currency: event.region.currency || 'USD',
                   price: finalPrice * tickets.length,
                 }}
                 context={event.canEarlyBirdRegister ? 'early-bird' : undefined}

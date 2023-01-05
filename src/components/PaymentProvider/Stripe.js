@@ -69,7 +69,7 @@ export default function StripePaymentBox({
               if (Math.abs(intent.paymentIntent.amount - expectedPrice * 100) >= 1) {
                 throw new Error(
                   t('payment.error.total-changed', {
-                    currencySymbol: event.region.currencySymbol || '$',
+                    currency: event.region.currency || 'USD',
                     price: intent.paymentIntent.amount / 100,
                   }),
                 );
@@ -111,7 +111,7 @@ export default function StripePaymentBox({
       >
         {ready
           ? (expectedPrice === 0 ? t('payment.confirm.free') : t('payment.confirm.pay', {
-            currencySymbol: event.region.currencySymbol || '$', price: expectedPrice.toFixed(2),
+            currency: event.region.currency || 'USD', price: expectedPrice,
           }))
           : t('fill-required')}
       </Button>

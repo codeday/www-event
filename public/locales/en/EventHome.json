@@ -1,6 +1,6 @@
 {
   "free": "Free!",
-  "ticket-price": "Ticket Price:",
+  "ticket-price": "Ticket Price: {{price, currency}}",
   "register-now": "Register Now",
   "past-projects-header": "We'll help you make something like...",
   "register-header": "Register for CodeDay",

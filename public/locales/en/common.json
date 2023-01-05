@@ -37,10 +37,10 @@
   "payment": {
     "confirm": {
       "free": "Complete Free Registration",
-      "pay": "Pay Now ({{currencySymbol}}{{price}})"
+      "pay": "Pay Now ({{price, currency}})"
     },
     "error": {
-      "total-changed": "The total changed since the page was loaded (this usually means a discount expired), and you were NOT charged. The new total is {{currencySymbol}}{{price}}. Please refresh the page."
+      "total-changed": "The total changed since the page was loaded (this usually means a discount expired), and you were NOT charged. The new total is {{price, currency}}. Please refresh the page."
     }
   },
   "workshop-apply": {

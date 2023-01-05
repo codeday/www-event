@@ -73,7 +73,7 @@ export default function ScholarshipBox({
         }}
       >
         {ready
-          ? t('confirm-button', { currencySymbol: event.region.currencySymbol || '$', price: expectedPrice.toFixed(2) })
+          ? t('confirm-button', { currency: event.region.currency || 'USD', price: expectedPrice })
           : t('common:fill-required')}
       </Button>
     </Box>

@@ -105,7 +105,7 @@ export default function RazorpayPaymentBox({
         }}
       >
         {isValid
-          ? (expectedPrice === 0 ? t('payment.confirm.free') : t('payment.confirm.pay', { currencySymbol: event.region?.currencySymbol, price: expectedPrice }))
+          ? (expectedPrice === 0 ? t('payment.confirm.free') : t('payment.confirm.pay', { currency: event.region?.currency || 'INR', price: expectedPrice }))
           : t('fill-required')}
       </Button>
     </Box>
