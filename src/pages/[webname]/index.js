@@ -226,7 +226,7 @@ export default function EventHome({
 
 export async function getStaticPaths() {
   const allWebnamesQuery = await apiFetch(print(IndexStaticPathsQuery), { endDate: DateTime.now().minus({ days: 1 }) });
-  const allWebnames = allWebnamesQuery?.clear?.events.map((e) => e.contentfulWebname);
+  const allWebnames = allWebnamesQuery?.clear?.events.map((e) => e.contentfulWebname).filter(Boolean);
 
   return {
     paths: allWebnames.map((webname) => ({ params: { webname } })),

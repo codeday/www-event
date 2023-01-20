@@ -10,9 +10,11 @@ import { UpcomingPageQuery } from './upcoming.gql';
 const mapClearEvent = (e) => { e.webname = e.contentfulWebname; return e; };
 
 function EventListItem({ event }) {
-  const dateStr = event.startDate && DateTime.fromISO(event.startDate).toLocaleString(DateTime.DATE_MED_WITH_WEEKDAY);
   return (
-    <Link as="a" href={`/${event.webname}`} target="_blank">{event.name}{dateStr ? ` (${dateStr})` : ''}</Link>
+    <Link href={`/${event.webname}`} target="_blank" textDecor="none">
+      <Text textDecor="underline">{event.name}</Text>
+      {event.displayDate && <Text fontSize="sm" color="current.textLight">{event.displayDate}</Text>}
+    </Link>
   );
 }
 
@@ -30,7 +32,8 @@ export default function UpcomingPage({ query }) {
       <Content maxWidth="container.lg" mt={-8}>
         {open.length > 0 && (
           <>
-            <Heading as="h2" mt={8}>Events Accepting Registrations</Heading>
+            <Heading as="h2" mt={12}>Accepting Registrations</Heading>
+            <Text mb={4}>We typically open registrations 3-4 weeks prior to an event.</Text>
             <Grid templateColumns={gridSize} gap={4}>
               {open.map((e) => <EventListItem event={e} key={e.webname} />)}
             </Grid>
@@ -39,16 +42,15 @@ export default function UpcomingPage({ query }) {
 
         {closed.length > 0 && (
           <>
-            <Heading as="h2" mt={8}>Planned</Heading>
-            <Text>Typically registrations open 3-4 weeks before the event date.</Text>
-            <Text mb={8}>(We are still looking for a venue for most of these events. <Link href="mailto:team@codeday.org">Can you help?</Link>)</Text>
+            <Heading as="h2" mt={12}>Searching for a Venue</Heading>
+            <Text mb={4}>Our team is looking for a venue for the events below. <Link href="mailto:team@codeday.org">Can you help?</Link></Text>
             <Grid templateColumns={gridSize} gap={4}>
               {closed.map((e) => <EventListItem event={e} key={e.webname} />)}
             </Grid>
           </>
         )}
-        <Heading as="h2" mt={8}>Regions Without Current Events</Heading>
-        <Text mb={8}>We&apos;re <Link href="/organize">looking for volunteers to help organize these events.</Link></Text>
+        <Heading as="h2" mt={12}>Searching for Volunteers</Heading>
+        <Text mb={4}>We&apos;re looking for volunteers to help organize these events. <Link href="/organize">Can you help?</Link></Text>
         <Grid templateColumns={gridSize} gap={4}>
           {notScheduled.map((e) => <EventListItem event={e} key={e.webname} />)}
         </Grid>

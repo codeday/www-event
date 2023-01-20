@@ -2,6 +2,7 @@ fragment ClearEventInfo on ClearEvent {
   name
   contentfulWebname
   startDate
+  displayDate
 }
 
 query UpcomingPageQuery ($clearDate: ClearDateTime!) {
