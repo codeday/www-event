@@ -1,0 +1,24 @@
+fragment ClearEventInfo on ClearEvent {
+  name
+  contentfulWebname
+  startDate
+}
+
+query UpcomingPageQuery ($clearDate: ClearDateTime!) {
+  clear {
+    open: events (where: { endDate: { gte: $clearDate }, registrationsOpen: { equals: true } }) {
+      ...ClearEventInfo
+    }
+    closed: events (where: { endDate: { gte: $clearDate }, registrationsOpen: { equals: false } }) {
+      ...ClearEventInfo
+    }
+  }
+  cms {
+    regions (limit: 500) {
+      items {
+        name
+        webname
+      }
+    }
+  }
+}
