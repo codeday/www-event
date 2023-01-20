@@ -9,13 +9,10 @@
 #import "../../components/PastPhotos.gql"
 #import "../../components/Team.gql"
 
-query IndexStaticPathsQuery {
-  cms {
-    regions(limit: 1000) {
-      items {
-        webname
-        aliases
-      }
+query IndexStaticPathsQuery($endDate: ClearDateTime!) {
+  clear {
+    events(where: { endDate: { gte: $endDate } }) {
+      contentfulWebname
     }
   }
 }
