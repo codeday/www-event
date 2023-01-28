@@ -1,0 +1,124 @@
+{
+  "divider-and": "— y —",
+  "divider-or": "— O —",
+  "submit": "Enviar",
+  "email": "Correo electrónico",
+  "email-long": "Correo electrónico",
+  "phone": "Número de teléfono",
+  "phone-long": "Número de teléfono móvil",
+  "phone-invalid": "Número de teléfono móvil de {{countryName}} no válido",
+  "phone-valid": "Tu número internacional completo: {{number}}",
+  "sms": "SMS",
+  "whatsapp": "WhatsApp",
+  "first-name": "Nombre (de pila)",
+  "last-name": "Apellidos",
+  "name": "Nombre",
+  "success": {
+    "message": {
+      "default": "¡Confirmado!",
+      "promo-applied_PERCENT": "{{promoName}} se ha aplicado - ¡{{discountAmount}}% de descuento!",
+      "promo-applied_SUBTRACT": "{{promoName}} se ha aplicado - ¡{{discountAmount, currency}} de descuento!"
+    }
+  },
+  "error": {
+    "message": {
+      "default": "Se ha producido un error inesperado.",
+      "no-event": "Lo sentimos, no hemos podido encontrar ese CodeDay.",
+      "no-promo": "No se ha encontrado el código promocional.",
+      "promo-fully-used": "El código promocional se ha utilizado completamente."
+    },
+    "contact": "<click>Ponte en contacto con el personal de CodeDay</click> para obtener ayuda."
+  },
+  "team": {
+    "heading": "Nuestro equipo"
+  },
+  "waiver": "Renuncia a participar en el CodeDay",
+  "fill-required": "(rellena todos los campos obligatorios)",
+  "payment": {
+    "confirm": {
+      "free": "Completa el registro gratuito",
+      "pay": "Pagar ahora ({{price, currency}})"
+    },
+    "error": {
+      "total-changed": "El total ha cambiado desde que se cargó la página (normalmente significa que ha caducado un descuento) y NO se te ha cobrado. El nuevo total es {{price, currency}}. Actualiza la página."
+    }
+  },
+  "workshop-apply": {
+    "title": "Presentación del taller CodeDay de {{region}}",
+    "heading": "¿Quiere organizar un taller?",
+    "body": "Tu taller puede versar sobre tecnología, arte, música o cualquier otra cosa que te interese. <strong>Animamos a los estudiantes a que organicen un taller. (¡No hace falta ser un experto!)</strong>",
+    "form": {
+      "first-name": "$t(first-name)",
+      "last-name": "$t(last-name)",
+      "email": "$t(email)",
+      "confirm-alert": "¡Enviado! Nos pondremos en contacto contigo por correo electrónico lo antes posible.",
+      "topic": {
+        "question": "¿De qué quieres que trate tu taller?",
+        "placeholder": "Descripción breve"
+      },
+      "role": {
+        "label": "Soy un...",
+        "attendee": "estudiante que asiste al CodeDay",
+        "former-attendee": "antiguo alumno de CodeDay",
+        "company-representative": "representante de empresa",
+        "industry-professional": "otro profesional del sector",
+        "parent": "padre de un alumno de CodeDay",
+        "other": "otro"
+      }
+    }
+  },
+  "awards": {
+    "heading": "Gana un premio, ¡incluso si eres nuevo!",
+    "criteria": {
+      "heading": "Nuestros criterios de valoración:",
+      "difficulty": {
+        "heading": "Dificultad (para ti)",
+        "body": "El CodeDay no es para presumir. ¡Anímate a probar algo nuevo!"
+      },
+      "creativity": {
+        "heading": "Creatividad",
+        "body": "Trabaja con otros asistentes para crear un proyecto divertido con arte, diseño, música, actuación de voz o historia originales."
+      }
+    }
+  },
+  "explainer": {
+    "heading": "Así es como funciona el CodeDay:",
+    "subheading": "(No hace falta ser programador para divertirse. Artistas, músicos, escritores y actores son especialmente bienvenidos.",
+    "steps": [
+      "Formula ideas.",
+      "Encuentra un equipo.",
+      "¡Empieza a crear! (¡No necesitas experiencia!)",
+      "Te ayudaremos cuando lo necesites.",
+      "Participa en actividades divertidas... ¡con premios!",
+      "Exhibe lo que has hecho."
+    ]
+  },
+  "menu": {
+    "faq": "Preguntas frecuentes",
+    "schools": "Escuelas",
+    "volunteer": "Voluntario",
+    "organize": "Organizar"
+  },
+  "photo": {
+    "credit": "Foto: {{photographer_name}}"
+  },
+  "schedule": {
+    "heading": "Agenda",
+    "no-schedule": "Aún no se ha anunciado el horario"
+  },
+  "sponsors": {
+    "heading": "Con el apoyo de:"
+  },
+  "studentQuotes": {
+    "heading" : "¡Bienvenido a nuestra agradable y creativa comunidad de más de <highlight>50,000 estudiantes</highlight> que han realizado más de <highlight>10,000 proyectos!</highlight>",
+    "anonymous": "Anónimo",
+    "quote": "{{name}}, programador {{experienceLevel}}"
+  },
+  "theme": {
+    "heading": "El tema es...",
+    "body": "“{{theme}}”",
+    "optional": "(¡Pero es opcional!)",
+    "no-theme": "El tema se revelará en breve.",
+    "guess-cta": "Envía tus respuestas a @codeday_org en Instagram para tener la oportunidad de ganar un premio."
+  }
+}
