@@ -1,0 +1,14 @@
+{
+  "details": "Puedes solicitar una beca directamente desde la página de cualquier evento que acepte inscripciones. Solo tienes que hacer clic en \"¿No te lo puedes permitir?\" encima de la casilla de pago.",
+  "extra-info": "¿Necesitas una computadora portátil o ayuda con el transporte? <click>¡Contáctanos!</click>",
+  "confirm-button": "Solicitar beca de boleto de {{price, currency}}",
+  "reason": {
+    "question":  "¿Por qué necesitas una beca?",
+    "FAMILY_CANT_AFFORD": "Mi familia no puede permitírselo.",
+    "CANT_AFFORD": "Personalmente no puedo permitírmelo y mi familia no me apoya económicamente.",
+    "FAMILY_UNSURE": "Personalmente no puedo permitírmelo y no se lo he pedido a mi familia.",
+    "DONT_BELIEVE_PAY": "No me gusta la idea de pagar por eventos como este.",
+    "OTHER": "Otro",
+    "other-prompt": "Por favor, detalla a continuación:"
+  }
+}
