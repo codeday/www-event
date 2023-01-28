@@ -1,0 +1,30 @@
+{
+  "free": "¡Gratis!",
+  "ticket-price": "Precio del boleto: {{price, currency}}",
+  "register-now": "Regístrate ya",
+  "past-projects-header": "Te ayudaremos a hacer algo como...",
+  "register-header": "Regístrate para el CodeDay",
+  "register-subheader": "No es necesario tener conocimientos ni experiencia en programación.",
+  "hosted-at": "Anfitrión @ {{venue}}",
+  "early-bird": "(¡Descuento por registro anticipado!)",
+  "scholarship-button": "¿No puedes permitírtelo?",
+  "registrations-closed": "El \nCodeDay de {{region}} no acepta inscripciones actualmente",
+  "registrations-closed-cta": "Introduce tu correo electrónico para recibir una notificación cuando se abran las inscripciones.",
+  "no-event-header": "😢 No tenemos previsto ningún CodeDay en {{region}} (¡Pero tú puedes cambiar eso!)",
+  "no-event-subheader": "Los CodeDays están organizados por voluntarios locales. Si quieres ayudar a que el CodeDay vuelva a {{region}}, haz clic a continuación:",
+  "organize-button": "Más información sobre la organización y la inscripción",
+  "organize-experience": "No se requiere experiencia. Puedes tener tan solo 15 años.",
+  "no-event-subscribe": "¿No estás listo para ser voluntario? Introduce tu correo electrónico para que te avisemos si volvemos a lanzar el CodeDay en {{region}}:",
+  "photos-header": "Anteriormente en el CodeDay de {{region}}",
+  "photos-button": "Más fotos y proyectos anteriores",
+  "faq": {
+    "title": "Preguntas frecuentes",
+    "button": "Todas las preguntas frecuentes",
+    "body": "<0>¿Tienes más preguntas? Puedes <2>leer más preguntas frecuentes aquí</2> o enviarnos un correo electrónico a <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "¡El evento para principiantes más sencillo para crear juegos y aplicaciones increíble!",
+    "long": "CodeDay es un acontecimiento mundial en el que estudiantes artistas, programadores, músicos, actores y escritores se reúnen para crear aplicaciones y juegos.",
+    "no-experience-required": "¡NO ES NECESARIO TENER EXPERIENCIA EN PROGRAMACIÓN!"
+  }
+}
