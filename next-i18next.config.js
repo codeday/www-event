@@ -7,7 +7,7 @@ module.exports = {
   fallbackLng: {
     default: ['en'],
   },
-  ns: ['common', 'EventHome', 'Organize', 'Register', 'Rules', 'Scholarship'],
+  ns: ['common', 'EventHome', 'Organize', 'Register', 'Rules', 'Scholarship', 'Upcoming'],
   localePath: (locale, namespace, missing) => {
     const prefix = typeof window === 'undefined' ? require('path').resolve('./public/locales') : '/locales';
     return [prefix, locale.replace('-', '_'), namespace + '.json'].join('/');

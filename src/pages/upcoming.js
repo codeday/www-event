@@ -3,6 +3,8 @@ import {
   Heading, Link, Text, Grid,
 } from '@codeday/topo/Atom';
 import { apiFetch } from '@codeday/topo/utils';
+import { Trans, useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Page from '../components/Page';
 import { UpcomingPageQuery } from './upcoming.gql';
 
@@ -18,6 +20,7 @@ function EventListItem({ event }) {
 }
 
 export default function UpcomingPage({ query }) {
+  const { t } = useTranslation('Upcoming');
   const open = query.clear.open.map(mapClearEvent);
   const closed = query.clear.closed.map(mapClearEvent);
   const allClearWebnames = [...open, ...closed].map((e) => e.webname);
@@ -27,12 +30,12 @@ export default function UpcomingPage({ query }) {
   const gridSize = { base: '1fr', md: 'repeat(2, 1fr)', lg: 'repeat(3, 1fr)' };
 
   return (
-    <Page>
+    <Page title={t('title')}>
       <Content maxWidth="container.lg" mt={-8}>
         {open.length > 0 && (
           <>
-            <Heading as="h2" mt={12}>Accepting Registrations</Heading>
-            <Text mb={4}>We typically open registrations 3-4 weeks prior to an event.</Text>
+            <Heading as="h2" mt={12}>{t('accepting-registrations')}</Heading>
+            <Text mb={4}>{t('accepting-registrations-details')}</Text>
             <Grid templateColumns={gridSize} gap={4}>
               {open.map((e) => <EventListItem event={e} key={e.webname} />)}
             </Grid>
@@ -41,15 +44,19 @@ export default function UpcomingPage({ query }) {
 
         {closed.length > 0 && (
           <>
-            <Heading as="h2" mt={12}>Searching for a Venue</Heading>
-            <Text mb={4}>Our team is looking for a venue for the events below. <Link href="mailto:team@codeday.org">Can you help?</Link></Text>
+            <Heading as="h2" mt={12}>{t('searching-venue')}</Heading>
+            <Text mb={4}>
+              <Trans ns="Upcoming" i18nKey="searching-venue-details" components={{ click: <Link href="mailto:team@codeday.org" /> }} />
+            </Text>
             <Grid templateColumns={gridSize} gap={4}>
               {closed.map((e) => <EventListItem event={e} key={e.webname} />)}
             </Grid>
           </>
         )}
-        <Heading as="h2" mt={12}>Searching for Volunteers</Heading>
-        <Text mb={4}>We&apos;re looking for volunteers to help organize these events. <Link href="/organize">Can you help?</Link></Text>
+        <Heading as="h2" mt={12}>{t('searching-volunteers')}</Heading>
+        <Text mb={4}>
+          <Trans ns="Upcoming" i18nKey="searching-volunteers-details" components={{ click: <Link href="/organize" /> }} />
+        </Text>
         <Grid templateColumns={gridSize} gap={4}>
           {notScheduled.map((e) => <EventListItem event={e} key={e.webname} />)}
         </Grid>
@@ -64,10 +71,11 @@ const getDate = (offsetHours) => {
   return d.toISOString();
 };
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   const query = await apiFetch(UpcomingPageQuery, { clearDate: getDate() });
   return {
     props: {
+      ...(await serverSideTranslations(locale ?? 'en', ['Upcoming', 'common'])),
       query,
       random: Math.random(),
     },

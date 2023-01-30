@@ -87,6 +87,7 @@ const Page = ({
             <Button as="a" href="https://www.codeday.org/edu/codeday" variant="ghost" target="_blank">{t('menu.schools')}</Button>
             <Button as="a" href="https://www.codeday.org/volunteer" variant="ghost" target="_blank">{t('menu.volunteer')}</Button>
             <Button as="a" href="/organize" variant="ghost" target="_blank">{t('menu.organize')}</Button>
+            <Button as="a" href="/upcoming" variant="ghost" target="_blank">{t('menu.upcoming')}</Button>
           </Menu>
         </Header>
         <Main>
