@@ -1,0 +1,125 @@
+{
+  "divider-and": "— e —",
+  "divider-or": "— OU —",
+  "submit": "Enviar",
+  "email": "E-mail",
+  "email-long": "Endereço de e-mail",
+  "phone": "Número de telefone",
+  "phone-long": "Número de celular",
+  "phone-invalid": "Não é um número de celular válido para {{countryName}}",
+  "phone-valid": "Seu número internacional completo: {{number}}",
+  "sms": "SMS",
+  "whatsapp": "WhatsApp",
+  "first-name": "Nome próprio",
+  "last-name": "Sobrenome",
+  "name": "Nome",
+  "success": {
+    "message": {
+      "default": "Confirmado!",
+      "promo-applied_PERCENT": "{{promoName}} aplicada - {{discountAmount}}% de desconto!",
+      "promo-applied_SUBTRACT": "{{promoName}} aplicada - {{discountAmount, currency}} de desconto!"
+    }
+  },
+  "error": {
+    "message": {
+      "default": "Ocorreu um erro inesperado.",
+      "no-event": "Desculpe, não encontramos esse CodeDay.",
+      "no-promo": "Código promocional não encontrado.",
+      "promo-fully-used": "O código promocional foi utilizado por completo."
+    },
+    "contact": "<click>Fale com a equipe do CodeDay</click> para obter ajuda."
+  },
+  "team": {
+    "heading": "Nossa equipe"
+  },
+  "waiver": "Renúncia para participar do CodeDay",
+  "fill-required": "(preencha todos os campos obrigatórios)",
+  "payment": {
+    "confirm": {
+      "free": "Completar inscrição gratuita",
+      "pay": "Pagar agora ({{price, currency}})"
+    },
+    "error": {
+      "total-changed": "O total mudou desde que a página foi carregada (isso geralmente significa que um desconto expirou), e a cobrança NÃO foi feita. O novo total é de {{price, currency}}. Por favor, atualize a página."
+    }
+  },
+  "workshop-apply": {
+    "title": "Proposta de oficina para o CodeDay {{region}}",
+    "heading": "Quer organizar uma oficina?",
+    "body": "Sua oficina pode ser sobre tecnologia, arte, música ou qualquer outra coisa do seu interesse. <strong>Incentivamos que estudantes enviem propostas. (Você não precisa ser especialista!)</strong>",
+    "form": {
+      "first-name": "$t(first-name)",
+      "last-name": "$t(last-name)",
+      "email": "$t(email)",
+      "confirm-alert": "Enviado! Vamos entrar em contato por e-mail assim que possível.",
+      "topic": {
+        "question": "Qual será o assunto da sua oficina?",
+        "placeholder": "Descrição breve"
+      },
+      "role": {
+        "label": "Eu sou um(a)…",
+        "attendee": "estudante participante do CodeDay",
+        "former-attendee": "ex-estudante do CodeDay",
+        "company-representative": "representante de empresa",
+        "industry-professional": "outro(a) profissional do setor",
+        "parent": "responsável por um(a) estudante do CodeDay",
+        "other": "outro"
+      }
+    }
+  },
+  "awards": {
+    "heading": "Ganhe um prêmio mesmo se estiver começando!",
+    "criteria": {
+      "heading": "Nossos critérios de julgamento:",
+      "difficulty": {
+        "heading": "Dificuldade (para você)",
+        "body": "O CodeDay não é um evento para se exibir. Dê o seu melhor para tentar algo novo!"
+      },
+      "creativity": {
+        "heading": "Criatividade",
+        "body": "Trabalhe com outros participantes para criar um projeto divertido com arte, design, música, dublagem ou histórias originais."
+      }
+    }
+  },
+  "explainer": {
+    "heading": "O CodeDay funciona assim:",
+    "subheading": "(Você não precisa saber programar para se divertir. Artistas, musicistas, escritores e atores são muito bem-vindos(as)!)",
+    "steps": [
+      "Tenha algumas ideias.",
+      "Encontre uma equipe.",
+      "Comece a criar! (Não é preciso ter experiência!)",
+      "Vamos ajudar você conforme precisar.",
+      "Participe de atividades divertidas — com prêmios!",
+      "Mostre o que você criou."
+    ]
+  },
+  "menu": {
+    "faq": "FAQ",
+    "schools": "Escolas",
+    "volunteer": "Voluntariar-se",
+    "organize": "Organizar",
+    "upcoming": "Todos"
+  },
+  "photo": {
+    "credit": "Foto: {{photographer_name}}"
+  },
+  "schedule": {
+    "heading": "Cronograma",
+    "no-schedule": "O cronograma ainda não foi anunciado"
+  },
+  "sponsors": {
+    "heading": "Com o apoio de:"
+  },
+  "studentQuotes": {
+    "heading" : "Boas-vindas à nossa comunidade amigável e criativa de <highlight>mais de 50 mil estudantes</highlight> que criaram <highlight>mais de 10 mil projetos!</highlight>",
+    "anonymous": "Anônimo",
+    "quote": "{{name}}, programador(a) de nível {{experienceLevel}}"
+  },
+  "theme": {
+    "heading": "O tema é…",
+    "body": "“{{theme}}”",
+    "optional": "(Mas é opcional!)",
+    "no-theme": "O tema será revelado em breve.",
+    "guess-cta": "Envie seus palpites para @codeday_org no Instagram para ter a chance de ganhar um prêmio."
+  }
+}
