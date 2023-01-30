@@ -5,12 +5,15 @@ import { CognitoForm, Content } from '@codeday/topo/Molecule';
 import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import getConfig from 'next/config';
 import { print } from 'graphql';
+import { useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Page from '../../components/Page';
 import { GetTicketDetailsQuery } from './token.gql';
 import ErrorPage from '../../components/ErrorPage';
 
 const { serverRuntimeConfig } = getConfig();
 export default function WaiverPage({ token, ticket, error }) {
+  const { t } = useTranslation();
   const analytics = useAnalytics();
   if (error) return <ErrorPage details={error} />;
   analytics.goal('JFLLMQQ0', 0);
@@ -28,7 +31,7 @@ export default function WaiverPage({ token, ticket, error }) {
             borderBottomLeftRadius={0}
             borderBottomRightRadius={0}
           >
-            CodeDay Participation Waiver
+            {t('waiver')}
           </Box>
           <Box p={8}>
             <CognitoForm
@@ -51,7 +54,7 @@ export default function WaiverPage({ token, ticket, error }) {
   );
 }
 
-export async function getServerSideProps({ params: { token } }) {
+export async function getServerSideProps({ params: { token }, locale }) {
   let jwt;
   try {
     jwt = verify(token, serverRuntimeConfig.clear_gql.secret, { audience: serverRuntimeConfig.audience });
@@ -91,6 +94,7 @@ export async function getServerSideProps({ params: { token } }) {
 
   return {
     props: {
+      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
       token,
       ticket,
     },

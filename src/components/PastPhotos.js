@@ -1,6 +1,7 @@
 import {
   Box, Grid, Image, Text,
 } from '@codeday/topo/Atom';
+import { useTranslation } from 'next-i18next';
 
 export default function PastPhotos({
   photos: photosOrig, featuredPhotos: featuredOrig, ...props
@@ -16,6 +17,7 @@ export default function PastPhotos({
   // Featured photos come up first in the list, so we'll pick those first
   const featuredPhotos = allPhotos.slice(0, 3);
   const photos = allPhotos.slice(3, 27);
+  const { t } = useTranslation();
 
   return (
     <Grid
@@ -47,7 +49,7 @@ export default function PastPhotos({
               position="absolute"
               bottom={0}
             >
-              Photo: {p.thanks}
+              {t('photo.credit', { photographer_name: p.thanks })}
             </Text>
           )}
         </Box>
@@ -68,7 +70,7 @@ export default function PastPhotos({
               position="absolute"
               bottom={0}
             >
-              Photo: {p.thanks}
+              {t('photo.credit', { photographer_name: p.thanks })}
             </Text>
           )}
         </Box>

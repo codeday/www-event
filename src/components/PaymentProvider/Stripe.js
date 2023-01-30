@@ -6,6 +6,7 @@ import { useColorMode } from '@codeday/topo/Theme';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
 import { useToast, useToken } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutation } from '../RegisterForm.gql';
 
 export default function StripePaymentBox({
@@ -19,6 +20,7 @@ export default function StripePaymentBox({
   const analytics = useAnalytics();
   const [isStripeReady, setIsStripeReady] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation();
   const ready = (finalPrice === 0 || isStripeReady) && isValid;
   const expectedPrice = finalPrice * ticketsData.length;
 
@@ -66,8 +68,10 @@ export default function StripePaymentBox({
               const intent = await stripe.retrievePaymentIntent(intentSecret);
               if (Math.abs(intent.paymentIntent.amount - expectedPrice * 100) >= 1) {
                 throw new Error(
-                  `The total changed since the page was loaded (this usually means a discount expired), and you were`
-                    + ` NOT charged. The new total is ${intent.paymentIntent.amount / 100}. Please refresh the page.`,
+                  t('payment.error.total-changed', {
+                    currency: event.region.currency || 'USD',
+                    price: intent.paymentIntent.amount / 100,
+                  }),
                 );
               }
 
@@ -106,8 +110,10 @@ export default function StripePaymentBox({
         }}
       >
         {ready
-          ? (expectedPrice === 0 ? 'Complete Free Registration' : `Pay Now (${event.region.currencySymbol || '$'}${expectedPrice.toFixed(2)})`)
-          : '(fill all required fields)'}
+          ? (expectedPrice === 0 ? t('payment.confirm.free') : t('payment.confirm.pay', {
+            currency: event.region.currency || 'USD', price: expectedPrice,
+          }))
+          : t('fill-required')}
       </Button>
     </Box>
   );

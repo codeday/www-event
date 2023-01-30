@@ -5,9 +5,11 @@ import {
 } from '@codeday/topo/Atom';
 import { useColorModeValue } from '@codeday/topo/Theme';
 import { DateTime } from 'luxon';
+import { useTranslation } from 'next-i18next';
 import ApplyForWorkshop from './ApplyForWorkshop';
 
 export default function Schedule({ event, timezone, ...props }) {
+  const { t } = useTranslation();
   const bg = useColorModeValue('gray.200', 'gray.850');
   const days = (event.schedule || [])
     .map((e) => ({
@@ -24,16 +26,16 @@ export default function Schedule({ event, timezone, ...props }) {
   if (!event.schedule || event.schedule.length === 0) {
     return (
       <Box {...props}>
-        <Heading as="h3" fontSize="3xl" fontWeight="bold">Schedule</Heading>
+        <Heading as="h3" fontSize="3xl" fontWeight="bold">{t('schedule.heading')}</Heading>
         <ApplyForWorkshop event={event} mb={4} />
-        <Text mt={8} pb={8} fontSize="2xl" textAlign="center" color="current.textLight">The schedule hasn't been announced yet.</Text>
+        <Text mt={8} pb={8} fontSize="2xl" textAlign="center" color="current.textLight">{t('schedule.no-schedule')}</Text>
       </Box>
     );
   }
 
   return (
     <Box {...props}>
-      <Heading as="h3" fontSize="3xl" fontWeight="bold">Schedule</Heading>
+      <Heading as="h3" fontSize="3xl" fontWeight="bold">{t('schedule.heading')}</Heading>
       <ApplyForWorkshop event={event} mb={4} />
       <Grid
         maxWidth={Object.keys(days).length > 1 ? 'container.lg' : 'container.sm'}

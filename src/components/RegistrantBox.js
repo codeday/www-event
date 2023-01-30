@@ -6,9 +6,11 @@ import {
   Grid, Box, NumberInput, TextInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Text,
 } from '@codeday/topo/Atom';
 import { UiError } from '@codeday/topocons/Icon';
+import { Trans, useTranslation } from 'next-i18next';
 import PhoneInput from './PhoneInput';
 
 export default function RegistrantBox({ event, onChange, ...rest }) {
+  const { t } = useTranslation();
   const [ticketData, setTicketData] = useReducer(
     (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
   );
@@ -29,15 +31,13 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
 
   return (
     <Box borderWidth={1} {...rest}>
-      <Box bg="gray.300" p={2} color="black" fontWeight="bold" fontSize="lg">
-        Participant Info
-      </Box>
+      <Box bg="gray.300" p={2} color="black" fontWeight="bold" fontSize="lg">{t('Register:participant-info')}</Box>
       <Box p={4}>
-        <Text fontSize="sm" fontWeight="bold" mb={0}>Name</Text>
+        <Text fontSize="sm" fontWeight="bold" mb={0}>{t('name')}</Text>
         <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={4} mb={4}>
           <TextInput
             w="100%"
-            placeholder="First (Given) Name"
+            placeholder={t('first-name')}
             value={ticketData.firstName || ''}
             onChange={
               (e) => setTicketData(['firstName', e.target.value])
@@ -45,7 +45,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
           />
           <TextInput
             w="100%"
-            placeholder="Last (Family) Name"
+            placeholder={t('last-name')}
             value={ticketData.lastName || ''}
             onChange={
               (e) => setTicketData(['lastName', e.target.value])
@@ -60,10 +60,10 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
           gap={4}
         >
           <Box>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>Email</Text>
+            <Text fontSize="sm" fontWeight="bold" mb={0}>{t('email')}</Text>
             <TextInput
               w="100%"
-              placeholder="Email Address"
+              placeholder={t('email-long')}
               value={ticketData.email || ''}
               onChange={
                 (e) => setTicketData(['email', e.target.value])
@@ -76,13 +76,13 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             textAlign="center"
             mt={8}
           >
-            &mdash;&nbsp;{event.customContactAnd ? <>&amp;</> : <>OR</>}&nbsp;&mdash;
+            {event.customContactAnd ? t('divider-and') : t('divider-or')}
           </Box>
           <Box>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>Mobile Phone Number</Text>
+            <Text fontSize="sm" fontWeight="bold" mb={0}>{t('phone-long')}</Text>
             <PhoneInput
               w="100%"
-              placeholder="Phone Number"
+              placeholder={t('phone')}
               region={event.region || {}}
               onChange={(phoneNumber, _, isWhatsApp) => {
                 setTicketData([isWhatsApp ? 'whatsApp' : 'phone', phoneNumber]);
@@ -94,10 +94,10 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
 
         {event.customRegCollectOrg && (
           <Box pb={4}>
-            <Text fontSize="sm" fontWeight="bold" mb={0}>What school or club are you registering with?</Text>
+            <Text fontSize="sm" fontWeight="bold" mb={0}>{t('Register:collect-org')}</Text>
             <TextInput
               w="100%"
-              placeholder="School/Club"
+              placeholder={t('Register:collect-org-prefill')}
               value={ticketData?.metadata?.organization || ''}
               onChange={
                 (e) => setTicketData(['metadata', { organization: e.target.value }])
@@ -107,7 +107,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
         )}
 
         <Text fontSize="sm" fontWeight="bold" mb={0}>
-          {ticketData.firstName ? `${ticketData.firstName}'s` : 'Participant'} Age
+          {t('Register:collect-participant-age', { context: ticketData.firstName ? undefined : 'generic', name: ticketData.firstName })}
         </Text>
         <NumberInput
           w="3xs"
@@ -128,19 +128,31 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
         {ticketData.age < event.minAge || ticketData.age > event.maxAge
           ? (
             <Box bg="red.50" borderColor="red.500" color="red.800" borderWidth={1} mt={4} p={4}>
-              <Text bold><UiError /> Sorry, you won&apos;t be able to register.</Text>
+              <Text bold>
+                <Trans
+                  ns="Register"
+                  i18nKey="invalid-age.header"
+                  components={{
+                    errorIcon: <UiError />,
+                  }}
+                />
+              </Text>
               <Text mb={0}>
-                CodeDay is mostly targeted to high school students, and isn&apos;t a good fit for those{' '}
-                who are {ticketData.age > event.maxAge ? `over ${event.maxAge}` : `under ${event.minAge}`}.
+                {t('Register:invalid-age.too', { context: ticketData.age > event.maxAge ? 'old' : 'young', minAge: event.minAge, maxAge: event.maxAge })}
               </Text>
             </Box>
           ) : (event.overnightMinAge && ticketData.age < event.overnightMinAge ? (
             <Box bg="red.50" borderColor="red.500" color="red.800" borderWidth={1} mt={4} p={4}>
-              <Text bold><UiError /> Younger students cannot stay overnight.</Text>
-              <Text mb={0}>
-                Students under the age of {event.overnightMinAge} need to be picked
-                up between 8-10pm and can return after 7am the next day.
+              <Text bold>
+                <Trans
+                  ns="Register"
+                  i18nKey="overnight-warning.header"
+                  components={{
+                    errorIcon: <UiError />,
+                  }}
+                />
               </Text>
+              <Text mb={0}>{t('Register:overnight-warning.body', { age: event.overnightMinAge })}</Text>
             </Box>
           ) : null)}
       </Box>

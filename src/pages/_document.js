@@ -2,6 +2,7 @@ import React from 'react';
 import Document, {
   Html, Head, Main, NextScript,
 } from 'next/document';
+import i18nextConfig from '../../next-i18next.config';
 
 export default class CustomDocument extends Document {
   static async getInitialProps(ctx) {
@@ -10,8 +11,10 @@ export default class CustomDocument extends Document {
   }
 
   render() {
+    // eslint-disable-next-line no-underscore-dangle
+    const currentLocale = this.props.__NEXT_DATA__.locale ?? i18nextConfig.i18n.defaultLocale;
     return (
-      <Html lang="en">
+      <Html lang={currentLocale}>
         <Head>
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />

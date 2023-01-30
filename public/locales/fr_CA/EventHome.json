@@ -1,0 +1,30 @@
+{
+  "free": "Gratuit!",
+  "ticket-price": "Prix du billet : {{price, currency}}",
+  "register-now": "Inscrivez-vous maintenant",
+  "past-projects-header": "Nous vous aiderons à réaliser quelque chose comme...",
+  "register-header": "S'inscrire au CodeDay",
+  "register-subheader": "Aucun intérêt ou expérience en matière de codage n'est nécessaire!",
+  "hosted-at": "Hébergé à {{venue}}",
+  "early-bird": "(Réduction pour les inscriptions anticipées!)",
+  "scholarship-button": "Vous n'avez pas les moyens?",
+  "registrations-closed": "Le CodeDay {{region}} n'accepte pas d'inscriptions pour le moment.",
+  "registrations-closed-cta": "Saisissez votre adresse courriel pour recevoir une notification lorsque les inscriptions seront disponibles!",
+  "no-event-header": "😢 Aucun CodeDay n'est prévu en {{region}} (mais vous pouvez changer cela!)",
+  "no-event-subheader": "Les CodeDays sont organisés par des bénévoles locaux. Si vous voulez aider à ramener le CodeDay en {{region}}, cliquez ci-dessous :",
+  "organize-button": "En savoir plus sur l'organisation et s'inscrire",
+  "organize-experience": "Aucune expérience n'est requise. Vous pouvez avoir au moins 15 ans.",
+  "no-event-subscribe": "Vous n'êtes pas prêt à vous porter volontaire? Entrez votre adresse courriel pour être informé si nous relançons le CodeDay en {{region}} :",
+  "photos-header": "Précédemment à CodeDay {{region}}",
+  "photos-button": "Plus de photos et projets passés",
+  "faq": {
+    "title": "FAQ",
+    "button": "Toutes les questions fréquentes",
+    "body": "<0>Vous avez d'autres questions? Vous pouvez <2>lire plus de questions fréquentes ici</2> ou nous envoyer un courriel à <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "L'événement le plus convivial pour les débutants pour créer des jeux et des applications incroyables!",
+    "long": "CodeDay est un événement mondial où des étudiants artistes, programmeurs, musiciens, acteurs et écrivains se réunissent pour créer des applications et des jeux.",
+    "no-experience-required": "AUCUNE EXPÉRIENCE DE CODAGE N'EST NÉCESSAIRE!"
+  }
+}

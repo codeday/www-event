@@ -2,6 +2,9 @@ query CheckPromoCode ($id: String!, $code: String!) {
   clear {
     findFirstEvent(where:{id:{equals: $id}}) {
       checkPromoCode(code: $code)
+      region {
+        currency
+      }
     }
   }
 }

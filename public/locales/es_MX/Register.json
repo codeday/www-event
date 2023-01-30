@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "Información de los padres/tutores",
+    "subheading": "Obligatorio cuando alguno de los participantes sea menor de edad."
+  },
+  "pending": {
+    "heading": "Estamos revisando tu registro.",
+    "body": "Nos pondremos en contacto contigo para enviarte tu boleto definitivo. Mientras tanto, por favor completa la siguiente información:"
+  },
+  "confirmed": {
+    "heading": "¡Vas a asistir al CodeDay! Ahora personaliza tu experiencia.",
+    "body": "No necesitas imprimir un boleto, te registraremos por tu nombre. Por favor, complete la siguiente información:"
+  },
+  "sold-out": {
+    "heading": "Lo sentimos, ¡se han agotado los boletos!",
+    "body": "Nuestro aforo está al máximo absoluto y no podemos hacer excepciones. No habrá boletos disponibles en la puerta."
+  },
+  "requires-promo-code": "Este CodeDay no está abierto al público. Si has sido invitado, introduce tu código de acceso para registrarte.",
+  "access-code": "Código de acceso",
+  "promo-code": "Código promocional",
+  "promo-applied": {
+    "promo-code": "Promoción: {{promoCode}}",
+    "access-code": "Código de acceso: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "¿Tienes un código promocional?",
+    "access-code": "Se requiere código de acceso."
+  },
+  "payment": {
+    "header": "Pagos",
+    "ticket-summary": "{{count}} x <ticketIcon /> boleto de CodeDay - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> boleto de CodeDay (anticipado) - {{price, currency}}",
+    "request-scholarship": "¿No puedes permitírtelo? Solicita una beca \"",
+    "cancel-scholarship": "\" Anular la solicitud de beca"
+  },
+  "terms": {
+    "header": "Términos",
+    "body": [
+      "<listItem>Los precios están en {{currency}}.</listItem>",
+      "<listItem>Debes seguir el <conductLink>código de conducta</conductLink> y las <rulesLink>reglas del evento</rulesLink></listItem>",
+      "<listItem>Tendrás que firmar una renuncia y un descargo de responsabilidad para los medios de comunicación.</listItem>",
+      "<listItem>Es posible que te fotografiemos o te grabemos.</listItem>",
+      "<listItem>Los reembolsos están disponibles hasta 48 horas antes del inicio.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Lo sentimos, no podrás registrarte.",
+    "too_old": "El CodeDay está dirigido principalmente a estudiantes de secundaria, y no es una buena opción para los mayores de {{maxAge}}.",
+    "too_young": "El CodeDay está dirigido principalmente a estudiantes de secundaria, y no es una buena opción para los menores de {{minAge}}."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Los estudiantes más jóvenes no pueden pernoctar.",
+    "body": "Los alumnos menores de {{age}} deben ser recogidos entre las 20:00 y las 22:00 horas y pueden volver después de las 7:00 horas del día siguiente."
+  },
+  "participant-info": "Información del participante",
+  "collect-org": "¿A qué escuela o club te estás inscribiendo?",
+  "collect-org-prefill": "Escuela/club",
+  "collect-participant-age": "Edad de{{name}}",
+  "collect-participant-age_generic": "Edad del participante",
+  "add-ticket": "Añadir boleto",
+  "remove-ticket": "Eliminar boleto",
+  "too-many-tickets_one": "Lo sentimos, solo {{count}} boleto está disponible a este precio. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Lo sentimos, solo {{count}} boletos están disponibles a este precio. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Lo sentimos, solo {{count}} boleto está disponible. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Lo sentimos, solo {{count}} boletos están disponibles. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "Por favor, elimina {{count}} boleto para continuar.",
+  "please-remove_other": "Por favor, elimina {{count}} boletos para continuar.",
+  "remaining-tickets_one": "¡Solo queda {{count}} boleto!",
+  "remaining-tickets_other": "¡Solo quedan {{count}} boletos!"
+}

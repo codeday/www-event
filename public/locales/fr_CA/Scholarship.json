@@ -1,0 +1,14 @@
+{
+  "details": "Vous pouvez demander une bourse d'études directement à partir de la page de tout événement acceptant les inscriptions. Cliquez simplement sur « Vous ne pouvez pas vous le permettre? » au-dessus de la case de paiement.",
+  "extra-info": "Vous avez besoin d'un ordinateur portable ou d'une aide pour le transport? <click>Contactez-nous!</click>",
+  "confirm-button": "Demander une bourse de {{price, currency}} pour un billet d'avion",
+  "reason": {
+    "question":  "Pourquoi avez-vous besoin d'une bourse d'études?",
+    "FAMILY_CANT_AFFORD": "Ma famille ne peut pas se le permettre.",
+    "CANT_AFFORD": "Je ne peux pas me le permettre personnellement, et je ne suis pas soutenu financièrement par ma famille.",
+    "FAMILY_UNSURE": "Je ne peux pas me le permettre personnellement, et je n'ai pas demandé à ma famille.",
+    "DONT_BELIEVE_PAY": "Je n'aime pas l'idée de payer pour ce genre d'événement.",
+    "OTHER": "Autre",
+    "other-prompt": "Veuillez préciser ci-dessous : "
+  }
+}

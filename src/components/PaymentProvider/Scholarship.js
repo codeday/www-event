@@ -9,6 +9,7 @@ import {
 import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { Select, useToast } from '@chakra-ui/react';
+import { useTranslation } from 'next-i18next';
 import { ScholarshipMutation } from '../RegisterForm.gql';
 
 export default function ScholarshipBox({
@@ -19,22 +20,23 @@ export default function ScholarshipBox({
   const toast = useToast();
   const analytics = useAnalytics();
   const [isLoading, setIsLoading] = useState(false);
+  const { t } = useTranslation('Scholarship');
   const ready = scholarshipReason && (scholarshipReason !== 'OTHER' || scholarshipReasonOther) && isValid;
   const expectedPrice = finalPrice * ticketsData.length;
 
   return (
     <Box shadow="md" rounded="sm" borderWidth={1} p={4} {...rest}>
-      <Text fontWeight="bold">Why do you need a scholarship?</Text>
+      <Text fontWeight="bold">{t('reason.question')}</Text>
       <Select placeholder=" " onChange={(e) => setScholarshipReason(e.target.value)} default>
-        <option value="FAMILY_CANT_AFFORD">My family can't afford it.</option>
-        <option value="CANT_AFFORD">I can't personally afford it, and I'm not financially supported by my family.</option>
-        <option value="FAMILY_UNSURE">I can't personally afford it, and I haven't asked my family.</option>
-        <option value="DONT_BELIEVE_PAY">I don't like the idea of paying for events like this.</option>
-        <option value="OTHER">Other</option>
+        <option value="FAMILY_CANT_AFFORD">{t('reason.FAMILY_CANT_AFFORD')}</option>
+        <option value="CANT_AFFORD">{t('reason.CANT_AFFORD')}</option>
+        <option value="FAMILY_UNSURE">{t('reason.FAMILY_UNSURE')}</option>
+        <option value="DONT_BELIEVE_PAY">{t('reason.DONT_BELIEVE_PAY')}</option>
+        <option value="OTHER">{t('reason.OTHER')}</option>
       </Select>
       {scholarshipReason === 'OTHER' && (
         <>
-          <Text fontWeight="bold" mt={4}>Please elaborate below:</Text>
+          <Text fontWeight="bold" mt={4}>{t('reason.other-prompt')}</Text>
           <TextInput onChange={(e) => setScholarshipReasonOther(e.target.value)} value={scholarshipReasonOther} />
         </>
       )}
@@ -71,8 +73,8 @@ export default function ScholarshipBox({
         }}
       >
         {ready
-          ? (`Request ${event.region.currencySymbol || '$'}${expectedPrice.toFixed(2)} ticket scholarship`)
-          : '(fill all required fields)'}
+          ? t('confirm-button', { currency: event.region.currency || 'USD', price: expectedPrice })
+          : t('common:fill-required')}
       </Button>
     </Box>
   );

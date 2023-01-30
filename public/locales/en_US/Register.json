@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "Parent/Guardian Info",
+    "subheading": "Required when any participant is a minor."
+  },
+  "pending": {
+    "heading": "We're reviewing your registration.",
+    "body": "We'll contact you with your final ticket. In the meantime, please complete the following information:"
+  },
+  "confirmed": {
+    "heading": "You're going to CodeDay! Now customize your experience.",
+    "body": "No need to print a ticket, we'll check you in by name. Please complete the following information:"
+  },
+  "sold-out": {
+    "heading": "Sorry, we're sold out!",
+    "body": "We are at absolute maximum capacity, and cannot make exceptions. No tickets will be available at the door."
+  },
+  "requires-promo-code": "This CodeDay isn't open to the public. If you're been invited, enter your Access Code to register.",
+  "access-code": "Access Code",
+  "promo-code": "Promo Code",
+  "promo-applied": {
+    "promo-code": "Promo: {{promoCode}}",
+    "access-code": "Access Code: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "Have a promo code?",
+    "access-code": "Access code required."
+  },
+  "payment": {
+    "header": "Payment",
+    "ticket-summary": "{{count}} x <ticketIcon /> CodeDay Ticket - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDay Ticket (Early Bird) - {{price, currency}}",
+    "request-scholarship": "Can't afford it? Request a scholarship »",
+    "cancel-scholarship": "« Cancel scholarship request"
+  },
+  "terms": {
+    "header": "Terms",
+    "body": [
+      "<listItem>Prices are in {{currency}}.</listItem>",
+      "<listItem>You must follow the <conductLink>Code of Conduct</conductLink> & <rulesLink>Event Rules</rulesLink></listItem>",
+      "<listItem>You You will need to sign a waiver & a media release.</listItem>",
+      "<listItem>We may photograph or record you.</listItem>",
+      "<listItem>Refunds are available until 48 hours before kickoff.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Sorry, you won't be able to register.",
+    "too_old": "CodeDay is mostly targeted to high school students, and isn't a good fit for those who are over {{maxAge}}.",
+    "too_young": "CodeDay is mostly targeted to high school students, and isn't a good fit for those who are under {{minAge}}."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Younger students cannot stay overnight.",
+    "body": "Students under the age of {{age}} need to be picked up between 8-10pm and can return after 7am the next day."
+  },
+  "participant-info": "Participant Info",
+  "collect-org": "What school or club are you registering with?",
+  "collect-org-prefill": "School/Club",
+  "collect-participant-age": "{{name}}'s Age",
+  "collect-participant-age_generic": "Participant Age",
+  "add-ticket": "Add Ticket",
+  "remove-ticket": "Remove Ticket",
+  "too-many-tickets_one": "Sorry, only {{count}} ticket is available at this price. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Sorry, only {{count}} tickets are available at this price. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Sorry, only {{count}} ticket is available. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Sorry, only {{count}} tickets are available. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "Please remove {{count}} ticket to continue.",
+  "please-remove_other": "Please remove {{count}} tickets to continue.",
+  "remaining-tickets_one": "Only {{count}} ticket left!",
+  "remaining-tickets_other": "Only {{count}} tickets left!"
+}

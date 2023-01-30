@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-page-custom-font */
+
 import { Grid } from '@codeday/topo/Atom';
 import { shuffle } from '../PastProjects';
 import OrganizerTestimonial from './OrganizerTestimonial';

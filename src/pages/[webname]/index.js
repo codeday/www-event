@@ -15,6 +15,8 @@ import { apiFetch } from '@codeday/topo/utils';
 import Scroll from 'react-scroll';
 import { marked } from 'marked';
 import ReactHtmlParser from 'react-html-parser';
+import { Trans, useTranslation } from 'next-i18next';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Page from '../../components/Page';
 import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import IndexHeader from '../../components/IndexHeader';
@@ -38,6 +40,7 @@ export default function EventHome({
   // Redirect the user to the canonical URL
   const router = useRouter();
   const { colorMode } = useColorMode();
+  const { t } = useTranslation('EventHome');
   useEffect(() => {
     if (typeof window === 'undefined' || !region) return;
     if (webname !== region.webname) {
@@ -50,7 +53,7 @@ export default function EventHome({
     return (
       <Page slug={`/${webname}`}>
         <Content>
-          <Heading as="h2" fontSize="5xl" textAlign="center">Sorry, we couldn&apos;t find that CodeDay.</Heading>
+          <Heading as="h2" fontSize="5xl" textAlign="center">{t('common:error.message.no-event')}</Heading>
         </Content>
       </Page>
     );
@@ -71,24 +74,24 @@ export default function EventHome({
         >
           {event.venue ? (
             <>
-              Hosted @ {event.venue.name} <br />
+              {t('hosted-at', { venue: event.venue.name })}<br />
               <Link fontSize="md" href={event.venue.mapLink}>{event.venue.addressInline}</Link>
             </>
           ) : null}
           {event.canRegister ? (
             <>
               <Text mt={8}>
-                {event.activeTicketPrice === 0 ? 'Free!' : `Ticket Price: ${event?.region?.currencySymbol || '$'}${event.activeTicketPrice.toFixed(2)}`}&nbsp;
+                {event.activeTicketPrice === 0 ? t('free') : t('ticket-price', { price: event.activeTicketPrice, currency: event.region?.currency || 'USD' })}
                 {event.canEarlyBirdRegister && event.activeTicketPrice > 0
                   ? (
                     <Text mb={4} display="inline-block" color="red.600" fontSize="xs" position="relative" top="-0.2em">
-                      (Early Bird Discount!)
+                      {t('early-bird')}
                     </Text>
                   ) : null}
               </Text>
-              <Button colorScheme="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', { duration: 500, smooth: true, offset: -50 })}>Register Now</Button>
+              <Button colorScheme="green" mr={2} onClick={() => Scroll.scroller.scrollTo('register', { duration: 500, smooth: true, offset: -50 })}>{t('register-now')}</Button>
               {event.activeTicketPrice > 0 && (
-                <Button variant="outline" as="a" href="/scholarship" hover={{ bg: '#ff686b' }}>Can&apos;t afford?</Button>
+                <Button variant="outline" as="a" href="/scholarship" hover={{ bg: '#ff686b' }}>{t('scholarship-button')}</Button>
               )}
             </>
           ) : null}
@@ -110,7 +113,7 @@ export default function EventHome({
       <Content maxW="container.xl" mb={24}>
         <Grid templateColumns={{ base: '1fr', lg: '4fr 7fr' }} gap={6} alignItems="center">
           <Box pr={8} pb={{ base: 8, lg: null }}>
-            <PastProjects projects={projects} random={random} title="We'll help you make something like..." />
+            <PastProjects projects={projects} random={random} title={t('past-projects-header')} />
           </Box>
           <Awards awards={awards} />
         </Grid>
@@ -129,8 +132,8 @@ export default function EventHome({
           p={0}
         >
           <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'} color="white">
-            <Heading fontSize="2xl">Register for CodeDay</Heading>
-            <Text fontWeight="bold">No coding interest or experience needed!</Text>
+            <Heading fontSize="2xl">{t('register-header')}</Heading>
+            <Text fontWeight="bold">{t('register-subheader')}</Text>
           </Box>
           <Box p={{ base: 4, lg: 8 }}>
             {event?.canRegister ? (
@@ -138,18 +141,18 @@ export default function EventHome({
             ) : (
               event ? (
                 <EventMailingListSubscribe event={event}>
-                  <Text bold textAlign="center">CodeDay {event?.name || region.name} is not currently accepting registrations</Text>
-                  <Text mb={4} textAlign="center">Enter your email to be notified when registrations go live!</Text>
+                  <Text bold textAlign="center">{t('registrations-closed', { region: event?.name || region.name })}</Text>
+                  <Text mb={4} textAlign="center">{t('registrations-closed-cta')}</Text>
                 </EventMailingListSubscribe>
               ) : (
                 <>
                   <Box textAlign="center" mt={4}>
-                    <Text mb={1} fontSize="lg" bold>😢 We don&apos;t have an upcoming CodeDay planned in {region.name}. (But you can change that!)</Text>
-                    <Text mb={8}>CodeDays are organized by local volunteers. If you want to help bring CodeDay back to {region.name}, click below:</Text>
-                    <Button as="a" href="/organize" colorScheme="green">Learn More About Organizing &amp; Sign Up</Button>
-                    <Text mt={1} color="current.textLight">No experience required. You can be as young as 15.</Text>
+                    <Text mb={1} fontSize="lg" bold>{t('no-event-header', { region: event?.name || region.name })}</Text>
+                    <Text mb={8}>{t('no-event-subheader', { region: event?.name || region.name })}</Text>
+                    <Button as="a" href="/organize" colorScheme="green">{t('organize-button')}</Button>
+                    <Text mt={1} color="current.textLight">{t('organize-experience')}</Text>
                     <Divider mt={8} mb={8} />
-                    <Text color="current.textLight">Not ready to volunteer? Enter your email to be notified if we re-launch CodeDay {region.name}:</Text>
+                    <Text color="current.textLight">{t('no-event-subscribe', { region: event?.name || region.name })}</Text>
                     <Box mt={4} w="md" d="inline-block">
                       <MailingListSubscribe
                         mb={4}
@@ -183,23 +186,25 @@ export default function EventHome({
       </Content>
 
       <Content maxWidth="container.xl" mb={12}>
-        <Heading as="h4" fontSize="4xl">FAQs</Heading>
-        <Text mb={8}>
-          Have more questions? You can{' '}
-          <Link href="https://www.codeday.org/help/codeday" target="_blank">read more FAQs here</Link>{' '}
-          or email us at <Link href="mailto:team@codeday.org">team@codeday.org</Link>.
-        </Text>
+        <Heading as="h4" fontSize="4xl">{t('faq.title')}</Heading>
+        <Trans ns="EventHome" i18nKey="faq.body">
+          <Text mb={8}>
+            Have more questions? You can{' '}
+            <Link href="https://www.codeday.org/help/codeday" target="_blank">read more FAQs here</Link>{' '}
+            or email us at <Link href="mailto:team@codeday.org">team@codeday.org</Link>.
+          </Text>
+        </Trans>
         <Grid templateColumns={{ base: '1fr', lg: 'repeat(3, 1fr)' }} gap={8}>
           {faqs.map((faq) => <Faq key={faq.sys.id} faq={faq} />)}
         </Grid>
         <Box textAlign="center" mt={8}>
-          <Button as="a" href="https://www.codeday.org/help/codeday" target="_blank">All FAQs</Button>
+          <Button as="a" href="https://www.codeday.org/help/codeday" target="_blank">{t('faq.button')}</Button>
         </Box>
       </Content>
 
       {region.pastPhotos?.length > 0 && (
         <Content maxWidth="container.xl" mb={16}>
-          <Heading as="h4" fontSize="4xl" mb={6}>Previously At CodeDay { region.name }</Heading>
+          <Heading as="h4" fontSize="4xl" mb={6}>{t('photos-header', { region: event?.name || region.name })}</Heading>
           <PastPhotos photos={region.pastPhotos} featuredPhotos={region.featuredPhotos} random={random} />
           <Box textAlign="center" mt={8}>
             <Button
@@ -207,7 +212,7 @@ export default function EventHome({
               href={`https://showcase.codeday.org/projects/all/region=${region.webname}`}
               target="_blank"
             >
-              More Past Photos &amp; Projects
+              {t('photos-button')}
             </Button>
           </Box>
         </Content>
@@ -230,11 +235,11 @@ export async function getStaticPaths() {
 
   return {
     paths: allWebnames.map((webname) => ({ params: { webname } })),
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 
-export async function getStaticProps({ params: { webname } }) {
+export async function getStaticProps({ locale, params: { webname } }) {
   const result = await apiFetch(print(IndexStaticPropsQuery), {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
@@ -242,6 +247,7 @@ export async function getStaticProps({ params: { webname } }) {
   });
   return {
     props: {
+      ...(await serverSideTranslations(locale ?? 'en', ['EventHome', 'Register', 'common'])),
       webname,
       region: result?.cms?.regions?.items[0] || null,
       images: result?.cms?.pressPhotos?.items || [],

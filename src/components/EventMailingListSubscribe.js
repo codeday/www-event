@@ -1,3 +1,4 @@
+import { useTranslation } from 'next-i18next';
 import React, { useState } from 'react';
 import {
   Grid, Box, Button, TextInput,
@@ -11,6 +12,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
   const [email, setEmail] = useState();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { success, error } = useToasts();
+  const { t } = useTranslation();
   return (
     <Box w={['auto', 'md']} ml="auto" mr="auto" {...props}>
       {children}
@@ -18,7 +20,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
         <TextInput
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email"
+          placeholder={t('email')}
           borderTopRightRadius={0}
           borderBottomRightRadius={0}
           borderRightWidth={0}
@@ -35,7 +37,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
                   id: event.id,
                 },
               });
-              success('Confirmed!');
+              success(t('success.message.default'));
             } catch (e) {
               error(e.toString());
             }
@@ -44,7 +46,7 @@ export default function EventMailingListSubscribe({ event, children, ...props })
           borderTopLeftRadius={0}
           borderBottomLeftRadius={0}
         >
-          Submit
+          {t('submit')}
         </Button>
       </Grid>
       <DataCollection message="pii" />

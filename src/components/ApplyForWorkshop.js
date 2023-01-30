@@ -1,3 +1,4 @@
+import { Trans, useTranslation } from 'next-i18next';
 import { useState } from 'react';
 import {
   Box,
@@ -26,49 +27,48 @@ export default function ApplyForWorkshop({ event, alwaysOpen, ...props }) {
   const [bio, setBio] = useState();
   const [description, setDescription] = useState();
   const [isLoading, setIsLoading] = useState(false);
-
+  const { t } = useTranslation();
   const isReady = firstName && lastName && email && bio && description;
   const bg = colorMode === 'light' ? 'gray.50' : 'gray.900';
 
   if (!event) return <></>;
-  if (!isOpen) return <Box {...props}><Link color="current.textLight" onClick={() => setIsOpen(true)}>Want to host a workshop?</Link></Box>;
+  if (!isOpen) return <Box {...props}><Link color="current.textLight" onClick={() => setIsOpen(true)}>{t('workshop-apply.heading')}</Link></Box>;
 
   return (
     <Box {...props} bg={bg} mt={8} mb={8} p={4} rounded="sm" borderWidth={1}>
-      <Heading as="h4" fontSize="2xl" mb={2}>Want to host a workshop?</Heading>
+      <Heading as="h4" fontSize="2xl" mb={2}>{t('workshop-apply.heading')}</Heading>
       <Text mb={6}>
-        Your workshop can be about technology, art, music, or anything else that interests you.
-        {' '}<strong>Students are encouraged to submit. (You don't have to be an expert!)</strong>
+        <Trans i18nKey="workshop-apply.body" />
       </Text>
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={4} mb={4}>
         <Box w="100%">
-          <FormLabel mb={0}>First Name</FormLabel>
-          <TextInput value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder="First Name" />
+          <FormLabel mb={0}>{t('workshop-apply.form.first-name')}</FormLabel>
+          <TextInput value={firstName} onChange={(e) => setFirstName(e.target.value)} placeholder={t('workshop-apply.form.first-name')} />
         </Box>
         <Box w="100%">
-          <FormLabel mb={0}>Last Name</FormLabel>
-          <TextInput value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder="Last Name" />
+          <FormLabel mb={0}>{t('workshop-apply.form.last-name')}</FormLabel>
+          <TextInput value={lastName} onChange={(e) => setLastName(e.target.value)} placeholder={t('workshop-apply.form.last-name')} />
         </Box>
       </Grid>
       <Box mb={4}>
-        <FormLabel mb={0}>Email</FormLabel>
-        <TextInput value={email} onChange={(e) => setEmail(e.target.value)} placeholder="Email" />
+        <FormLabel mb={0}>{t('workshop-apply.form.email')}</FormLabel>
+        <TextInput value={email} onChange={(e) => setEmail(e.target.value)} placeholder={t('workshop-apply.form.email')} />
       </Box>
       <Box mb={4}>
-        <FormLabel mb={0}>I am a...</FormLabel>
+        <FormLabel mb={0}>{t('workshop-apply.form.role.label')}</FormLabel>
         <Select onChange={(e) => setBio(e.target.value)}>
           <option />
-          <option>student attending CodeDay</option>
-          <option>former CodeDay student</option>
-          <option>company representative</option>
-          <option>other industry professional</option>
-          <option>parent of a CodeDay student</option>
-          <option>other</option>
+          <option>{t('workshop-apply.form.role.attendee')}</option>
+          <option>{t('workshop-apply.form.role.former-attendee')}</option>
+          <option>{t('workshop-apply.form.role.company-representative')}</option>
+          <option>{t('workshop-apply.form.role.industry-professional')}</option>
+          <option>{t('workshop-apply.form.role.parent')}</option>
+          <option>{t('workshop-apply.form.role.other')}</option>
         </Select>
       </Box>
       <Box mb={4}>
-        <FormLabel mb={0}>What do you want your workshop to be about?</FormLabel>
-        <Textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Brief Description" />
+        <FormLabel mb={0}>{t('workshop-apply.form.topic.question')}</FormLabel>
+        <Textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder={t('workshop-apply.form.topic.placeholder')} />
       </Box>
       <Button
         isLoading={isLoading}
@@ -85,12 +85,12 @@ export default function ApplyForWorkshop({ event, alwaysOpen, ...props }) {
               description,
             });
             setDescription('');
-            success(`Submitted! We'll get back to you by email as soon as we can.`);
-          } catch (ex) { error(ex.toString()); console.error(ex); }
+            success(t('workshop-apply.form.confirm-alert'));
+          } catch (ex) { error(ex.toString()); }
           setIsLoading(false);
         }}
       >
-        {isReady ? 'Submit' : '(fill all required fields)'}
+        {isReady ? t('submit') : t('fill-required')}
       </Button>
     </Box>
   );

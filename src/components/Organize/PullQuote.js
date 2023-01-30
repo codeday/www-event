@@ -28,7 +28,9 @@ export default function PullQuote({ testimonial, float, ...props }) {
       {...floatProps}
       {...props}
     >
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <Text fontSize="xl" fontStyle="italic">&ldquo;{testimonial.quote}&rdquo;</Text>
+      {/* eslint-disable-next-line i18next/no-literal-string */}
       <Text mt={2}>&mdash;&thinsp;{testimonial.firstName} {testimonial.lastName}, {title}</Text>
     </Box>
   );

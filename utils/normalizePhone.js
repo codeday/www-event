@@ -1,5 +1,6 @@
 import { phone } from 'phone';
 import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
+
 const pnUtil = PhoneNumberUtil.getInstance();
 
 export function normalizePhone(phoneNumberEntered, { iso3166Alpha3Code }) {
@@ -18,5 +19,5 @@ export function normalizePhone(phoneNumberEntered, { iso3166Alpha3Code }) {
   return {
     phoneNumber: pnUtil.format(pnGoogle, PhoneNumberFormat.INTERNATIONAL),
     isValid: true,
-  }
+  };
 }

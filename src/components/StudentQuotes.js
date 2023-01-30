@@ -1,6 +1,7 @@
 import {
   Grid, Box, Image, Heading, Text,
 } from '@codeday/topo/Atom';
+import { Trans, useTranslation } from 'next-i18next';
 import { useSlideshow } from '../providers/slideshow';
 
 const SIZE = 40;
@@ -11,7 +12,7 @@ function Highlight({ children }) {
 
 export default function StudentQuotes({ quotes, ...props }) {
   const i = useSlideshow(quotes.length, 6000);
-
+  const { t } = useTranslation();
   if (quotes.length === 0) return <></>;
 
   return (
@@ -19,8 +20,7 @@ export default function StudentQuotes({ quotes, ...props }) {
       <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} alignItems="center" gap={16}>
         <Box textAlign="center">
           <Heading as="h3" fontSize="2xl" pb={4}>
-            Welcome to our friendly &amp; creative community of <Highlight>50,000+ students</Highlight> who have made{' '}
-            <Highlight>10,000+ projects!</Highlight>
+            <Trans i18nKey="studentQuotes.heading" components={{ highlight: <Highlight /> }} />
           </Heading>
         </Box>
         <Box position="relative" height={SIZE} ml={-4}>
@@ -41,8 +41,10 @@ export default function StudentQuotes({ quotes, ...props }) {
                   {quote.image && (
                     <Image src={quote.image.url} d="inline-block" mr={4} alt="" rounded="full" height={8} />
                   )}
-                  {quote.firstName ? `${quote.firstName} ${quote.lastName || ''}` : 'Anonymous'},{' '}
-                  {quote.experience?.toLowerCase() || 'beginner'} coder
+                  {t('studentQuotes.quote', {
+                    name: quote.firstName ? `${quote.firstName} ${quote.lastName || ''}` : t('studentQuotes.anonymous'),
+                    experienceLevel: quote.experience?.toLowerCase() || 'beginner',
+                  })}
                 </Text>
               </Box>
             </Grid>

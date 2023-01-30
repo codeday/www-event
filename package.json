@@ -19,15 +19,22 @@
     "@tylermenezes/cognitoforms-react": "^2.0.5",
     "babel-plugin-inline-import-graphql-ast": "^2.4.1",
     "blobs": "^2.2.1-beta.1",
+    "cookies-next": "^2.1.1",
     "dompurify": "^2.3.6",
     "framer-motion": "^4",
     "google-libphonenumber": "^3.2.27",
     "graphql": "^16.0.1",
     "hash-sum": "^2.0.0",
+    "i18next": "^22.4.3",
+    "i18next-browser-languagedetector": "^7.0.1",
+    "i18next-emoji-postprocessor": "^1.0.2",
+    "i18next-http-backend": "^2.1.0",
+    "intl-parse-accept-language": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "luxon": "^3.2.1",
     "marked": "^4.0.12",
-    "next": "^12.1.6",
+    "next": "12",
+    "next-i18next": "^13.0.1",
     "next-seo": "^4.15.0",
     "phone": "^3.1.12",
     "prop-types": "^15.7.2",
@@ -35,12 +42,14 @@
     "react": "17",
     "react-dom": "17",
     "react-html-parser": "^2.0.2",
+    "react-i18next": "^12.1.1",
     "react-razorpay": "^1.1.4",
     "react-scroll": "^1.8.4"
   },
   "devDependencies": {
     "@codeday/eslint-config": "^2.1.4",
     "eslint": "^7.12.1",
-    "eslint-config-next": "^12.0.10"
+    "eslint-config-next": "^12.0.10",
+    "eslint-plugin-i18next": "^6.0.0-6"
   }
 }
