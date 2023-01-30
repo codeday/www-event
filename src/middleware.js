@@ -19,7 +19,7 @@ export async function middleware(req) {
   if (req.nextUrl.locale === UNSPECIFIED) {
     const prefLocales = parseAcceptLanguage(req.headers.get('accept-language'));
     const browserLocale = prefLocales.filter((e) => AVAILABLE_LANGUAGES.includes(e))[0] || null;
-    const cookieLocale = req.cookies.get('NEXT_LOCALE')?.value;
+    const cookieLocale = req.cookies.get('NEXT_LOCALE');
 
     const locale = cookieLocale ?? browserLocale ?? FALLBACK_LANG;
 
