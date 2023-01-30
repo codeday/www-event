@@ -236,11 +236,11 @@ export async function getStaticPaths() {
 
   return {
     paths: allWebnames.map((webname) => ({ params: { webname } })),
-    fallback: true,
+    fallback: 'blocking',
   };
 }
 
-export async function getStaticProps({ params: { webname, locale } }) {
+export async function getStaticProps({ locale, locales, params: { webname } }) {
   const result = await apiFetch(print(IndexStaticPropsQuery), {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
