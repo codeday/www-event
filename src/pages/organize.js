@@ -137,7 +137,7 @@ export async function getStaticProps({ locale }) {
   const query = await apiFetch(OrganizePageQuery);
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['Organize'])),
+      ...(await serverSideTranslations(locale ?? 'en', ['Organize', 'common'])),
       query,
       random: Math.random(),
     },

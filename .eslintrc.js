@@ -2,6 +2,7 @@ module.exports = {
   extends: ['@codeday', 'next'],
   plugins: ['i18next'],
   rules: {
+    'linebreak-style': 'off',
     'import/no-unresolved': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/anchor-has-content': 'off',
