@@ -20,12 +20,17 @@ export default function LanguagePicker() {
       {
         isLoading ? <Spinner />
           : (
-            <Select onChange={async (e) => {
-              setIsLoading(true);
-              setCookie('NEXT_LOCALE', e.target.value);
-              await router.replace(router.asPath, undefined, { locale: e.target.value });
-              setIsLoading(false);
-            }}
+            <Select
+              variant="filled"
+              bg="transparent"
+              _hover={{ bg: 'transparent' }}
+              border="none"
+              onChange={async (e) => {
+                setIsLoading(true);
+                setCookie('NEXT_LOCALE', e.target.value);
+                await router.replace(router.asPath, undefined, { locale: e.target.value });
+                setIsLoading(false);
+              }}
             >
               {router.locales.filter((a) => a !== '_default').map((l) => (
                 <option
@@ -34,14 +39,14 @@ export default function LanguagePicker() {
                   value={l}
                   title={new Intl.DisplayNames([l], { type: 'language' }).of(l)}
                   // Chakra bug forces me to do this :( (firefox only bug)
-                  style={{ backgroundColor: 'inherit', color: 'black' }}
+                  style={{ backgroundColor: 'inherit' }}
                 >
                   {getFlagEmoji(new Intl.Locale(l).region) || new Intl.DisplayNames([l], { type: 'language' }).of(l)}
                 </option>
               ))}
             </Select>
           )
-}
+      }
     </Box>
   );
 }
