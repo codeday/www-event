@@ -2,7 +2,7 @@ import { phone } from 'phone';
 import { PhoneNumberFormat, PhoneNumberUtil } from 'google-libphonenumber';
 
 const pnUtil = PhoneNumberUtil.getInstance();
-k
+
 export function normalizePhone(phoneNumberEntered, { iso3166Alpha3Code }) {
   const hasCountryCode = phoneNumberEntered.charAt(0) === '+';
 
