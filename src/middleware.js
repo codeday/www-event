@@ -7,6 +7,7 @@ import nextConfig from '../next.config';
 const PUBLIC_FILE = /\.(.*)$/;
 const UNSPECIFIED = '_default';
 const AVAILABLE_LANGUAGES = nextConfig.i18n.locales.filter((e) => e !== UNSPECIFIED);
+const FALLBACK_LANG = 'en-US';
 
 export async function middleware(req) {
   if (
@@ -20,7 +21,7 @@ export async function middleware(req) {
     const browserLocale = prefLocales.filter((e) => AVAILABLE_LANGUAGES.includes(e))[0] || null;
     const cookieLocale = req.cookies.get('NEXT_LOCALE')?.value;
 
-    const locale = cookieLocale ?? browserLocale ?? 'en';
+    const locale = cookieLocale ?? browserLocale ?? FALLBACK_LANG;
 
     return NextResponse.redirect(
       new URL(`/${locale}${req.nextUrl.pathname}${req.nextUrl.search}`, req.url),

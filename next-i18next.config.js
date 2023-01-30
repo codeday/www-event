@@ -1,11 +1,11 @@
 module.exports = {
   i18n: {
     defaultLocale: '_default',
-    locales: ['_default', 'en', 'es-MX', 'sw', 'fr-CA', 'zh-SG', 'pt-BR', 'ms'],
+    locales: ['_default', 'en-US', 'es-MX', 'sw-KE', 'fr-CA', 'zh-SG', 'pt-BR', 'ms-MY'],
     localeDetection: false,
   },
   fallbackLng: {
-    default: ['en'],
+    default: ['en-US'],
   },
   ns: ['common', 'EventHome', 'Organize', 'Register', 'Rules', 'Scholarship', 'Upcoming'],
   localePath: (locale, namespace) => {
