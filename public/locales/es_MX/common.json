@@ -94,10 +94,11 @@
     ]
   },
   "menu": {
-    "faq": "Preguntas frecuentes",
+    "faq": "FAQ",
     "schools": "Escuelas",
     "volunteer": "Voluntario",
-    "organize": "Organizar"
+    "organize": "Organizar",
+    "upcoming": "Todos los eventos"
   },
   "photo": {
     "credit": "Foto: {{photographer_name}}"
