@@ -7,7 +7,7 @@ import {
   Footer, SiteLogo, Menu, Header, Main,
 } from '@codeday/topo/Organism';
 import { useTranslation } from 'next-i18next';
-import LanguagePicker from "./LanguagePicker";
+import LanguagePicker from './LanguagePicker';
 
 const DOMAIN = 'https://event.codeday.org';
 

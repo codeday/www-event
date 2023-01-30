@@ -8,9 +8,10 @@ module.exports = {
     default: ['en'],
   },
   ns: ['common', 'EventHome', 'Organize', 'Register', 'Rules', 'Scholarship', 'Upcoming'],
-  localePath: (locale, namespace, missing) => {
+  localePath: (locale, namespace) => {
+    // eslint-disable-next-line global-require
     const prefix = typeof window === 'undefined' ? require('path').resolve('./public/locales') : '/locales';
-    return [prefix, locale.replace('-', '_'), namespace + '.json'].join('/');
+    return [prefix, locale.replace('-', '_'), `${namespace}.json`].join('/');
   },
   // eslint-disable-next-line node/no-process-env
   reloadOnPrerender: process.env.NODE_ENV === 'development',
