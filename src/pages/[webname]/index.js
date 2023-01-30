@@ -230,9 +230,8 @@ export default function EventHome({
 }
 
 export async function getStaticPaths() {
-  const allRegions = await apiFetch(print(IndexStaticPathsQuery));
-  const allWebnames = allRegions?.cms?.regions?.items
-    .reduce((accum, r) => [...accum, r.webname, ...(r.aliases || [])], []) || [];
+  const allWebnamesQuery = await apiFetch(print(IndexStaticPathsQuery), { endDate: DateTime.now().minus({ days: 1 }) });
+  const allWebnames = allWebnamesQuery?.clear?.events.map((e) => e.contentfulWebname).filter(Boolean);
 
   return {
     paths: allWebnames.map((webname) => ({ params: { webname } })),

@@ -14,8 +14,7 @@ module.exports = {
   },
   // eslint-disable-next-line node/no-process-env
   reloadOnPrerender: process.env.NODE_ENV === 'development',
-  // eslint-disable-next-line node/no-process-env
-  debug: process.env.NODE_ENV === 'development',
+  debug: false,
   returnObjects: true,
   joinArrays: ' ',
   nonExplicitSupportedLngs: true,

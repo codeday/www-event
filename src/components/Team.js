@@ -52,9 +52,9 @@ export default function Team({
           <Box key={title}>
             <Heading as="h4" fontSize="xl" fontWeight="bold" mb={4}>{title}</Heading>
             <Grid templateColumns={{ base: '1fr', lg: `repeat(${w}, 1fr)` }} gap={2}>
-              {shuffle(random, items).map((e) => (
-                <Grid key={e?.picture} templateColumns="max-content 1fr" gap={2}>
-                  <Image src={e?.picture} alt="" rounded="sm" h={10} w={10} />
+              {shuffle(random, items).filter((e) => !!e?.picture).map((e) => (
+                <Grid key={e.picture} templateColumns="max-content 1fr" gap={2}>
+                  <Image src={e.picture} alt="" rounded="sm" h={10} w={10} />
                   <Box>
                     <Text>{e?.name}</Text>
                     {e?.pronoun && <Text fontSize="sm" color="current.textLight">{e.pronoun}</Text>}

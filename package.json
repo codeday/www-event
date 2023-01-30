@@ -30,7 +30,7 @@
     "i18next-http-backend": "^2.1.0",
     "intl-parse-accept-language": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
-    "luxon": "^2.0.2",
+    "luxon": "^3.2.1",
     "marked": "^4.0.12",
     "next": "12",
     "next-i18next": "^13.0.1",
