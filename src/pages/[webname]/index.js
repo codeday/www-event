@@ -240,7 +240,7 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ locale, locales, params: { webname } }) {
+export async function getStaticProps({ locale, params: { webname } }) {
   const result = await apiFetch(print(IndexStaticPropsQuery), {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
