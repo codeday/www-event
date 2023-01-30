@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "Informações para pais e responsáveis",
+    "subheading": "Necessário quando um participante é menor de idade."
+  },
+  "pending": {
+    "heading": "Estamos revisando sua inscrição.",
+    "body": "Vamos entrar em contato para enviar seu ingresso final. Por enquanto, preencha as seguintes informações:"
+  },
+  "confirmed": {
+    "heading": "Você vai ao CodeDay! Agora, personalize sua experiência.",
+    "body": "Não é preciso imprimir um ingresso, vamos consultar seu nome na entrada. Preencha as seguintes informações:"
+  },
+  "sold-out": {
+    "heading": "Desculpe, os ingressos esgotaram!",
+    "body": "Atingimos a lotação máxima e não podemos abrir exceções. Não haverá ingressos disponíveis na porta."
+  },
+  "requires-promo-code": "Este CodeDay não está aberto ao público. Se você recebeu um convite, digite seu Código de Acesso para se inscrever.",
+  "access-code": "Código de Acesso",
+  "promo-code": "Código Promocional",
+  "promo-applied": {
+    "promo-code": "Promoção: {{promoCode}}",
+    "access-code": "Código de Acesso: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "Tem um código promocional?",
+    "access-code": "Código de acesso necessário."
+  },
+  "payment": {
+    "header": "Pagamento",
+    "ticket-summary": "{{count}} x <ticketIcon /> Ingresso do CodeDay - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> Ingresso do CodeDay (Compra Antecipada) - {{price, currency}}",
+    "request-scholarship": "Não cabe no seu bolso? Peça uma bolsa »",
+    "cancel-scholarship": "« Cancelar pedido de bolsa"
+  },
+  "terms": {
+    "header": "Termos",
+    "body": [
+      "<listItem>Os preços estão em {{currency}}.</listItem>",
+      "<listItem>Você deve seguir o <conductLink>Código de Conduta</conductLink> e as <rulesLink>Regras do Evento</rulesLink></listItem>",
+      "<listItem>Você deverá assinar uma renúncia e uma autorização de uso de imagem.</listItem>",
+      "<listItem>Poderemos fotografar ou gravar você.</listItem>",
+      "<listItem>Reembolsos estão disponíveis até 48 horas antes do início.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Desculpe, você não poderá se inscrever.",
+    "too_old": "O CodeDay é voltado principalmente para estudantes do ensino médio e não é feito para quem tem mais de {{maxAge}} anos.",
+    "too_young": "O CodeDay é voltado principalmente para estudantes do ensino médio e não é feito para quem tem menos de {{minAge}} anos."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Estudantes mais jovens não podem passar a noite.",
+    "body": "Estudantes com menos de {{age}} anos devem ser buscados entre as 20h e 22h e podem voltar após as 7h do dia seguinte."
+  },
+  "participant-info": "Informações do(a) participante",
+  "collect-org": "Com que escola ou clube você está se inscrevendo?",
+  "collect-org-prefill": "Escola/Clube",
+  "collect-participant-age": "Idade de {{name}}",
+  "collect-participant-age_generic": "Idade do(a) participante",
+  "add-ticket": "Adicionar ingresso",
+  "remove-ticket": "Remover ingresso",
+  "too-many-tickets_one": "Desculpe, apenas {{count}} ingresso está disponível por esse preço. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Desculpe, apenas {{count}} ingressos estão disponíveis por esse preço. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Desculpe, apenas {{count}} ingresso está disponível. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Desculpe, apenas {{count}} ingressos estão disponíveis. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "Remova {{count}} ingresso para continuar.",
+  "please-remove_other": "Remova {{count}} ingressos para continuar.",
+  "remaining-tickets_one": "Resta apenas {{count}} ingresso!",
+  "remaining-tickets_other": "Restam apenas {{count}} ingressos!"
+}
