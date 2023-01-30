@@ -1,0 +1,30 @@
+{
+  "free": "Bila malipo!",
+  "ticket-price": "Bei ya Tikiti: {{price, currency}}",
+  "register-now": "Jiandikishe Sasa",
+  "past-projects-header": "Tutakusaidia kutengeneza kitu kama...",
+  "register-header": "Jiandikishe kwa CodeDay",
+  "register-subheader": "Hakuna shauku au uzoefu wa uundaji wa misimbo unaohitajika!",
+  "hosted-at": "Inafanyika katika {{venue}}",
+  "early-bird": "(Punguzo la Bei kwa Watakaokuwa wa Kwanza!)",
+  "scholarship-button": "Huwezi kumudu kulipa?",
+  "registrations-closed": "CodeDay {{region}} haikubali uandikishaji kwa sasa",
+  "registrations-closed-cta": "Weka barua pepe yako ili uarifiwe usajili ukianza kufanyika!",
+  "no-event-header": "😢 Hatuna CodeDay ijayo iliyopangwa katika {{region}}. (Lakini unaweza kubadilisha hilo!)",
+  "no-event-subheader": "CodeDays hupangwa na wahudumu wa kujitolea wa eneo husika. Ikiwa ungependa kusaidia kurejesha CodeDay ndani ya {{region}}, bofya hapa chini: ",
+  "organize-button": "Pata Habari Zaidi Kuhusu Kupanga na Kujisajili",
+  "organize-experience": "Hakuna uzoefu unaohitajika. Unaweza kuwa na umri mdogo wa hata miaka 15.",
+  "no-event-subscribe": "Hauko tayari kujitolea? Weka barua pepe yako ili kuarifiwa tukizindua upya CodeDay {{region}}:",
+  "photos-header": "Awali katika CodeDay {{region}}",
+  "photos-button": "Picha na Miradi Zaidi ya Awali",
+  "faq": {
+    "title": "Maswali Yanayoulizwa Mara kwa Mara",
+    "button": "Maswali Yote Yanayoulizwa Mara kwa Mara",
+    "body": "<0>Je, una maswali zaidi? Unaweza <2>kusoma Maswali zaidi Yanayouliza Mara kwa Mara hapa FAQ </2> au ututumie barua pepe kwa <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "Tukio rahisi zaidi kwa wanaojifunza la kuunda michezo na programu nzuri!",
+    "long": "CodeDay ni tukio la ulimwenguni kote ambako wasanii, watayarishaji wa programu, wanamuziki, waigizaji na waandishi wanaojifunza hukusanyika ili kuunda programu na michezo.",
+    "no-experience-required": "HAKUNA UZOEFU WA UUNDAJI WA MISIMBO UNAOHITAJIKA!"
+  }
+}
