@@ -97,7 +97,8 @@
     "faq": "FAQ",
     "schools": "Schools",
     "volunteer": "Volunteer",
-    "organize": "Organize"
+    "organize": "Organize",
+    "upcoming": "All Events"
   },
   "photo": {
     "credit": "Photo: {{photographer_name}}"
