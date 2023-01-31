@@ -1,0 +1,14 @@
+{
+  "details": "Unaweza kuomba ufadhili wa masomo moja kwa moja kutoka kwa ukurasa wa tukio lolote linalokubali uandikishaji. Bofya tu \"Je, huwezi kumudu kulipia?\" juu ya kisanduku cha malipo.",
+  "extra-info": "Je, unahitaji kipakatalishi au usaidizi wa usafiri? <click>Wasiliana nasi!</click>",
+  "confirm-button": "Omba ufadhili wa masomo wa tikiti wa {{price, currency}}",
+  "reason": {
+    "question":  "Je, mbona unahitaji ufadhili wa masomo?",
+    "FAMILY_CANT_AFFORD": "Familia yangu haiwezi kumudu kulipia.",
+    "CANT_AFFORD": "Siwezi kumudu kulipia mwenyewe, na sipati usaidizi wa kifedha kutoka kwa familia yangu.",
+    "FAMILY_UNSURE": "Siwezi kumudu kulipia mwenyewe, na sijaomba familia yangu.",
+    "DONT_BELIEVE_PAY": "Sipendi wazo la kulipia matukio kama haya.",
+    "OTHER": "Nyingine",
+    "other-prompt": "Tafadhali fafanua hapa chini"
+  }
+}
