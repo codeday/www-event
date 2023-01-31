@@ -1,0 +1,30 @@
+{
+  "free": "Percuma!",
+  "ticket-price": "Harga Tiket: {{price, currency}}",
+  "register-now": "Daftar Sekarang",
+  "past-projects-header": "Kami akan membantu anda membuat sesuatu seperti...",
+  "register-header": "Daftar untuk CodeDay",
+  "register-subheader": "Tiada minat pengekodan atau pengalaman diperlukan!",
+  "hosted-at": "Dianjurkan @ {{venue}}",
+  "early-bird": "(Diskaun Pendaftaran Awal!)",
+  "scholarship-button": "Tidak mampu?",
+  "registrations-closed": "CodeDay {{region}} tidak menerima pendaftaran pada masa ini",
+  "registrations-closed-cta": "Masukkan e-mel anda untuk dimaklumkan apabila pendaftaran disiarkan secara langsung!",
+  "no-event-header": "😢 Kami tidak mempunyai CodeDay akan datang yang dirancang di {{region}}. (Tetapi anda boleh mengubahnya!)",
+  "no-event-subheader": "CodeDay diuruskan oleh sukarelawan tempatan. Jika anda ingin membantu membawa CodeDay kembali ke {{region}}, klik di bawah:",
+  "organize-button": "Ketahui Lebih Lanjut Tentang Pengurusan & Pendaftaran ",
+  "organize-experience": "Tiada pengalaman diperlukan. Anda boleh berumur seawal 15 tahun.",
+  "no-event-subscribe": "Belum bersedia untuk bersukarela? Masukkan e-mel anda untuk dimaklumkan jika kami melancarkan semula CodeDay {{region}}",
+  "photos-header": "Sebelum ini di CodeDay {{region}}",
+  "photos-button": "Lebih Banyak Gambar & Projek Terdahulu",
+  "faq": {
+    "title": "FAQ",
+    "button": "Semua FAQ",
+    "body": "<0>Ada lebih banyak soalan? Anda boleh <2>membaca FAQ lanjut di sini</2> atau hantar e-mel kepada kami di <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "Acara paling mesra pemula untuk membina permainan dan aplikasi yang hebat!",
+    "long": "CodeDay ialah acara seluruh dunia yang mempertemukan pelajar artis, pengatur cara, pemuzik, pelakon, dan penulis untuk membina aplikasi dan permainan.",
+    "no-experience-required": "TIADA PENGALAMAN PENGEKODAN DIPERLUKAN!"
+  }
+}
