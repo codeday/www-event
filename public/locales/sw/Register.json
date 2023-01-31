@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "Maelezo ya Mzazi/Mlezi",
+    "subheading": "Yanahitajika wakati ambapo mshiriki yeyote ni mtoto."
+  },
+  "pending": {
+    "heading": "Tunapitia uandikishaji wako.",
+    "body": "Tutawasiliana nawe tukiwa na tikiti yako ya mwisho. Kwa sasa, tafadhali jaza maelezo yanayofuata:"
+  },
+  "confirmed": {
+    "heading": "Unaenda CodeDay! Sasa binafsisha uzoefu wako.",
+    "body": "Hakuna haja ya kuchapisha tikiti, tutakuruhusu kuingia kwa jina lako. Tafadhali jaza maelezo yanayofuata:"
+  },
+  "sold-out": {
+    "heading": "Samahani, tikiti zote zimeuzwa!",
+    "body": "Tumeandikisha idadi ya juu kabisa inayoruhusiwa, na hatuwezi kufanya mabadiliko. Hakuna tikiti zitakazopatikana langoni."
+  },
+  "requires-promo-code": "CodeDay hii haipatikani kwa umma. Ikiwa umealikwa, ingiza Msimbo wako wa Ufikiaji ili kujisajili.",
+  "access-code": "Msimbo wa Ufikiaji",
+  "promo-code": "Msimbo wa Tangazo",
+  "promo-applied": {
+    "promo-code": "Ofa ya Tangazo: {{promoCode}}",
+    "access-code": "Msimbo wa Ufikiaji: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "Je, una msimbo wa ofa ya tangazo?",
+    "access-code": "Msimbo wa ufikiaji unahitajika."
+  },
+  "payment": {
+    "header": "Malipo",
+    "ticket-summary": "{{count}} x <ticketIcon /> Tikiti ya CodeDay - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> Tikiti ya CodeDay (Watakaokuwa wa Kwanza) - {{price, currency}}",
+    "request-scholarship": "Je, huwezi kumudu kulipia? Omba ufadhili wa masomo »",
+    "cancel-scholarship": "« Ghairi ombi la ufadhili wa masomo"
+  },
+  "terms": {
+    "header": "Masharti",
+    "body": [
+      "<listItem>Bei zipo katika {{currency}}.</listItem>",
+      "<listItem>Lazima ufuate <conductLink>Kanuni za Maadili Mema</conductLink> na <rulesLink>Kanuni za Tukio</rulesLink></listItem>",
+      "<listItem>Utahitaji kutia sahihi ondoleo na ruhusa ya kutoa midia.</listItem>",
+      "<listItem>Tunaweza kukupiga picha au kukurekodi.</listItem>",
+      "<listItem>Marejeshi ya malipo yanapatikana hadi saa 48 kabla ya kuanza.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Samahani, hutaweza kujisajili.",
+    "too_old": "CodeDay mara nyingi hulengwa kwa wanafunzi wa shule ya upili, na si nzuri kwa wale walio na zaidi ya miaka {{maxAge}}.",
+    "too_young": "CodeDay mara nyingi hulengwa kwa wanafunzi wa shule ya upili, na si nzuri kwa wale walio na chini ya miaka {{maxAge}}."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Wanafunzi wenye umri mdogo hawawezi kukaa usiku kucha.",
+    "body": "Wanafunzi walio na umri wa chini ya miaka {{age}} wanahitaji kuchukuliwa kati ya saa mbili na saa nne (8-10) usiku na wanaweza kurudi baada ya saa moja (7) asubuhi katika siku inayofuata."
+  },
+  "participant-info": "Maelezo ya Mshiriki",
+  "collect-org": "Je, unajiandikisha na shule au klabu kipi?",
+  "collect-org-prefill": "Shule/Klabu",
+  "collect-participant-age": "Umri wa {{name}}",
+  "collect-participant-age_generic": "Umri wa Mshiriki",
+  "add-ticket": "Ongeza Tikiti",
+  "remove-ticket": "Ondoa Tikiti",
+  "too-many-tickets_one": "Samahani, ni tikiti {{count}} tu inapatikna kwa bei hii. $t(Tafadhali ondoa, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Samahani, ni tikiti {{count}} tu zinapatikna kwa bei hii. $t(Tafadhali ondoa, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Samahani, ni tikiti {{count}} tu inapatikna. $t(tafadhali odnoa, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Samahani, ni tikiti {{count}} tu zinapatikna. $t(tafadhali ondoa, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "Tafadhali ondoa tikiti {{count}} ili kuendelea.",
+  "please-remove_other": "Tafadhali ondoa tikiti {{count}} ili kuendelea.",
+  "remaining-tickets_one": "Ni tikiti {{count}} tu imesalia!",
+  "remaining-tickets_other": "Ni tikiti {{count}} tu zimesalia!"
+}
