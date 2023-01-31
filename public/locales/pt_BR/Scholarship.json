@@ -1,0 +1,14 @@
+{
+  "details": "Você pode pedir uma bolsa diretamente na página de qualquer evento que esteja com inscrições abertas. Basta clicar em \"Não cabe no seu bolso?\" acima da caixa de pagamento.",
+  "extra-info": "Precisa de um laptop ou de ajuda com transporte? <click>Fale conosco!</click>",
+  "confirm-button": "Pedir bolsa de ingresso de {{price, currency}}",
+  "reason": {
+    "question":  "Por que você precisa de uma bolsa?",
+    "FAMILY_CANT_AFFORD": "O ingresso não cabe no orçamento da minha família.",
+    "CANT_AFFORD": "O ingresso não cabe no meu orçamento e eu não conto com o apoio financeiro da minha família.",
+    "FAMILY_UNSURE": "Não tenho como pagar pessoalmente e não perguntei para minha família.",
+    "DONT_BELIEVE_PAY": "Não gosto da ideia de pagar por eventos como este.",
+    "OTHER": "Outro",
+    "other-prompt": "Explique em detalhes abaixo:"
+  }
+}

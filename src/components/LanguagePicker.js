@@ -25,6 +25,7 @@ export default function LanguagePicker() {
               bg="transparent"
               _hover={{ bg: 'transparent' }}
               border="none"
+              cursor="pointer"
               onChange={async (e) => {
                 setIsLoading(true);
                 setCookie('NEXT_LOCALE', e.target.value);

@@ -1,0 +1,30 @@
+{
+  "free": "Grátis!",
+  "ticket-price": "Preço do ingresso: {{price, currency}}",
+  "register-now": "Inscrever-se agora",
+  "past-projects-header": "Vamos ajudar você a fazer algo como…",
+  "register-header": "Inscrever-se no CodeDay",
+  "register-subheader": "Não é preciso ter interesse ou experiência em programação!",
+  "hosted-at": "Realizado em {{venue}}",
+  "early-bird": "(Desconto de compra antecipada!)",
+  "scholarship-button": "Não cabe no seu bolso?",
+  "registrations-closed": "O CodeDay {{region}} não está aceitando inscrições no momento",
+  "registrations-closed-cta": "Digite seu e-mail para receber uma notificação quando as inscrições forem abertas!",
+  "no-event-header": "😢 Não há um CodeDay futuro sendo planejado em {{region}}. (Mas você pode mudar isso!)",
+  "no-event-subheader": "Os CodeDays são organizados por voluntários locais. Se quiser ajudar a trazer o CodeDay de volta para {{region}}, clique abaixo:",
+  "organize-button": "Saber mais sobre como organizar e inscrever-se",
+  "organize-experience": "Não é preciso ter experiência. Você pode ter no mínimo de 15 anos.",
+  "no-event-subscribe": "Não está pronto(a) para se voluntariar? Digite seu e-mail para receber uma notificação se relançarmos o CodeDay {{region}}:",
+  "photos-header": "Anteriormente no CodeDay {{region}}",
+  "photos-button": "Mais fotos e projetos passados",
+  "faq": {
+    "title": "Perguntas frequentes",
+    "button": "Todas as perguntas frequentes",
+    "body": "<0>Tem mais perguntas? Você pode <2>ler mais perguntas frequentes aqui</2> ou enviar um e-mail para a gente: <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "O melhor evento para iniciantes criarem jogos e aplicativos incríveis!",
+    "long": "O CodeDay é um evento mundial em que estudantes que são artistas, programadores, musicistas, atores e escritores se juntam para criar aplicativos e jogos.",
+    "no-experience-required": "NÃO É PRECISO TER EXPERIÊNCIA EM PROGRAMAÇÃO!"
+  }
+}
