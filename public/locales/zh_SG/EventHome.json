@@ -8,7 +8,7 @@
   "hosted-at": "主持 @ {{会场}}",
   "early-bird": "(早鸟优惠！)",
   "scholarship-button": "负担不起？",
-  "registrations-closed": "CodeDay {{region}} 目前不接受注册。",
+  "registrations-closed": "CodeDay {{区域}} 目前不接受注册。",
   "registrations-closed-cta": "请输入您的电子邮件，以便在注册开始时得到通知!",
   "no-event-header": "😢我们在 {{region}} 没有开展 CodeDay 的计划 。 (但您可以改变这一点！)",
   "no-event-subheader": "CodeDays 由当地志愿者组织开展。如果您希望在{{region}}举办开展 CodeDay，请点击下面:",
