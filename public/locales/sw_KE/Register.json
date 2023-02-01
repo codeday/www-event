@@ -62,7 +62,7 @@
   "too-many-tickets_one": "Samahani, ni tikiti {{count}} tu inapatikna kwa bei hii. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_other": "Samahani, ni tikiti {{count}} tu zinapatikna kwa bei hii. $t(Tafadhali ondoa, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_more-than-available_one": "Samahani, ni tikiti {{count}} tu inapatikna. $t(tafadhali ondoa, {\"count\": {{numTicketsToRemove}}})",
-  "too-many-tickets_more-than-available_other": "Samahani, ni tikiti {{count}} tu zinapatikna. $t(tafadhali ondoa, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Samahani, ni tikiti {{count}} tu zinapatikna. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "please-remove_one": "Tafadhali ondoa tikiti {{count}} ili kuendelea.",
   "please-remove_other": "Tafadhali ondoa tikiti {{count}} ili kuendelea.",
   "remaining-tickets_one": "Ni tikiti {{count}} tu imesalia!",
