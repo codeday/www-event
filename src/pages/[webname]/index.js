@@ -247,7 +247,7 @@ export async function getStaticProps({ locale, params: { webname } }) {
   });
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['EventHome', 'Register', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en', ['EventHome', 'Register', 'Scholarship', 'common'])),
       webname,
       region: result?.cms?.regions?.items[0] || null,
       images: result?.cms?.pressPhotos?.items || [],

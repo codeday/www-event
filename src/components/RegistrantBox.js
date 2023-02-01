@@ -75,6 +75,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
             fontSize="sm"
             textAlign="center"
             mt={8}
+            whiteSpace="nowrap"
           >
             {event.customContactAnd ? t('divider-and') : t('divider-or')}
           </Box>

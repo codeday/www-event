@@ -75,6 +75,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
             fontSize="sm"
             textAlign="center"
             mt={8}
+            whiteSpace="nowrap"
           >
             {t('common:divider-and')}
           </Box>

@@ -25,24 +25,26 @@ export default function ScholarshipBox({
   const expectedPrice = finalPrice * ticketsData.length;
 
   return (
-    <Box shadow="md" rounded="sm" borderWidth={1} p={4} {...rest}>
-      <Text fontWeight="bold">{t('reason.question')}</Text>
-      <Select placeholder=" " onChange={(e) => setScholarshipReason(e.target.value)} default>
-        <option value="FAMILY_CANT_AFFORD">{t('reason.FAMILY_CANT_AFFORD')}</option>
-        <option value="CANT_AFFORD">{t('reason.CANT_AFFORD')}</option>
-        <option value="FAMILY_UNSURE">{t('reason.FAMILY_UNSURE')}</option>
-        <option value="DONT_BELIEVE_PAY">{t('reason.DONT_BELIEVE_PAY')}</option>
-        <option value="OTHER">{t('reason.OTHER')}</option>
-      </Select>
-      {scholarshipReason === 'OTHER' && (
-        <>
-          <Text fontWeight="bold" mt={4}>{t('reason.other-prompt')}</Text>
-          <TextInput onChange={(e) => setScholarshipReasonOther(e.target.value)} value={scholarshipReasonOther} />
-        </>
-      )}
+    <Box pb={8} {...rest}>
+      <Box borderWidth={1} p={4}>
+        <Text fontWeight="bold">{t('reason.question')}</Text>
+        <Select placeholder=" " onChange={(e) => setScholarshipReason(e.target.value)} default>
+          <option value="FAMILY_CANT_AFFORD">{t('reason.FAMILY_CANT_AFFORD')}</option>
+          <option value="CANT_AFFORD">{t('reason.CANT_AFFORD')}</option>
+          <option value="FAMILY_UNSURE">{t('reason.FAMILY_UNSURE')}</option>
+          <option value="DONT_BELIEVE_PAY">{t('reason.DONT_BELIEVE_PAY')}</option>
+          <option value="OTHER">{t('reason.OTHER')}</option>
+        </Select>
+        {scholarshipReason === 'OTHER' && (
+          <>
+            <Text fontWeight="bold" mt={4}>{t('reason.other-prompt')}</Text>
+            <TextInput onChange={(e) => setScholarshipReasonOther(e.target.value)} value={scholarshipReasonOther} />
+          </>
+        )}
+      </Box>
       <Button
-        mt={4}
-        rounded={0}
+        shadow="md"
+        borderTopRadius={0}
         w="100%"
         colorScheme={ready ? 'green' : 'gray'}
         disabled={!ready}

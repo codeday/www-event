@@ -25,9 +25,9 @@ export default function StripePaymentBox({
   const expectedPrice = finalPrice * ticketsData.length;
 
   return (
-    <Box shadow="md" rounded="sm" borderWidth={1} p={4} {...rest}>
+    <Box pb={8} {...rest}>
       {finalPrice > 0 && (
-        <Box mb={8}>
+        <Box mb={0} p={4} rounded="sm" borderWidth={1}>
           <CardElement
             onChange={(e) => setIsStripeReady(e.complete)}
             options={{
@@ -46,8 +46,9 @@ export default function StripePaymentBox({
         </Box>
       )}
       <Button
-        rounded={0}
+        shadow="md"
         w="100%"
+        borderTopRadius={0}
         colorScheme={ready ? 'green' : 'gray'}
         disabled={!ready}
         isLoading={isLoading}
