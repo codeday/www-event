@@ -61,7 +61,7 @@
   "remove-ticket": "Singkir Tiket",
   "too-many-tickets_one": "Maaf, hanya {{count}} tiket boleh didapati pada harga ini. $t(sila-singkir, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_other": "Maaf, hanya {{count}} tiket boleh didapati pada harga ini. $t(sila-singkir, {\"count\": {{numTicketsToRemove}}})",
-  "too-many-tickets_more-than-available_one": "Maaf, hanya {{count}} tiket boleh didapati. $t(sila-singkir, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Maaf, hanya {{count}} tiket boleh didapati. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_more-than-available_other": "Maaf, hanya {{count}} tiket boleh didapati. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "please-remove_one": "Sila singkirkan {{count}} tiket untuk teruskan.",
   "please-remove_other": "Sila singkirkan {{count}} tiket untuk teruskan.",
