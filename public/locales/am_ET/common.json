@@ -10,8 +10,8 @@
   "phone-valid": "የእርስዎ ሙሉ ዓለም አቀፍ ቁጥር: {{number}}",
   "sms": "SMS",
   "whatsapp": "WhatsApp",
-  "first-name": "መጠሪያ (given) ስም",
-  "last-name": "የአባት (family) ስም",
+  "first-name": "መጠሪያ ስም",
+  "last-name": "የአባት ስም",
   "name": "ስም",
   "success": {
     "message": {
@@ -27,7 +27,7 @@
       "no-promo": "የማስተዋወቂያ ኮድ አልተገኘም።",
       "promo-fully-used": "የማስተዋወቂያ ኮድ አልተገኘም።"
     },
-    "contact": "እባክዎን ለእርዳታ የ <click>contact CodeDay ሰራተኞችን</click> ያግኙ።"
+    "contact": "እባክዎን ለእርዳታ የ <click>CodeDay ሰራተኞችን</click> ያግኙ።"
   },
   "team": {
     "heading": "የኛ ቡድን"
@@ -48,9 +48,9 @@
     "heading": "ዎርክሾፕ ማስተናገድ ይፈልጋሉ?",
     "body": "የእርስዎ ዎርክሾፕ ስለ ቴክኖሎጂ፣ ስነ ጥበብ፣ ሙዚቃ ወይም ሌላ እርስዎን የሚስብ ነገር ሊሆን ይችላል። ተማሪዎች እንዲያቀርቡ ይበረታታሉ። (በዚያ ዙሪያ ባለሞያ መሆን አይጠበቅብዎትም!)</strong>",
     "form": {
-      "first-name": "$t(መጠሪያ-ስም)",
-      "last-name": "$t(የአባት-ስም)",
-      "email": "$t(ኢሜይል)",
+      "first-name": "$t(first-name)",
+      "last-name": "$t(last-name)",
+      "email": "$t(email)",
       "confirm-alert": "ገብቷል! በተቻለን ፍጥነት በኢሜል ወደ እርስዎ እንመለሳለን።",
       "topic": {
         "question": "የእርስዎ ዎርክሾፕ ስለ ምን በተመለከተ እንዲሆን ይፈልጋሉ?",
@@ -94,7 +94,7 @@
     ]
   },
   "menu": {
-    "faq": "FAQ (በተደጋጋሚ የሚጠየቁ ጥያቄዎች)",
+    "faq": "FAQ",
     "schools": "ትምህርት ቤቶች",
     "volunteer": "በጎ ፈቃድ",
     "organize": "ማደራጀት",
