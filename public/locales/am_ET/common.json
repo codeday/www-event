@@ -1,0 +1,125 @@
+{
+  "divider-and": "— & —",
+  "divider-or": "— ወይም —",
+  "submit": "ያስገቡ",
+  "email": "ኢሜይል",
+  "email-long": "የኢሚይል አድራሻ",
+  "phone": "የስልክ ቁጥር",
+  "phone-long": "የሞባይል ስልክ ቁጥር",
+  "phone-invalid": "የማይሰራ {{countryName}} የሞባይል ስልክ ቁጥር",
+  "phone-valid": "የእርስዎ ሙሉ ዓለም አቀፍ ቁጥር: {{number}}",
+  "sms": "SMS",
+  "whatsapp": "WhatsApp",
+  "first-name": "መጠሪያ (given) ስም",
+  "last-name": "የአባት (family) ስም",
+  "name": "ስም",
+  "success": {
+    "message": {
+      "default": "ተረጋግጧል!",
+      "promo-applied_PERCENT": "{{promoName}} የተተገበረ - {{discountAmount}}% ቅናሽ!",
+      "promo-applied_SUBTRACT": "{{promoName}} የተተገበረ - {{discountAmount, currency}} ቅናሽ!"
+    }
+  },
+  "error": {
+    "message": {
+      "default": "ያልተጠበቀ ስህተት ተከስቷል።",
+      "no-event": "ይቅርታ፣ ያንን CodeDay ልናገኘው አልቻልንም።",
+      "no-promo": "የማስተዋወቂያ ኮድ አልተገኘም።",
+      "promo-fully-used": "የማስተዋወቂያ ኮድ አልተገኘም።"
+    },
+    "contact": "እባክዎን ለእርዳታ የ <click>contact CodeDay ሰራተኞችን</click> ያግኙ።"
+  },
+  "team": {
+    "heading": "የኛ ቡድን"
+  },
+  "waiver": "CodeDay የተሳትፎ ዌቨር",
+  "fill-required": "(ሁሉንም አስፈላጊ መስኮች ይሙሉ)",
+  "payment": {
+    "confirm": {
+      "free": "ሙሉ ነፃ ምዝገባ",
+      "pay": "አሁን ይክፈሉ ({{price, currency}})"
+    },
+    "error": {
+      "total-changed": "ገጹ ከተጫነ በኋላ አጠቃላይው ተቀይሯል (ይህ ማለት ብዙውን ጊዜ ቅናሽ ጊዜው አልፎበታል ማለት ነው)፣ እና ክፍያ አልተጠየቁም። አዲሱ ጠቅላላ {{price, currency}} ነው። እባክዎ ገጹን ያድሱ።"
+    }
+  },
+  "workshop-apply": {
+    "title": "CodeDay {{region}} የዎርክሾፕ ማስረከብ",
+    "heading": "ዎርክሾፕ ማስተናገድ ይፈልጋሉ?",
+    "body": "የእርስዎ ዎርክሾፕ ስለ ቴክኖሎጂ፣ ስነ ጥበብ፣ ሙዚቃ ወይም ሌላ እርስዎን የሚስብ ነገር ሊሆን ይችላል። ተማሪዎች እንዲያቀርቡ ይበረታታሉ። (በዚያ ዙሪያ ባለሞያ መሆን አይጠበቅብዎትም!)</strong>",
+    "form": {
+      "first-name": "$t(መጠሪያ-ስም)",
+      "last-name": "$t(የአባት-ስም)",
+      "email": "$t(ኢሜይል)",
+      "confirm-alert": "ገብቷል! በተቻለን ፍጥነት በኢሜል ወደ እርስዎ እንመለሳለን።",
+      "topic": {
+        "question": "የእርስዎ ዎርክሾፕ ስለ ምን በተመለከተ እንዲሆን ይፈልጋሉ?",
+        "placeholder": "አጭር መግለጫ"
+      },
+      "role": {
+        "label": "እኔ...",
+        "attendee": "CodeDay ላይ የምከታተል ተማሪ ነኝ",
+        "former-attendee": "የቀድሞ የ CodeDay ተማሪ ነኝ",
+        "company-representative": "የኩባንያ ተወካይ ነኝ",
+        "industry-professional": "ሌላ የኢንዱስትሪ ባለሙያ ነኝ",
+        "parent": "የ CodeDay ተማሪ ወላጅ ነኝ",
+        "other": "ሌላ"
+      }
+    }
+  },
+  "awards": {
+    "heading": "አዲስ ቢሆኑም እንኳ ሽልማት ያሸንፉ!",
+    "criteria": {
+      "heading": "የእኛ የዳኝነት መስፈርቶች:",
+      "difficulty": {
+        "heading": "አስቸጋሪ (ለእርስዎ)",
+        "body": "CodeDay ለታይታ አይደለም። አዲስ ነገር ለመሞከር እራስዎን ይግፉ!"
+      },
+      "creativity": {
+        "heading": "ፈጣሪነት",
+        "body": "በኦሪጅናል ጥበብ፣ ዲዛይን፣ ሙዚቃ፣ የድምጽ ትወና ወይም ታሪክ አዝናኝ ፕሮጀክት ለመገንባት ከሌሎች ተሳታፊዎች ጋር ይስሩ።"
+      }
+    }
+  },
+  "explainer": {
+    "heading": "Codeday እንዴት እንደሚሰራ እነሆ:",
+    "subheading": "(ለመዝናናት ኮዴር መሆን አያስፈልግም። በተለይ አርቲስቶች፣ ሙዚቀኞች፣ ደራሲያን እና ተዋናዮች እንዲመጡ ይበረታታሉ!)",
+    "steps": [
+      "አዳዲስ ሃሳቦችን ይዘው ይምጡ።",
+      "አንድ ቡድን ይፈልጉ።",
+      "እሱን መገንባት ይጀምሩ! (ምንም ልምድ አያስፈልግዎትም!)",
+      "ሲፈልጉት እንረዳዎታለን።",
+      "አዝናኝ እንቅስቃሴዎችን ይቀላቀሉ... ከሽልማት ጋር!",
+      "የሰሩትን ያሳዩ።"
+    ]
+  },
+  "menu": {
+    "faq": "FAQ (በተደጋጋሚ የሚጠየቁ ጥያቄዎች)",
+    "schools": "ትምህርት ቤቶች",
+    "volunteer": "በጎ ፈቃድ",
+    "organize": "ማደራጀት",
+    "upcoming": "ሁሉንም ዝግጅቶች"
+  },
+  "photo": {
+    "credit": "ፎቶ: {{photographer_name}}"
+  },
+  "schedule": {
+    "heading": "መርሐግብር",
+    "no-schedule": "መርሐግብሩ እስካሁን አልተገለጸም።"
+  },
+  "sponsors": {
+    "heading": "በሚከተለው ድጋፍን ማግኘት ጨምሮ:"
+  },
+  "studentQuotes": {
+    "heading" : "እንኳን <highlight>50,000+ ተማሪዎች</highlight> ያሳተፈ ወደ ወዳጃዊ እና ፈጣሪ ማህበረሰባችን በደህና መጡ፣ እነዚህም <highlight>10,000+ ፕሮጀክቶችን የሰሩ ናቸው!</highlight>",
+    "anonymous": "ስም አልባ",
+    "quote": "{{name}}፣ {{experienceLevel}} ኮደር"
+  },
+  "theme": {
+    "heading": "ጭብጡ...",
+    "body": "“{{theme}}”",
+    "optional": "(ግን እንደ አማራጭ ነው!)",
+    "no-theme": "ጭብጡ በቅርቡ ይገለጣል።",
+    "guess-cta": "ሽልማት የማግኘት እድል ለማግኘት ግምቶችዎን ወደ @codeday_org በ Instagram ላይ ይላኩ።"
+  }
+}
