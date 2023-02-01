@@ -63,7 +63,7 @@
   "too-many-tickets_other": "抱歉，这个价格只有{{数量}}票可用。$t(请删除，{\"数量\": {{要移除的票数}}})",
   "too-many-tickets_more-than-available_one": "抱歉，这个价格只有{{数量}}票可用。$t(请删除，{\"数量\": {{要移除的票数}}})",
   "too-many-tickets_more-than-available_other": "抱歉，这个价格只有{{数量}}票可用的。$t(请删除，{\"数量\": {{要移除的票数}}})",
-  "please-remove_one": "请删除{{数量}}门票，以继续进行。",
+  "please-remove_one": "请删除{{count}}门票，以继续进行。",
   "please-remove_other": "请删除{{count}}门票，以继续进行。",
   "remaining-tickets_one": "只剩下{{count}}张票了!",
   "remaining-tickets_other": "只剩下{{count}}张门票了!"
