@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "የወላጅ/የአሳዳጊ መረጃ",
+    "subheading": "ይህ የሚፈለገው ማንኛውም ተሳታፊ ለአካለ መጠን ያልደረሰ ከሆነ ነው።"
+  },
+  "pending": {
+    "heading": "የእርስዎን ምዝገባ እየገመገምነው ነው።",
+    "body": "በመጨረሻው ትኬትዎ እናገኝዎታለን። እስከዚያው ድረስ፣ እባክዎ የሚከተለውን መረጃ ይሙሉ:"
+  },
+  "confirmed": {
+    "heading": "ወደ Codeday እየሄዱ ነው! አሁን ተሞክሮዎን ያብጁ።",
+    "body": "ቲኬት ማተም አያስፈልግም፣ በስም እናስገባዎታለን። እባክዎ የሚከተለውን መረጃ ይሙሉ:"
+  },
+  "sold-out": {
+    "heading": "ይቅርታ፣ ሁሉም ተሸጧል!",
+    "body": "ሁሉም ቦታዎቻችን ፍጹም ሞልቷል፣ እና ልዩ ሁኔታዎችን ማስተናገድ አንችልም። በሩ ላይ ምንም ትኬቶች አይገኙም።"
+  },
+  "requires-promo-code": "ይህ CodeDay ለህዝብ ክፍት አይደለም። ተጋብዘው ከሆነ ለመመዝገብ የመዳረሻ ኮድዎን ያስገቡ።",
+  "access-code": "መዳረሻ ኮድ",
+  "promo-code": "የማስተዋወቂያ ኮድ",
+  "promo-applied": {
+    "promo-code": "ማስተዋወቂያ: {{promoCode}}",
+    "access-code": "መዳረሻ ኮድ: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "የማስተዋወቂያ ኮድ አለዎት?",
+    "access-code": "የመዳረሻ ኮድ ያስፈልጋል።"
+  },
+  "payment": {
+    "header": "ክፍያ",
+    "ticket-summary": "{{count}} x <ticketIcon /> CodeDay ትኬት - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDay ትኬት (ቀድሞ ለሚመጣ) - {{price, currency}}",
+    "request-scholarship": "የመግዛት አቅም የለኝም? ስኮላርሺፕ ይጠይቁ »",
+    "cancel-scholarship": "« የስኮላርሺፕ ጥያቄ ይሰርዙ"
+  },
+  "terms": {
+    "header": "ውሎች",
+    "body": [
+      "<listItem>ዋጋዎች በሚከተለው ምንዛሪ ናቸው {{currency}}.</listItem>",
+      "<listItem>የ <conductLink>ሥነ ምግባር ደንብ</conductLink> እና <rulesLink>የዝግጅት ደንቦችን</rulesLink></listItem>መከተል አለብዎት",
+      "<listItem>የዌቨር እና የሚዲያ ልቀትን መፈረም ያስፈልግዎታል።</listItem>",
+      "<listItem>ፎቶግራፍ ልናነሳዎ ወይም ልንቀርጽዎ እንችላለን።</listItem>",
+      "<listItem>ተመላሽ የሚደረጉ ገንዘቦች፣ ዝግጅቱ ከመጀመሩ በፊት እስከ 48 ሰዓታት ድረስ ይገኛሉ።</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> ይቅርታ፣ መመዝገብ አይችሉም።",
+    "too_old": "CodeDay አብዛኛው ጊዜ ያነጣጠረው ለሁለተኛ ደረጃ ተማሪዎች ነው፣ እና ከ {{maxAge}} በላይ ለሆኑት ተስማሚ አይደለም።",
+    "too_young": "CodeDay አብዛኛው ጊዜ ያነጣጠረው ለሁለተኛ ደረጃ ተማሪዎች ነው፣ እና ከ {{maxAge}} በታች ለሆኑት ተስማሚ አይደለም።"
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> ወጣት ተማሪዎች አዳር መምጣት አይችሉም።",
+    "body": "ከ {{age}} እድሜ በታች ያሉ ተማሪዎች ከቀኑ 8-10 ሰአት መወሰድ አለባቸው እና በሚቀጥለው ቀን ከጠዋቱ 7 ሰአት በኋላ መመለስ ይችላሉ።"
+  },
+  "participant-info": "የተሳታፊ መረጃ",
+  "collect-org": "በየትኛው ትምህርት ቤት ወይም ክለብ ነው የተመዘገቡት?",
+  "collect-org-prefill": "ትምህርት ቤት/ክለብ",
+  "collect-participant-age": "የ {{name}} ዕድሜ",
+  "collect-participant-age_generic": "የተሳታፊ ዕድሜ",
+  "add-ticket": "ትኬቱን ያክሉ",
+  "remove-ticket": "ትኬቱን ያስወግዱ",
+  "too-many-tickets_one": "ይቅርታ፣ በዚህ ዋጋ የሚገኘው {{count}} ቲኬት ብቻ ነው። $t (እባክዎ ይህንን ያስወግዱ፣ {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "ይቅርታ፣ በዚህ ዋጋ የሚገኙት {{count}} ቲኬቶች ብቻ ናቸው። $t (እባክዎ ይህንን ያስወግዱ፣ {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "ይቅርታ፣ የሚገኘው {{count}} ቲኬት ብቻ ነው። $t (እባክዎ ይህንን ያስወግዱ፣ {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "ይቅርታ፣ የሚገኘው {{count}} ቲኬቶች ብቻ ናቸው። $t (እባክዎ ይህንን ያስወግዱ፣ {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "ለመቀጠል እባክዎ {{count}} ቲኬት ያስወግዱ።",
+  "please-remove_other": "ለመቀጠል እባክዎ {{count}} ቲኬቶችን ያስወግዱ።",
+  "remaining-tickets_one": "{{count}} ቲኬት ብቻ ቀርቷል!",
+  "remaining-tickets_other": "{{count}} ቲኬቶች ብቻ ቀርተዋል!"
+}
