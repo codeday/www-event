@@ -1,7 +1,7 @@
 module.exports = {
   i18n: {
     defaultLocale: '_default',
-    locales: ['_default', 'en-US', 'es-MX', 'sw-KE', 'fr-CA', 'zh-SG', 'pt-BR', 'ms-MY'],
+    locales: ['_default', 'en-US', 'es-MX', 'sw-KE', 'fr-CA', 'zh-SG', 'pt-BR', 'ms-MY', 'am-ET'],
     localeDetection: false,
   },
   fallbackLng: {
