@@ -59,7 +59,7 @@
   "collect-participant-age_generic": "Umur Peserta",
   "add-ticket": "Tambah Tiket",
   "remove-ticket": "Singkir Tiket",
-  "too-many-tickets_one": "Maaf, hanya {{count}} tiket boleh didapati pada harga ini. $t(sila-singkir, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_one": "Maaf, hanya {{count}} tiket boleh didapati pada harga ini. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_other": "Maaf, hanya {{count}} tiket boleh didapati pada harga ini. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_more-than-available_one": "Maaf, hanya {{count}} tiket boleh didapati. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_more-than-available_other": "Maaf, hanya {{count}} tiket boleh didapati. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
