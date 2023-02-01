@@ -46,21 +46,21 @@
   "invalid-age": {
     "header": "<errorIcon />抱歉，您无法注册。",
     "too_old": "CodeDay 主要针对高中生，对于那些超过{{最大年龄}}的人来说并不适合。",
-    "too_young": "CodeDay 主要针对的是高校学生，对于那些低于{{最小年龄}}的人来说并不适合。"
+    "too_young": "CodeDay 主要针对的是高校学生，对于那些低于{{minAge}}的人来说并不适合。"
   },
   "overnight-warning": {
     "header": "<errorIcon />年纪较小的学生不能过夜。",
-    "body": "未满{年龄}的学生需要在晚上 8 - 10 点之间被接走，第二天早上 7 点以后可以返回。"
+    "body": "未满{{age}}的学生需要在晚上 8 - 10 点之间被接走，第二天早上 7 点以后可以返回。"
   },
   "participant-info": "参加者信息",
   "collect-org": "你在哪所学校或俱乐部注册？",
   "collect-org-prefill": "学校/俱乐部",
-  "collect-participant-age": "{{姓名}}的年龄",
+  "collect-participant-age": "{{name}}的年龄",
   "collect-participant-age_generic": "参加者年龄",
   "add-ticket": "添加门票",
   "remove-ticket": "删除门票",
-  "too-many-tickets_one": "抱歉，这个价格只有{{数量}}票可用。$t(请删除，{\"数量\": {{要移除的票数}}})",
-  "too-many-tickets_other": "抱歉，这个价格只有{{数量}}票可用。$t(请删除，{\"数量\": {{要移除的票数}}})",
+  "too-many-tickets_one": "抱歉，这个价格只有{{count}}票可用。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "抱歉，这个价格只有{{count}}票可用。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_more-than-available_one": "抱歉，这个价格只有{{count}}票可用。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "too-many-tickets_more-than-available_other": "抱歉，这个价格只有{{count}}票可用的。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
   "please-remove_one": "请删除{{count}}门票，以继续进行。",
