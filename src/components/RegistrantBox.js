@@ -2,6 +2,7 @@
 import React, {
   useEffect, useReducer, useRef,
 } from 'react';
+import { useRouter } from 'next/router';
 import {
   Grid, Box, NumberInput, TextInput, NumberInputField, NumberInputStepper, NumberIncrementStepper, NumberDecrementStepper, Text,
 } from '@codeday/topo/Atom';
@@ -10,10 +11,15 @@ import { Trans, useTranslation } from 'next-i18next';
 import PhoneInput from './PhoneInput';
 
 export default function RegistrantBox({ event, onChange, ...rest }) {
+  const { locale } = useRouter();
   const { t } = useTranslation();
   const [ticketData, setTicketData] = useReducer(
     (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
   );
+
+  useEffect(() => {
+    setTicketData(['locale', locale]);
+  }, [locale]);
 
   const initialRender = useRef(true);
   useEffect(() => {

@@ -6,12 +6,19 @@ import {
   Grid, Box, TextInput, Text,
 } from '@codeday/topo/Atom';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import PhoneInput from './PhoneInput';
 
 export default function GuardianBox({ event, onChange, ...rest }) {
+  const { locale } = useRouter();
   const [guardianData, setGuardianData] = useReducer(
     (prev, next) => (Array.isArray(next) ? { ...prev, [next[0]]: next[1] } : next), {},
   );
+
+  useEffect(() => {
+    setGuardianData(['locale', locale]);
+  }, [locale]);
+
   const initialRender = useRef(true);
   const { t } = useTranslation('Register');
   useEffect(() => {

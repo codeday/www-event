@@ -24,6 +24,8 @@ export default function ScholarshipBox({
   const ready = scholarshipReason && (scholarshipReason !== 'OTHER' || scholarshipReasonOther) && isValid;
   const expectedPrice = finalPrice * ticketsData.length;
 
+  console.log(ticketsData, guardianData)
+
   return (
     <Box pb={8} {...rest}>
       <Box borderWidth={1} p={4}>
