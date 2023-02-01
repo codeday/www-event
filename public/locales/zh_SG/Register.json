@@ -29,14 +29,14 @@
   "payment": {
     "header": "付款方式",
     "ticket-summary": "{{数量}} x <ticketIcon />CodeDay 门票 - {{价格，货币}}。",
-    "ticket-summary_early-bird": "{{数量}} x <ticketIcon />CodeDay 门票 (早鸟) - {{价格，货币}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon />CodeDay 门票 (早鸟) - {{price, currency}}",
     "request-scholarship": "负担不起？需要申请奖学金 »",
     "cancel-scholarship": "« 取消奖学金申请"
   },
   "terms": {
     "header": "条款",
     "body": [
-      "<listItem>价格以{{货币}}为货币单位。</listItem>",
+      "<listItem>价格以{{currency}}为货币单位。</listItem>",
       "<listItem>您必须遵守<conductLink>行为准则</conductLink>和<rulesLink>活动规则</rulesLink></listItem>",
       "<listItem>您需要签署一份免责声明和媒体声明。</listItem>",
       "<listItem>我们可能会对您进行拍照或录音。</listItem>",
