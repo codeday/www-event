@@ -1,0 +1,125 @@
+{
+  "divider-and": "— 和 —",
+  "divider-or": "— 或 —",
+  "submit": "提交",
+  "email": "电子邮箱",
+  "email-long": "电子邮箱位置",
+  "phone": "电话号码",
+  "phone-long": "手机号码",
+  "phone-invalid": "不是有效的{{countryName}}手机号码",
+  "phone-valid": "您完整的国际电话号码：{{number}}",
+  "sms": "短信",
+  "whatsapp": "WhatsApp",
+  "first-name": "名（给定的）",
+  "last-name": "姓（家族）",
+  "name": "姓名",
+  "success": {
+    "message": {
+      "default": "确认",
+      "promo-applied_PERCENT": "{{promoName}}应用 -{{discountAmount}}%折扣!",
+      "promo-applied_SUBTRACT": "{{promoName}}应用 - {{discountAmount, currency}}% 折扣!"
+    }
+  },
+  "error": {
+    "message": {
+      "default": "发生了一个意外错误。",
+      "no-event": "抱歉，我们无法找到该 CodeDay。",
+      "no-promo": "没有找到促销代码",
+      "promo-fully-used": "促销代码已全部使用。"
+    },
+    "contact": "请联系<click>CodeDay 工作人员</click>寻求帮助。"
+  },
+  "team": {
+    "heading": "我们的团队"
+  },
+  "waiver": "CodeDay 参与豁免",
+  "fill-required": "(填写所有必填项)",
+  "payment": {
+    "confirm": {
+      "free": "完成免费注册",
+      "pay": "立即付款({{price, currency}})"
+    },
+    "error": {
+      "total-changed": "页面加载后，总额发生了变化（这通常意味着折扣过期），而您没有付款。新的总额是{{price, currency}}。请刷新页面。"
+    }
+  },
+  "workshop-apply": {
+    "title": "CodeDay {{region}}研讨会提交",
+    "heading": "想举办研讨会吗？",
+    "body": "您的研讨会可以是关于技术、艺术、音乐或其他您感兴趣的东西。<strong>我们鼓励学生提交。(您不一定非得是专家！)</strong>",
+    "form": {
+      "first-name": "$t(名)",
+      "last-name": "$t(姓)",
+      "email": "$t(电子邮件)",
+      "confirm-alert": "提交了! 我们会尽快通过电子邮件给您答复。",
+      "topic": {
+        "question": "您想让您的研讨会成为什么样子？",
+        "placeholder": "简述"
+      },
+      "role": {
+        "label": "我是一名...",
+        "attendee": "参加 CodeDay 的学生",
+        "former-attendee": "前 CodeDay 学生",
+        "company-representative": "公司代表",
+        "industry-professional": "其他行业的专业人士",
+        "parent": "CodeDay 学生的家长",
+        "other": "其他"
+      }
+    }
+  },
+  "awards": {
+    "heading": "即使你是新人，也能赢取奖项，!",
+    "criteria": {
+      "heading": "我们的评判标准:",
+      "difficulty": {
+        "heading": "难度 (对你而言)",
+        "body": "CodeDay 并不是为了炫耀。而是推动自己去尝试新的东西!"
+      },
+      "creativity": {
+        "heading": "创造力",
+        "body": "与其他与会者合作，建立一个具有原创艺术、设计、音乐、配音或故事的有趣项目。"
+      }
+    }
+  },
+  "explainer": {
+    "heading": "以下是 CodeDay 的运作方式:",
+    "subheading": "(You don't need to be a coder to have fun. Artists, musicians, writers, and actors are especially welcome!)",
+    "steps": [
+      "出谋划策。",
+      "寻找一个团队。",
+      "开始建造! (不需要任何经验!)",
+      "我们会在您需要的时候帮助您。",
+      "参加有趣的活动...还有活动奖品",
+      "炫耀您做的东西。"
+    ]
+  },
+  "menu": {
+    "faq": "常见问题解答",
+    "schools": "学校",
+    "volunteer": "志愿者",
+    "organize": "组建",
+    "upcoming": "所有事件"
+  },
+  "photo": {
+    "credit": "照片：{{photographer_name}}"
+  },
+  "schedule": {
+    "heading": "时间安排",
+    "no-schedule": "时间安排还没有公布"
+  },
+  "sponsors": {
+    "heading": "得到了以下机构的支持："
+  },
+  "studentQuotes": {
+    "heading" : "欢迎来到我们这个由 <highlight>50,000 多名学生</highlight>组成的友好而富有创造力的社区，他们已经完成了 <highlight>10,000 多个项目</highlight>",
+    "anonymous": "匿名",
+    "quote": "{{name}}, {{experienceLevel}} 程序员"
+  },
+  "theme": {
+    "heading": "主题是...",
+    "body": "“{{theme}}”",
+    "optional": "(但这是可选的！)",
+    "no-theme": "主题即将揭晓。",
+    "guess-cta": "将您的猜测发送到 Instagram 上的 @codeday_org，就有机会获得奖品。"
+  }
+}
