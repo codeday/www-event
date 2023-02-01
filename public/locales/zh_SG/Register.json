@@ -45,7 +45,7 @@
   },
   "invalid-age": {
     "header": "<errorIcon />抱歉，您无法注册。",
-    "too_old": "CodeDay 主要针对高中生，对于那些超过{{最大年龄}}的人来说并不适合。",
+    "too_old": "CodeDay 主要针对高中生，对于那些超过{{maxAge}}的人来说并不适合。",
     "too_young": "CodeDay 主要针对的是高校学生，对于那些低于{{minAge}}的人来说并不适合。"
   },
   "overnight-warning": {
