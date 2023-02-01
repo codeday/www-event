@@ -1,0 +1,30 @@
+{
+  "free": "免费！",
+  "ticket-price": "票价：{{价格，货币}}",
+  "register-now": "马上注册",
+  "past-projects-header": "我们将帮助你做出类似...",
+  "register-header": "注册参加 CodeDay",
+  "register-subheader": "不需要对编码感兴趣或有编码经验!",
+  "hosted-at": "主持 @ {{会场}}",
+  "early-bird": "(早鸟优惠！)",
+  "scholarship-button": "负担不起？",
+  "registrations-closed": "CodeDay {{区域}} 目前不接受注册。",
+  "registrations-closed-cta": "请输入您的电子邮件，以便在注册开始时得到通知!",
+  "no-event-header": "😢我们在 {{地区}} 没有开展 CodeDay 的计划 。 (但您可以改变这一点！)",
+  "no-event-subheader": "CodeDays 由当地志愿者组织开展。如果您希望在{{地区}}举办开展 CodeDay，请点击下面:",
+  "organize-button": "了解更多关于组织工作的信息并报名参加",
+  "organize-experience": "不需要任何经验。要求年龄在 15 岁以上。",
+  "no-event-subscribe": "还没有准备好做志愿者？输入您的电子邮件，如果我们计划在{{区域}}重启 CodeDay ，您会收到通知。",
+  "photos-header": "以前在{{区域}} CodeDay 的工作情况",
+  "photos-button": "更多过去的图片和项目",
+  "faq": {
+    "title": "常见问题解答",
+    "button": "所有常见问题解答",
+    "body": "<0>有更多问题吗？您可以<2>在这里阅读更多的常见问题解答，</2>或给我们发电子邮件：<5>team@codeday.org</5>。</0>"
+  },
+  "hero": {
+    "short": "最适合初学者的活动，以创建令人惊叹的游戏和应用程序!",
+    "long": "CodeDay 是一个世界性的活动，学生艺术家、程序员、音乐家、演员和作家可以聚集在一起，创建应用程序和游戏。",
+    "no-experience-required": "不需要编码经验!"
+  }
+}
