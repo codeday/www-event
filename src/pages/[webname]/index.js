@@ -244,7 +244,7 @@ export async function getStaticProps({ locale, params: { webname } }) {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
     cmsEndDate: DateTime.now().minus({ days: 1 }),
-    locale: locale ?? 'en-US',
+    locale: locale && locale !== '_default' ? locale : 'en-US',
   });
   return {
     props: {

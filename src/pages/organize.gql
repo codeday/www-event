@@ -6,7 +6,7 @@ query OrganizePageQuery($locale: String!) {
   ...OrganizerTestimonials
   ...PastProjects
   cms {
-    quoteNothingLikeSchool: testimonial(id:"2gAsdYLfoK3v9sLuWnAwAt") { ...PullQuote }
-    quoteCreative: testimonial(id:"1NjU0FSdK0hRV4g6l4X1EZ") { ...PullQuote }
+    quoteNothingLikeSchool: testimonial(id:"2gAsdYLfoK3v9sLuWnAwAt", locale: $locale) { ...PullQuote }
+    quoteCreative: testimonial(id:"1NjU0FSdK0hRV4g6l4X1EZ", locale: $locale) { ...PullQuote }
   }
 }

@@ -134,7 +134,7 @@ export default function Organize({ query, random }) {
 }
 
 export async function getStaticProps({ locale }) {
-  const query = await apiFetch(OrganizePageQuery, { locale: locale ?? 'en-US' });
+  const query = await apiFetch(OrganizePageQuery, { locale: locale && locale !== '_default' ? locale : 'en-US' });
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'en-US', ['Organize', 'common'])),
