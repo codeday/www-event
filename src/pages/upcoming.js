@@ -72,10 +72,10 @@ const getDate = (offsetHours) => {
 };
 
 export async function getStaticProps({ locale }) {
-  const query = await apiFetch(UpcomingPageQuery, { clearDate: getDate() });
+  const query = await apiFetch(UpcomingPageQuery, { clearDate: getDate(), locale: locale ?? 'en-US' });
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['Upcoming', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en-US', ['Upcoming', 'common'])),
       query,
       random: Math.random(),
     },

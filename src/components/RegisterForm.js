@@ -192,7 +192,7 @@ export default function RegisterForm({ event, ...props }) {
             />
           )}
           <Box p={{ base: 4, md: 0 }} pb={4}>
-            <DataCollection message="pii" />
+            <DataCollection message="payment" />
           </Box>
         </Box>
 

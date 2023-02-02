@@ -17,30 +17,33 @@ query IndexStaticPathsQuery($endDate: ClearDateTime!) {
   }
 }
 
-query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEndDate: CmsDateTime!) {
+query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEndDate: CmsDateTime!, $locale: String!) {
   ...PastProjects
 
   cms {
     ...GlobalSponsors
-    faqs (where: { program: { webname: "codeday" }, audience_contains_all: ["Student"], featured: true }) {
+    faqs (where: { program: { webname: "codeday" }, audience_contains_all: ["Student"], featured: true }, locale: $locale) {
       items {
         sys { id }
         ...Faq
       }
     }
 
-    awards (where: { featured: true }, order: [ranking_ASC]) {
+    awards (where: { featured: true }, order: [ranking_ASC], locale: $locale) {
       items {
         ...AwardDetails
       }
     }
 
-    regions(where:{ OR: [{ webname: $webname }, { aliases_contains_all: [$webname] }] }, limit: 1) {
+    regions(where:{ OR: [{ webname: $webname }, { aliases_contains_all: [$webname] }] }, limit: 1, locale: $locale) {
       items {
         name
         webname
         timezone
         ...PastPhotos
+        localizationConfig {
+          sys { id }
+        }
       }
     }
     events(
@@ -49,7 +52,8 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       where: {
         program: { webname: "codeday" }
         endsAt_gte: $cmsEndDate,
-      }
+      },
+      locale: $locale
     ) {
       items {
         ...ThemeNotifier
@@ -84,6 +88,9 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         currencySymbol
         paymentProvider
         messagingServices
+        localizationConfig {
+          sys { id }
+        }
       }
       eventGroup {
         id

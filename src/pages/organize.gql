@@ -2,7 +2,7 @@
 #import "../components/Organize/PullQuote.gql"
 #import "../components/PastProjects.gql"
 
-query OrganizePageQuery {
+query OrganizePageQuery($locale: String!) {
   ...OrganizerTestimonials
   ...PastProjects
   cms {

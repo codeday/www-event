@@ -84,7 +84,7 @@ export default function EventHome({
                 {event.activeTicketPrice === 0 ? t('free') : t('ticket-price', { price: event.activeTicketPrice, currency: event.region?.currency || 'USD' })}
                 {event.canEarlyBirdRegister && event.activeTicketPrice > 0
                   ? (
-                    <Text mb={4} display="inline-block" color="red.600" fontSize="xs" position="relative" top="-0.2em">
+                    <Text mb={4} display="block" color="red.600" fontSize="xs" position="relative" top="-0.2em">
                       {t('early-bird')}
                     </Text>
                   ) : null}
@@ -244,10 +244,11 @@ export async function getStaticProps({ locale, params: { webname } }) {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
     cmsEndDate: DateTime.now().minus({ days: 1 }),
+    locale: locale ?? 'en-US',
   });
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['EventHome', 'Register', 'Scholarship', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en-US', ['EventHome', 'Register', 'Scholarship', 'common'])),
       webname,
       region: result?.cms?.regions?.items[0] || null,
       images: result?.cms?.pressPhotos?.items || [],
@@ -260,6 +261,8 @@ export async function getStaticProps({ locale, params: { webname } }) {
       projects: result?.showcase?.projects || [],
       globalTeam: result?.globalTeam,
       random: Math.random(),
+      locale,
+      localizationConfig: result?.cms?.regions?.items[0]?.localizationConfig?.sys?.id || null,
     },
     revalidate: 60,
   };

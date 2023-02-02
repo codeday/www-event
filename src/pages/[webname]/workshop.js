@@ -46,10 +46,11 @@ export async function getStaticProps({ params: { webname }, locale }) {
   const result = await apiFetch(print(WorkshopStaticPropsQuery), {
     webname,
     endDate: DateTime.now().minus({ days: 1 }),
+    locale: locale ?? 'en-US',
   });
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['common'])),
+      ...(await serverSideTranslations(locale ?? 'en-US', ['common'])),
       event: result?.clear?.findFirstEvent || null,
     },
     revalidate: 60,

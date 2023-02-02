@@ -5,7 +5,7 @@ fragment ClearEventInfo on ClearEvent {
   displayDate
 }
 
-query UpcomingPageQuery ($clearDate: ClearDateTime!) {
+query UpcomingPageQuery ($clearDate: ClearDateTime!, $locale: String!) {
   clear {
     open: events (where: { endDate: { gte: $clearDate }, registrationsOpen: { equals: true } }) {
       ...ClearEventInfo
@@ -15,7 +15,7 @@ query UpcomingPageQuery ($clearDate: ClearDateTime!) {
     }
   }
   cms {
-    regions (limit: 500) {
+    regions (limit: 500, locale: $locale) {
       items {
         name
         webname

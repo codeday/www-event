@@ -22,7 +22,7 @@ export default function Scholarship() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['Scholarship'])),
+      ...(await serverSideTranslations(locale ?? 'en-US', ['Scholarship'])),
     },
   };
 }

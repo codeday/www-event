@@ -31,7 +31,7 @@ export default function Rules() {
 export async function getStaticProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en', ['Rules', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en-US', ['Rules', 'common'])),
     },
   };
 }
