@@ -9,22 +9,20 @@ import nextI18NextConfig from '../../next-i18next.config';
 const { publicRuntimeConfig } = getConfig();
 const stripePromise = loadStripe(publicRuntimeConfig.stripeKey);
 
-const App = ({ Component, pageProps }) => {
-  return (
-    <ThemeProvider
-      brandColor="red"
-      analyticsId="AZKCYNER"
-      locale={pageProps?.locale ?? 'en-US'}
-      localizationConfig={pageProps?.localizationConfig}
-      withChat
+const App = ({ Component, pageProps }) => (
+  <ThemeProvider
+    brandColor="red"
+    analyticsId="AZKCYNER"
+    locale={pageProps?.locale ?? 'en-US'}
+    localizationConfig={pageProps?.localizationConfig}
+    withChat
+  >
+    <Elements
+      stripe={stripePromise}
+      options={{ fonts: [{ cssSrc: 'https://f1.codeday.org/topo/fonts/all.css' }], locale: pageProps?.locale ?? 'en-US' }}
     >
-      <Elements
-        stripe={stripePromise}
-        options={{ fonts: [{ cssSrc: 'https://f1.codeday.org/topo/fonts/all.css' }], locale: pageProps?.locale ?? 'en-US' }}
-      >
-        <Component {...pageProps} />
-      </Elements>
-    </ThemeProvider>
-  );
-}
+      <Component {...pageProps} />
+    </Elements>
+  </ThemeProvider>
+);
 export default appWithTranslation(App, nextI18NextConfig);
