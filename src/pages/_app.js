@@ -13,7 +13,7 @@ const App = ({ Component, pageProps }) => (
   <ThemeProvider
     brandColor="red"
     analyticsId="AZKCYNER"
-    locale={pageProps?.locale ?? 'en-US'}
+    locale={pageProps?.locale && pageProps.locale !== '_default' ? pageProps.locale : 'en-US'}
     localizationConfig={pageProps?.localizationConfig}
     withChat
   >
