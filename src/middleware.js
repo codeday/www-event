@@ -5,7 +5,7 @@ import { parseAcceptLanguage } from 'intl-parse-accept-language';
 import nextConfig from '../next.config';
 
 const PUBLIC_FILE = /\.(.*)$/;
-const UNSPECIFIED = '_default2';
+const UNSPECIFIED = '_default';
 const AVAILABLE_LANGUAGES = nextConfig.i18n.locales.filter((e) => e !== UNSPECIFIED);
 const FALLBACK_LANG = 'en-US';
 
