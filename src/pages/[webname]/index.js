@@ -35,7 +35,7 @@ import EventMailingListSubscribe from '../../components/EventMailingListSubscrib
 import PastPhotos from '../../components/PastPhotos';
 
 export default function EventHome({
-  webname, region, images, quotes, event, cmsEvent, globalSponsors, globalTeam, faqs, awards, projects, random,
+  webname, region, images, quotes, event, globalSponsors, globalTeam, faqs, awards, projects, random,
 }) {
   // Redirect the user to the canonical URL
   const router = useRouter();
@@ -120,7 +120,7 @@ export default function EventHome({
       </Content>
       <a name="theme" />
       <Content maxWidth="container.xl">
-        <ThemeNotifier event={cmsEvent} mb={16} />
+        <ThemeNotifier event={event} mb={16} />
       </Content>
       <a name="register" />
       <Content maxWidth="container.xl" mb={16}>
@@ -166,7 +166,11 @@ export default function EventHome({
                 </>
               )
             )}
-            {event && <EventRestrictions event={event} />}
+            {event && (
+              <EventRestrictions
+                restrictions={[...event?.cmsEventRestrictions, ...event?.region?.localizationConfig?.requiredEventRestrictions?.items]}
+              />
+            )}
           </Box>
         </Box>
       </Content>
@@ -254,7 +258,6 @@ export async function getStaticProps({ locale, params: { webname } }) {
       images: result?.cms?.pressPhotos?.items || [],
       event: result?.clear?.findFirstEvent || null,
       quotes: result?.cms?.testimonials?.items || [],
-      cmsEvent: result?.cms?.events?.items[0] || null,
       globalSponsors: result?.cms?.globalSponsors.items || null,
       faqs: result?.cms?.faqs?.items || [],
       awards: result?.cms?.awards?.items || [],

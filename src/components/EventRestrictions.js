@@ -22,12 +22,8 @@ function transform(node) {
   }
 }
 
-const DEFAULT_RESTRICTIONS = [];
-
-// FIXME: Support internationalization
-export default function EventRestrictions({ event, ...props }) {
+export default function EventRestrictions({ restrictions, ...props }) {
   const { colorMode } = useColorMode();
-  const restrictions = event.eventRestrictions || DEFAULT_RESTRICTIONS;
   if (restrictions.length === 0) return <></>;
 
   return (
@@ -38,9 +34,9 @@ export default function EventRestrictions({ event, ...props }) {
         gap={8}
       >
         {restrictions.map((restriction) => (
-          <Box key={restriction.iconUri} h="100%">
+          <Box key={restriction.icon.url} h="100%">
             <Grid templateColumns="minmax(0, max-content) 1fr" gap={4}>
-              <Image src={restriction.iconUri} width={12} alt="" />
+              <Image src={restriction.icon.url} width={12} alt="" />
               <Box>
                 <Box fontWeight="bold" mb={2}>
                   {ReactHtmlParser(marked.parse(restriction.title || ''), { transform })}

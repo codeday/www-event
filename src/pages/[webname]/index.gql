@@ -17,7 +17,7 @@ query IndexStaticPathsQuery($endDate: ClearDateTime!) {
   }
 }
 
-query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEndDate: CmsDateTime!, $locale: String!) {
+query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $locale: String!) {
   ...PastProjects
 
   cms {
@@ -46,19 +46,6 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         }
       }
     }
-    events(
-      limit: 1,
-      order: startsAt_ASC,
-      where: {
-        program: { webname: "codeday" }
-        endsAt_gte: $cmsEndDate,
-      },
-      locale: $locale
-    ) {
-      items {
-        ...ThemeNotifier
-      }
-    }
   }
 
   clear {
@@ -79,7 +66,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       remainingTickets
       contentfulWebname
       requiresPromoCode
-      region {
+      region (locale: $locale) {
         iso3166Alpha2Code
         iso3166Alpha3Code
         e164CountryCode
@@ -89,12 +76,20 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         paymentProvider
         messagingServices
         localizationConfig {
-          sys { id }
+          id
+          requiredEventRestrictions {
+            items {
+              ...EventRestrictionsFragment
+            }
+          }
         }
       }
       eventGroup {
         id
         name
+        cmsEventGroup (locale: $locale) {
+          ...ThemeNotifier
+        }
       }
       venue {
         name
@@ -110,6 +105,9 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
         description
         link
       }
+      cmsEventRestrictions (locale: $locale) {
+        ...EventRestrictionsFragment
+      }
       customForm: getMetadata(key: "registration.custom-form")
       customRegCollectOrg: getMetadata(key: "registration.collect-org")
       customContactAnd: getMetadata(key: "registration.contact-and")
@@ -121,7 +119,6 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $cmsEnd
       noticeTop: getMetadata(key: "notice.top")
       noticeBox: getMetadata(key: "notice.box")
       ...LocalSponsorsFragment
-      ...EventRestrictionsFragment
       ...TeamFragment
     }
   }

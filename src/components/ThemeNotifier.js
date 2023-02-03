@@ -5,14 +5,14 @@ import { useTranslation } from 'next-i18next';
 
 export default function ThemeNotifier({ event, ...props }) {
   const { t } = useTranslation();
-  const { theme, themeBackgrounds } = event || {};
+  const { theme, themeBackgrounds } = event?.eventGroup?.cmsEventGroup || {};
   if (!themeBackgrounds || themeBackgrounds?.items?.length === 0) return <></>;
 
   return (
-    <Box position="relative" height="300px" {...props}>
+    <Box position="relative" height="350px" {...props}>
       {themeBackgrounds.items.length > 0 && (
         <Slides
-          height="300px"
+          height="350px"
           borderRadius="md"
           position="absolute"
           top={0}
@@ -27,14 +27,14 @@ export default function ThemeNotifier({ event, ...props }) {
               backgroundImage={`url(${bg.url})`}
               backgroundPosition="50% 50%"
               backgroundSize="cover"
-              h="300px"
+              h="350px"
             />
           ))}
         </Slides>
       )}
       <Box
         position="absolute"
-        top={{ base: 4, md: 12 }}
+        top={{ base: 6, md: 12 }}
         left={0}
         right={0}
         pl={2}
@@ -43,7 +43,7 @@ export default function ThemeNotifier({ event, ...props }) {
       >
         {theme ? (
           <>
-            <Text textAlign="center" mt={{ base: 4, md: 0 }} fontSize="2xl" bold>{t('theme.heading')}</Text>
+            <Text textAlign="center" mt={{ base: 20, md: 12 }} fontSize="2xl" bold>{t('theme.heading')}</Text>
             <Text textAlign="center" fontSize={{ base: '5xl', md: '6xl' }} lineHeight={1} fontFamily="accent" bold>{t('theme.body', { theme })}</Text>
             <Text textAlign="center" fontSize="lg" mt={8} bold>{t('theme.optional')}</Text>
           </>
