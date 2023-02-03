@@ -24,7 +24,7 @@ function transform(node) {
 
 export default function EventRestrictions({ restrictions, ...props }) {
   const { colorMode } = useColorMode();
-  if (restrictions.length === 0) return <></>;
+  if (!restrictions || restrictions.length === 0) return <></>;
 
   return (
     <Box borderTopWidth={2} pt={6} mt={6} borderColor={colorMode === 'light' ? 'red.600' : 'red.900'} {...props}>

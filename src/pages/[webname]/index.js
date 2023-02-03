@@ -168,7 +168,7 @@ export default function EventHome({
             )}
             {event && (
               <EventRestrictions
-                restrictions={[...event?.cmsEventRestrictions, ...event?.region?.localizationConfig?.requiredEventRestrictions?.items]}
+                restrictions={[...(event?.cmsEventRestrictions || []), ...(event?.region?.localizationConfig?.requiredEventRestrictions?.items || [])]}
               />
             )}
           </Box>
