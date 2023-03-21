@@ -1,5 +1,7 @@
 {
   "title": "CodeDay {{event}} for Schools",
+  "back": "Back to all event details",
+  "register": "Student registration",
   "error": {
     "message": {
       "no-event": "We don't have an event planned right now; check back later."
