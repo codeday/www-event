@@ -164,7 +164,8 @@ export default function RegisterForm({ event, ...props }) {
               event={event}
               mb={4}
               onChange={(ticketData, isValid) => {
-                if (!isStarted) {
+                // ticketData always includes locale key
+                if (!isStarted && Object.keys(ticketData).length > 1) {
                   analytics.goal('WJ8DFCV7', 0);
                   setIsStarted(true);
                 }
