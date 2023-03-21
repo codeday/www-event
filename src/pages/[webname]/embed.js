@@ -1,4 +1,6 @@
-import React, { useCallback, useEffect, useRef } from 'react';
+import React, {
+  useCallback, useEffect, useRef, useState,
+} from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
@@ -7,12 +9,14 @@ import { useColorMode } from '@codeday/topo/Theme';
 import { apiFetch } from '@codeday/topo/utils';
 import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { Global } from '@emotion/react';
 import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import RegisterBox from '../../components/RegisterBox';
 
 export default function EventHome({
   webname, region, event,
 }) {
+  const [bgColor, setBgColor] = useState({});
   const ref = useRef();
   const { colorMode } = useColorMode();
   const { t } = useTranslation('EventHome');
@@ -22,7 +26,11 @@ export default function EventHome({
     [ref, typeof window],
   );
   const messageHandler = useCallback(
-    (e) => { if (e.data === 'poll') return sendCurrentSize(ref.current.getBoundingClientRect().height); },
+    (e) => {
+      if (e.data === 'poll') return sendCurrentSize(ref.current.getBoundingClientRect().height);
+      if (typeof e.data.bgColor === 'string') return setBgColor({ light: e.data.bgColor });
+      if (typeof e.data.bgColor === 'object') return setBgColor({ light: e.data.bgColor.light, dark: e.data.bgColor.dark });
+    },
     [sendCurrentSize],
   );
 
@@ -39,22 +47,37 @@ export default function EventHome({
   if (!region) return <Heading as="h2" fontSize="5xl" textAlign="center">{t('common:error.message.no-event')}</Heading>;
 
   return (
-    <Box ref={ref}>
-      <Box
-        borderWidth={2}
-        borderColor={colorMode === 'light' ? 'red.600' : 'red.900'}
-        borderRadius="sm"
-        p={0}
-      >
-        <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'} color="white">
-          <Heading fontSize="2xl">{t('register-header')}</Heading>
-          <Text fontWeight="bold">{t('register-subheader')}</Text>
-        </Box>
-        <Box p={{ base: 4, lg: 8 }}>
-          <RegisterBox event={event} region={region} webname={webname} />
+    <>
+      {bgColor.light && (
+      <Global styles={`
+        body {
+          background-color: ${bgColor.light} !important;
+        }
+        @media (prefers-color-scheme: dark) { 
+          body { 
+            background-color: ${bgColor.dark ?? bgColor.light} !important; 
+          } 
+        }
+      `}
+      />
+      )}
+      <Box ref={ref}>
+        <Box
+          borderWidth={2}
+          borderColor={colorMode === 'light' ? 'red.600' : 'red.900'}
+          borderRadius="sm"
+          p={0}
+        >
+          <Box p={4} bg={colorMode === 'light' ? 'red.600' : 'red.900'} color="white">
+            <Heading fontSize="2xl">{t('register-header')}</Heading>
+            <Text fontWeight="bold">{t('register-subheader')}</Text>
+          </Box>
+          <Box p={{ base: 4, lg: 8 }}>
+            <RegisterBox event={event} region={region} webname={webname} />
+          </Box>
         </Box>
       </Box>
-    </Box>
+    </>
   );
 }
 
