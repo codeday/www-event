@@ -6,7 +6,7 @@ import { useReducer, useState } from 'react';
 import { apiFetch, useToasts } from '@codeday/topo/utils';
 import UiTrash from '@codeday/topocons/Icon/UiTrash';
 import UiAdd from '@codeday/topocons/Icon/UiAdd';
-import { Trans, useTranslation } from 'react-i18next';
+import { Trans, useTranslation } from 'next-i18next';
 import { RequestSchoolSupportMutation } from './RequestSchoolSupport.gql';
 
 export default function RequestSchoolSupport({ event }) {
