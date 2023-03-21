@@ -93,7 +93,7 @@ const Page = ({
             <Button as="a" href="https://www.codeday.org/volunteer" variant="ghost" target="_blank">{t('menu.volunteer')}</Button>
             <Button as="a" href="/organize" variant="ghost" target="_blank">{t('menu.organize')}</Button>
             <Button as="a" href="/upcoming" variant="ghost" target="_blank">{t('menu.upcoming')}</Button>
-            <Button as="a" p={0} variant="ghost" colorScheme="transparent"><LanguagePicker /></Button>
+            <Button as="a" variant="ghost" _hover={{ bg: 'none' }} colorScheme="transparent"><LanguagePicker /></Button>
           </Menu>
         </Header>
         <Main>

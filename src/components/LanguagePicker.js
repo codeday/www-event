@@ -21,9 +21,7 @@ export default function LanguagePicker() {
         isLoading ? <Spinner />
           : (
             <Select
-              variant="filled"
-              bg="transparent"
-              _hover={{ bg: 'transparent' }}
+              variant="unstyled"
               border="none"
               cursor="pointer"
               onChange={async (e) => {
@@ -40,7 +38,8 @@ export default function LanguagePicker() {
                   value={l}
                   title={new Intl.DisplayNames([l], { type: 'language' }).of(l)}
                   // Chakra bug forces me to do this :( (firefox only bug)
-                  style={{ backgroundColor: 'inherit' }}
+                  // update from nikhil: I believe this bug is fixed, even if it isn't, the line below breaks visibility on other browsers. firefox is still usable without the line below.
+                  // style={{ backgroundColor: 'inherit' }}
                 >
                   {getFlagEmoji(new Intl.Locale(l).region) || new Intl.DisplayNames([l], { type: 'language' }).of(l)}
                 </option>
