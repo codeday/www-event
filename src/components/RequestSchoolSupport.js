@@ -1,11 +1,13 @@
 import { useColorMode } from '@codeday/topo/Theme';
-import { Box, Grid, Heading, Link, List, ListItem, Text, TextInput, Button, Image, Divider } from '@codeday/topo/Atom';
+import {
+  Box, Grid, Heading, Link, List, ListItem, Text, TextInput, Button, Image, Divider,
+} from '@codeday/topo/Atom';
 import { useReducer, useState } from 'react';
 import { apiFetch, useToasts } from '@codeday/topo/utils';
 import UiTrash from '@codeday/topocons/Icon/UiTrash';
 import UiAdd from '@codeday/topocons/Icon/UiAdd';
-import { RequestSchoolSupportMutation } from './RequestSchoolSupport.gql';
 import { Trans, useTranslation } from 'react-i18next';
+import { RequestSchoolSupportMutation } from './RequestSchoolSupport.gql';
 
 export default function RequestSchoolSupport({ event }) {
   const { t } = useTranslation('Schools');
@@ -24,7 +26,7 @@ export default function RequestSchoolSupport({ event }) {
         return _prev.filter((_, i) => i !== item);
       }
       if (action === 'edit') {
-        return _prev.map((e, i) => i === item ? edit : e);
+        return _prev.map((e, i) => (i === item ? edit : e));
       }
       return _prev;
     },
@@ -135,7 +137,7 @@ export default function RequestSchoolSupport({ event }) {
         <Box>
           <Text fontSize="sm" fontWeight="bold" mb={0}>{t('assistance.apply.student-names')}</Text>
           {studentNames.map((cn, i) => (
-            <Grid templateColumns="minmax(0, 100%) 1fr" gap={2} mb={2} maxW={96}>
+            <Grid key={i} templateColumns="minmax(0, 100%) 1fr" gap={2} mb={2} maxW={96}>
               <TextInput
                 w="100%"
                 value={cn}
@@ -150,7 +152,7 @@ export default function RequestSchoolSupport({ event }) {
             </Grid>
           ))}
           <Box>
-            <Button variant="outline" size="sm" colorScheme="green" onClick={() => updateStudentNames(['add', ''])}><UiAdd />&nbsp;Student</Button>
+            <Button variant="outline" size="sm" colorScheme="green" onClick={() => updateStudentNames(['add', ''])}><UiAdd />&nbsp;{t('assistance.apply.student')}</Button>
           </Box>
         </Box>
 
@@ -169,18 +171,17 @@ export default function RequestSchoolSupport({ event }) {
                     subject: `[School Assistance] ${schoolName}`,
                     replyTo: email,
                     body:
-                      `New school assistance request:\n\n`
+                      `${`New school assistance request:\n\n`
                       + `------\n`
                       + `School Name: ${schoolName}\n`
                       + `Teacher: ${name} <${email}>\n`
-                      + `Students:\n`
-                      + studentNames.filter(Boolean).map((s) => `  - ${s}`).join(`\n`),
-                  }
+                      + `Students:\n`}${
+                        studentNames.filter(Boolean).map((s) => `  - ${s}`).join(`\n`)}`,
+                  },
                 );
                 setIsComplete(true);
                 success(t('assistance.apply.submitted'));
               } catch (ex) {
-                console.error(ex);
                 error(t('assistance.apply.error'));
               }
               setIsLoading(false);

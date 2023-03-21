@@ -1,4 +1,4 @@
-import { Heading, Image, Text, Box, Grid } from '@codeday/topo/Atom';
+import { Heading } from '@codeday/topo/Atom';
 import { Content } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
 import { print } from 'graphql';

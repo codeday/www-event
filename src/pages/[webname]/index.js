@@ -3,13 +3,10 @@ import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import {
-  Box, Button, Heading, Link, Text, Grid, Divider,
+  Box, Button, Heading, Link, Text, Grid,
 } from '@codeday/topo/Atom';
 import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
-import {
-  Content, DataCollection, CognitoForm,
-} from '@codeday/topo/Molecule';
-import { MailingListSubscribe } from '@codeday/topo/Organism';
+import { Content } from '@codeday/topo/Molecule';
 import { useColorMode } from '@codeday/topo/Theme';
 import { apiFetch } from '@codeday/topo/utils';
 import Scroll from 'react-scroll';
@@ -22,8 +19,6 @@ import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import IndexHeader from '../../components/IndexHeader';
 import Explainer from '../../components/Explainer';
 import StudentQuotes from '../../components/StudentQuotes';
-import EventRestrictions from '../../components/EventRestrictions';
-import RegisterForm from '../../components/RegisterForm';
 import ThemeNotifier from '../../components/ThemeNotifier';
 import Schedule from '../../components/Schedule';
 import Sponsors from '../../components/Sponsors';
@@ -31,7 +26,6 @@ import Faq from '../../components/Faq';
 import Awards from '../../components/Awards';
 import Team from '../../components/Team';
 import PastProjects from '../../components/PastProjects';
-import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
 import PastPhotos from '../../components/PastPhotos';
 import RegisterBox from '../../components/RegisterBox';
 

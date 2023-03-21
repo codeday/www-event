@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useRef } from 'react';
 import useResizeObserver from '@react-hook/resize-observer';
-import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import { Box, Heading, Text } from '@codeday/topo/Atom';
@@ -12,21 +11,19 @@ import { IndexStaticPathsQuery, IndexStaticPropsQuery } from './index.gql';
 import RegisterBox from '../../components/RegisterBox';
 
 export default function EventHome({
-  webname, region, event
+  webname, region, event,
 }) {
-  // Redirect the user to the canonical URL
-  const router = useRouter();
   const ref = useRef();
   const { colorMode } = useColorMode();
   const { t } = useTranslation('EventHome');
 
   const sendCurrentSize = useCallback(
     (s) => { if (typeof window !== 'undefined') window.top?.postMessage(JSON.stringify({ type: 'embedResize', height: s }), '*'); },
-    [ref, typeof window]
+    [ref, typeof window],
   );
   const messageHandler = useCallback(
     (e) => { if (e.data === 'poll') return sendCurrentSize(ref.current.getBoundingClientRect().height); },
-    [sendCurrentSize]
+    [sendCurrentSize],
   );
 
   useEffect(() => {
