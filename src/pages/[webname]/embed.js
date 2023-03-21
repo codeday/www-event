@@ -16,7 +16,7 @@ import RegisterBox from '../../components/RegisterBox';
 export default function EventHome({
   webname, region, event,
 }) {
-  const [bgColor, setBgColor] = useState({});
+  const [css, setCss] = useState('');
   const ref = useRef();
   const { colorMode } = useColorMode();
   const { t } = useTranslation('EventHome');
@@ -28,8 +28,7 @@ export default function EventHome({
   const messageHandler = useCallback(
     (e) => {
       if (e.data === 'poll') return sendCurrentSize(ref.current.getBoundingClientRect().height);
-      if (typeof e.data.bgColor === 'string') return setBgColor({ light: e.data.bgColor });
-      if (typeof e.data.bgColor === 'object') return setBgColor({ light: e.data.bgColor.light, dark: e.data.bgColor.dark });
+      if (typeof e.data.css === 'string') return setCss(e.data.css);
     },
     [sendCurrentSize],
   );
@@ -48,19 +47,7 @@ export default function EventHome({
 
   return (
     <>
-      {bgColor.light && (
-      <Global styles={`
-        body {
-          background-color: ${bgColor.light} !important;
-        }
-        @media (prefers-color-scheme: dark) { 
-          body { 
-            background-color: ${bgColor.dark ?? bgColor.light} !important; 
-          } 
-        }
-      `}
-      />
-      )}
+      {css && (<Global styles={css} />)}
       <Box ref={ref}>
         <Box
           borderWidth={2}
