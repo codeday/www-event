@@ -22,6 +22,7 @@
       "no-student": "Please use your school email. (You must be a teacher to fill out this form! If you are a student, please send this form to a teacher.)",
       "student-names": "Names of Students You Expect to Attend",
       "student-name-placeholder": "Full Name",
+      "student": "Student",
       "submit": "Submit",
       "submitted": "Your request was submitted.",
       "whats-next": "Here's what to expect next:",

@@ -32,13 +32,9 @@ export default function Schools({ event, webname }) {
 }
 
 export async function getStaticPaths() {
-  const allRegions = await apiFetch(print(SchoolsStaticPathsQuery));
-  const allWebnames = allRegions?.cms?.regions?.items
-    .reduce((accum, r) => [...accum, r.webname, ...(r.aliases || [])], []) || [];
-
   return {
-    paths: allWebnames.map((webname) => ({ params: { webname } })),
-    fallback: true,
+    paths: [],
+    fallback: 'blocking',
   };
 }
 
