@@ -7,7 +7,7 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Page from '../../components/Page';
 import RequestSchoolSupport from '../../components/RequestSchoolSupport';
-import { SchoolsStaticPathsQuery, SchoolsStaticPropsQuery } from './schools.gql';
+import { SchoolsStaticPropsQuery } from './schools.gql';
 
 export default function Schools({ event, webname }) {
   const { t } = useTranslation('Schools');
