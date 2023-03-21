@@ -1,0 +1,15 @@
+mutation RequestSchoolSupportMutation(
+  $eventId: String!,
+  $subject: String!,
+  $body: String!,
+  $replyTo: String!,
+) {
+  clear {
+    contactEventOrganizers(
+      eventWhere: { id: $eventId },
+      subject: $subject,
+      body: $body,
+      replyTo: $replyTo,
+    )
+  }
+}

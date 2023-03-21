@@ -33,6 +33,7 @@ import Team from '../../components/Team';
 import PastProjects from '../../components/PastProjects';
 import EventMailingListSubscribe from '../../components/EventMailingListSubscribe';
 import PastPhotos from '../../components/PastPhotos';
+import RegisterBox from '../../components/RegisterBox';
 
 export default function EventHome({
   webname, region, images, quotes, event, globalSponsors, globalTeam, faqs, awards, projects, random,
@@ -136,41 +137,7 @@ export default function EventHome({
             <Text fontWeight="bold">{t('register-subheader')}</Text>
           </Box>
           <Box p={{ base: 4, lg: 8 }}>
-            {event?.canRegister ? (
-              event.customForm ? <CognitoForm formId={event.customForm} /> : <RegisterForm event={event} />
-            ) : (
-              event ? (
-                <EventMailingListSubscribe event={event}>
-                  <Text bold textAlign="center">{t('registrations-closed', { region: event?.name || region.name })}</Text>
-                  <Text mb={4} textAlign="center">{t('registrations-closed-cta')}</Text>
-                </EventMailingListSubscribe>
-              ) : (
-                <>
-                  <Box textAlign="center" mt={4}>
-                    <Text mb={1} fontSize="lg" bold>{t('no-event-header', { region: event?.name || region.name })}</Text>
-                    <Text mb={8}>{t('no-event-subheader', { region: event?.name || region.name })}</Text>
-                    <Button as="a" href="/organize" colorScheme="green">{t('organize-button')}</Button>
-                    <Text mt={1} color="current.textLight">{t('organize-experience')}</Text>
-                    <Divider mt={8} mb={8} />
-                    <Text color="current.textLight">{t('no-event-subscribe', { region: event?.name || region.name })}</Text>
-                    <Box mt={4} w="md" d="inline-block">
-                      <MailingListSubscribe
-                        mb={4}
-                        emailList="00a7c4d8-aadf-11ec-9258-0241b9615763"
-                        fields={{ field_3: webname }}
-                        colorScheme="gray"
-                      />
-                      <DataCollection message="pii" />
-                    </Box>
-                  </Box>
-                </>
-              )
-            )}
-            {event && (
-              <EventRestrictions
-                restrictions={[...(event?.cmsEventRestrictions || []), ...(event?.region?.localizationConfig?.requiredEventRestrictions?.items || [])]}
-              />
-            )}
+            <RegisterBox event={event} region={region} webname={webname} />
           </Box>
         </Box>
       </Content>

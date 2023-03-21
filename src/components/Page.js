@@ -76,6 +76,11 @@ const Page = ({
                   top={1}
                   ml={1}
                   textDecoration="underline"
+                  {...(
+                    (event?.name || region.name).length >= 20
+                      ? { fontSize: '2xl' }
+                      : {}
+                  )}
                   bold
                 >
                   {event?.name || region.name}

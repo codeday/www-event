@@ -1,0 +1,35 @@
+{
+  "title": "CodeDay {{event}} for Schools",
+  "error": {
+    "message": {
+      "no-event": "We don't have an event planned right now; check back later."
+    }
+  },
+  "assistance": {
+    "heading": "Do your students need assistance to attend CodeDay?",
+    "intro": "As a worldwide non-profit, we believe there's a place in tech for everyone, no matter their financial means.",
+    "ticket": "Free admission to the event, including food and drinks.",
+    "ride": "Free Uber ride to and from the event. (No Uber account needed.)",
+    "laptop": "A free laptop, theirs to keep if they make something at CodeDay. Yes, this is real, we've given out 500+ laptops already.",
+    "action": "Fill out the form below, and we will provide you with a promo code to share with your students, as well as double-check our final roster to make sure all the listed students have requested assiatance.",
+    "apply": {
+      "name": "Teacher Name",
+      "name-placeholder": "Jane Doe",
+      "email": "Teacher Email",
+      "email-placeholder": "you@your-school.org",
+      "school-name": "School Name",
+      "school-name-placeholder": "North Southvale High School",
+      "no-student": "Please use your school email. (You must be a teacher to fill out this form! If you are a student, please send this form to a teacher.)",
+      "student-names": "Names of Students You Expect to Attend",
+      "student-name-placeholder": "Full Name",
+      "submit": "Submit",
+      "submitted": "Your request was submitted.",
+      "whats-next": "Here's what to expect next:",
+      "validate": "Our team will validate your teacher status.",
+      "promo-code": "We will generate a promo code to share with students.",
+      "double-check": "We will double-check to make sure all these students requested the assistance they need.",
+      "questions": "If you have any questions, you can email us at <click>schools@codeday.org</click>.",
+      "error": "Your request could not be submitted. Try again, or email your request to schools@codeday.org."
+    }
+  }
+}

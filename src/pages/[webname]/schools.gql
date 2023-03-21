@@ -1,0 +1,19 @@
+query SchoolsStaticPathsQuery {
+  cms {
+    regions(limit: 1000) {
+      items {
+        webname
+        aliases
+      }
+    }
+  }
+}
+
+query SchoolsStaticPropsQuery ($webname: String! $endDate: ClearDateTime!) {
+  clear {
+    findFirstEvent(where: {contentfulWebname: {equals: $webname}, endDate: {gte: $endDate}}, orderBy: {startDate: desc}) {
+      id
+      name
+    }
+  }
+}
