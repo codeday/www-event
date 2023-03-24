@@ -12,10 +12,11 @@ export default function IndexHeader({
   const i = useSlideshow(images.length, 5000);
   const { t } = useTranslation('EventHome');
   return (
-    <Box position="relative" {...props}>
+    <Box position="relative" {...props}>  
       <Box
         position="relative"
         zIndex={100}
+        textAlign={{base: 'center', md: 'left'}}
       >
         <Content>
           <Box
