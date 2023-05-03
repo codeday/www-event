@@ -7,6 +7,7 @@ import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { print } from 'graphql';
 import { useToast, useToken } from '@chakra-ui/react';
 import { useTranslation } from 'next-i18next';
+import { getPaymentIntent } from '../../../utils';
 import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutation } from '../RegisterForm.gql';
 
 export default function StripePaymentBox({
@@ -65,7 +66,7 @@ export default function StripePaymentBox({
             });
 
             if (expectedPrice > 0) {
-              const intentSecret = result.clear.registerForEvent;
+              const intentSecret = getPaymentIntent(result.clear.registerForEvent);
               const intent = await stripe.retrievePaymentIntent(intentSecret);
               if (Math.abs(intent.paymentIntent.amount - expectedPrice * 100) >= 1) {
                 throw new Error(

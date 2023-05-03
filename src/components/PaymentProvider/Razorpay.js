@@ -7,6 +7,7 @@ import { print } from 'graphql';
 import { useToast } from '@chakra-ui/react';
 import getConfig from 'next/config';
 import { useTranslation } from 'next-i18next';
+import { getPaymentIntent } from '../../../utils';
 import { RegisterMutation, FinalizePaymentMutation, WithdrawFailedPaymentMutation } from '../RegisterForm.gql';
 
 const { publicRuntimeConfig } = getConfig();
@@ -59,7 +60,7 @@ export default function RazorpayPaymentBox({
             return;
           }
 
-          const intentId = result.clear.registerForEvent;
+          const intentId = getPaymentIntent(result.clear.registerForEvent);
           const rzpay = new Razorpay({
             key: publicRuntimeConfig.razorpayKey,
             amount: Math.round(expectedPrice * 100),
