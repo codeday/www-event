@@ -56,7 +56,7 @@ export default function RazorpayPaymentBox({
 
           if (expectedPrice <= 0) {
             setIsLoading(false);
-            onComplete();
+            onComplete(false, typeof result.clear.registerForEvent === 'object' ? result.clear.registerForEvent?.tickets || [] : []);
             return;
           }
 
@@ -77,7 +77,7 @@ export default function RazorpayPaymentBox({
                 paymentProvider: 'razorpay',
               });
               setIsLoading(false);
-              onComplete();
+              onComplete(false, typeof result.clear.registerForEvent === 'object' ? result.clear.registerForEvent?.tickets || [] : []);
             },
             modal: {
               escape: false,

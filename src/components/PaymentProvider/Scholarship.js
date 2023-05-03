@@ -53,7 +53,7 @@ export default function ScholarshipBox({
           setIsLoading(true);
           analytics.goal('MRELY0XP', 0);
           try {
-            await apiFetch(print(ScholarshipMutation), {
+            const result = await apiFetch(print(ScholarshipMutation), {
               eventId: event.id,
               ticketsData,
               guardianData: guardianData || undefined,
@@ -61,7 +61,7 @@ export default function ScholarshipBox({
               scholarshipReasonOther,
             });
 
-            onComplete(true);
+            onComplete(true, []);
           } catch (ex) {
             toast({
               status: 'error',

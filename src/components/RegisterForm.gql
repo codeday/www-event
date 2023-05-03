@@ -1,3 +1,14 @@
+fragment RegistrationResponseFields on ClearRegistrationResponse {
+  paymentIntent
+  tickets {
+    id
+    privateKey
+    firstName
+    lastName
+    age
+  }
+}
+
 query RefreshRemainingQuery($eventId: String!) {
   clear {
     event(where: { id: $eventId }){
@@ -20,7 +31,9 @@ mutation RegisterMutation(
             ticketsData: $ticketsData,
             promoCode: $promoCode,
             paymentProvider: $paymentProvider,
-        )
+        ) {
+          ...RegistrationResponseFields
+        }
     }
 }
 

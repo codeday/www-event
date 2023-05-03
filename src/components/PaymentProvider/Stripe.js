@@ -98,7 +98,7 @@ export default function StripePaymentBox({
               });
             }
 
-            onComplete();
+            onComplete(false, typeof result.clear.registerForEvent === 'object' ? result.clear.registerForEvent?.tickets || [] : []);
           } catch (ex) {
             toast({
               status: 'error',
