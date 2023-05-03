@@ -53,7 +53,7 @@ export default function ScholarshipBox({
           setIsLoading(true);
           analytics.goal('MRELY0XP', 0);
           try {
-            const result = await apiFetch(print(ScholarshipMutation), {
+            await apiFetch(print(ScholarshipMutation), {
               eventId: event.id,
               ticketsData,
               guardianData: guardianData || undefined,
