@@ -52,7 +52,7 @@ export default function Organize({ query, random }) {
       </Content>
 
       <Content mt={24} maxW="container.sm" textAlign="center">
-        <Button size="lg" w="100%" colorScheme="green" as="a" href="#form">{t('form.submit-button')}</Button>
+        <Button size="lg" w="100%" colorScheme="green" as="a" href="https://codeday.org/volunteer">{t('form.submit-button')}</Button>
         <Text color="current.textLight" mt={2}>{t('form.no-experience-required')}</Text>
       </Content>
 
@@ -109,25 +109,9 @@ export default function Organize({ query, random }) {
       </Content>
 
       <Box {...clearfix} />
-      <Content mt={24} mb={24} maxW="container.lg">
-        <Box borderColor="red.600" borderWidth={3} rounded="sm">
-          <Box color="white" bg="red.600" p={2} pl={4} pr={4}>
-            <Heading fontSize="2xl">{t('form.header')}</Heading><a name="form" />
-            <Text>{t('form.requirements')}</Text>
-          </Box>
-          <Box p={4}>
-            <CognitoForm
-              formId={98}
-              prefill={{
-                Backgrounds: ['other'],
-                Roles: ['general volunteer'],
-                Programs: ['codeday'],
-                Referrer: 'organize',
-              }}
-              showFallback={false}
-            />
-          </Box>
-        </Box>
+      <Content mt={24} maxW="container.sm" textAlign="center">
+        <Button size="lg" w="100%" colorScheme="green" as="a" href="https://codeday.org/volunteer">{t('form.submit-button')}</Button>
+        <Text color="current.textLight" mt={2}>{t('form.no-experience-required')}</Text>
       </Content>
     </Page>
   );
