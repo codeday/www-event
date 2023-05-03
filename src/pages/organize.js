@@ -1,7 +1,7 @@
 import {
   Box, Grid, Button, Heading, Text, List, ListItem, Image, Link,
 } from '@codeday/topo/Atom';
-import { CognitoForm, Content, GithubAuthors } from '@codeday/topo/Molecule';
+import { Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
 import { useColorMode } from '@chakra-ui/react';
 import { Trans, useTranslation } from 'next-i18next';
