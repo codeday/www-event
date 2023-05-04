@@ -1,7 +1,16 @@
 query CheckPromoCode ($id: String!, $code: String!) {
   clear {
     findFirstEvent(where:{id:{equals: $id}}) {
-      checkPromoCode(code: $code)
+      checkPromoCode(code: $code) {
+        valid
+        displayDiscountName
+        displayDiscountAmount
+        discountType
+        discountAmount
+        effectivePrice
+        remainingUses
+        metadata
+      }
       region {
         currency
       }
