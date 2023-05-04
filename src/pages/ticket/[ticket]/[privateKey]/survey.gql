@@ -1,0 +1,11 @@
+query RetrieveSurveyResponses ($ticket: String!, $privateKey: String!) {
+  clear {
+    retrieveTicketInfo(where:{id: $ticket}, privateKey: $privateKey) {
+      id
+      privateKey
+      firstName
+      surveyResponses
+      age
+    }
+  }
+}

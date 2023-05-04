@@ -4,8 +4,8 @@ import React, { useState, useReducer, useEffect } from 'react';
 import {
   Grid, Box, Button, List, ListItem, Heading, Link, Text,
 } from '@codeday/topo/Atom';
-import { CognitoForm, DataCollection } from '@codeday/topo/Molecule';
-import { useTheme, apiFetch, useAnalytics } from '@codeday/topo/utils';
+import { DataCollection } from '@codeday/topo/Molecule';
+import { apiFetch, useAnalytics } from '@codeday/topo/utils';
 import { Ticket } from '@codeday/topocons/Icon';
 import { print } from 'graphql';
 import PaymentBox from './PaymentBox';
@@ -13,7 +13,7 @@ import PromoBox from './PromoBox';
 import RegistrantBox from './RegistrantBox';
 import GuardianBox from './GuardianBox';
 import { RefreshRemainingQuery } from './RegisterForm.gql';
-import { camelCaseObject } from '../../utils';
+import PostRegistrationSurvey from './PostRegistrationSurvey';
 
 export default function RegisterForm({ event, ...props }) {
   const [tickets, updateTickets] = useReducer((prev, {
@@ -30,8 +30,6 @@ export default function RegisterForm({ event, ...props }) {
   }, [{ isValid: false, ticketData: {} }]);
 
   const analytics = useAnalytics();
-  const gray = useTheme().colors.gray[300];
-  const { black } = useTheme().colors;
   const [guardianData, setGuardianData] = useState();
   const [guardianValid, setGuardianValid] = useState(false);
   const [promoCode, setPromoCode] = useState();
@@ -42,6 +40,7 @@ export default function RegisterForm({ event, ...props }) {
   const [isPending, setIsPending] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
   const [maxTickets, setMaxTickets] = useState();
+  const [createdTickets, setCreatedTickets] = useState([]);
   const [remainingTickets, setRemainingTickets] = useState(event.remainingTickets);
   const { t } = useTranslation('Register');
 
@@ -68,57 +67,28 @@ export default function RegisterForm({ event, ...props }) {
     analytics.goal('7XJLEFKY', 0);
     return (
       <Box {...props}>
-        <Box p={8} textAlign="center">
-          {isPending ? (
-            <>
-              <Text fontSize="3xl" bold>{t('pending.heading')}</Text>
-              <Text>{t('pending.body')}</Text>
-            </>
-          ) : (
-            <>
-              <Text fontSize="3xl" bold>{t('confirmed.heading')}</Text>
-              <Text>{t('confirmed.body')}</Text>
-            </>
-          )}
-          {/* FIXME: Support localization */}
-          <CognitoForm
-            formId="104"
-            onSubmit={() => { analytics.goal('8YRYGGMT', 0); }}
-            prefill={{
-              EventGroupId: event.eventGroup.id,
-              EventId: event.id,
-              Region: event.contentfulWebname,
-              TicketCount: tickets.length,
-              PromoCode: promoCode ? promoCode.toUpperCase().trim() : undefined,
-              PromoMetadata: camelCaseObject(promoMetadata),
-              Tickets: tickets.map((ticket) => ({
-                Name: {
-                  First: ticket.ticketData.firstName,
-                  Last: ticket.ticketData.lastName,
-                },
-                Phone: ticket.ticketData.phone,
-                Email: ticket.ticketData.email,
-              })),
-            }}
-            css={`
-              .cog-repeating-section__add-button, .cog-repeating-section__remove-button,
-              .cog-repeating-section .cog-section__heading {
-                display: none !important;
-              }
-              .cog-repeating-section .cog-row,
-              .cog-repeating-section .cog-repeating-section__section,
-              .cog-repeating-section .cog-section__inner { margin-left: 0 !important; padding-left: 0 !important; }
-              .cog-name .cog-label { display: none !important; }
-              .cog-name .cog-input.is-read-only {
-                width: calc(100% + 17px) !important;
-                background-color: ${gray} !important;
-                color: ${black} !important;
-                font-size: 2em !important;
-                padding: 0.5em !important;
-                margin: -9px !important;
-              }
-            `}
-          />
+        <Box p={8}>
+          <Box mb={4} textAlign="center">
+            {isPending ? (
+              <>
+                <Text fontSize="3xl" bold>{t('pending.heading')}</Text>
+                <Text>{t('pending.body')}</Text>
+              </>
+            ) : (
+              <>
+                <Text fontSize="3xl" bold>{t('confirmed.heading')}</Text>
+                <Text>{t('confirmed.body')}</Text>
+              </>
+            )}
+          </Box>
+          {!isPending && createdTickets.map((ticket) => (
+            <PostRegistrationSurvey
+              key={ticket.id}
+              ticket={ticket}
+              promoMetadata={promoMetadata}
+              inlineWithMultipleTickets={createdTickets.length > 1}
+            />
+          ))}
         </Box>
       </Box>
     );
@@ -247,9 +217,10 @@ export default function RegisterForm({ event, ...props }) {
               && tickets.map((ticket) => ticket.isValid).reduce((a, b) => a && b, true)
               && (!event.requiresPromoCode || promoCode)
             }
-            onComplete={(pending) => {
+            onComplete={(pending, _createdTickets) => {
               setIsPending(pending);
               setIsComplete(true);
+              setCreatedTickets(_createdTickets);
               analytics.goal('8FI259EA', 0);
             }}
             mb={4}

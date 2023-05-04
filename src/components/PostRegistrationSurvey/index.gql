@@ -1,0 +1,5 @@
+mutation TrackSurveyResponse($key: String!, $value: String!, $ticket: String!, $privateKey: String!) {
+    clear {
+        trackSurveyResponse(where: {id: $ticket}, privateKey: $privateKey, key: $key, value: $value)
+    }
+}
