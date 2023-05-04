@@ -1,0 +1,60 @@
+{
+    "title": "Details for {{name}}",
+    "questions": {
+        "uber": "Does {{name}} need a free Uber ride to/from the event?",
+        "laptop": "Is {{name}} requesting a free laptop for the event?",
+        "dietary": "Does {{name}} have any dietary restrictions or food allergies?",
+        "interests": "Which of these is {{name}} interested in?",
+        "experience": "How much experience does {{name}} have coding? (It's ok if the answer is none!)",
+        "pronouns": "What pronouns does {{name}} use?",
+        "ethnicity": "What does {{name}} consider themself? (This is just for statistics.)"
+    },
+    "questionAnswers": {
+        "yesNo": {
+            "yes": "Yes",
+            "no": "No"
+        },
+        "likert": {
+            "stronglyDisagree": "Strongly Disagree",
+            "disagree": "Disagree",
+            "agree": "Agree",
+            "stronglyAgree": "Strongly Agree"
+        },
+        "dietary": {
+            "none": "None",
+            "vegetarian": "Vegetarian"
+        },
+        "interests": {
+            "art": "Art/Design",
+            "music": "Music",
+            "acting": "Acting",
+            "computers": "Computers",
+            "business": "Business/Marketing",
+            "literature": "Literature"
+        },
+        "experience": {
+            "none": "None at all.",
+            "intro": "I've taken an intro coding class (or AP CS Principals).",
+            "advanced": "I've taken a more advanced coding class (AP CS A, college classes, etc).",
+            "projects": "I've coded my own projects for fun."
+        },
+        "pronouns": {
+            "he/him": "he/him",
+            "she/her": "she/her",
+            "they/them": "they/them"
+        },
+        "ethnicity": {
+            "latine": "Latino/a/e/x",
+            "black": "Black",
+            "white": "White",
+            "asian": "Asian/Indian/Pacific Islander",
+            "nativeAmerican": "Native American/First Nations/Indigenous Peoples",
+            "complicated": "It's Complicated" 
+        }
+    },
+    "other": "Other",
+    "likert": "Do you agree with the following statement?",
+    "next": "Next Page",
+    "last": "This is the last page. Your responses are automatically saved.",
+    "study": "This optional question is part of a research study."
+}

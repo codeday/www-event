@@ -83,6 +83,7 @@ export default function RegisterForm({ event, ...props }) {
           </Box>
           {!isPending && createdTickets.map((ticket) => (
             <PostRegistrationSurvey
+              mb={4}
               key={ticket.id}
               ticket={ticket}
               promoMetadata={promoMetadata}

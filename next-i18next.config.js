@@ -7,7 +7,7 @@ module.exports = {
   fallbackLng: {
     default: ['en-US'],
   },
-  ns: ['common', 'EventHome', 'Organize', 'Register', 'Rules', 'Scholarship', 'Upcoming', 'Schools'],
+  ns: ['common', 'EventHome', 'Organize', 'Register', 'Rules', 'Scholarship', 'Upcoming', 'Schools', 'Survey'],
   localePath: (locale, namespace) => {
     // eslint-disable-next-line global-require
     const prefix = typeof window === 'undefined' ? require('path').resolve('./public/locales') : '/locales';

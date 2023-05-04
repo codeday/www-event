@@ -4,8 +4,12 @@ query RetrieveSurveyResponses ($ticket: String!, $privateKey: String!) {
       id
       privateKey
       firstName
+      lastName
       surveyResponses
       age
+      promoCode {
+        metadata
+      }
     }
   }
 }

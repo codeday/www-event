@@ -87,7 +87,7 @@ export async function getStaticProps({ locale, params: { webname } }) {
   });
   return {
     props: {
-      ...(await serverSideTranslations(locale ?? 'en-US', ['EventHome', 'Register', 'Scholarship', 'common'])),
+      ...(await serverSideTranslations(locale ?? 'en-US', ['EventHome', 'Register', 'Scholarship', 'Survey', 'common'])),
       webname,
       region: result?.cms?.regions?.items[0] || null,
       event: result?.clear?.findFirstEvent || null,
