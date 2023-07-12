@@ -72,7 +72,7 @@ export default function RegistrantBox({ event, onChange, ...rest }) {
               placeholder={t('email-long')}
               value={ticketData.email || ''}
               onChange={
-                (e) => setTicketData(['email', e.target.value])
+                (e) => setTicketData(['email', (e.target.value || '').trim().toLowerCase()])
               }
             />
           </Box>

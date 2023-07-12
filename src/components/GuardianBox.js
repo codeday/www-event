@@ -72,7 +72,7 @@ export default function GuardianBox({ event, onChange, ...rest }) {
               placeholder={t('common:email-long')}
               value={guardianData.email || ''}
               onChange={
-                (e) => setGuardianData(['email', e.target.value])
+                (e) => setGuardianData(['email', (e.target.value || '').trim().toLowerCase()])
               }
             />
           </Box>
