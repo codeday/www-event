@@ -38,7 +38,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
       {event.requiresPromoCode && (<Text mt={4} mb={2} ml={1} fontSize="sm" fontWeight="bold">{t('access-code')}</Text>)}
       <Flex>
         <TextInput
-          d="inline"
+          display="inline"
           w="100%"
           minWidth={20}
           ml={2}
@@ -49,7 +49,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
           }
         />
         <Button
-          d="inline"
+          display="inline"
           ml={2}
           colorScheme="green"
           isLoading={isLoading}

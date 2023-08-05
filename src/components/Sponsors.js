@@ -21,7 +21,7 @@ export default function Sponsors({ globalSponsors, localSponsors, large }) {
               p={4}
               maxHeight={large ? 48 : 24}
               maxWidth={large ? 56 : 40}
-              d="inline-block"
+              display="inline-block"
               sponsor={sponsor}
             />
           ))}
@@ -33,7 +33,7 @@ export default function Sponsors({ globalSponsors, localSponsors, large }) {
               p={4}
               maxHeight={16}
               maxWidth={40}
-              d="inline-block"
+              display="inline-block"
               sponsor={sponsor}
             />
           ))}

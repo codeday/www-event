@@ -16,7 +16,7 @@ export default function LanguagePicker() {
   const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <Box d="inline-block">
+    <Box display="inline-block">
       {
         isLoading ? <Spinner />
           : (

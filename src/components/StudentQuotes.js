@@ -39,7 +39,7 @@ export default function StudentQuotes({ quotes, ...props }) {
                 <Text textStyle="italic">{quote.quote}</Text>
                 <Text mb={0} bold>
                   {quote.image && (
-                    <Image src={quote.image.url} d="inline-block" mr={4} alt="" rounded="full" height={8} />
+                    <Image src={quote.image.url} display="inline-block" mr={4} alt="" rounded="full" height={8} />
                   )}
                   {t('studentQuotes.quote', {
                     name: quote.firstName ? `${quote.firstName} ${quote.lastName || ''}` : t('studentQuotes.anonymous'),

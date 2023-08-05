@@ -26,7 +26,7 @@ export default function Organize({ query, random }) {
       </Content>
       <Content mb={12}>
         <Text p={4} bgColor={bgLight} fontSize="lg" rounded="sm">
-          <Text fontWeight="bold" d="inline">{t('perks.heading')}</Text>&nbsp;
+          <Text fontWeight="bold" display="inline">{t('perks.heading')}</Text>&nbsp;
           {t('perks.body')}
         </Text>
       </Content>

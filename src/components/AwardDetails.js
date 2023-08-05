@@ -8,8 +8,8 @@ export default function AwardDetails({ award, ...props }) {
 
   return variants.map((name) => (
     <Box key={name} textAlign="center" {...props}>
-      <Image d="inline-block" pb={2} src={award.icon.url} alt="" width="100%" maxW="60px" />
-      <Text d="block" fontSize="sm">{name}</Text>
+      <Image display="inline-block" pb={2} src={award.icon.url} alt="" width="100%" maxW="60px" />
+      <Text display="block" fontSize="sm">{name}</Text>
     </Box>
   ));
 }

@@ -33,7 +33,7 @@ export default function PastPhotos({
           position="relative"
           key={p.id}
           gridColumn={{ base: 'span 1', md: 'span 2' }}
-          d={{ base: i >= 2 ? 'none' : 'block', lg: 'block' }}
+          display={{ base: i >= 2 ? 'none' : 'block', lg: 'block' }}
         >
           <Image src={p.urlMedium} alt="" w="100%" h={{ base: 32, md: 64 }} objectFit="cover" />
           {p.thanks && (

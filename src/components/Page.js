@@ -69,7 +69,7 @@ const Page = ({
               <a href={`/${region.webname}`}>
                 <Text
                   as="span"
-                  d="inline"
+                  display="inline"
                   letterSpacing="-2px"
                   fontFamily="logo"
                   position="relative"

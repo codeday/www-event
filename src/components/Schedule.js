@@ -50,11 +50,11 @@ export default function Schedule({ event, timezone, ...props }) {
               <Box key={e.id} mb={4} borderWidth={2}>
                 <Box bg={bg} p={1} mb={0} fontSize="sm">
                   {e.link ? (
-                    <Link d="inline-block" fontWeight="bold" fontSize="lg" href={e.link} target="_blank">
+                    <Link display="inline-block" fontWeight="bold" fontSize="lg" href={e.link} target="_blank">
                       {e.name}
                     </Link>
-                  ) : <Text d="inline-block" fontWeight="bold" fontSize="lg" mb={0}>{e.name}</Text>}
-                  <Text d="inline-block" ml={4} mb={0}>{e.displayTime}</Text>
+                  ) : <Text display="inline-block" fontWeight="bold" fontSize="lg" mb={0}>{e.name}</Text>}
+                  <Text display="inline-block" ml={4} mb={0}>{e.displayTime}</Text>
                 </Box>
                 {e.description && (<Text mb={0} p={2} fontSize="sm">{e.description}</Text>)}
               </Box>

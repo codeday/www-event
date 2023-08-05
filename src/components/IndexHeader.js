@@ -29,7 +29,7 @@ export default function IndexHeader({
                 bg="red.900"
                 p={2}
                 mb={2}
-                d="inline-block"
+                display="inline-block"
                 rounded="md"
                 fontWeight="bold"
               >

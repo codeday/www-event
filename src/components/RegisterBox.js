@@ -42,7 +42,7 @@ export default function RegisterBox({ event, region, webname }) {
           <Text mt={1} color="current.textLight">{t('organize-experience')}</Text>
           <Divider mt={8} mb={8} />
           <Text color="current.textLight">{t('no-event-subscribe', { region: event?.name || region.name })}</Text>
-          <Box mt={4} w="md" d="inline-block">
+          <Box mt={4} w="md" display="inline-block">
             <MailingListSubscribe
               mb={4}
               emailList="00a7c4d8-aadf-11ec-9258-0241b9615763"
