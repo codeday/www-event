@@ -8,7 +8,7 @@ export default function ThemeNotifier({ event, ...props }) {
   const { theme, themeBackgrounds } = (event?.customTheme && event?.customThemeBackgrounds) ? {
     theme: event.customTheme,
     // messy but this way it doesn't throw user-facing errors if metadata is set incorrectly
-    themeBackgrounds: { items: (((_) => { try { return JSON.parse(event.customThemeBackgrounds); } catch (e) { return undefined; } }).call() || []).map((i) => ({ url: i })) },
+    themeBackgrounds: { items: (((_) => { try { return JSON.parse(event.customThemeBackgrounds).map((i) => ({ url: i })); } catch (e) { return undefined; } }).call() || []) },
   } : (event?.eventGroup?.cmsEventGroup || {});
   if (event?.disableTheme || !themeBackgrounds || themeBackgrounds?.items?.length === 0) return <></>;
 
