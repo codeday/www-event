@@ -5,8 +5,12 @@ import { useTranslation } from 'next-i18next';
 
 export default function ThemeNotifier({ event, ...props }) {
   const { t } = useTranslation();
-  const { theme, themeBackgrounds } = event?.eventGroup?.cmsEventGroup || {};
-  if (!themeBackgrounds || themeBackgrounds?.items?.length === 0) return <></>;
+  const { theme, themeBackgrounds } = (event?.customTheme && event?.customThemeBackgrounds) ? {
+    theme: event.customTheme,
+    // messy but this way it doesn't throw user-facing errors if metadata is set incorrectly
+    themeBackgrounds: ((_) => { try { return JSON.parse(event.customThemeBackgrounds); } catch (e) { return undefined; } }).call() || [],
+  } : (event?.eventGroup?.cmsEventGroup || {});
+  if (event?.disableTheme || !themeBackgrounds || themeBackgrounds?.items?.length === 0) return <></>;
 
   return (
     <Box position="relative" height="350px" {...props}>
