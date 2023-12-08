@@ -14,6 +14,8 @@
   "register-here": "Register here",
   "registrations-closed": "CodeDay {{region}} is not currently accepting registrations",
   "registrations-closed-cta": "Enter your email to be notified when registrations go live!",
+  "registration-too-late": "😢 It's too late to register for CodeDay {{region}}... but we'd love to see you at the next one!",
+  "registration-too-late-cta": "Enter your email to be notified about the next CodeDay {{region}}",
   "no-event-header": "😢 We don't have an upcoming CodeDay planned in {{region}}. (But you can change that!)",
   "no-event-subheader": "CodeDays are organized by local volunteers. If you want to help bring CodeDay back to {{region}}, click below:",
   "organize-button": "Learn More About Organizing & Sign Up",
