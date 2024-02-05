@@ -12,7 +12,7 @@ import {
   Text,
   Button,
 } from '@codeday/topo/Atom';
-import { useColorMode } from '@chakra-ui/react';
+import { useColorMode } from '@codeday/topo/Theme';
 import { apiFetch, useToasts } from '@codeday/topo/utils';
 import { print } from 'graphql';
 import { ApplyForWorkshopMutation } from './ApplyForWorkshop.gql';

@@ -9,13 +9,15 @@ import nextI18NextConfig from '../../next-i18next.config';
 const { publicRuntimeConfig } = getConfig();
 const stripePromise = loadStripe(publicRuntimeConfig.stripeKey);
 
-const App = ({ Component, pageProps }) => (
+const App = ({ Component, pageProps: { cookies, ...pageProps  } }) => (
   <ThemeProvider
     brandColor="red"
     analyticsId="AZKCYNER"
     locale={pageProps?.locale && pageProps.locale !== '_default' ? pageProps.locale : 'en-US'}
     localizationConfig={pageProps?.localizationConfig}
     withChat
+    cookies={pageProps.cookies}
+    useSystemColorMode
   >
     <Elements
       stripe={stripePromise}

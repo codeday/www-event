@@ -3,7 +3,7 @@ import {
 } from '@codeday/topo/Atom';
 import { Content, GithubAuthors } from '@codeday/topo/Molecule';
 import { apiFetch } from '@codeday/topo/utils';
-import { useColorMode } from '@chakra-ui/react';
+import { useColorMode } from '@codeday/topo/Theme';
 import { Trans, useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { OrganizePageQuery } from './organize.gql';
