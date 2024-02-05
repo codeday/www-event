@@ -16,7 +16,7 @@ const App = ({ Component, pageProps: { cookies, ...pageProps  } }) => (
     locale={pageProps?.locale && pageProps.locale !== '_default' ? pageProps.locale : 'en-US'}
     localizationConfig={pageProps?.localizationConfig}
     withChat
-    cookies={pageProps.cookies}
+    cookies={cookies}
     useSystemColorMode
   >
     <Elements
