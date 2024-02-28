@@ -24,8 +24,8 @@ const BasicDemographics = [
     type: Checkboxes,
     props: {
       columns: 1,
-      options: ['interactionFiction', 'visualNovel', 'game', 'music']
-    }
+      options: ['interactionFiction', 'visualNovel', 'game', 'music'],
+    },
   },
   {
     key: 'experience',
