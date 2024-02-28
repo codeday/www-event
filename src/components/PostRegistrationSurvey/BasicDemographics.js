@@ -20,6 +20,14 @@ const BasicDemographics = [
     },
   },
   {
+    key: 'workshops',
+    type: Checkboxes,
+    props: {
+      columns: 1,
+      options: ['interactionFiction', 'visualNovel', 'game', 'music']
+    }
+  },
+  {
     key: 'experience',
     type: Radio,
     props: {

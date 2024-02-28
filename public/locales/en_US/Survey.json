@@ -7,7 +7,8 @@
         "interests": "Which of these is {{name}} interested in?",
         "experience": "How much experience does {{name}} have coding? (It's ok if the answer is none!)",
         "pronouns": "What pronouns does {{name}} use?",
-        "ethnicity": "What does {{name}} consider themself? (This is just for statistics.)"
+        "ethnicity": "What does {{name}} consider themself? (This is just for statistics.)",
+        "workshops": "Which of these workshops would {{name}} want to attend?"
     },
     "questionAnswers": {
         "yesNo": {
@@ -23,6 +24,12 @@
         "dietary": {
             "none": "None",
             "vegetarian": "Vegetarian"
+        },
+        "workshops": {
+            "interactiveFiction": "Make an interactive fiction story",
+            "visualNovel": "Make a visual novel",
+            "game": "Make a video game",
+            "music": "Code a song"
         },
         "interests": {
             "art": "Art/Design",

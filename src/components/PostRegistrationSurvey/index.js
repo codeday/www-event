@@ -110,7 +110,7 @@ export default function PostRegistrationSurvey({
         ))}
         <Box textAlign="center">
           {(pages.length - 1) === pageNumber
-            ? (pages.length !== 1 && (<Text fontSize="sm">{t('last')}</Text>))
+            ? (<Text fontSize="sm">{t('last')}</Text>)
             : (
               <Button
                 colorScheme="green"
