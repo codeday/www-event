@@ -28,8 +28,9 @@
         "workshops": {
             "interactiveFiction": "Make an interactive fiction story",
             "visualNovel": "Make a visual novel",
+            "rpg": "Make a role playing game",
             "game": "Make a video game",
-            "music": "Code a song"
+            "music": "Make a song (with code)"
         },
         "interests": {
             "art": "Art/Design",
