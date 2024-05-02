@@ -10,7 +10,7 @@ function getColorBackground(logoImage, darkLogoImage, colorMode) {
   return darkLogoImage ? undefined : 'white';
 }
 
-export default function SponsorLogo({ sponsor, ...props }) {
+export default function SponsorLogo({ sponsor, isDark = false, ...props }) {
   const { colorMode } = useColorMode();
 
   const logoImage = sponsor.logo ? sponsor.logo?.url : sponsor.logoImageUri;
@@ -24,8 +24,8 @@ export default function SponsorLogo({ sponsor, ...props }) {
   return (
     <Link key={sponsor.name} href={link} target="_blank">
       <Image
-        bg={getColorBackground(logoImage, darkLogoImage, colorMode)}
-        src={colorMode === 'light' ? logoImage : (darkLogoImage || logoImage)}
+        bg={getColorBackground(logoImage, darkLogoImage, isDark ? 'dark' : colorMode)}
+        src={(isDark ? 'dark' : colorMode) === 'light' ? logoImage : (darkLogoImage || logoImage)}
         alt={sponsor.name}
         {...props}
       />

@@ -18,6 +18,7 @@ fragment GlobalSponsors on CmsQuery {
 
 fragment LocalSponsorsFragment on ClearEvent {
   sponsors (orderBy:{createdAt: asc}) {
+    id
     name
     description
     link

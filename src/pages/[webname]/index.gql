@@ -123,6 +123,7 @@ query IndexStaticPropsQuery ($webname: String! $endDate: ClearDateTime!, $locale
       disableTheme: getMetadata(key: "theme.disable")
       customTheme: getMetadata(key: "theme.custom.text")
       customThemeBackgrounds: getMetadata(key: "theme.custom.backgrounds")
+      venueCobrandSponsor: getMetadata(key: "venue.sponsor-id")
       ...LocalSponsorsFragment
       ...TeamFragment
     }
