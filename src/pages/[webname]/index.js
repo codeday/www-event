@@ -28,6 +28,7 @@ import Team from '../../components/Team';
 import PastProjects from '../../components/PastProjects';
 import PastPhotos from '../../components/PastPhotos';
 import RegisterBox from '../../components/RegisterBox';
+import SponsorLogo from '../../components/SponsorLogo';
 
 export default function EventHome({
   webname, region, images, quotes, event, globalSponsors, globalTeam, faqs, awards, projects, random,
@@ -69,7 +70,12 @@ export default function EventHome({
         >
           {event.venue ? (
             <>
-              {t('hosted-at', { venue: event.venue.name })}<br />
+              <Box display="flex" justifyContent="center">
+                {event.venue && event.venueCobrandSponsor ? event.sponsors.filter((sponsor) => (sponsor.id === event.venueCobrandSponsor)).map((s) => (
+                  <SponsorLogo maxH="5em" maxW="5em" display="flex" justifyItems="center" isDark key={s.id} sponsor={s} />
+                )) : null}
+                {t('hosted-at', { venue: event.venue.name })}<br />
+              </Box>
               <Link fontSize="md" href={event.venue.mapLink}>{event.venue.addressInline}</Link>
             </>
           ) : null}
