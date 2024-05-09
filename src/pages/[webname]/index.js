@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { print } from 'graphql';
 import { DateTime } from 'luxon';
 import {
-  Box, Button, Heading, Link, Text, Grid,
+  Box, Button, Heading, Link, Text, Grid, Image,
 } from '@codeday/topo/Atom';
 import AnnouncementIcon from '@codeday/topocons/Icon/UiInfo';
 import { Content } from '@codeday/topo/Molecule';
@@ -28,7 +28,6 @@ import Team from '../../components/Team';
 import PastProjects from '../../components/PastProjects';
 import PastPhotos from '../../components/PastPhotos';
 import RegisterBox from '../../components/RegisterBox';
-import SponsorLogo from '../../components/SponsorLogo';
 
 export default function EventHome({
   webname, region, images, quotes, event, globalSponsors, globalTeam, faqs, awards, projects, random,
@@ -70,9 +69,9 @@ export default function EventHome({
         >
           {event.venue ? (
             <>
-              <Box display="flex" justifyContent="center">
+              <Box display="flex" justifyContent="center" flexDirection="column">
                 {event.venue && event.venueCobrandSponsor ? event.sponsors.filter((sponsor) => (sponsor.id === event.venueCobrandSponsor)).map((s) => (
-                  <SponsorLogo maxH="5em" maxW="5em" display="flex" justifyItems="center" isDark key={s.id} sponsor={s} />
+                  <Image maxH="5em" maxW="5em" display="flex" alignSelf="center" isDark key={s.id} src={s.logo ? s.darkLogo?.url : s.darkLogoImageUri} />
                 )) : null}
                 {t('hosted-at', { venue: event.venue.name })}<br />
               </Box>
