@@ -190,15 +190,12 @@ export default function EventHome({
 
       {event && <Team mb={16} team={event?.team} globalTeam={globalTeam} random={random} />}
 
-      {event?.customLegal || webname === 'seattle' && (
+      {(event?.customLegal || webname === 'seattle') && (
         <Content maxWidth="container.lg" textAlign="center" fontSize="sm" color="current.textLight" mb={12}>
-          <Text>{event.customLegal}</Text>
-           {event.webname === 'seattle' && (
-             <Text>
-               CodeDay’s Washington events are supported by the U.S. Department of Labor. A total of $138,826,{' '}
-               or 90 percent, of the program is financed with federal funds, and $75,000, or 35% percent, is funded{' '}
-               by other sources. Read more about USDOL grant funding at{' '}
-               <Link href="https://esd.wa.gov/usdol">esd.wa.gov/usdol</Link>
+            {event?.customLegal && <Text>{event.customLegal}</Text>}
+            {webname === 'seattle' && (
+              <Text>
+                <Trans ns="EventHome" i18nKey="stevens-amendment" components={{ click: <Link href="https://esd.wa.gov/usdol" /> }} />
               </Text>
             )}
         </Content>
