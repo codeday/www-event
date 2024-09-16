@@ -71,7 +71,7 @@ export default function EventHome({
             <>
               <Box display="flex" justifyContent="center" flexDirection="column">
                 {event.venue && event.venueCobrandSponsor ? event.sponsors.filter((sponsor) => (sponsor.id === event.venueCobrandSponsor)).map((s) => (
-                  <Image maxH="5em" maxW="5em" display="flex" alignSelf="center" isDark key={s.id} src={s.logo ? s.darkLogo?.url : s.darkLogoImageUri} />
+                  <Image maxH="5em" maxW="5em" display="flex" alignSelf="center" alt={event.venue.name} isDark key={s.id} src={s.logo ? s.darkLogo?.url : s.darkLogoImageUri} />
                 )) : null}
                 {t('hosted-at', { venue: event.venue.name })}<br />
               </Box>

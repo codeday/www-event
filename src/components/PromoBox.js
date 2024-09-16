@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import {
   Flex, Box, Button, TextInput, Text,
 } from '@codeday/topo/Atom';
@@ -6,8 +6,8 @@ import { apiFetch, useToasts } from '@codeday/topo/utils';
 import { UiCheck } from '@codeday/topocons/Icon';
 import { print } from 'graphql';
 import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import { CheckPromoCode } from './PromoBox.gql';
-import { useRouter } from 'next/router'
 
 export default function PromoBox({ event, onChange, ...rest }) {
   const [promoCode, setPromoCode] = useState();
@@ -47,16 +47,16 @@ export default function PromoBox({ event, onChange, ...rest }) {
       setPromoCode('');
     }
     setIsLoading(false);
-  }
+  };
 
   useEffect(() => {
     if (router.query.promo && typeof router.query.promo === 'string' && !!router.query.promo.trim() && !autoAppliedPromo.current) {
       setShow(true);
       setPromoCode(router.query.promo);
-      handleSubmitPromo()
+      handleSubmitPromo();
       autoAppliedPromo.current = true;
     }
-  }, [router.query])
+  }, [router.query]);
 
   if (!show) {
     return (
