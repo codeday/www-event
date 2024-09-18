@@ -21,7 +21,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
   const promoAppliedString = event.requiresPromoCode ? t('promo-applied.access-code', { promoCode }) : t('promo-applied.promo-code', { promoCode });
   const promoAskString = event.requiresPromoCode ? t('promo-ask.access-code') : t('promo-ask.promo-code');
 
-  const handleSubmitPromo = async () => {
+  const handleSubmitPromo = async (promoCode) => {
     if (!promoCode) {
       onChange(undefined, undefined, undefined, undefined);
       setShow(false);
@@ -53,7 +53,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
     if (router.query.promo && typeof router.query.promo === 'string' && !!router.query.promo.trim() && !autoAppliedPromo.current) {
       setShow(true);
       setPromoCode(router.query.promo);
-      handleSubmitPromo();
+      handleSubmitPromo(router.query.promo);
       autoAppliedPromo.current = true;
     }
   }, [router.query]);
@@ -94,7 +94,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
           colorScheme="green"
           isLoading={isLoading}
           disabled={event.requiresPromoCode && !promoCode}
-          onClick={handleSubmitPromo}
+          onClick={() => handleSubmitPromo(promoCode)}
         >
           <UiCheck />
         </Button>
