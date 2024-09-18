@@ -21,8 +21,8 @@ export default function PromoBox({ event, onChange, ...rest }) {
   const promoAppliedString = event.requiresPromoCode ? t('promo-applied.access-code', { promoCode }) : t('promo-applied.promo-code', { promoCode });
   const promoAskString = event.requiresPromoCode ? t('promo-ask.access-code') : t('promo-ask.promo-code');
 
-  const handleSubmitPromo = async (promoCode) => {
-    if (!promoCode) {
+  const handleSubmitPromo = async (code) => {
+    if (!code) {
       onChange(undefined, undefined, undefined, undefined);
       setShow(false);
       return;
@@ -30,7 +30,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
 
     setIsLoading(true);
     try {
-      const result = await apiFetch(print(CheckPromoCode), { id: event.id, code: promoCode });
+      const result = await apiFetch(print(CheckPromoCode), { id: event.id, code });
       const promoDetails = result?.clear?.findFirstEvent?.checkPromoCode;
       if (!promoDetails?.valid) throw new Error(t('common:error.message.no-promo'));
       if (promoDetails.remainingUses !== null && promoDetails.remainingUses <= 0) throw new Error(t('common:error.message.promo-fully-used'));
@@ -41,7 +41,7 @@ export default function PromoBox({ event, onChange, ...rest }) {
         currency: event.region.currency || 'USD',
       }));
       setShow(false);
-      onChange(promoCode, promoDetails.effectivePrice, promoDetails.remainingUses, promoDetails.metadata);
+      onChange(code, promoDetails.effectivePrice, promoDetails.remainingUses, promoDetails.metadata);
     } catch (ex) {
       error(ex.toString());
       setPromoCode('');
