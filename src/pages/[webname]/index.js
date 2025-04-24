@@ -28,6 +28,7 @@ import Team from '../../components/Team';
 import PastProjects from '../../components/PastProjects';
 import PastPhotos from '../../components/PastPhotos';
 import RegisterBox from '../../components/RegisterBox';
+import Head from 'next/head';
 
 export default function EventHome({
   webname, region, images, quotes, event, globalSponsors, globalTeam, faqs, awards, projects, random,
@@ -56,6 +57,12 @@ export default function EventHome({
 
   return (
     <Page darkHeader slug={`/${region.webname}`} region={region} event={event}>
+    <Head>
+      <link rel="alternate" type="application/json+oembed"
+        href={`http://event.codeday.org/api/oembed?url=${encodeURIComponent(`https://event.codeday.org/${webname}`)}&format=json`}
+        title="CodeDay oEmbed Profile"
+      />
+    </Head>
       {event ? (
         <IndexHeader
           mt={-40}
