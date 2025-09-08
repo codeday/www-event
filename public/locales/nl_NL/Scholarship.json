@@ -1,0 +1,14 @@
+{
+  "details": "Je kunt een beurs aanvragen, rechtstreeks vanaf de pagina van een evenement waarvoor je je kunt inschrijven. Klik op 'Te duur?' boven het veld betalen.",
+  "extra-info": "Heb je een laptop of hulp met transport nodig? <click>Neem contact met ons op!</click>",
+  "confirm-button": "Vraag {{price, currency}} ticket beurs aan",
+  "reason": {
+    "question":  "Waarom heb je een beurs nodig?",
+    "FAMILY_CANT_AFFORD": "Mijn familie kan het zich niet veroorloven.",
+    "CANT_AFFORD": "Ik kan het me niet veroorloven en mijn familie ondersteunt mij financieel niet.",
+    "FAMILY_UNSURE": "Ik kan het me niet veroorloven en ik heb het mijn familie niet gevraagd.",
+    "DONT_BELIEVE_PAY": "Ik vind het geen leuk idee om voor dit soort evenementen te betalen.",
+    "OTHER": "Overig",
+    "other-prompt": "Leg hier onder uit:"
+  }
+}
