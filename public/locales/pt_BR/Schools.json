@@ -1,0 +1,38 @@
+{
+  "title": "{{event}} CodeDay para escolas",
+  "back": "Voltar aos detalhes do evento",
+  "register": "Inscrição do aluno",
+  "error": {
+    "message": {
+      "no-event": "Não temos nenhum evento planejado no momento. Confira novamente em breve!"
+    }
+  },
+  "assistance": {
+    "heading": "Seus alunos precisam de ajuda para participar do CodeDay?",
+    "intro": "Como uma organização sem fins lucrativos mundial, acreditamos que há um lugar na tecnologia para todos, não importa quais sejam suas condições financeiras.",
+    "ticket": "Entrada gratuita para o evento, com direito a comida e bebidas.",
+    "ride": "Viagem de Uber gratuita de ida e volta para o evento. (Não é necessário ter conta no Uber.)",
+    "laptop": "Um notebook gratuito, que o aluno poderá ficar caso crie algo no CodeDay. Sim, isso é verdade — já distribuímos mais de 500 notebooks.",
+    "action": "Preencha o formulário abaixo e forneceremos um código promocional para compartilhar com seus alunos. Também vamos conferir a lista final para garantir que todos tenham solicitado assistência.",
+    "apply": {
+      "name": "Nome do professor",
+      "name-placeholder": "Fulano",
+      "email": "E-mail do professor",
+      "email-placeholder": "você@sua-escola.org",
+      "school-name": "Nome da escola",
+      "school-name-placeholder": "Escola Secundária North Southvale",
+      "no-student": "Por favor, utilize o e-mail da sua escola. (Você precisa ser professor para preencher este formulário! Se você for aluno, envie este formulário para um professor.)",
+      "student-names": "Nomes dos alunos que você espera que participem",
+      "student-name-placeholder": "Nome completo",
+      "student": "Aluno",
+      "submit": "Enviar",
+      "submitted": "Sua solicitação foi enviada.",
+      "whats-next": "Aqui está o que esperar a seguir:",
+      "validate": "Nossa equipe validará seu status de professor.",
+      "promo-code": "Nós geraremos um código promocional para compartilhar com os alunos.",
+      "double-check": "Nós vamos verificar novamente para garantir que todos esses alunos solicitaram a assistência que precisam.",
+      "questions": "Se tiver dúvidas, envie-nos um e-mail para <click>schools@codeday.org</click>.",
+      "error": "Sua solicitação não pôde ser enviada. Tente novamente, ou envie sua solicitação por e-mail para schools@codeday.org."
+    }
+  }
+}
