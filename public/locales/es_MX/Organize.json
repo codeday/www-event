@@ -1,0 +1,57 @@
+{
+  "why-organize": "¿Por qué organizar CodeDay?",
+  "read-testimonials": "(Haz clic para leer más o <click>ver todos los testimonios</click>)",
+  "perks": {
+    "heading": "VENTAJAS DE CODEDAY ESTA TEMPORADA:",
+    "body": "Apoya a tu comunidad con más de $2000 en laptops gratis para regalar a estudiantes de bajos ingresos, y trayectos en Uber gratis para los asistentes de zonas de bajos ingresos."
+  },
+
+  "community": {
+    "heading": "Enseña a tu comunidad a codificar <highlight>sin que parezca que vas a la escuela.</highlight>",
+    "why": [
+      "Cuando organices un CodeDay, ayudarás a cientos de estudiantes de tu comunidad a aprender a codificar.",
+      "A pesar de ser un evento educativo, basta con echar un vistazo para ver algo que rara vez se ve en un aula: todos y cada uno de los estudiantes están sonriendo, comprometidos y entusiasmados por aprender."
+    ]
+  },
+
+  "creativity": {
+    "heading": "Destaca <highlight>Creatividad</highlight> para llegar a personas que normalmente nunca irían a un evento de codificación.",
+    "why": {
+      "1": [
+        "Hay un montón de clases, clubes, hackathones y otros eventos estupendos para la gente que sabe que quiere codificar.",
+        "Solo CodeDay se centra en las personas a las que no les gusta codificar, no quieren aprender y no van a eventos de codificación."
+      ],
+      "2": [
+        "Como organizador, te basarás en nuestros más de 10 años de experiencia para dirigir un evento que atraiga a estudiantes que solo se interesan por el arte, la música, la actuación de voz, la escritura y otras actividades creativas.",
+        "¡Y luego les mostrarás lo divertida y creativa que es realmente la codificación!"
+      ],
+      "3": "Cada vez que organices un evento CodeDay, ayudarás a crear docenas o incluso cientos de programadores totalmente nuevos, personas que nunca habrían aprendido a programar si no fuera por ti."
+    }
+  },
+
+  "intersectional": {
+    "heading": "Un <highlight>evento transversal</highlight> que une a la gente sin importar su procedencia.",
+    "why": {
+      "1": [
+        "El 68 % de los asistentes al CodeDay pertenecen a un grupo tradicionalmente infrarrepresentado en la tecnología. Esto no es casualidad, ¡hemos perfeccionado el modelo más eficaz para promover y apoyar a estudiantes diversos!",
+        "Como organizador, obtendrás:"
+      ],
+      "2": [
+        "Guía + asesoramiento semanal basado en más de 10 años de experimentos.",
+        "Laptops para regalar a estudiantes con bajos ingresos. ¡PARA CONSERVAR!",
+        "Viajes gratis en Uber para estudiantes con bajos ingresos hasta/desde CodeDay."
+      ],
+      "3": [
+        "Muchos eventos ofrecen estas oportunidades limitando los participantes a un grupo determinado, pero CodeDay adopta un método diferente;",
+        "preferimos fomentar relaciones positivas entre los asistentes, independientemente de su procedencia, basadas en un entusiasmo compartido por las cosas creativas que podemos construir con la tecnología."
+      ]
+    }
+  },
+
+  "form": {
+    "header": "Organiza un CodeDay",
+    "submit-button": "¡Apúntate para organizarlo!",
+    "requirements": "Requisitos: tener al menos 15 años y poder comprometerse de 3 a 5 h/semana. NO SE NECESITA EXPERIENCIA.",
+    "no-experience-required": "¡No se necesita experiencia! Tendrás nuestro apoyo en todo momento."
+  }
+}
