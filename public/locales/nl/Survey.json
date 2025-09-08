@@ -1,0 +1,68 @@
+{
+    "title": "Gegevens voor {{name}}",
+    "questions": {
+        "uber": "Heeft {{name}} een gratis Uber-rit nodig van/naar het evenement?",
+        "laptop": "Vraagt {{name}} een gratis laptop aan voor het evenement?",
+        "dietary": "Heeft {{name}} bepaalde dieetvoorschriften of voedselallergieën?",
+        "interests": "In welke van het volgende is {{name}} geïnteresseerd?",
+        "experience": "Hoeveel ervaring heeft {{name}} met programmeren? (Het is geen probleem als het antwoord ‘geen’ is!)",
+        "pronouns": "Welke voornaamwoorden gebruikt {{name}}?",
+        "ethnicity": "Hoe beschouwt {{name}} zichzelf? (Dit is alleen voor statistische doeleinden.)",
+        "workshops": "Welke van deze workshops zou {{name}} willen bijwonen?"
+    },
+    "questionAnswers": {
+        "yesNo": {
+            "yes": "Ja",
+            "no": "Nee"
+        },
+        "likert": {
+            "stronglyDisagree": "Sterk mee oneens",
+            "disagree": "Mee oneens",
+            "agree": "Mee eens",
+            "stronglyAgree": "Sterk mee eens"
+        },
+        "dietary": {
+            "none": "Geen",
+            "vegetarian": "Vegetarisch"
+        },
+        "workshops": {
+            "interactiveFiction": "Maak een interactief fictieverhaal",
+            "visualNovel": "Maak een visuele roman",
+            "rpg": "Maak een rollenspel",
+            "game": "Maak een videogame",
+            "music": "Maak een liedje (met code)"
+        },
+        "interests": {
+            "art": "Kunst/ontwerp",
+            "music": "Muziek",
+            "acting": "Acteren",
+            "computers": "Computers",
+            "business": "Bedrijfsvoering/marketing",
+            "literature": "Literatuur"
+        },
+        "experience": {
+            "none": "Helemaal geen.",
+            "intro": "Ik heb een introductiecursus programmeren gevolgd (of AP CS Principals).",
+            "advanced": "Ik heb een meer gevorderde programmeercursus gevolgd (AP CS A, collegecursussen enz.).",
+            "projects": "Ik heb voor mijn plezier mijn eigen projecten geprogrammeerd."
+        },
+        "pronouns": {
+            "he/him": "hij/hem",
+            "she/her": "zij/haar",
+            "they/them": "zij/hen"
+        },
+        "ethnicity": {
+            "latine": "Latino/a/e/x",
+            "black": "Donker",
+            "white": "Blank",
+            "asian": "Aziatisch/Indiaas/Pacific Islander",
+            "nativeAmerican": "Inheemse Amerikanen/Eerste Naties/Inheemse volkeren",
+            "complicated": "Het is gecompliceerd" 
+        }
+    },
+    "other": "Anders",
+    "likert": "Ben je het eens met de volgende stelling?",
+    "next": "Volgende pagina",
+    "last": "Dit is de laatste pagina. Je antwoorden worden automatisch opgeslagen.",
+    "study": "Deze optionele vraag maakt deel uit van een onderzoek."
+}
