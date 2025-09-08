@@ -8,8 +8,14 @@
   "hosted-at": "Realizado em {{venue}}",
   "early-bird": "(Desconto de compra antecipada!)",
   "scholarship-button": "Não cabe no seu bolso?",
+  "registration-third-party": "A inscrição para este evento é conduzida por terceiros.",
+  "registration-by": "A inscrição para este evento é conduzida por {{name}}.",
+  "register-at": "Inscreva-se em {{name}}",
+  "register-here": "Inscreva-se aqui",
   "registrations-closed": "O CodeDay {{region}} não está aceitando inscrições no momento",
   "registrations-closed-cta": "Digite seu e-mail para receber uma notificação quando as inscrições forem abertas!",
+  "registration-too-late": "😢 É tarde demais para se inscrever para o CodeDay {{region}}... mas adoraríamos vê-lo no próximo!",
+  "registration-too-late-cta": "Digite seu e-mail para ser notificado sobre o próximo CodeDay {{region}}",
   "no-event-header": "😢 Não há um CodeDay futuro sendo planejado em {{region}}. (Mas você pode mudar isso!)",
   "no-event-subheader": "Os CodeDays são organizados por voluntários locais. Se quiser ajudar a trazer o CodeDay de volta para {{region}}, clique abaixo:",
   "organize-button": "Saber mais sobre como organizar e inscrever-se",
@@ -26,5 +32,6 @@
     "short": "O melhor evento para iniciantes criarem jogos e aplicativos incríveis!",
     "long": "O CodeDay é um evento mundial em que estudantes que são artistas, programadores, musicistas, atores e escritores se juntam para criar aplicativos e jogos.",
     "no-experience-required": "NÃO É PRECISO TER EXPERIÊNCIA EM PROGRAMAÇÃO!"
-  }
+  },
+  "stevens-amendment": "Os eventos do CodeDay em Washington são apoiados pelo Departamento do Trabalho dos EUA – subsídios WIOA Título IB para Adultos, DW e Juventude para o PY23. Um total de US$138.826, ou 65%, do programa é financiado com fundos federais, e US$75.000, ou 35%, é financiado por outras fontes não federais. Leia mais sobre o financiamento de subsídios do USDOL em <click>esd.wa.gov/usdol</click>."
 }
