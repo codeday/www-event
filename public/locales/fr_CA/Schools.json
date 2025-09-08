@@ -1,0 +1,38 @@
+{
+  "title": "{{event}} CodeDay pour les écoles",
+  "back": "Retour à tous les détails de l'événement",
+  "register": "Inscription des étudiant·es",
+  "error": {
+    "message": {
+      "no-event": "Nous n'avons pas d'événement prévu pour le moment ; revenez plus tard."
+    }
+  },
+  "assistance": {
+    "heading": "Vos élèves ont besoin d'aide pour participer à CodeDay?",
+    "intro": "En tant qu'association internationale à but non lucratif, nous pensons que chacun a sa place dans la technologie, quels que soient ses moyens.",
+    "ticket": "Entrée gratuite à l'événement, nourriture et boissons comprises.",
+    "ride": "Un trajet Uber gratuit pour l'aller et le retour. (Aucun compte Uber requis.)",
+    "laptop": "Un ordinateur portable gratuit, à conserver s'ils créent quelque chose lors de CodeDay. Eh oui, c'est bien réel, nous avons déjà distribué plus de 500 ordinateurs portables.",
+    "action": "Remplissez le formulaire ci-dessous et nous vous fournirons un code promotionnel à partager avec vos élèves. Nous vérifierons également notre liste finale pour nous assurer que tous les élèves inscrits ont demandé de l'aide.",
+    "apply": {
+      "name": "Nom de l'enseignant.e",
+      "name-placeholder": "Jane Doe",
+      "email": "Courriel de l'enseignant.e",
+      "email-placeholder": "you@your-school.org",
+      "school-name": "Nom de l'établissement",
+      "school-name-placeholder": "Lycée North Southvale",
+      "no-student": "Veuillez utiliser l'adresse courriel de votre établissement. (Vous devez être enseignant.e pour remplir ce formulaire! Si vous êtes élève, veuillez l'envoyer à un.e enseignant.e.)",
+      "student-names": "Noms des élèves que vous prévoyez de fréquenter",
+      "student-name-placeholder": "Nom complet",
+      "student": "Étudiant·e",
+      "submit": "Envoyer",
+      "submitted": "Votre demande a été envoyée.",
+      "whats-next": "Voici ce à quoi il faut s'attendre :",
+      "validate": "Notre équipe validera votre statut d'enseignant·e.",
+      "promo-code": "Nous générerons un code promotionnel à partager avec vos étudiant·es.",
+      "double-check": "Nous vérifierons que tou·tes ces étudiant·es ont bien demandé l'aide dont ils et elles ont besoin.",
+      "questions": "Si vous avez des questions, vous pouvez nous envoyer un courriel à <click>schools@codeday.org</click>.",
+      "error": "Votre demande n'a pas pu être envoyée. Réessayez ou envoyez votre demande par courriel à schools@codeday.org."
+    }
+  }
+}
