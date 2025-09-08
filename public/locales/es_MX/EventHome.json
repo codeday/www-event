@@ -8,8 +8,14 @@
   "hosted-at": "Anfitrión @ {{venue}}",
   "early-bird": "(¡Descuento por registro anticipado!)",
   "scholarship-button": "¿No puedes permitírtelo?",
+  "registration-third-party": "La inscripción a este evento la gestiona un tercero.",
+  "registration-by": "La inscripción a este evento corre a cargo de {{name}}.",
+  "register-at": "Registrarse en {{name}}",
+  "register-here": "Registrarse aquí",
   "registrations-closed": "El \nCodeDay de {{region}} no acepta inscripciones actualmente",
   "registrations-closed-cta": "Introduce tu correo electrónico para recibir una notificación cuando se abran las inscripciones.",
+  "registration-too-late": "😢 Es demasiado tarde para inscribirse en CodeDay en {{region}}... ¡pero nos encantaría verte en el próximo!",
+  "registration-too-late-cta": "Introduce tu correo electrónico para que te avisemos del próximo CodeDay en {{region}}",
   "no-event-header": "😢 No tenemos previsto ningún CodeDay en {{region}} (¡Pero tú puedes cambiar eso!)",
   "no-event-subheader": "Los CodeDays están organizados por voluntarios locales. Si quieres ayudar a que el CodeDay vuelva a {{region}}, haz clic a continuación:",
   "organize-button": "Más información sobre la organización y la inscripción",
@@ -26,5 +32,6 @@
     "short": "¡El evento para principiantes más sencillo para crear juegos y aplicaciones increíble!",
     "long": "CodeDay es un acontecimiento mundial en el que estudiantes artistas, programadores, músicos, actores y escritores se reúnen para crear aplicaciones y juegos.",
     "no-experience-required": "¡NO ES NECESARIO TENER EXPERIENCIA EN PROGRAMACIÓN!"
-  }
+  },
+  "stevens-amendment": "Los eventos de CodeDay en Washington cuentan con el apoyo del Departamento de Trabajo de EE. UU.: subvenciones WIOA Título IB para Adultos, DW y Jóvenes para el PY23. Un total de $138 826, o el 65 % del programa, está financiado con fondos federales, y $75 000, o el 35 %, está financiado por otras fuentes no federales. Más información sobre las subvenciones del USDOL en <click>esd.wa.gov/usdol</click>"
 }
