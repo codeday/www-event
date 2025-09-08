@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "Informations sur les parents/tuteurs",
+    "subheading": "Requis lorsqu'un participant est mineur."
+  },
+  "pending": {
+    "heading": "Nous sommes en train de réviser votre inscription.",
+    "body": "Nous vous contacterons avec votre billet définitif. En attendant, veuillez compléter les informations suivantes :"
+  },
+  "confirmed": {
+    "heading": "Vous allez au CodeDay ! Remplissez le formulaire ci-dessous ! 👇👇👇",
+    "body": "Pas besoin d'imprimer un billet, nous vous enregistrerons par votre nom. Veuillez compléter les informations suivantes :"
+  },
+  "sold-out": {
+    "heading": "Désolé, nous sommes complets!",
+    "body": "Nous sommes à la capacité maximale absolue, et ne pouvons pas faire d'exception. Aucun billet ne sera disponible à la porte."
+  },
+  "requires-promo-code": "Ce CodeDay n'est pas ouvert au public. Si vous avez reçu une invitation, entrez votre Code d'accès pour vous inscrire.",
+  "access-code": "Code d'accès",
+  "promo-code": "Code promo",
+  "promo-applied": {
+    "promo-code": "Promo : {{promoCode}}",
+    "access-code": "Code d'accès : {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "Vous avez un code promo?",
+    "access-code": "Code d'accès requis."
+  },
+  "payment": {
+    "header": "Paiement",
+    "ticket-summary": "{{count}} x <ticketIcon /> billet CodeDay - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> billet CodeDay (inscriptions anticipées) - {{price, currency}}",
+    "request-scholarship": "Vous ne pouvez pas vous le permettre? Demandez une bourse d'études ",
+    "cancel-scholarship": "Annuler la demande de bourse"
+  },
+  "terms": {
+    "header": "Conditions",
+    "body": [
+      "<listItem>Les prix sont en {{currency}}.</listItem>",
+      "<listItem>Vous devez respecter le <conductLink>code de conduite</conductLink> et le <rulesLink>règlement de l'événement</rulesLink></listItem>.",
+      "<listItem>Vous devrez signer une renonciation et un communiqué de presse.</listItem>",
+      "<listItem>Nous pouvons vous photographier ou vous enregistrer.</listItem>",
+      "<listItem>Les remboursements sont possibles jusqu'à 48 heures avant le début.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Désolé, vous ne pourrez pas vous inscrire.",
+    "too_old": "CodeDay s'adresse principalement aux lycéens et n'est pas adapté aux personnes ayant plus de {{maxAge}}.",
+    "too_young": "CodeDay s'adresse principalement aux lycéens et n'est pas adapté à ceux qui ont moins de {{minAge}}."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Les étudiants les plus jeunes ne peuvent pas passer la nuit.",
+    "body": "Les étudiants de moins de {{age}} doivent être récupérés entre 20 et 22 heures et peuvent revenir après 7 heures le lendemain."
+  },
+  "participant-info": "Informations sur les participants",
+  "collect-org": "Avec quelle école ou quel club vous inscrivez-vous?",
+  "collect-org-prefill": "École/club",
+  "collect-participant-age": "Âge de {{name}}",
+  "collect-participant-age_generic": "Âge du participant",
+  "add-ticket": "Ajouter un billet",
+  "remove-ticket": "Retirer un billet",
+  "too-many-tickets_one": "Désolé, seul {{count}} billet est disponible à ce prix. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Désolé, seuls {{count}} billets sont disponibles à ce prix. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Désolé, seul {{count}} billet est disponible. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Désolé, seuls {{count}} billets sont disponibles. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "Veuillez supprimer {{count}} billet pour continuer.",
+  "please-remove_other": "Veuillez supprimer {{count}} billets pour continuer.",
+  "remaining-tickets_one": "Il ne reste que {{count}} billet!",
+  "remaining-tickets_other": "Il ne reste que {{count}} billets!"
+}
