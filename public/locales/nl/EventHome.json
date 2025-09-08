@@ -1,0 +1,37 @@
+{
+  "free": "Gratis!",
+  "ticket-price": "Ticketprijs: {{price, currency}}",
+  "register-now": "Nu aanmelden",
+  "past-projects-header": "We helpen je bij het maken van bijvoorbeeld...",
+  "register-header": "Aanmelden voor CodeDay",
+  "register-subheader": "Geen belangstelling voor of ervaring met coderen noodzakelijk!",
+  "hosted-at": "Hosted @ {{venue}}",
+  "early-bird": "(Korting voor vroege vogels)",
+  "scholarship-button": "Te duur?",
+  "registration-third-party": "Aanmelding voor dit evenement wordt door een derde partij uitgevoerd.",
+  "registration-by": "Aanmeding voor dit evenement wordt uitgevoord door {{name}}.",
+  "register-at": "Aanmelden op {{name}}",
+  "register-here": "Hier aanmelden",
+  "registrations-closed": "CodeDay {{region}} accepteert momenteel geen aanmeldingen",
+  "registrations-closed-cta": "Voer je e-mailadres is en je wordt op de hoogte gehouden wanneer aanmeldingen live gaan!",
+  "registration-too-late": "😢 Het is te laat om je aan te melden voor CodeDay {{region}}... maar we zien je graag de volgende keer graag!",
+  "registration-too-late-cta": "Voer je e-mail in om op de hoogte te worden gehouden over de volgende CodeDay {{region}}",
+  "no-event-header": "😢 We hebben geen toekomstige CodeDay gepland in {{region}}. (Maar jij kan dat veranderen!)",
+  "no-event-subheader": "CodeDays worden door lokale vrijwilligers georganiseerd. Klik hieronder als je wilt helpen CodeDay terug naar {{region}} te brengen:",
+  "organize-button": "Meer informatie over organiseren en aanmelden",
+  "organize-experience": "Geen ervaring nodig. Minimum leeftijd 15 jaar.",
+  "no-event-subscribe": "Wil je nog geen vrijwilliger worden? Voer je e-mailadres in om op de hoogte te worden gehouden als we CodeDay {{region}} opnieuw lanceren:",
+  "photos-header": "Eerder op CodeDay {{region}}",
+  "photos-button": "Meer oude foto's en projecten",
+  "faq": {
+    "title": "Veelgestelde vragen",
+    "button": "Alle veelgestelde vragen",
+    "body": "<0>Meer vragen? Je kunt <2>hier meer veelgestelde vragen lezen</2> of stuur ons een e-mail naar <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "Het meeste beginnersvriendelijke evenement voor het bouwen van fantastische games en apps!",
+    "long": "CodeDay is een wereldwijd evenement waar leerling-artiesten, programmeurs, musici, acteurs en schrijvers bijeenkomen om apps en games te bouwen.",
+    "no-experience-required": "GEEN CODERINGSERVARING NODIG!"
+  },
+  "stevens-amendment": "Evenementen van CodeDay in Washington worden ondersteund door het Amerikaanse ministerie van Arbeid – WIOA Title IB-subsidies voor volwassenen, gehandicapten en jongeren voor PY23 . In totaal wordt $ 138.826, oftewel 65%, van het programma gefinancierd met federale middelen en $ 75.000, oftewel 35%, met andere niet-federale bronnen. Meer informatie over USDOL-subsidiefinanciering op <click>esd.wa.gov/usdol</click>"
+}
