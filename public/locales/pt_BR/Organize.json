@@ -1,0 +1,57 @@
+{
+  "why-organize": "Por que organizar o CodeDay?",
+  "read-testimonials": "(Clique para ler mais ou <click>ver todos os depoimentos</click>)",
+  "perks": {
+    "heading": "O CODEDAY ANIMA ESTA TEMPORADA:",
+    "body": "Apoie sua comunidade com mais de US$2.000 em laptops gratuitos para distribuir a alunos de baixa renda e viagens gratuitas de Uber para participantes de áreas de baixa renda."
+  },
+
+  "community": {
+    "heading": "Ensine sua comunidade a programar <highlight>sem sentir que está na escola.</highlight>",
+    "why": [
+      "Quando você organiza um CodeDay, você ajuda centenas de estudantes em sua comunidade a aprender a programar.",
+      "Apesar de ser um evento educacional, basta uma olhada ao redor para ver algo que você raramente vê em uma sala de aula: todos os alunos estão sorrindo, envolvidos e animados para aprender."
+    ]
+  },
+
+  "creativity": {
+    "heading": "Destaque a <highlight>Criatividade</highlight> para alcançar pessoas que normalmente nunca iriam a um evento de programação.",
+    "why": {
+      "1": [
+        "Há muitas ótimas aulas, clubes, gincanas e outros eventos para pessoas que querem aprender a programar.",
+        "Somente o CodeDay é focado em pessoas que não gostam de programação, não querem aprender e não vão a eventos de programação."
+      ],
+      "2": [
+        "Como organizador, você se baseará em nossos mais de 10 anos de experiência para realizar um evento que atraia alunos interessados apenas em arte, música, dublagem, escrita e outras atividades criativas.",
+        "E então você vai mostrar a eles como a programação é divertida e criativa!"
+      ],
+      "3": "Cada vez que você organiza um evento CodeDay, você ajuda a criar dezenas ou até centenas de programadores totalmente novos - pessoas que nunca teriam aprendido a programar se não fosse por você."
+    }
+  },
+
+  "intersectional": {
+    "heading": "Um <highlight>evento interseccional</highlight> que reúne pessoas independentemente de suas origens.",
+    "why": {
+      "1": [
+        "68% dos participantes do CodeDay são de um grupo tradicionalmente sub-representado na tecnologia. Isso não é por acaso, aperfeiçoamos o modelo mais eficaz para promover e apoiar alunos diversos!",
+        "Como organizador, você receberá:"
+      ],
+      "2": [
+        "Guia + treinamento semanal baseado em mais de 10 anos de experimentos.",
+        "Laptops para doar a alunos de baixa renda. PARA MANTER!",
+        "Corridas gratuitas de Uber para alunos de baixa renda de/para o CodeDay."
+      ],
+      "3": [
+        "Muitos eventos fornecem essas oportunidades ao limitar os participantes a um certo grupo, mas o CodeDay adota uma abordagem diferente;",
+        "preferimos fomentar relacionamentos positivos entre os participantes, independentemente de sua origem, fundamentados em uma empolgação compartilhada pelas coisas criativas que podemos construir com a tecnologia."
+      ]
+    }
+  },
+
+  "form": {
+    "header": "Organize um CodeDay",
+    "submit-button": "Inscreva-se para organizar!",
+    "requirements": "Requisitos: ter pelo menos 15 anos e poder se comprometer de 3 a 5 horas/semana. NÃO É NECESSÁRIO TER EXPERIÊNCIA.",
+    "no-experience-required": "Não é necessário ter experiência! Você terá nosso apoio a cada etapa do caminho."
+  }
+}
