@@ -1,0 +1,68 @@
+{
+    "title": "Detalhes para {{name}}",
+    "questions": {
+        "uber": "{{name}} precisa de uma corrida grátis de Uber de/para o evento?",
+        "laptop": "{{name}} está solicitando um laptop grátis para o evento?",
+        "dietary": "{{name}} tem alguma restrição alimentar ou alergia a alimentos?",
+        "interests": "Em qual destes {{name}} está interessado?",
+        "experience": "Quanta experiência {{name}} tem em programação? (Tudo bem se a resposta for nenhuma!)",
+        "pronouns": "Quais pronomes {{name}} usa?",
+        "ethnicity": "Qual gênero {{name}} se considera? (Apenas para fins estatísticos.)",
+        "workshops": "De qual dessas oficinas {{name}} gostaria de participar?"
+    },
+    "questionAnswers": {
+        "yesNo": {
+            "yes": "Sim",
+            "no": "Não"
+        },
+        "likert": {
+            "stronglyDisagree": "Discordo fortemente",
+            "disagree": "Discordo",
+            "agree": "Concordo",
+            "stronglyAgree": "Concordo fortemente"
+        },
+        "dietary": {
+            "none": "Nenhum",
+            "vegetarian": "Vegetariano"
+        },
+        "workshops": {
+            "interactiveFiction": "Criar uma história de ficção interativa",
+            "visualNovel": "Criar uma novela visual",
+            "rpg": "Criar um jogo de RPG",
+            "game": "Criar um jogo de videogame",
+            "music": "Criar uma música (com programação)"
+        },
+        "interests": {
+            "art": "Artes/Design",
+            "music": "Música",
+            "acting": "Atuação",
+            "computers": "Computadores",
+            "business": "Business/Marketing",
+            "literature": "Literatura"
+        },
+        "experience": {
+            "none": "Nenhum.",
+            "intro": "Eu fiz um curso introdutório de programação (ou AP CS Principals).",
+            "advanced": "Eu fiz uma aula de programação mais avançada (AP CS A, aulas universitárias, etc).",
+            "projects": "Eu programei meus próprios projetos apenas por diversão."
+        },
+        "pronouns": {
+            "he/him": "ele/dele",
+            "she/her": "ela/dela",
+            "they/them": "eles/deles"
+        },
+        "ethnicity": {
+            "latine": "Latino/a/e/x",
+            "black": "Afroamericano",
+            "white": "Branco",
+            "asian": "Asiático/Indiano/Insular do Pacífico",
+            "nativeAmerican": "Nativo-americano/Primeiros Povos/Povos Indígenas",
+            "complicated": "É complicado" 
+        }
+    },
+    "other": "Outro",
+    "likert": "Você concorda com a declaração a seguir?",
+    "next": "Próxima página",
+    "last": "Esta é a última página. Suas respostas serão salvas automaticamente.",
+    "study": "Esta pergunta opcional é parte de um estudo de pesquisa."
+}
