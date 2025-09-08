@@ -1,0 +1,68 @@
+{
+    "title": "Informations pour {{name}}",
+    "questions": {
+        "uber": "Est-ce que {{name}} a besoin d'un transport Uber gratuit vers/depuis l'événement ?",
+        "laptop": "Est-ce que {{name}} demande un ordinateur portable gratuit pour l'événement ?",
+        "dietary": "Est-ce que {{name}} a des restrictions ou des allergies alimentaires ?",
+        "interests": "Auxquels de ces thèmes s'intéresse {{name}} ?",
+        "experience": "Quelle est l'expérience de {{name}} en matière de codage ? (Pas de problème si la réponse est aucune !)",
+        "pronouns": "Quels sont les pronoms utilisés par {{name}} ?",
+        "ethnicity": "Comment se considère {{name}} ? (Ceci ne sert que pour les statistiques.)",
+        "workshops": "Auxquels de ces ateliers {{name}} souhaiterait participer ?"
+    },
+    "questionAnswers": {
+        "yesNo": {
+            "yes": "Oui",
+            "no": "Non"
+        },
+        "likert": {
+            "stronglyDisagree": "Pas du tout d'accord",
+            "disagree": "Pas d'accord",
+            "agree": "D'accord",
+            "stronglyAgree": "Tout à fait d'accord"
+        },
+        "dietary": {
+            "none": "Aucun",
+            "vegetarian": "Végétarien(ne)"
+        },
+        "workshops": {
+            "interactiveFiction": "Créer une histoire de fiction interactive",
+            "visualNovel": "Créer un roman visuel",
+            "rpg": "Créer un jeu de rôle",
+            "game": "Créer un jeu vidéo",
+            "music": "Créer une chanson (avec du code)"
+        },
+        "interests": {
+            "art": "L'art/le design",
+            "music": "La musique",
+            "acting": "Le théâtre",
+            "computers": "Les ordinateurs",
+            "business": "Le business/le marketing",
+            "literature": "La littérature"
+        },
+        "experience": {
+            "none": "Pas du tout.",
+            "intro": "J'ai suivi un cours d'introduction au codage (ou AP CS Principles).",
+            "advanced": "J'ai suivi un cours de codage plus avancé (AP CS A, cours universitaires, etc.).",
+            "projects": "J'ai codé mes propres projets pour le plaisir."
+        },
+        "pronouns": {
+            "he/him": "il/lui",
+            "she/her": "elle/lui",
+            "they/them": "ils/eux"
+        },
+        "ethnicity": {
+            "latine": "Latino/a/e/x",
+            "black": "Noir(e)",
+            "white": "Blanc(he)",
+            "asian": "Asiatique/Indien(ne)/Polynésien(ne)",
+            "nativeAmerican": "Amérindien(ne)/Premières nations/Peuples autochtones",
+            "complicated": "C'est compliqué" 
+        }
+    },
+    "other": "Autre",
+    "likert": "Êtes-vous d'accord avec l'affirmation suivante ?",
+    "next": "Page suivante",
+    "last": "Ceci est la dernière page. Vos réponses sont automatiquement sauvegardées.",
+    "study": "Cette question facultative fait partie d'un projet de recherche."
+}
