@@ -1,0 +1,37 @@
+{
+  "free": "Kostenlos!",
+  "ticket-price": "Ticketpreis: {{price, currency}}",
+  "register-now": "Jetzt registrieren",
+  "past-projects-header": "Wir helfen Ihnen dabei, etwas zu erstellen wie ...",
+  "register-header": "Für CodeDay registrieren",
+  "register-subheader": "Kein Interesse oder Erfahrung beim Programmieren erforderlich!",
+  "hosted-at": "Veranstaltet @ {{venue}}",
+  "early-bird": "(Frühbucherrabatt!)",
+  "scholarship-button": "Kein Budget?",
+  "registration-third-party": "Die Anmeldung für dieses Event erfolgt über einen Drittanbieter.",
+  "registration-by": "Die Anmeldung für dieses Event erfolgt über {{name}}.",
+  "register-at": "Registrieren Sie sich unter {{name}}",
+  "register-here": "Hier registrieren",
+  "registrations-closed": "CodeDay {{region}} nimmt derzeit keine Anmeldungen entgegen.",
+  "registrations-closed-cta": "Geben Sie Ihre E-Mail-Adresse ein, um benachrichtigt zu werden, sobald die Anmeldungen freigeschaltet werden!",
+  "registration-too-late": "😢 Es ist zu spät, sich für CodeDay {{region}} anzumelden ... aber wir würden uns freuen, Sie beim nächsten Mal wiederzusehen!",
+  "registration-too-late-cta": "Geben Sie Ihre E-Mail-Adresse ein, um über den nächsten CodeDay in {{region}} informiert zu werden.",
+  "no-event-header": "😢 In {{region}} ist derzeit kein CodeDay geplant. (Aber das können Sie ändern!)",
+  "no-event-subheader": "CodeDays werden von lokalen Freiwilligen organisiert. Wenn Sie helfen möchten, CodeDay zurück nach {{region}} zu bringen, klicken Sie unten:",
+  "organize-button": "Mehr über die Organisation erfahren und anmelden",
+  "organize-experience": "Keine Erfahrung erforderlich. Sie können ab 15 Jahren teilnehmen.",
+  "no-event-subscribe": "Noch nicht bereit, sich ehrenamtlich zu engagieren? Geben Sie Ihre E-Mail-Adresse ein, um benachrichtigt zu werden, wenn wir CodeDay {{region}} neu starten:",
+  "photos-header": "Zuvor bei CodeDay {{region}}",
+  "photos-button": "Weitere Fotos und Projekte",
+  "faq": {
+    "title": "FAQs",
+    "button": "Alle FAQs",
+    "body": "<0>Haben Sie noch Fragen? <2>Lesen Sie hier weitere FAQs</2> oder schreiben Sie uns eine E-Mail an <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "Das anfängerfreundlichste Event zum Erstellen fantastischer Spiele und Apps!",
+    "long": "CodeDay ist ein weltweites Event, bei dem sich studentische Künstler, Programmierer, Musiker, Schauspieler und Autoren treffen, um Apps und Spiele zu entwickeln.",
+    "no-experience-required": "KEINE PROGRAMMIERERFAHRUNG ERFORDERLICH!"
+  },
+  "stevens-amendment": "Die CodeDay-Veranstaltungen in Washington werden vom US-Arbeitsministerium unterstützt – WIOA Title IB Adult, DW und Youth Grants für das Studienjahr 2023. Insgesamt 138.826 $ (65 %) des Programms werden aus Bundesmitteln finanziert, 75.000 $ (35 %) aus nicht-bundesstaatlichen Quellen. Weitere Informationen zur Förderung durch das US-Arbeitsministerium finden Sie unter <click>esd.wa.gov/usdol</click>."
+}
