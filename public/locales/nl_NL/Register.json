@@ -1,0 +1,70 @@
+{
+  "guardian": {
+    "heading": "Gegevens van ouder/voogd",
+    "subheading": "Vereist wanneer een deelnemer minderjarig is."
+  },
+  "pending": {
+    "heading": "We zijn je registratie aan het controleren.",
+    "body": "We nemen contact met je op met je definitieve ticket. Vul in de tussentijd de volgende gegevens in:"
+  },
+  "confirmed": {
+    "heading": "Je gaat naar CodeDay! Vul het onderstaande formulier in! 👇👇👇",
+    "body": "Je hoeft geen ticket af te drukken. We checken je in op naam. Vul de volgende gegevens in:"
+  },
+  "sold-out": {
+    "heading": "Sorry, het is uitverkocht!",
+    "body": "We zitten op absolute maximale capaciteit en kunnen geen uitzonderingen maken. Er zijn geen tickets verkrijgbaar aan de deur."
+  },
+  "requires-promo-code": "Deze CodeDay is niet toegankelijk voor het publiek. Als je bent uitgenodigd, voer dan je toegangscode in om je te registreren.",
+  "access-code": "Toegangscode",
+  "promo-code": "Promotiecode",
+  "promo-applied": {
+    "promo-code": "Promo: {{promoCode}}",
+    "access-code": "Toegangscode: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "Heb je een promotiecode?",
+    "access-code": "Toegangscode verplicht"
+  },
+  "payment": {
+    "header": "Betaling",
+    "ticket-summary": "{{count}} x <ticketIcon /> CodeDay-ticket - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDay-ticket (vroege vogel) - {{price, currency}}",
+    "request-scholarship": "Kunt je het je niet veroorloven? Vraag een beurs aan »",
+    "cancel-scholarship": "« Beursaanvraag annuleren"
+  },
+  "terms": {
+    "header": "Voorwaarden",
+    "body": [
+      "<listItem>Prijzen zijn in {{currency}}.</listItem>",
+      "<listItem>Je moet je houden aan de <conductLink>Gedragscode</conductLink> en de <rulesLink>Evenementregels</rulesLink></listItem>",
+      "<listItem>Je moet een vrijstelling en een mediavrijgave ondertekenen.</listItem>",
+      "<listItem>We kunnen foto's of opnames van je maken.</listItem>",
+      "<listItem>Restituties zijn mogelijk tot 48 uur voor aanvang.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Sorry, je kunt je niet aanmelden.",
+    "too_old": "CodeDay is vooral bedoeld voor middelbare scholieren en is niet geschikt voor mensen ouder dan {{maxAge}}.",
+    "too_young": "CodeDay is vooral bedoeld voor middelbare scholieren en is niet geschikt voor personen jonger dan {{minAge}}."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Jongere studenten mogen niet blijven overnachten.",
+    "body": "Leerlingen jonger dan {{age}} moeten tussen 20.00 en 22.00 uur worden opgehaald en kunnen de volgende dag na 7.00 uur terugkomen."
+  },
+  "participant-info": "Gegevens van deelnemer",
+  "collect-org": "Met welke school of club schrijf je je in?",
+  "collect-org-prefill": "School/club",
+  "collect-participant-age": "Leeftijd van {{name}}",
+  "collect-participant-age_generic": "Leeftijd van deelnemer",
+  "add-ticket": "Ticket toevoegen",
+  "remove-ticket": "Ticket verwijderen",
+  "too-many-tickets_one": "Sorry, er is slechts {{count}} ticket beschikbaar voor deze prijs. $t(please-remove, {“count”: {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Sorry, er zijn slechts {{count}} tickets beschikbaar voor deze prijs. $t(please-remove, {“count”: {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Sorry, er is slechts {{count}} ticket beschikbaar. $t(please-remove, {“count”: {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Sorry, er zijn slechts {{count}} tickets beschikbaar. $t(please-remove, {“count”: {{numTicketsToRemove}}})",
+  "please-remove_one": "Verwijder {{count}} ticket om door te gaan.",
+  "please-remove_other": "Verwijder {{count}} tickets om door te gaan.",
+  "remaining-tickets_one": "Er is nog maar {{count}} ticket beschikbaar!",
+  "remaining-tickets_other": "Er zijn nog maar {{count}} tickets beschikbaar!"
+}
