@@ -1,0 +1,14 @@
+{
+  "details": "Sie können ein Stipendium direkt auf der Seite jedes Events beantragen, für das Anmeldungen möglich sind. Klicken Sie einfach über dem Zahlungsfeld auf „Können Sie es sich nicht leisten?“.",
+  "extra-info": "Benötigen Sie einen Laptop oder Hilfe beim Transport? <click>Kontaktieren Sie uns!</click>",
+  "confirm-button": "Beantragen Sie ein {{price, currency}}-Ticketstipendium.",
+  "reason": {
+    "question":  "Warum brauchen Sie ein Stipendium?",
+    "FAMILY_CANT_AFFORD": "Meine Familie kann es sich nicht leisten.",
+    "CANT_AFFORD": "Ich kann es mir persönlich nicht leisten und werde nicht von meiner Familie finanziell unterstützt.",
+    "FAMILY_UNSURE": "Ich kann es mir persönlich nicht leisten und habe meine Familie nicht gefragt.",
+    "DONT_BELIEVE_PAY": "Ich finde es nicht gut, für solche Veranstaltungen zu bezahlen.",
+    "OTHER": "Andere",
+    "other-prompt": "Bitte erläutern Sie unten:"
+  }
+}
