@@ -1,7 +1,7 @@
-fragment OrganizerTestimonial on BlogPost {
+fragment OrganizerTestimonial on CmsBlogPost {
   slug
-  excerpt
-  author {
+  previewText
+  authorAccount {
     picture
     name
     pronoun

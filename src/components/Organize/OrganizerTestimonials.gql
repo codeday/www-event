@@ -1,12 +1,10 @@
 #import "./OrganizerTestimonial.gql"
 
-fragment OrganizerTestimonials on Query {
-  blog {
-    posts(where: {tag:"codeday-organizer-testimonial"}, first: 5) {
-      nodes {
-        id
-        ...OrganizerTestimonial
-      }
+fragment OrganizerTestimonials on CmsQuery {
+  blogPosts(where: { tags_contains_some: ["codeday-organizer-testimonial"] }, limit: 5) {
+    items {
+      sys { id }
+      ...OrganizerTestimonial
     }
   }
 }

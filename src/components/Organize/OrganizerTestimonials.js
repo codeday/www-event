@@ -14,8 +14,8 @@ export default function OrganizerTestimonials({ query, random, ...props }) {
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
       <link href="https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap" rel="stylesheet" />
-      {shuffle(random, query.blog?.posts?.nodes || []).filter(Boolean).slice(0, 3).map((post) => (
-        <OrganizerTestimonial key={post.id} post={post} />
+      {shuffle(random, query.cms?.blogPosts?.items || []).filter(Boolean).slice(0, 3).map((post) => (
+        <OrganizerTestimonial key={post.sys.id} post={post} />
       ))}
     </Grid>
   );
