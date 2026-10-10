@@ -1,0 +1,38 @@
+{
+  "title": "CodeDay {{event}} 学校专区",
+  "back": "返回全部活动详情",
+  "register": "学生报名",
+  "error": {
+    "message": {
+      "no-event": "我们目前没有计划中的活动，请稍后再来查看。"
+    }
+  },
+  "assistance": {
+    "heading": "您的学生是否需要资助才能参加 CodeDay？",
+    "intro": "作为一家全球性的非营利组织，我们相信无论经济条件如何，每个人都能在科技领域找到一席之地。",
+    "ticket": "免费参加活动，包括餐饮。",
+    "ride": "免费 Uber 往返活动现场。（无需 Uber 账户。）",
+    "laptop": "一台免费笔记本电脑，只要学生在 CodeDay 上完成了作品，就可以永久保留。没错，这是真的，我们已经送出了 500 多台笔记本电脑。",
+    "action": "请填写下方表格，我们将为您提供一个优惠码供您分享给学生，并会再次核对最终名单，确保所有列出的学生都已申请资助。",
+    "apply": {
+      "name": "教师姓名",
+      "name-placeholder": "张三",
+      "email": "教师邮箱",
+      "email-placeholder": "you@your-school.org",
+      "school-name": "学校名称",
+      "school-name-placeholder": "某某市第一中学",
+      "no-student": "请使用您的学校邮箱。（只有教师才能填写此表格！如果您是学生，请将此表格转发给老师。）",
+      "student-names": "预计参加的学生姓名",
+      "student-name-placeholder": "全名",
+      "student": "学生",
+      "submit": "提交",
+      "submitted": "您的申请已提交。",
+      "whats-next": "接下来的流程如下：",
+      "validate": "我们的团队将核实您的教师身份。",
+      "promo-code": "我们将生成一个优惠码，供您分享给学生。",
+      "double-check": "我们将再次核对，确保这些学生都已申请所需的资助。",
+      "questions": "如有任何问题，请发送邮件至 <click>schools@codeday.org</click>。",
+      "error": "您的申请未能提交。请重试，或将申请通过邮件发送至 schools@codeday.org。"
+    }
+  }
+}

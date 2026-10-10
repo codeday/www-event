@@ -1,0 +1,68 @@
+{
+  "title": "Informations concernant {{name}}",
+  "questions": {
+    "uber": "Est-ce que {{name}} a besoin d'un trajet Uber gratuit pour venir à l'événement et en repartir ?",
+    "laptop": "Est-ce que {{name}} demande un ordinateur portable gratuit pour l'événement ?",
+    "dietary": "Est-ce que {{name}} a des restrictions alimentaires ou des allergies alimentaires ?",
+    "interests": "Lesquels de ces domaines intéressent {{name}} ?",
+    "experience": "Quelle est l'expérience de {{name}} en programmation ? (Ce n'est pas grave si la réponse est « aucune » !)",
+    "pronouns": "Quels pronoms utilise {{name}} ?",
+    "ethnicity": "À quelle origine {{name}} s'identifie-t-il ou elle ? (C'est uniquement à des fins statistiques.)",
+    "workshops": "Lesquels de ces ateliers intéresseraient {{name}} ?"
+  },
+  "questionAnswers": {
+    "yesNo": {
+      "yes": "Oui",
+      "no": "Non"
+    },
+    "likert": {
+      "stronglyDisagree": "Pas du tout d'accord",
+      "disagree": "Pas d'accord",
+      "agree": "D'accord",
+      "stronglyAgree": "Tout à fait d'accord"
+    },
+    "dietary": {
+      "none": "Aucune",
+      "vegetarian": "Végétarien"
+    },
+    "workshops": {
+      "interactiveFiction": "Créer une fiction interactive",
+      "visualNovel": "Créer un visual novel",
+      "rpg": "Créer un jeu de rôle",
+      "game": "Créer un jeu vidéo",
+      "music": "Créer une chanson (avec du code)"
+    },
+    "interests": {
+      "art": "Art/Design",
+      "music": "Musique",
+      "acting": "Théâtre/Jeu d'acteur",
+      "computers": "Informatique",
+      "business": "Commerce/Marketing",
+      "literature": "Littérature"
+    },
+    "experience": {
+      "none": "Aucune.",
+      "intro": "J'ai suivi un cours d'initiation à la programmation (ou AP CS Principles).",
+      "advanced": "J'ai suivi un cours de programmation plus avancé (AP CS A, cours à l'université, etc.).",
+      "projects": "J'ai codé mes propres projets pour le plaisir."
+    },
+    "pronouns": {
+      "he/him": "il/lui",
+      "she/her": "elle/elle",
+      "they/them": "iel/iel"
+    },
+    "ethnicity": {
+      "latine": "Latino/a/e/x",
+      "black": "Noir(e)",
+      "white": "Blanc(he)",
+      "asian": "Asiatique/Indien(ne)/Originaire des îles du Pacifique",
+      "nativeAmerican": "Amérindien(ne)/Premières Nations/Peuples autochtones",
+      "complicated": "C'est compliqué"
+    }
+  },
+  "other": "Autre",
+  "likert": "Êtes-vous d'accord avec l'affirmation suivante ?",
+  "next": "Page suivante",
+  "last": "Ceci est la dernière page. Vos réponses sont enregistrées automatiquement.",
+  "study": "Cette question facultative fait partie d'une étude de recherche."
+}

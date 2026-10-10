@@ -1,0 +1,14 @@
+{
+  "details": "你可以直接在任何正在接受报名的活动页面上申请奖学金。只需点击付款框上方的“负担不起？”即可。",
+  "extra-info": "需要笔记本电脑或交通方面的帮助？<click>联系我们！</click>",
+  "confirm-button": "申请 {{price, currency}} 的门票奖学金",
+  "reason": {
+    "question": "你为什么需要奖学金？",
+    "FAMILY_CANT_AFFORD": "我的家庭负担不起。",
+    "CANT_AFFORD": "我个人负担不起，而且家里也不在经济上支持我。",
+    "FAMILY_UNSURE": "我个人负担不起，而且还没有问过家里。",
+    "DONT_BELIEVE_PAY": "我不认同为这类活动付费。",
+    "OTHER": "其他",
+    "other-prompt": "请在下方详细说明："
+  }
+}

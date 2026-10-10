@@ -1,0 +1,68 @@
+{
+  "title": "{{name}}さんの詳細",
+  "questions": {
+    "uber": "{{name}}さんは、イベント会場への行き帰りに無料のUber送迎が必要ですか？",
+    "laptop": "{{name}}さんは、イベント用に無料のノートパソコンを希望しますか？",
+    "dietary": "{{name}}さんには、食事制限や食物アレルギーがありますか？",
+    "interests": "{{name}}さんが興味を持っているものはどれですか？",
+    "experience": "{{name}}さんのプログラミング経験はどのくらいですか？（まったくなくても大丈夫です！）",
+    "pronouns": "{{name}}さんが使用する代名詞は何ですか？",
+    "ethnicity": "{{name}}さんは、自分自身をどのように認識していますか？（統計目的のみに使用します。）",
+    "workshops": "{{name}}さんが参加したいワークショップはどれですか？"
+  },
+  "questionAnswers": {
+    "yesNo": {
+      "yes": "はい",
+      "no": "いいえ"
+    },
+    "likert": {
+      "stronglyDisagree": "まったくそう思わない",
+      "disagree": "そう思わない",
+      "agree": "そう思う",
+      "stronglyAgree": "強くそう思う"
+    },
+    "dietary": {
+      "none": "なし",
+      "vegetarian": "ベジタリアン"
+    },
+    "workshops": {
+      "interactiveFiction": "インタラクティブフィクションの物語を作る",
+      "visualNovel": "ビジュアルノベルを作る",
+      "rpg": "ロールプレイングゲームを作る",
+      "game": "ビデオゲームを作る",
+      "music": "曲を作る（コードで）"
+    },
+    "interests": {
+      "art": "アート／デザイン",
+      "music": "音楽",
+      "acting": "演技",
+      "computers": "コンピューター",
+      "business": "ビジネス／マーケティング",
+      "literature": "文学"
+    },
+    "experience": {
+      "none": "まったくありません。",
+      "intro": "プログラミングの入門クラス（またはAP CS Principles）を受講したことがあります。",
+      "advanced": "より上級のプログラミングクラス（AP CS A、大学の授業など）を受講したことがあります。",
+      "projects": "趣味で自分のプロジェクトをプログラミングしたことがあります。"
+    },
+    "pronouns": {
+      "he/him": "he/him（彼）",
+      "she/her": "she/her（彼女）",
+      "they/them": "they/them"
+    },
+    "ethnicity": {
+      "latine": "ラテン系（Latino/a/e/x）",
+      "black": "黒人",
+      "white": "白人",
+      "asian": "アジア系／インド系／太平洋諸島系",
+      "nativeAmerican": "ネイティブアメリカン／ファーストネーションズ／先住民",
+      "complicated": "一言では言えない"
+    }
+  },
+  "other": "その他",
+  "likert": "次の意見に同意しますか？",
+  "next": "次のページ",
+  "last": "これが最後のページです。回答は自動的に保存されます。",
+  "study": "この任意の質問は、研究調査の一環です。"
+}

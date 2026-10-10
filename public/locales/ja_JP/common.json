@@ -1,0 +1,125 @@
+{
+  "divider-and": "— & —",
+  "divider-or": "— または —",
+  "submit": "送信",
+  "email": "メール",
+  "email-long": "メールアドレス",
+  "phone": "電話番号",
+  "phone-long": "携帯電話番号",
+  "phone-invalid": "有効な{{countryName}}の携帯電話番号ではありません",
+  "phone-valid": "国際電話番号（全桁）: {{number}}",
+  "sms": "SMS",
+  "whatsapp": "WhatsApp",
+  "first-name": "名",
+  "last-name": "姓",
+  "name": "名前",
+  "success": {
+    "message": {
+      "default": "確認しました！",
+      "promo-applied_PERCENT": "{{promoName}}を適用しました - {{discountAmount}}%オフ！",
+      "promo-applied_SUBTRACT": "{{promoName}}を適用しました - {{discountAmount, currency}}オフ！"
+    }
+  },
+  "error": {
+    "message": {
+      "default": "予期しないエラーが発生しました。",
+      "no-event": "申し訳ありません。そのCodeDayは見つかりませんでした。",
+      "no-promo": "プロモーションコードが見つかりません。",
+      "promo-fully-used": "このプロモーションコードは使用上限に達しました。"
+    },
+    "contact": "サポートが必要な場合は、<click>CodeDayスタッフにお問い合わせ</click>ください。"
+  },
+  "team": {
+    "heading": "私たちのチーム"
+  },
+  "waiver": "CodeDay参加同意書（免責同意書）",
+  "fill-required": "（必須項目をすべて入力してください）",
+  "payment": {
+    "confirm": {
+      "free": "無料登録を完了する",
+      "pay": "今すぐ支払う（{{price, currency}}）"
+    },
+    "error": {
+      "total-changed": "ページを読み込んだ後に合計金額が変更されたため（通常は割引の期限切れが原因です）、料金は請求されていません。新しい合計金額は{{price, currency}}です。ページを再読み込みしてください。"
+    }
+  },
+  "workshop-apply": {
+    "title": "CodeDay {{region}} ワークショップ応募",
+    "heading": "ワークショップを開催してみませんか？",
+    "body": "ワークショップのテーマは、テクノロジー、アート、音楽など、あなたが興味のあることなら何でも構いません。<strong>学生の皆さんの応募も大歓迎です。（専門家である必要はありません！）</strong>",
+    "form": {
+      "first-name": "$t(first-name)",
+      "last-name": "$t(last-name)",
+      "email": "$t(email)",
+      "confirm-alert": "送信しました！できるだけ早くメールでご連絡します。",
+      "topic": {
+        "question": "どのようなテーマのワークショップにしたいですか？",
+        "placeholder": "簡単な説明"
+      },
+      "role": {
+        "label": "私は…",
+        "attendee": "CodeDayに参加する学生です",
+        "former-attendee": "CodeDayに参加したことのある学生です",
+        "company-representative": "企業の担当者です",
+        "industry-professional": "その他の業界関係者です",
+        "parent": "CodeDayに参加する学生の保護者です",
+        "other": "その他"
+      }
+    }
+  },
+  "awards": {
+    "heading": "初心者でも賞を獲得できます！",
+    "criteria": {
+      "heading": "審査基準：",
+      "difficulty": {
+        "heading": "難しさ（あなたにとって）",
+        "body": "CodeDayは実力を見せびらかす場ではありません。新しいことに挑戦してみましょう！"
+      },
+      "creativity": {
+        "heading": "創造性",
+        "body": "ほかの参加者と協力して、オリジナルのアート、デザイン、音楽、声の演技、ストーリーを取り入れた楽しいプロジェクトを作りましょう。"
+      }
+    }
+  },
+  "explainer": {
+    "heading": "CodeDayの流れ：",
+    "subheading": "（プログラマーでなくても楽しめます。アーティスト、ミュージシャン、作家、俳優の皆さんは特に大歓迎です！）",
+    "steps": [
+      "アイデアを考えます。",
+      "チームを見つけます。",
+      "作り始めましょう！（経験は不要です！）",
+      "必要なときは私たちがサポートします。",
+      "楽しいアクティビティに参加しましょう…賞品もあります！",
+      "作ったものを発表しましょう。"
+    ]
+  },
+  "menu": {
+    "faq": "よくある質問",
+    "schools": "学校向け",
+    "volunteer": "ボランティア",
+    "organize": "主催する",
+    "upcoming": "すべてのイベント"
+  },
+  "photo": {
+    "credit": "写真: {{photographer_name}}"
+  },
+  "schedule": {
+    "heading": "スケジュール",
+    "no-schedule": "スケジュールはまだ発表されていません"
+  },
+  "sponsors": {
+    "heading": "ご支援いただいている団体："
+  },
+  "studentQuotes": {
+    "heading": "<highlight>10,000件以上のプロジェクト</highlight>を生み出してきた<highlight>50,000人以上の学生</highlight>による、フレンドリーでクリエイティブなコミュニティへようこそ！",
+    "anonymous": "匿名",
+    "quote": "{{name}}（{{experienceLevel}}のプログラマー）"
+  },
+  "theme": {
+    "heading": "テーマは…",
+    "body": "「{{theme}}」",
+    "optional": "（ただし、テーマに沿うかどうかは自由です！）",
+    "no-theme": "テーマはまもなく発表されます。",
+    "guess-cta": "テーマの予想をInstagramの@codeday_orgに送ると、賞品が当たるチャンスがあります。"
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "free": "Gratis!",
+  "ticket-price": "Prezzo del biglietto: {{price, currency}}",
+  "register-now": "Registrati ora",
+  "past-projects-header": "Ti aiuteremo a creare qualcosa come...",
+  "register-header": "Registrati a CodeDay",
+  "register-subheader": "Non servono interesse o esperienza nella programmazione!",
+  "hosted-at": "Presso {{venue}}",
+  "early-bird": "(Sconto Early Bird!)",
+  "scholarship-button": "Non puoi permettertelo?",
+  "registration-third-party": "Le registrazioni per questo evento sono gestite da terzi.",
+  "registration-by": "Le registrazioni per questo evento sono gestite da {{name}}.",
+  "register-at": "Registrati su {{name}}",
+  "register-here": "Registrati qui",
+  "registrations-closed": "CodeDay {{region}} al momento non accetta registrazioni",
+  "registrations-closed-cta": "Inserisci la tua email per ricevere un avviso quando si apriranno le registrazioni!",
+  "registration-too-late": "😢 È troppo tardi per registrarsi a CodeDay {{region}}... ma ci piacerebbe vederti al prossimo!",
+  "registration-too-late-cta": "Inserisci la tua email per ricevere un avviso sul prossimo CodeDay {{region}}",
+  "no-event-header": "😢 Non abbiamo in programma un prossimo CodeDay a {{region}}. (Ma puoi cambiare le cose!)",
+  "no-event-subheader": "I CodeDay sono organizzati da volontari locali. Se vuoi aiutarci a riportare CodeDay a {{region}}, clicca qui sotto:",
+  "organize-button": "Scopri di più su come organizzare e iscriviti",
+  "organize-experience": "Nessuna esperienza richiesta. Puoi avere anche solo 15 anni.",
+  "no-event-subscribe": "Non te la senti ancora di fare volontariato? Inserisci la tua email per ricevere un avviso se rilanceremo CodeDay {{region}}:",
+  "photos-header": "Le edizioni passate di CodeDay {{region}}",
+  "photos-button": "Altre foto e progetti delle edizioni passate",
+  "faq": {
+    "title": "FAQ",
+    "button": "Tutte le FAQ",
+    "body": "<0>Hai altre domande? Puoi <2>leggere altre FAQ qui</2> oppure scriverci a <5>team@codeday.org</5>.</0>"
+  },
+  "hero": {
+    "short": "L'evento più adatto ai principianti per creare giochi e app fantastici!",
+    "long": "CodeDay è un evento mondiale in cui studenti artisti, programmatori, musicisti, attori e scrittori si riuniscono per creare app e giochi.",
+    "no-experience-required": "NON SERVE ALCUNA ESPERIENZA DI PROGRAMMAZIONE!"
+  },
+  "stevens-amendment": "Gli eventi CodeDay nello stato di Washington sono sostenuti dalle sovvenzioni WIOA Title IB Adult, DW e Youth per il PY23 del Dipartimento del Lavoro degli Stati Uniti (U.S. Department of Labor). Un totale di 138.826 $, pari al 65% del programma, è finanziato con fondi federali, mentre 75.000 $, pari al 35%, è finanziato da altre fonti non federali. Scopri di più sui finanziamenti USDOL su <click>esd.wa.gov/usdol</click>"
+}

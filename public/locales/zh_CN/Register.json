@@ -1,0 +1,62 @@
+{
+  "guardian": {
+    "heading": "家长/监护人信息",
+    "subheading": "如有任何参与者是未成年人，则必须填写。"
+  },
+  "pending": {
+    "heading": "我们正在审核你的报名。",
+    "body": "我们会联系你并发送最终门票。在此期间，请填写以下信息："
+  },
+  "confirmed": {
+    "heading": "你已成功报名 CodeDay！请填写下方表格！👇👇👇",
+    "body": "无需打印门票，我们会按姓名为你签到。请填写以下信息："
+  },
+  "sold-out": {
+    "heading": "抱歉，门票已售罄！",
+    "body": "活动人数已达到绝对上限，无法破例。现场不出售门票。"
+  },
+  "requires-promo-code": "本次 CodeDay 不对公众开放。如果你受到了邀请，请输入访问码进行报名。",
+  "access-code": "访问码",
+  "promo-code": "优惠码",
+  "promo-applied": {
+    "promo-code": "优惠码：{{promoCode}}",
+    "access-code": "访问码：{{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "有优惠码吗？",
+    "access-code": "需要访问码。"
+  },
+  "payment": {
+    "header": "支付",
+    "ticket-summary": "{{count}} x <ticketIcon /> CodeDay 门票 - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDay 门票（早鸟）- {{price, currency}}",
+    "request-scholarship": "负担不起？申请奖学金 »",
+    "cancel-scholarship": "« 取消奖学金申请"
+  },
+  "terms": {
+    "header": "条款",
+    "body": [
+      "<listItem>价格以 {{currency}} 计。</listItem> <listItem>你必须遵守<conductLink>行为准则</conductLink>和<rulesLink>活动规则</rulesLink>。</listItem> <listItem>你需要签署免责协议和媒体授权书。</listItem> <listItem>我们可能会对你进行拍照或录像。</listItem> <listItem>距活动开幕 48 小时以前均可申请退款。</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> 抱歉，你无法报名。",
+    "too_old": "CodeDay 主要面向高中生，不适合超过 {{maxAge}} 岁的人参加。",
+    "too_young": "CodeDay 主要面向高中生，不适合未满 {{minAge}} 岁的人参加。"
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> 年龄较小的学生不能留宿过夜。",
+    "body": "未满 {{age}} 岁的学生需在晚上 8-10 点之间被接走，并可在第二天早上 7 点后返回。"
+  },
+  "participant-info": "参与者信息",
+  "collect-org": "你是通过哪所学校或哪个社团报名的？",
+  "collect-org-prefill": "学校/社团",
+  "collect-participant-age": "{{name}} 的年龄",
+  "collect-participant-age_generic": "参与者年龄",
+  "add-ticket": "添加门票",
+  "remove-ticket": "移除门票",
+  "too-many-tickets_other": "抱歉，该价格的门票仅剩 {{count}} 张。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "抱歉，门票仅剩 {{count}} 张。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_other": "请移除 {{count}} 张门票以继续。",
+  "remaining-tickets_other": "仅剩 {{count}} 张门票！"
+}

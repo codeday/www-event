@@ -1,0 +1,74 @@
+{
+  "guardian": {
+    "heading": "Informazioni del genitore/tutore",
+    "subheading": "Obbligatorie se uno dei partecipanti è minorenne."
+  },
+  "pending": {
+    "heading": "Stiamo esaminando la tua registrazione.",
+    "body": "Ti contatteremo con il tuo biglietto definitivo. Nel frattempo, completa le seguenti informazioni:"
+  },
+  "confirmed": {
+    "heading": "Parteciperai a CodeDay! Compila il modulo qui sotto! 👇👇👇",
+    "body": "Non serve stampare il biglietto: faremo il check-in con il tuo nome. Completa le seguenti informazioni:"
+  },
+  "sold-out": {
+    "heading": "Spiacenti, i biglietti sono esauriti!",
+    "body": "Abbiamo raggiunto la capienza massima assoluta e non possiamo fare eccezioni. Non saranno disponibili biglietti all'ingresso."
+  },
+  "requires-promo-code": "Questo CodeDay non è aperto al pubblico. Se hai ricevuto un invito, inserisci il tuo codice di accesso per registrarti.",
+  "access-code": "Codice di accesso",
+  "promo-code": "Codice promozionale",
+  "promo-applied": {
+    "promo-code": "Promo: {{promoCode}}",
+    "access-code": "Codice di accesso: {{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "Hai un codice promozionale?",
+    "access-code": "Codice di accesso obbligatorio."
+  },
+  "payment": {
+    "header": "Pagamento",
+    "ticket-summary": "{{count}} x <ticketIcon /> Biglietto CodeDay - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> Biglietto CodeDay (Early Bird) - {{price, currency}}",
+    "request-scholarship": "Non puoi permettertelo? Richiedi una borsa di studio »",
+    "cancel-scholarship": "« Annulla la richiesta di borsa di studio"
+  },
+  "terms": {
+    "header": "Condizioni",
+    "body": [
+      "<listItem>I prezzi sono in {{currency}}.</listItem>",
+      "<listItem>Devi rispettare il <conductLink>Codice di condotta</conductLink> e il <rulesLink>Regolamento dell'evento</rulesLink></listItem>",
+      "<listItem>Dovrai firmare una liberatoria e un'autorizzazione all'uso di immagini e riprese.</listItem>",
+      "<listItem>Potremmo fotografarti o riprenderti.</listItem>",
+      "<listItem>I rimborsi sono disponibili fino a 48 ore prima dell'inizio.</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> Spiacenti, non potrai registrarti.",
+    "too_old": "CodeDay si rivolge principalmente agli studenti delle scuole superiori e non è adatto a chi ha più di {{maxAge}} anni.",
+    "too_young": "CodeDay si rivolge principalmente agli studenti delle scuole superiori e non è adatto a chi ha meno di {{minAge}} anni."
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> Gli studenti più giovani non possono restare durante la notte.",
+    "body": "Gli studenti con meno di {{age}} anni devono essere ripresi tra le 20:00 e le 22:00 e possono tornare dopo le 7:00 del giorno successivo."
+  },
+  "participant-info": "Informazioni sul partecipante",
+  "collect-org": "Con quale scuola o club ti stai registrando?",
+  "collect-org-prefill": "Scuola/Club",
+  "collect-participant-age": "Età di {{name}}",
+  "collect-participant-age_generic": "Età del partecipante",
+  "add-ticket": "Aggiungi biglietto",
+  "remove-ticket": "Rimuovi biglietto",
+  "too-many-tickets_one": "Spiacenti, a questo prezzo è disponibile solo {{count}} biglietto. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_many": "Spiacenti, a questo prezzo sono disponibili solo {{count}} biglietti. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_other": "Spiacenti, a questo prezzo sono disponibili solo {{count}} biglietti. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_one": "Spiacenti, è disponibile solo {{count}} biglietto. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_many": "Spiacenti, sono disponibili solo {{count}} biglietti. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "Spiacenti, sono disponibili solo {{count}} biglietti. $t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_one": "Rimuovi {{count}} biglietto per continuare.",
+  "please-remove_many": "Rimuovi {{count}} biglietti per continuare.",
+  "please-remove_other": "Rimuovi {{count}} biglietti per continuare.",
+  "remaining-tickets_one": "Resta solo {{count}} biglietto!",
+  "remaining-tickets_many": "Restano solo {{count}} biglietti!",
+  "remaining-tickets_other": "Restano solo {{count}} biglietti!"
+}

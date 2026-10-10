@@ -1,0 +1,62 @@
+{
+  "guardian": {
+    "heading": "保護者情報",
+    "subheading": "参加者に未成年者が含まれる場合は必須です。"
+  },
+  "pending": {
+    "heading": "登録内容を確認しています。",
+    "body": "正式なチケットについては追ってご連絡します。それまでの間に、以下の情報をご記入ください："
+  },
+  "confirmed": {
+    "heading": "CodeDayへの参加が決まりました！下のフォームにご記入ください！👇👇👇",
+    "body": "チケットを印刷する必要はありません。受付はお名前で行います。以下の情報をご記入ください："
+  },
+  "sold-out": {
+    "heading": "申し訳ありません。満員となりました！",
+    "body": "定員の上限に達しているため、例外は認められません。当日券の販売はありません。"
+  },
+  "requires-promo-code": "このCodeDayは一般公開されていません。招待を受けた方は、アクセスコードを入力して登録してください。",
+  "access-code": "アクセスコード",
+  "promo-code": "プロモーションコード",
+  "promo-applied": {
+    "promo-code": "プロモーション：{{promoCode}}",
+    "access-code": "アクセスコード：{{promoCode}}"
+  },
+  "promo-ask": {
+    "promo-code": "プロモーションコードをお持ちですか？",
+    "access-code": "アクセスコードが必要です。"
+  },
+  "payment": {
+    "header": "お支払い",
+    "ticket-summary": "{{count}} x <ticketIcon /> CodeDayチケット - {{price, currency}}",
+    "ticket-summary_early-bird": "{{count}} x <ticketIcon /> CodeDayチケット（早期割引） - {{price, currency}}",
+    "request-scholarship": "参加費が払えない場合は、奨学金を申請してください »",
+    "cancel-scholarship": "« 奨学金の申請を取り消す"
+  },
+  "terms": {
+    "header": "規約",
+    "body": [
+      "<listItem>価格は{{currency}}建てです。</listItem> <listItem><conductLink>行動規範</conductLink>と<rulesLink>イベント規則</rulesLink>に従う必要があります</listItem> <listItem>免責同意書とメディア使用許諾書に署名していただく必要があります。</listItem> <listItem>写真や映像を撮影させていただく場合があります。</listItem> <listItem>キックオフの48時間前までは返金が可能です。</listItem>"
+    ]
+  },
+  "invalid-age": {
+    "header": "<errorIcon /> 申し訳ありませんが、登録できません。",
+    "too_old": "CodeDayは主に高校生を対象としており、{{maxAge}}歳を超える方には適していません。",
+    "too_young": "CodeDayは主に高校生を対象としており、{{minAge}}歳未満の方には適していません。"
+  },
+  "overnight-warning": {
+    "header": "<errorIcon /> 年少の学生は宿泊できません。",
+    "body": "{{age}}歳未満の学生は、午後8時〜10時の間にお迎えが必要です。翌日の午前7時以降に再び参加できます。"
+  },
+  "participant-info": "参加者情報",
+  "collect-org": "どの学校またはクラブから登録しますか？",
+  "collect-org-prefill": "学校／クラブ",
+  "collect-participant-age": "{{name}}さんの年齢",
+  "collect-participant-age_generic": "参加者の年齢",
+  "add-ticket": "チケットを追加",
+  "remove-ticket": "チケットを削除",
+  "too-many-tickets_other": "申し訳ありません。この価格で購入できるチケットは残り{{count}}枚のみです。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "too-many-tickets_more-than-available_other": "申し訳ありません。購入できるチケットは残り{{count}}枚のみです。$t(please-remove, {\"count\": {{numTicketsToRemove}}})",
+  "please-remove_other": "続行するには、チケットを{{count}}枚削除してください。",
+  "remaining-tickets_other": "残りわずか{{count}}枚です！"
+}

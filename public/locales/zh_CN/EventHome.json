@@ -1,0 +1,37 @@
+{
+  "free": "免费！",
+  "ticket-price": "票价：{{price, currency}}",
+  "register-now": "立即报名",
+  "past-projects-header": "我们会帮你做出这样的作品……",
+  "register-header": "报名参加 CodeDay",
+  "register-subheader": "无需对编程感兴趣，也无需任何经验！",
+  "hosted-at": "举办地点：{{venue}}",
+  "early-bird": "（早鸟优惠！）",
+  "scholarship-button": "负担不起？",
+  "registration-third-party": "本活动的报名由第三方负责。",
+  "registration-by": "本活动的报名由 {{name}} 负责。",
+  "register-at": "前往 {{name}} 报名",
+  "register-here": "在此报名",
+  "registrations-closed": "CodeDay {{region}} 目前暂不接受报名",
+  "registrations-closed-cta": "输入你的邮箱，报名开放时我们会通知你！",
+  "registration-too-late": "😢 CodeDay {{region}} 的报名已经截止了……不过我们很期待在下一届见到你！",
+  "registration-too-late-cta": "输入你的邮箱，获取下一届 CodeDay {{region}} 的通知",
+  "no-event-header": "😢 我们目前还没有在 {{region}} 举办 CodeDay 的计划。（但你可以改变这一点！）",
+  "no-event-subheader": "CodeDay 活动由当地志愿者组织。如果你想帮助 CodeDay 重返 {{region}}，请点击下方：",
+  "organize-button": "了解如何组织活动并报名",
+  "organize-experience": "无需任何经验，年满 15 岁即可参与。",
+  "no-event-subscribe": "还没准备好做志愿者？输入你的邮箱，如果我们在 {{region}} 重新举办 CodeDay，会通知你：",
+  "photos-header": "CodeDay {{region}} 往届回顾",
+  "photos-button": "更多往届照片和项目",
+  "faq": {
+    "title": "常见问题",
+    "button": "全部常见问题",
+    "body": "<0>还有其他问题？你可以<2>在这里查看更多常见问题</2>，或发邮件至 <5>team@codeday.org</5> 联系我们。</0>"
+  },
+  "hero": {
+    "short": "最适合新手的活动，一起做出超棒的游戏和应用！",
+    "long": "CodeDay 是一项全球性的活动，学生艺术创作者、程序员、音乐人、演员和写作者齐聚一堂，共同打造应用和游戏。",
+    "no-experience-required": "无需任何编程经验！"
+  },
+  "stevens-amendment": "CodeDay 在华盛顿州举办的活动由美国劳工部 WIOA Title IB 成人（Adult）、失业工人（DW）及青年（Youth）项目 PY23 年度拨款资助。本项目共有 138,826 美元（占 65%）由联邦资金资助，75,000 美元（占 35%）由其他非联邦来源资助。有关美国劳工部拨款资助的更多信息，请访问 <click>esd.wa.gov/usdol</click>"
+}

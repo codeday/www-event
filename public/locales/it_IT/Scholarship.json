@@ -1,0 +1,14 @@
+{
+  "details": "Puoi richiedere una borsa di studio direttamente dalla pagina di qualsiasi evento che accetta registrazioni. Basta cliccare su \"Non puoi permettertelo?\" sopra il riquadro di pagamento.",
+  "extra-info": "Hai bisogno di un laptop o di aiuto con il trasporto? <click>Contattaci!</click>",
+  "confirm-button": "Richiedi una borsa di studio per il biglietto da {{price, currency}}",
+  "reason": {
+    "question": "Perché hai bisogno di una borsa di studio?",
+    "FAMILY_CANT_AFFORD": "La mia famiglia non può permetterselo.",
+    "CANT_AFFORD": "Non posso permettermelo personalmente e non ricevo sostegno economico dalla mia famiglia.",
+    "FAMILY_UNSURE": "Non posso permettermelo personalmente e non l'ho chiesto alla mia famiglia.",
+    "DONT_BELIEVE_PAY": "Non mi piace l'idea di pagare per eventi come questo.",
+    "OTHER": "Altro",
+    "other-prompt": "Spiega meglio qui sotto:"
+  }
+}

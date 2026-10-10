@@ -1,0 +1,37 @@
+{
+  "free": "無料！",
+  "ticket-price": "チケット価格：{{price, currency}}",
+  "register-now": "今すぐ登録",
+  "past-projects-header": "こんな作品づくりをサポートします…",
+  "register-header": "CodeDayに登録する",
+  "register-subheader": "プログラミングへの興味や経験は不要です！",
+  "hosted-at": "会場：{{venue}}",
+  "early-bird": "（早期割引！）",
+  "scholarship-button": "参加費が払えない場合",
+  "registration-third-party": "このイベントの登録は外部の団体が担当しています。",
+  "registration-by": "このイベントの登録は{{name}}が担当しています。",
+  "register-at": "{{name}}で登録する",
+  "register-here": "こちらから登録",
+  "registrations-closed": "CodeDay {{region}}は現在、登録を受け付けていません",
+  "registrations-closed-cta": "メールアドレスを入力すると、登録開始時にお知らせします！",
+  "registration-too-late": "😢 CodeDay {{region}}の登録は締め切られました…でも、次回はぜひお会いしましょう！",
+  "registration-too-late-cta": "メールアドレスを入力すると、次回のCodeDay {{region}}についてお知らせします",
+  "no-event-header": "😢 {{region}}では今後のCodeDayの予定はありません。（でも、あなたの力で変えられます！）",
+  "no-event-subheader": "CodeDayは地域のボランティアによって運営されています。{{region}}にCodeDayを復活させるお手伝いをしたい方は、下のボタンをクリックしてください：",
+  "organize-button": "主催について詳しく見る・申し込む",
+  "organize-experience": "経験は不要です。15歳から参加できます。",
+  "no-event-subscribe": "ボランティアはまだ考えていない方も、メールアドレスを入力すると、CodeDay {{region}}が再開されたときにお知らせします：",
+  "photos-header": "これまでのCodeDay {{region}}",
+  "photos-button": "過去の写真とプロジェクトをもっと見る",
+  "faq": {
+    "title": "よくある質問",
+    "button": "すべてのよくある質問",
+    "body": "<0>ほかにも質問がありますか？<2>こちらでよくある質問をさらに読む</2>か、<5>team@codeday.org</5>までメールでお問い合わせください。</0>"
+  },
+  "hero": {
+    "short": "すごいゲームやアプリを作る、初心者にいちばんやさしいイベントです！",
+    "long": "CodeDayは、学生のアーティスト、プログラマー、ミュージシャン、俳優、作家が集まってアプリやゲームを作る、世界規模のイベントです。",
+    "no-experience-required": "プログラミング経験は不要です！"
+  },
+  "stevens-amendment": "CodeDayのワシントン州でのイベントは、米国労働省（U.S. Department of Labor）のWIOA Title IB Adult、DW、Youth助成金（PY23）の支援を受けています。本プログラムのうち合計138,826ドル（65%）は連邦資金で、75,000ドル（35%）は連邦以外の資金源で賄われています。USDOLの助成金について詳しくは<click>esd.wa.gov/usdol</click>をご覧ください"
+}

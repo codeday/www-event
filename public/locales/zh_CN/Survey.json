@@ -1,0 +1,68 @@
+{
+  "title": "{{name}} 的详细信息",
+  "questions": {
+    "uber": "{{name}} 是否需要往返活动现场的免费 Uber 乘车服务？",
+    "laptop": "{{name}} 是否要为本次活动申请一台免费笔记本电脑？",
+    "dietary": "{{name}} 是否有任何饮食限制或食物过敏？",
+    "interests": "{{name}} 对以下哪些感兴趣？",
+    "experience": "{{name}} 有多少编程经验？（完全没有也没关系！）",
+    "pronouns": "{{name}} 使用什么代词？",
+    "ethnicity": "{{name}} 认为自己属于哪个族裔？（仅用于统计。）",
+    "workshops": "{{name}} 想参加以下哪些工作坊？"
+  },
+  "questionAnswers": {
+    "yesNo": {
+      "yes": "是",
+      "no": "否"
+    },
+    "likert": {
+      "stronglyDisagree": "非常不同意",
+      "disagree": "不同意",
+      "agree": "同意",
+      "stronglyAgree": "非常同意"
+    },
+    "dietary": {
+      "none": "无",
+      "vegetarian": "素食"
+    },
+    "workshops": {
+      "interactiveFiction": "创作一个互动小说故事",
+      "visualNovel": "制作一部视觉小说",
+      "rpg": "制作一款角色扮演游戏",
+      "game": "制作一款电子游戏",
+      "music": "（用代码）创作一首歌"
+    },
+    "interests": {
+      "art": "美术/设计",
+      "music": "音乐",
+      "acting": "表演",
+      "computers": "计算机",
+      "business": "商业/市场营销",
+      "literature": "文学"
+    },
+    "experience": {
+      "none": "完全没有。",
+      "intro": "我上过入门编程课（或 AP CS Principles）。",
+      "advanced": "我上过更高阶的编程课（AP CS A、大学课程等）。",
+      "projects": "我曾出于兴趣自己写过编程项目。"
+    },
+    "pronouns": {
+      "he/him": "他",
+      "she/her": "她",
+      "they/them": "TA"
+    },
+    "ethnicity": {
+      "latine": "拉丁裔",
+      "black": "黑人",
+      "white": "白人",
+      "asian": "亚裔/印度裔/太平洋岛民",
+      "nativeAmerican": "美洲原住民/第一民族/原住民",
+      "complicated": "情况比较复杂"
+    }
+  },
+  "other": "其他",
+  "likert": "你是否同意以下说法？",
+  "next": "下一页",
+  "last": "这是最后一页。你的回答会自动保存。",
+  "study": "此可选问题是一项研究的一部分。"
+}

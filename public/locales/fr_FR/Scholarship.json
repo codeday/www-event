@@ -1,0 +1,14 @@
+{
+  "details": "Vous pouvez demander une bourse directement depuis la page de n'importe quel événement dont les inscriptions sont ouvertes. Il suffit de cliquer sur « Trop cher pour vous ? » au-dessus de l'encadré de paiement.",
+  "extra-info": "Besoin d'un ordinateur portable ou d'une aide pour le transport ? <click>Contactez-nous !</click>",
+  "confirm-button": "Demander une bourse de {{price, currency}} pour le billet",
+  "reason": {
+    "question": "Pourquoi avez-vous besoin d'une bourse ?",
+    "FAMILY_CANT_AFFORD": "Ma famille n'en a pas les moyens.",
+    "CANT_AFFORD": "Je n'en ai pas les moyens personnellement, et ma famille ne me soutient pas financièrement.",
+    "FAMILY_UNSURE": "Je n'en ai pas les moyens personnellement, et je n'ai pas demandé à ma famille.",
+    "DONT_BELIEVE_PAY": "Je n'aime pas l'idée de payer pour ce genre d'événement.",
+    "OTHER": "Autre",
+    "other-prompt": "Merci de préciser ci-dessous :"
+  }
+}
